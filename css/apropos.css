@@ -1,0 +1,54 @@
+.propos-header {
+    background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url(../images/Slider.png);
+}
+.header-bg {
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
+}
+
+#content {
+	padding-top: 50px; 
+}
+
+.btn-first {
+	background-color: #80808000;
+	border-color: #4f2f8d;
+	border-radius: 28px;
+	color: #4f2f8d;
+	text-transform: uppercase;
+}
+
+.second-top, #footer {
+	margin-top: 50px;
+}
+
+.container {
+	color: gray;
+}
+
+#btn-center {
+	text-align: center !important;
+}
+
+.btn-first:hover
+{
+	color: #fff !important;
+	background-color: #4f2f8d !important;
+	border-color: #4f2f8d !important;
+}
+
+.bg-white {
+	background-color: white;
+}
+
+.bg-white .col-3 {
+	border: 2px solid #43424212;
+    border-top: 0;
+    border-radius: 7px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    margin-right: 20px;
+    box-shadow: 1px 3px 4px #00000040;
+}
+
+h1.title { 	font-size: 35px; 	color: #a29da9; }

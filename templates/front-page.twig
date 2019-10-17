@@ -1,0 +1,104 @@
+{% extends "base_page.twig" %}
+{% block content %}
+<div class="container-fluid text-center bg-white pb-5 pt-5">
+	<h1 class="title text-uppercase"><span> Notre </span> <b>réseau</b></h1>
+	<div style="padding-left: 318px;">
+		<div class="row">
+			<div class="col-3">
+	            <div class="media block-6 services d-block text-center">
+	            	<div class="icon d-flex justify-content-center align-items-center">
+	            		<span>
+	            			{% set icon_exp = post.get_field('icon_express') %}
+	            			<img src="{{icon_exp.url}}">
+	            		</span>
+	            	</div>
+	              <div class="media-body py-md-4">
+	                <h3 class="text-uppercase">{{ post.get_field('reseau_express') }}</h3>
+	                <p>{{ post.get_field('description_express') }}</p>
+	              </div>
+	            </div>  
+			</div>
+			<div class="col-3">
+	            <div class="media block-6 services d-block text-center">
+	            	<div class="icon d-flex justify-content-center align-items-center">
+	            		<span>
+	            			{% set icon_auto = post.get_field('icon_autoroute') %}
+	            			<img src="{{icon_auto.url}}">
+	            		</span>
+	            	</div>
+	              <div class="media-body py-md-4">
+	                <h3 class="text-uppercase">{{ post.get_field('reseau_autoroute') }}</h3>
+	                <p>{{ post.get_field('description_autoroute') }}</p>
+	              </div>
+	            </div>  
+			</div>
+			<div class="col-3">
+	            <div class="media block-6 services d-block text-center">
+	            	<div class="icon d-flex justify-content-center align-items-center">
+	            		<span>
+	            			{% set icon_achet = post.get_field('icon_acheteurs') %}
+	            			<img src="{{icon_achet.url}}">
+	            		</span>
+	            	</div>
+	              <div class="media-body py-md-4">
+	                <h3 class="text-uppercase">{{ post.get_field('reseau_acheteurs') }}</h3>
+	                <p>{{ post.get_field('description_acheteurs') }}</p>
+	              </div>
+	            </div>   
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container content-wrapper">
+  
+	<div>
+	    <div class="row mt-5">
+	    	<div class="col-md-6">
+	    		<div class="property-wrap ftco-animate">
+	    			{% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
+	    			{# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
+	    			<img src="{{img_sec.url}}" style="width:100%">
+	    		</div>
+	    	</div>
+	    	<div class="col-md-6">
+	    		<div class="property-wrap ftco-animate">
+					      	<div class="row justify-content-center">
+					          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+					           <span class="title text-uppercase">{{post.get_field('decouvrez')['second_section_titre']}}</span>
+					          </div>
+					        </div>
+					        <div class="row d-flex">
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="media block-6 why why-competition d-block text-center">
+					            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
+					              <div class="media-body py-md-4">
+					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_competitive']}}</h3>
+					              </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="media block-6 why why-fiability d-block text-center">
+					            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
+					              <div class="media-body py-md-4">
+					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_faibilite']}}</h3>
+					              </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="media block-6 why why-proprete d-block text-center">
+					            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
+					              <div class="media-body py-md-4">
+					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_propriete']}}</h3>
+					              </div>
+					            </div>      
+					          </div>
+					           <div class="col-md-12 col-md-12-btn text-center">
+					           <a href='#'> <button type="button" class="btn btn-reseau text-uppercase">Notre valeur ajoutée</button>   </a>  
+					         </div>
+					        </div>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+</div><!-- /content-wrapper -->
+{% endblock %}
