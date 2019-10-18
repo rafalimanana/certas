@@ -45,7 +45,13 @@
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">{{post.post_content}}<a href="#" class="a-prs"></a> </p>
+                                    <p style="font-size: 18px;">
+                                    	{% if post.get_field('description_header') %}
+                                    		{{post.get_field('description_header')}}
+                                    	{% else %}
+                                    	    {{post.post_content}}
+                                    	{% endif %}<a href="#" class="a-prs"></a> 
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -192,4 +198,4 @@
 	</div><!-- /content-wrapper -->
 </div>
 
-{% endblock %}
+{% endblock %} 

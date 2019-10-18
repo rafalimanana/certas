@@ -1,0 +1,30 @@
+{% extends "base_page.twig" %}
+{% block content %}
+  <div class="container content-wrapper">
+  	<div>
+		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Contacter</b></h1>
+	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+	  		<div class="col-md-6">
+	  			{{post.content|raw}}
+	  		</div>
+	  		<div class="col-md-6">
+		    	{% set img = post.get_field('image_nous_contacter') %}
+	  			<img src="{{img.url}}">
+	  		</div>
+	  	</div>
+  	</div>
+  	<div class="mt-5">
+		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Trouver</b></h1>
+	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+	  		<div class="col-md-8">
+		    	{% set img = post.get_field('image_google_map') %}
+	  			<img src="{{img.url}}" style="width:100%;">
+	  		</div>
+	  		<div class="col-md-4">
+	  			<span>9 Avenue Edouard Belin,92500 Rueil-Malmaison</span>
+	  		</div>
+	  	</div>
+  	</div>
+  </div><!-- /content-wrapper -->
+
+{% endblock %}
