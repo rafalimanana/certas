@@ -1,0 +1,214 @@
+._mg_tp_50 {
+    margin-top: 50px !important;
+}
+
+._mg_bt_50 {
+    margin-bottom: 50px !important;
+}
+
+._pd_tp_50 {
+    padding-top: 50px !important;
+}
+
+._pd_bt_50 {
+    padding-bottom: 50px !important;
+}
+
+._pd_bt_25 {
+    padding-bottom: 25px !important;
+}
+
+._bg_grey {
+    background: #f3f2f5 !important ;
+}
+
+._bg_white {
+    background: transparent !important ;
+}
+
+._content_pg {
+    background-color: #fff !important ;
+}
+
+._h_cnt_menu {
+    flex-grow: 0 !important;
+    left: 210px !important;
+    position: relative !important;
+    top: 15px;
+}
+
+._bredcrumb_custo {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 25px 0 50px !important;
+}
+
+._bredcrumb_custo .breadcrumb-item {
+    margin: 0 !important;
+}
+
+._bredcrumb_custo .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: "|";
+}
+
+._h_cnt_menu li {
+    padding: 0 10px!important;
+}
+
+._h_cnt_menu a.nav-link {
+    padding: 0 !important;
+}
+
+.navbar-nav > .nav-item.active > a {
+    color: #fff !important;
+    border-bottom: #00aac9 solid 3px;
+    font-weight: bold !important;
+}
+
+.navbar-nav > .nav-item:hover > a {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+._navbar_brand {
+    position: absolute;
+    left: 210px
+}
+
+._navbar_brand ._h_logo{
+    width: 185px;
+}
+
+.ftco-navbar-light {
+    top: 65px !important;
+}
+
+._h_cnt_btn {
+    position: absolute;
+    right: 160px;
+    top: -15px;
+}
+
+._h_cnt_btn ._h_lst_btn {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+._h_cnt_btn ._h_lst_btn ._h_btn {
+    background: none;
+    border: #fff solid 1px;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 18px;
+    margin: 0 5px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+#_header_carousel .carousel-indicators li {
+    width: 15px !important;
+    height: 15px !important;
+    margin-right: 6px !important;
+    margin-left: 6px !important;
+    border-radius: 50%;
+}
+
+#_header_carousel .ftco-animate {
+    top: 25px;
+}
+
+#_header_carousel .slider-text h1 {
+    font-size: 53px;
+    color: #FFF;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+article section._article_content h1._article_title {
+    color: #4f2f8d;
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+article section._article_content h1._article_body {
+    
+}
+
+article section._bloc_content {
+    background:#fff;
+    padding: 20px 0;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3);
+    min-height: 190px;
+} 
+
+article section._bloc_content ._cnt_ico {
+    text-align: center;
+} 
+
+article section._bloc_content ._cnt_ico img._bloc_ico {
+    width: 75px;
+    padding: 30px 0 16px;
+}
+
+article section._bloc_content h3._bloc_title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:#02b5ca;
+}
+
+/* Footer */
+footer {
+    padding: 70px 0 0 0 !important;
+}
+
+footer .ftco-footer-widget * {
+    color: #fff !important;
+}
+
+footer ._navbar_brand {
+    position: relative !important;
+    left: 65px;
+    top: -35px;
+}
+
+footer ._f_social_ntwrk {
+    padding-top: 10px;
+}
+
+footer ._f_icon_lnk {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    border: #fff solid 1px;
+    background: transparent;
+    border-radius: 50%;
+    padding: 7px;
+    margin-right: 8px;
+}
+
+footer ._cnt_link1 {
+    padding-left: 120px;
+}
+
+footer ._cnt_link2 {
+    padding-left: 50px;
+} 
+
+footer ._cnt_link3 {
+    padding-left: 90px;
+}
+
+footer ._cnt_f_list {
+    padding-bottom: 20px !important;
+}   
