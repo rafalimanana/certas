@@ -141,6 +141,9 @@
 		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Trouver</b></h1>
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-8">
+	  			{% filter shortcodes|raw %}
+	  				[osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid blue" tagged_color="blue"]
+				{% endfilter %}
 		    	{% set location = post.get_field('google_map') %}
 	    		{% if location is not empty %}
 	    			<div class="acf-map">
