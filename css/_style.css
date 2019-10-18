@@ -211,4 +211,49 @@ footer ._cnt_link3 {
 
 footer ._cnt_f_list {
     padding-bottom: 20px !important;
-}   
+} 
+
+
+/* Page lavage */
+._lavage_img {
+    background: url(../images/_pages/_lavage.jpg);
+}
+
+._blc_img_auto {
+    margin: auto;
+}
+
+._blc_img_auto ._img_auto {
+    width: inherit !important;
+}
+
+._quest {
+    background: url(../images/_bg/_bg_quest.jpg);
+}
+
+._quest h2._quest_ttl {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #fff;
+}
+
+._quest ._cnt_btn_quest  {
+    text-align: center;
+    padding: 19px 0 11px;
+}
+
+._quest ._cnt_btn_quest ._btn_quest {
+    padding: 10px 40px;
+    text-transform: uppercase;
+    font-size: 15px;
+    background: transparent;
+    border: #fff solid 2px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+._h_cnt_menu li.active a {
+    background: transparent !important;
+    border: none !important;
+}
