@@ -17,8 +17,13 @@
 		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Trouver</b></h1>
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-8">
-		    	{% set img = post.get_field('image_google_map') %}
-	  			<img src="{{img.url}}" style="width:100%;">
+		    	{% set location = post.get_field('google_map') %}
+	    		{{dump(location)}}
+	    		{% if location is not empty %}
+	    			{# <div class="acf-map">
+						<div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}"></div>
+					</div> #}
+	    		{% endif %}
 	  		</div>
 	  		<div class="col-md-4">
 	  			<span>9 Avenue Edouard Belin,92500 Rueil-Malmaison</span>
