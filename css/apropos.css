@@ -125,3 +125,51 @@ h1.title-c { 	color: #4f2f8d; }
 	width: 54px;
 	padding-bottom: 14px;
 }
+.slick-list.draggable {
+	margin: 0 65px !important;
+}
+
+#recent-post-carousel-1.recent-post-carousel button.slick-prev{
+	background: url(../images/_icons/arrow.svg) center center no-repeat !important;
+	background-size: 25px 25px !important;
+	outline: none !important;
+	box-shadow: none;
+	color: #000;
+	transform: rotateY(180deg) !important;
+}
+
+#recent-post-carousel-1.recent-post-carousel button.slick-next{
+	background: url(../images/_icons/arrow.svg) center center no-repeat !important;
+	background-size: 25px 25px !important;
+	outline: none !important;
+	box-shadow: none;
+	color: #000;
+}
+
+form input:focus {
+	border-color: #4f2f8d !important;
+}
+
+form input:not([type="submit"]) {
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-radius: 0 !important;
+	padding-left: 0 !important;
+}
+
+input#nom, input#prenom, input#email, input#phone, #label_message, #message{
+	font-size: 15px;
+}
+
+#label_message {
+	display: contents;
+}
+
+#message {
+	width: 100%;
+}
+
+label>a {
+	text-decoration: underline;;
+}

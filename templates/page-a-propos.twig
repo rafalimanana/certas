@@ -3,7 +3,7 @@
 <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="_navbar_brand" href="index.html">
+            <a class="_navbar_brand" href="{{site.url}}">
                 <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +11,13 @@
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item"><a href="services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
                     <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
                     <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link  text-uppercase">Nous contacter</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
             </div>
             <div class="_h_cnt_btn">
@@ -109,14 +109,30 @@
 </div>
 {% endblock %}
 {% block content %}
+
 <div class="wrapper {{sidebar_class}}">
-    <div class="container content-wrapper">
+
+
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb _bredcrumb_custo">
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item active">{{post.title}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Aide à la navigation -->
+
+    <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
             <div class="col-md-7">
                 <h1>{{ post.get_field('first_title') }}</h1>
                 <p>{{ post.get_field('first_description') }}</p>
                 <div class="text-center">
-                    <a href="#">
+                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
                         <button class="btn btn-secondary btn-first">
                             Découvrez notre reseau
                         </button>
@@ -144,7 +160,7 @@
                 <h1>{{ post.get_field('second_title') }}</h1>
                 <p>{{ post.get_field('second_description') }}</p>
                 <div class="text-center">
-                    <a href="#">
+                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
                         <button class="btn btn-secondary btn-first">
                             Découvrez notre reseau
                         </button>

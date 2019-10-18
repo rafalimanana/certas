@@ -1,15 +1,139 @@
-{% extends "base_page.twig" %}
+{% extends "_base_page.twig" %}
+{% block header %}
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="{{site.url}}">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    <li><button class="_h_btn">Partenaires</button></li>
+                    <li><button class="_h_btn">Emplois</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          {{post.post_content}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          {{post.post_content}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          {{post.post_content}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
+</div>
+{% endblock %}
 {% block content %}
-  <div class="container content-wrapper">
+<div class="wrapper {{sidebar_class}}">
+
+
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb _bredcrumb_custo">
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item active">{{post.post_title}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Aide à la navigation -->
+  <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
   	<div>
 		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Contacter</b></h1>
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-6">
 	  			{{post.content|raw}}
 	  		</div>
-	  		<div class="col-md-6">
+	  		<div class="col-md-6" style="padding-left:66px">
 		    	{% set img = post.get_field('image_nous_contacter') %}
-	  			<img src="{{img.url}}">
+	  			<img src="{{img.url}}" style="width: 100%;">
 	  		</div>
 	  	</div>
   	</div>
@@ -18,18 +142,37 @@
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-8">
 		    	{% set location = post.get_field('google_map') %}
-	    		{{dump(location)}}
 	    		{% if location is not empty %}
-	    			{# <div class="acf-map">
+	    			<div class="acf-map">
 						<div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}"></div>
-					</div> #}
+					</div>
 	    		{% endif %}
 	  		</div>
 	  		<div class="col-md-4">
-	  			<span>9 Avenue Edouard Belin,92500 Rueil-Malmaison</span>
+	  			<p>
+	  				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
+	  				<span>9 Avenue Edouard Belin,</span><br>
+	  				<div>
+	  					<span>92500 Rueil-Malmaison</span>
+	  				</div>
+	  			</p>
+	  			<p>
+	  				<img src="{{ site.theme.link }}/images/_icons/phone.svg" style="width:21px;">
+	  				<span>01 55 94 06 28</span>
+	  			</p>
+	  			<p>
+	  				<img src="{{ site.theme.link }}/images/_icons/mail.svg" style="width:23px;">
+	  				<span>contact@certas.fr</span>
+	  			</p>
+	  			<div style="padding-left: 40px;">
+		  			<a href="#">
+		  				<button class="btn btn-first">Itinéraire</button>
+		  			</a>
+		  		</div>
 	  		</div>
 	  	</div>
   	</div>
   </div><!-- /content-wrapper -->
+</div>
 
 {% endblock %}

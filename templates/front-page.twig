@@ -3,7 +3,7 @@
 <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="_navbar_brand" href="index.html">
+            <a class="_navbar_brand" href="{{site.url}}">
                 <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +11,13 @@
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item"><a href="services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
                     <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
                     <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link  text-uppercase">Nous contacter</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
             </div>
             <div class="_h_cnt_btn">
@@ -47,7 +47,9 @@
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
-                                        {{post.get_field('description_header')}}
+                                        	{{post.get_field('description_header')}}
+                                    	{% else %}
+                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -68,6 +70,8 @@
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
+                                    	{% else %}
+                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -88,6 +92,8 @@
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
+                                    	{% else %}
+                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -106,7 +112,7 @@
 <div class="wrapper {{sidebar_class}}">
     <div class="container-fluid text-center _bg_white pb-5 pt-5">
         <h1 class="title text-uppercase"><span> Notre </span> <b>réseau</b></h1>
-        <div style="padding-left: 318px;">
+        <div style="padding-left: 410px;">
             <div class="row">
                 <div class="col-3">
                     <div class="media block-6 services d-block text-center">
@@ -116,8 +122,20 @@
                             </span>
                         </div>
                         <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">{{ post.get_field('reseau_express') }}</h3>
-                            <p>{{ post.get_field('description_express') }}</p>
+                            <h3 class="text-uppercase">
+                            	{% if post.get_field('reseau_express') %}
+                            		{{ post.get_field('reseau_express') }}
+                            	{% else %}
+                            		Express
+                            	{% endif %}
+                            </h3>
+                            <p>
+                            	{% if post.get_field('description_express') %}
+                            		{{ post.get_field('description_express') }}
+								{% else %}
+									Prix bas toute l'année,<br>24h/24h
+								{% endif %}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -160,10 +178,10 @@
                     <div class="property-wrap ftco-animate">
                         {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
                         {# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
-                        <img src="{{img_sec.url}}" style="width:100%">
+                        <img src="{{img_sec.url}}" style="width:80%">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding-top: 48px;">
                     <div class="property-wrap ftco-animate">
                         <div class="row justify-content-center">
                         </div>

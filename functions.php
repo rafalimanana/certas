@@ -75,6 +75,27 @@ if ( file_exists($composer_autoload) ) {
 		return $output_string;
 	}
 
+
+
+function my_acf_google_map_api( $api ){
+	$api['key'] = 'AIzaSyDiMMAriR_BQJuATnSn_pSuhZnYmkKPVGk';
+	return $api;
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
+function mailtrap($phpmailer) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = '1a541f8281cb7a';
+  $phpmailer->Password = '19351422688045';
+}
+
+add_action('phpmailer_init', 'mailtrap');
+
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
@@ -116,6 +137,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -210,8 +232,17 @@ class StarterSite extends Timber\Site {
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		$twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+	    $function = new Twig_SimpleFunction('enqueue_script', function ($handle) {
+	        wp_enqueue_script( $handle);
+	    });
+	    $twig->addFunction($function);
 		return $twig;
 	}
+
+	function loadScripts() {
+		wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDiMMAriR_BQJuATnSn_pSuhZnYmkKPVGk', array(), '3', true );
+        wp_enqueue_script( 'google-map', get_template_directory_uri() . '/templates/js/google.js', array('google-map', 'jquery'), '0.1', true );
+    }
 
 }
 
