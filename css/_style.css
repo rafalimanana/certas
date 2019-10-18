@@ -255,5 +255,7 @@ footer ._cnt_f_list {
 
 ._h_cnt_menu li.active a {
     background: transparent !important;
-    border: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
 }
