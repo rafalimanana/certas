@@ -38,7 +38,12 @@
 }
 
 .bg-white {
-	background-color: white;
+	/*background-color: white;*/
+	background-image: url(../images/Background-pattern.png);
+}
+
+.bg-gray {
+	background-color: #f3f2f5 !important;
 }
 
 .bg-white .col-3 {
@@ -52,3 +57,71 @@
 }
 
 h1.title { 	font-size: 35px; 	color: #a29da9; }
+h1.title-c { 	color: #4f2f8d; }
+
+.block-certas {
+	height: 224px;
+	display: table;
+}
+
+.block-tcell {
+	display: table-cell !important;
+	vertical-align: middle !important;
+}
+
+.img-section6 {
+	width: 35%;
+}
+
+
+
+.bg-white .list-article {
+	border: 2px solid #43424212;
+    border-top: 0;
+    border-radius: 7px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    margin-right: 20px;
+    box-shadow: none;
+}
+
+.post-image-bg a {
+	display: flex !important;
+	height: 280px !important;
+}
+.post-image-bg a>img {
+	width: 100% !important;
+}
+
+.recentpost-categories, .readmorebtn {
+	display: none !important;
+}
+
+.wp-post-title a {
+	color: #4f2f8d !important;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.wp-sub-content {
+	color: #a29da9;
+}
+.wp-post-date {
+	color: #02b5ca;
+	font-weight: bold;
+	font-size: 18px !important;
+}
+
+.title-sc {
+	font-size: 25px;
+}
+
+.nt-reseau {
+	background-image: url(../images/forme-background-picto.svg);
+	width: 70px;
+}
+
+.nr-reseau {
+	width: 54px;
+	padding-bottom: 14px;
+}
