@@ -1,0 +1,201 @@
+{% extends "_base_page.twig" %}
+{% block header %}
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="index.html">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item active"><a href="services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link  text-uppercase">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    <li><button class="_h_btn">Partenaires</button></li>
+                    <li><button class="_h_btn">Emplois</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                    	{% if post.get_field('description_header') %}
+                                    		{{post.get_field('description_header')}}
+                                    	{% else %}
+                                    	    {{post.post_content}}
+                                    	{% endif %}<a href="#" class="a-prs"></a> 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">{{post.post_content}}<a href="#" class="a-prs"></a> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">{{post.post_content}}<a href="#" class="a-prs"></a> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="wrapper {{sidebar_class}}">
+	<!-- Aide à la navigation -->
+	<div class="content-wrapper _bg_white">
+	    <div class="container">
+	    	<nav aria-label="breadcrumb">
+				<ol class="breadcrumb _bredcrumb_custo">
+			    	<li class="breadcrumb-item"><a href="#">Accueil</a></li>
+			    	<li class="breadcrumb-item"><a href="#">Nos stations</a></li>
+			    	<li class="breadcrumb-item active">Service en stations</li>
+			  	</ol>
+			</nav>
+	    </div>
+	</div>
+	<!-- Aide à la navigation -->
+
+	<div class="content-wrapper _bg_white">
+	    <div class="container">
+	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+	            <section class="_article_content">
+	                <h1 class="_article_title">Faites le plein d'avantages !</h1>
+	                <div class="_article_body">
+	                    <p>Vous avez besoin de faire le plein d'essence sur autoroute ou en ville ? Profitez-en aussi pour faire le plein d'avantages ! Chez Esso Express, nous avons bien compris que les automobilistes ne choisissent pas leur station essence par hasard. Le réseau, composé de près de 300 stations-service ouvertes en continu, 7/7 et 24H/24, et partout sur le territoire français, permet de réaliser un plein d'essence avec du carburant de grande qualité et des prix compétitifs, se situant ainsi chaque année dans le top 5 des meilleures enseignes.<br> D'ailleurs nous proposons également un paiement facile et rapide, puisqu'il se réalise uniquement par carte bancaire ou carte carburant comme la « Esso Card », « DKV » ou « UTA ». Les stations-service Esso Express garantissent la sécurité des automobilistes grâce à la vidéosurveillance présente sur les stations: toutes nos caméras sont reliées à un centre de télésurveillance 7/7 et 24H/24.</p>
+	                    <p>Certaines stations-service de notre réseau proposent également de l’AdBlue pour les véhicules et poids lourds, dotés de la nouvelle technologie SCR pour la réduction des émissions polluantes.</p>
+	                    <p>Esso va encore plus loin dans ses performances, en développant la marque Synergy, un nouveau concept de station-service avec des produits encore plus performants. Toutes les stations-service ESSO Express du réseau de Certas Energy France seront équipées, au courant de l’année, de l’empreinte Synergy.</p>
+	                </div>
+	            </section>
+	        </article>
+	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+	  			<section class="_article_content">
+	                <h1 class="_article_title">Le plein de services pour satisfaire le client</h1>
+	                <div class="_article_body">
+	                    <p>Avec les stations Esso Express, le client a également la possibilité de profiter de nombreux services diversifiés. Certas Energy France ré-ouvre ses boutiques et permet à ses partenaires d’installer leurs activités sur ses stations-service,  par exemple le « café » PauseExpresso à Montaudran, ou encore le caviste Vignobles à Ville d’Avray. De prochaines ouvertures sont prévues au courant de l’année 2017.</p>
+	                    <p>Afin de satisfaire pleinement le client, Certas propose  un service de gonflage de pneu Air-Serv, mais aussi de lavage automatisé WashTec, ou encore de Lockers Amazon pour récupérer vos commandes quand vous voulez.</p>
+	                    <p>Avec Esso Express, Certas Energy France vous propose un réseau de proximité avec une gamme de services variés, sans oublier nos prix bas toute l’année !</p>
+	                </div>
+	            </section>
+	        </article>
+	    </div>
+	</div><!-- /content-wrapper -->
+
+	<div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
+	    <div class="container">
+	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+
+	        	<div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">LAVAGES<br>(Les équipements)</h3>
+		            </section>
+		        </div>
+
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">aspirateurs</h3>
+		            </section>
+		        </div>
+
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">gonfleurs</h3>
+		            </section>
+		        </div>
+
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">Boutiques<br>sur mv</h3>
+		            </section>
+		        </div>
+
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">lockers<br>amazon</h3>
+		            </section>
+		        </div>
+
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_click.png" class="_bloc_ico">
+		            	</div>
+		            	<h3 class="_bloc_title">click & collect<br>butagaz</h3>
+		            </section>
+		        </div>
+
+	        </article>
+	    </div>
+	</div><!-- /content-wrapper -->
+</div>
+
+{% endblock %} 

@@ -1,126 +1,229 @@
-{% extends "base_page.twig" %}
-{% block content %}
-<div class="container-fluid text-center bg-white pb-5 pt-5">
-	<h1 class="title text-uppercase"><span> Notre </span> <b>réseau</b></h1>
-	<div style="padding-left: 318px;">
-		<div class="row">
-			<div class="col-3">
-	            <div class="media block-6 services d-block text-center">
-	            	<div class="icon d-flex justify-content-center align-items-center">
-	            		<span class="nt-reseau">
-	            			<img src="{{ site.theme.link }}/images/fuel-station.svg" class="nr-reseau">
-	            		</span>
-	            	</div>
-	              <div class="media-body py-md-4">
-	                <h3 class="text-uppercase">{{ post.get_field('reseau_express') }}</h3>
-	                <p>{{ post.get_field('description_express') }}</p>
-	              </div>
-	            </div>  
-			</div>
-			<div class="col-3">
-	            <div class="media block-6 services d-block text-center">
-	            	<div class="icon d-flex justify-content-center align-items-center">
-	            		<span class="nt-reseau">
-	            			<img src="{{ site.theme.link }}/images/road.svg" class="nr-reseau">
-	            		</span>
-	            	</div>
-	              <div class="media-body py-md-4">
-	                <h3 class="text-uppercase">{{ post.get_field('reseau_autoroute') }}</h3>
-	                <p>{{ post.get_field('description_autoroute') }}</p>
-	              </div>
-	            </div>  
-			</div>
-			<div class="col-3">
-	            <div class="media block-6 services d-block text-center">
-	            	<div class="icon d-flex justify-content-center align-items-center">
-	            		<span class="nt-reseau">
-	            			<img src="{{ site.theme.link }}/images/Objet-dynamique-vectoriel.svg" class="nr-reseau">
-	            		</span>
-	            	</div>
-	              <div class="media-body py-md-4">
-	                <h3 class="text-uppercase">{{ post.get_field('reseau_acheteurs') }}</h3>
-	                <p>{{ post.get_field('description_acheteurs') }}</p>
-	              </div>
-	            </div>   
-			</div>
-		</div>
-	</div>
-    <div class="col-md-12 text-center mt-4">
-       <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}"> <button type="button" class="btn btn-reseau text-uppercase">Découvrez notre réseau</button>   </a>  
-     </div>
+{% extends "_base_page.twig" %}
+{% block header %}
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="index.html">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link  text-uppercase">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    <li><button class="_h_btn">Partenaires</button></li>
+                    <li><button class="_h_btn">Emplois</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
 </div>
-<div class="container-fluid content-wrapper bg-gray">
-  
-	<div class="pt-5 pr-5 pl-5">
-	    <div class="row">
-	    	<div class="col-md-6">
-	    		<div class="property-wrap ftco-animate">
-	    			{% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
-	    			{# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
-	    			<img src="{{img_sec.url}}" style="width:100%">
-	    		</div>
-	    	</div>
-	    	<div class="col-md-6">
-	    		<div class="property-wrap ftco-animate">
-					      	<div class="row justify-content-center">
-					        </div>
-					        <div class="row {# d-flex #}">
-					          <div class="col-md-12 heading-section ftco-animate mt-5">
-					           <span class="title text-uppercase title-sc">{{post.get_field('decouvrez')['second_section_titre']}}</span>
-					          </div>
-					          <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-					            <div class="media block-6 why why-competition d-block text-center block-tcell pt-5">
-					            	<div class="icon d-flex justify-content-center align-items-center">
-					            		<img src="{{site.theme.link}}/images/trophy.svg" class="img-section6">
-					            	</div>
-					              <div class="media-body py-md-4">
-					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_competitive']}}</h3>
-					              </div>
-					            </div>      
-					          </div>
-					          <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-					            <div class="media block-6 why why-fiability d-block text-center block-tcell pt-5">
-					            	<div class="icon d-flex justify-content-center align-items-center">
-					            		<img src="{{site.theme.link}}/images/trusted.svg" class="img-section6">
-					            	</div>
-					              <div class="media-body py-md-4">
-					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_faibilite']}}</h3>
-					              </div>
-					            </div>      
-					          </div>
-					          <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-					            <div class="media block-6 why why-proprete d-block text-center block-tcell pt-5">
-					            	<div class="icon d-flex justify-content-center align-items-center">
-					            		<img src="{{site.theme.link}}/images/broom.svg" class="img-section6">
-					            	</div>
-					              <div class="media-body py-md-4">
-					                <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_propriete']}}</h3>
-					              </div>
-					            </div>      
-					          </div>
-					           <div class="col-md-12 col-md-12-btn text-center">
-					           <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}"> 
-					           	<button type="button" class="btn btn-reseau text-uppercase">Notre valeur ajoutée</button>
-					           </a>  
-					         </div>
-					        </div>
-	    		</div>
-	    	</div>
-	    </div>
-	</div>
-</div><!-- /content-wrapper -->
-
-<div class="container-fluid bg-white pt-5 pb-5">
-	{# {{dump(term)}} #}
-	<h1 class="text-center title text-uppercase"><span> Nos </span> <b>Actualités</b></h1>
-	<div class="pl-5 pr-5">
-		{# <div class="row"> #}
-			{% filter shortcodes|raw %}
-				[recent_post_carousel slides_to_show="4" show_date="true"]
-				{# [edv_list_publication_home] #}
-			  	{# [bdp_post_slider limit="4" category="2" design="design-2" media_size="large" order="DESC" content_words_limit="10"] #}
-			{% endfilter %}
-		{# </div> #}
-	</div>
+{% endblock %}
+{% block content %}
+<div class="wrapper {{sidebar_class}}">
+    <div class="container-fluid text-center _bg_white pb-5 pt-5">
+        <h1 class="title text-uppercase"><span> Notre </span> <b>réseau</b></h1>
+        <div style="padding-left: 318px;">
+            <div class="row">
+                <div class="col-3">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="nt-reseau">
+                                <img src="{{ site.theme.link }}/images/fuel-station.svg" class="nr-reseau">
+                            </span>
+                        </div>
+                        <div class="media-body py-md-4">
+                            <h3 class="text-uppercase">{{ post.get_field('reseau_express') }}</h3>
+                            <p>{{ post.get_field('description_express') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="nt-reseau">
+                                <img src="{{ site.theme.link }}/images/road.svg" class="nr-reseau">
+                            </span>
+                        </div>
+                        <div class="media-body py-md-4">
+                            <h3 class="text-uppercase">{{ post.get_field('reseau_autoroute') }}</h3>
+                            <p>{{ post.get_field('description_autoroute') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="nt-reseau">
+                                <img src="{{ site.theme.link }}/images/Objet-dynamique-vectoriel.svg" class="nr-reseau">
+                            </span>
+                        </div>
+                        <div class="media-body py-md-4">
+                            <h3 class="text-uppercase">{{ post.get_field('reseau_acheteurs') }}</h3>
+                            <p>{{ post.get_field('description_acheteurs') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center mt-4">
+            <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}"> <button type="button" class="btn btn-reseau text-uppercase">Découvrez notre réseau</button> </a>
+        </div>
+    </div>
+    <div class="container-fluid content-wrapper _bg_grey">
+        <div class="pt-5 pr-5 pl-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="property-wrap ftco-animate">
+                        {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
+                        {# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
+                        <img src="{{img_sec.url}}" style="width:100%">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="property-wrap ftco-animate">
+                        <div class="row justify-content-center">
+                        </div>
+                        <div class="row {# d-flex #}">
+                            <div class="col-md-12 heading-section ftco-animate mt-5">
+                                <span class="title text-uppercase title-sc">{{post.get_field('decouvrez')['second_section_titre']}}</span>
+                            </div>
+                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
+                                <div class="media block-6 why why-competition d-block text-center block-tcell pt-5">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <img src="{{site.theme.link}}/images/trophy.svg" class="img-section6">
+                                    </div>
+                                    <div class="media-body py-md-4">
+                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_competitive']}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
+                                <div class="media block-6 why why-fiability d-block text-center block-tcell pt-5">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <img src="{{site.theme.link}}/images/trusted.svg" class="img-section6">
+                                    </div>
+                                    <div class="media-body py-md-4">
+                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_faibilite']}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
+                                <div class="media block-6 why why-proprete d-block text-center block-tcell pt-5">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <img src="{{site.theme.link}}/images/broom.svg" class="img-section6">
+                                    </div>
+                                    <div class="media-body py-md-4">
+                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_propriete']}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-md-12-btn text-center">
+                                <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}">
+                                    <button type="button" class="btn btn-reseau text-uppercase">Notre valeur ajoutée</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /content-wrapper -->
+    <div class="container-fluid _bg_white pt-5 pb-5">
+        {# {{dump(term)}} #}
+        <h1 class="text-center title text-uppercase"><span> Nos </span> <b>Actualités</b></h1>
+        <div class="pl-5 pr-5">
+            {# <div class="row"> #}
+                {% filter shortcodes|raw %}
+                [recent_post_carousel slides_to_show="4" show_date="true"]
+                {# [edv_list_publication_home] #}
+                {# [bdp_post_slider limit="4" category="2" design="design-2" media_size="large" order="DESC" content_words_limit="10"] #}
+                {% endfilter %}
+                {# </div> #}
+        </div>
+    </div>
 </div>
 {% endblock %}
