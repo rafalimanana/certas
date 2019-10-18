@@ -241,7 +241,7 @@ class StarterSite extends Timber\Site {
 
 	function loadScripts() {
 		wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDiMMAriR_BQJuATnSn_pSuhZnYmkKPVGk', array(), '3', true );
-        wp_enqueue_script( 'google-map', get_template_directory_uri() . '/templates/js/google.js', array('google-map', 'jquery'), '0.1', true );
+        wp_enqueue_script( 'google-map', get_template_directory_uri() . '/js/google.js', array('google-map', 'jquery'), '0.1', true );
     }
 
 }

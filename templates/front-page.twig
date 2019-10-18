@@ -147,8 +147,21 @@
                             </span>
                         </div>
                         <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">{{ post.get_field('reseau_autoroute') }}</h3>
-                            <p>{{ post.get_field('description_autoroute') }}</p>
+                            <h3 class="text-uppercase">
+                            	{% if post.get_field('reseau_autoroute') %}
+                            		{{ post.get_field('reseau_autoroute') }}
+								{% else %}
+									Autoroute
+								{% endif %}
+                            </h3>
+                            <p>
+                            	{% if post.get_field('description_autoroute') %}
+                            		{{ post.get_field('description_autoroute') }}
+								{% else %}
+									
+									Confort total pour les longs <br>voyages
+								{% endif %}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -160,7 +173,13 @@
                             </span>
                         </div>
                         <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">{{ post.get_field('reseau_acheteurs') }}</h3>
+                            <h3 class="text-uppercase">
+                            	{% if post.get_field('reseau_acheteurs') %}
+                            		{{ post.get_field('reseau_acheteurs') }}
+								{% else %}
+									Acheteurs
+								{% endif %}
+                            </h3>
                             <p>{{ post.get_field('description_acheteurs') }}</p>
                         </div>
                     </div>
@@ -178,7 +197,11 @@
                     <div class="property-wrap ftco-animate">
                         {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
                         {# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
-                        <img src="{{img_sec.url}}" style="width:80%">
+                        {% if img_sec %}
+                        	<img src="{{img_sec.url}}" style="width:80%">
+                        {% else %}
+                        	<img src="{{site.theme.link}}/images/Pourquoi-certas.png" style="width:80%">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6" style="padding-top: 48px;">
@@ -187,7 +210,13 @@
                         </div>
                         <div class="row {# d-flex #}">
                             <div class="col-md-12 heading-section ftco-animate mt-5">
-                                <span class="title text-uppercase title-sc">{{post.get_field('decouvrez')['second_section_titre']}}</span>
+                            	{% if post.get_field('decouvrez')['second_section_titre'] %}
+                                <span class="title text-uppercase title-sc">
+                                	{{post.get_field('decouvrez')['second_section_titre']}}
+                                </span>
+								{% else %}
+									<span class="title text-uppercase title-sc" style="color: #4f2f8d;">POURQUOI <strong>CHOISIR CERTAS</strong> ?</span>
+								{% endif %}
                             </div>
                             <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
                                 <div class="media block-6 why why-competition d-block text-center block-tcell pt-5">
@@ -195,7 +224,13 @@
                                         <img src="{{site.theme.link}}/images/trophy.svg" class="img-section6">
                                     </div>
                                     <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_competitive']}}</h3>
+                                        <h3 class="text-uppercase">
+                                        	{% if post.get_field('decouvrez')['second_section_competitive'] %}
+                                        		{{post.get_field('decouvrez')['second_section_competitive']}}
+											{% else %}
+												Compétitivité
+											{% endif %}
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +240,13 @@
                                         <img src="{{site.theme.link}}/images/trusted.svg" class="img-section6">
                                     </div>
                                     <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_faibilite']}}</h3>
+                                        <h3 class="text-uppercase">
+                                        	{% if post.get_field('decouvrez')['second_section_faibilite'] %}
+                                        		{{post.get_field('decouvrez')['second_section_faibilite']}}
+											{% else %}
+												Fiabilité
+											{% endif %}
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +256,13 @@
                                         <img src="{{site.theme.link}}/images/broom.svg" class="img-section6">
                                     </div>
                                     <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">{{post.get_field('decouvrez')['second_section_propriete']}}</h3>
+                                        <h3 class="text-uppercase">
+                                        	{% if post.get_field('decouvrez')['second_section_propriete'] %}
+                                        		{{post.get_field('decouvrez')['second_section_propriete']}}
+											{% else %}
+												Propriété
+											{% endif %}
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
