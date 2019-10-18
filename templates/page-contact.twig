@@ -144,7 +144,7 @@
 	  			{% filter shortcodes|raw %}
 	  				{# [osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid blue" tagged_color="blue"] #}
 	  				{# [osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid"] #}
-	  				[osm_map lat="48.887970" lon="2.168710" zoom="15" width="100%" height="300" marker="47.069,15.41" map_border="thin solid blue" theme="ol" control="mouseposition,scaleline" marker_name="../../../themes/certas/images/_icons/localization.svg" marker_height="37" marker_width="32" marker_focus="5"]
+	  				[osm_map lat="48.887970" long="2.168710" zoom="15" width="100%" height="300" marker="47.069,15.41" map_border="thin solid blue" theme="ol" control="mouseposition,scaleline" marker_name="../../../themes/certas/images/_icons/localization.svg" marker_height="37" marker_width="32" marker_focus="5"]
 				{% endfilter %}
 		    	{% set location = post.get_field('google_map') %}
 	    		{% if location is not empty %}
