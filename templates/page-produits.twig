@@ -44,7 +44,7 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -66,7 +66,7 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -88,7 +88,7 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -116,7 +116,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item">Nos carburants</li>
+                    <li class="breadcrumb-item">{{post.parent.title}}</li>
                     <li class="breadcrumb-item active">Liste des produits vendus</li>
                 </ol>
             </nav>
