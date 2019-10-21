@@ -12,11 +12,11 @@
             <div class="collapse navbar-collapse _h_cnt_menu">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item active"><a href="services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
-                    <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
                     <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
                     <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
             </div>
@@ -139,59 +139,71 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
 
-	        	<div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">LAVAGES<br>(Les équipements)</h3>
-		            </section>
-		        </div>
+	        	<a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+		        	<div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">LAVAGES<br>(Les équipements)</h3>
+			            </section>
+			        </div>
+			    </a>
 
-		        <div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">aspirateurs</h3>
-		            </section>
-		        </div>
+			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			        <div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">aspirateurs</h3>
+			            </section>
+			        </div>
+			    </a>
+			        
+			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			        <div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">gonfleurs</h3>
+			            </section>
+			        </div>
+			    </a>
 
-		        <div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">gonfleurs</h3>
-		            </section>
-		        </div>
+			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			        <div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">Boutiques<br>sur mv</h3>
+			            </section>
+			        </div>
+			    </a>
 
-		        <div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">Boutiques<br>sur mv</h3>
-		            </section>
-		        </div>
+			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			        <div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">lockers<br>amazon</h3>
+			            </section>
+			        </div>
+			    </a>
 
-		        <div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">lockers<br>amazon</h3>
-		            </section>
-		        </div>
-
-		        <div class="col-md-2">
-		            <section class="_bloc_content">
-		            	<div class="_cnt_ico">
-		            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_click.png" class="_bloc_ico">
-		            	</div>
-		            	<h3 class="_bloc_title">click & collect<br>butagaz</h3>
-		            </section>
-		        </div>
+			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			        <div class="col-md-2">
+			            <section class="_bloc_content">
+			            	<div class="_cnt_ico">
+			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_click.png" class="_bloc_ico">
+			            	</div>
+			            	<h3 class="_bloc_title">click & collect<br>butagaz</h3>
+			            </section>
+			        </div>
+				</a>
 
 	        </article>
 	    </div>
