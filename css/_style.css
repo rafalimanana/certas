@@ -139,6 +139,14 @@ article section._article_content h1._article_body {
     
 }
 
+article a._lnk_bloc {
+    display: contents !important;
+}
+
+article a._lnk_bloc:hover section._bloc_content  {
+    box-shadow: 1px 2px 6px .2px rgba(0,170,201,.3);
+}
+
 article section._bloc_content {
     background:#fff;
     padding: 20px 0;
@@ -229,6 +237,12 @@ footer ._cnt_f_list {
 
 ._quest {
     background: url(../images/_bg/_bg_quest.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px -205px
+}
+._quest > ._quest_shadow {
+    background-color: rgba(79, 47, 141, .4);
 }
 
 ._quest h2._quest_ttl {
@@ -253,9 +267,133 @@ footer ._cnt_f_list {
     color: #fff;
 }
 
+._quest ._cnt_btn_quest ._btn_quest:hover {
+    font-weight: bolder;
+    border-color: #00aac9 !important;
+}
+
 ._h_cnt_menu li.active a {
     background: transparent !important;
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;
+}
+
+/* Page nos carburants */
+section._carbu_img {
+    padding-top: 20px ;
+    padding-bottom: 10px ;
+}
+
+section._carbu_img ._carbu_bloc_img {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 10px;
+}
+
+section._carbu_img ._carbu_bloc_img ._carbu_bloc_shadow {
+    width: 100%;
+    padding: 77px 12px;
+    background: linear-gradient(.5turn, rgba(11,181,202,.76) 0%, rgba(21,165,195,.76) 36%, rgba(87,59,146,.76)99%);
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3);
+}
+
+section._carbu_img ._carbu_bloc_img ._carbu_bloc_shadow h2._carbu_img_title {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 23px;
+    margin: 0;
+    font-weight: bolder;
+    line-height: 30px
+}
+
+/* Page actualites */
+._cnt_panel_actus {
+    padding: 20px !important;
+}
+
+._big_bloc_actus {
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+    height: 100% !important;
+    border-radius: 10px !important;
+    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
+}
+
+._big_bloc_actus ._bloc_shadow {
+    padding: 40px 140px 40px 40px !important;
+    background: linear-gradient(.5turn, rgba(11,181,202,.76) 0%, rgba(21,165,195,.76) 36%, rgba(87,59,146,.76)99%);
+    height: inherit !important;
+    border-radius: 10px !important;
+}
+
+._big_bloc_actus ._bloc_shadow h4._bloc_date {
+    font-size: 15px !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    margin-bottom: 14px !important;
+}
+
+._big_bloc_actus ._bloc_shadow h2._bloc_title {
+    font-size: 26.5px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    line-height: 34px !important;
+    margin-bottom: 10px !important;
+}
+
+._big_bloc_actus ._bloc_shadow p._bloc_description {
+    color: #fff !important;
+    font-weight: inherit !important;
+    font-size: 16.4px !important;
+    line-height: 21px !important;
+}
+
+._panel_actus {
+    border-radius: 10px !important;
+    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
+}
+
+._panel_actus:hover {
+    box-shadow: 1px 2px 6px .2px rgba(0,170,201,.3) !important;
+    cursor: pointer;
+}
+
+._panel_actus .panel-body {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+._panel_actus .panel-body img {
+    width: 100% !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+._panel_actus .panel-footer {
+    padding: 10px 15px 10px 15px !important;
+    background: #fff !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+._panel_actus .panel-footer h4._actu_date {
+    font-size: 15px !important;
+    font-weight: bolder !important;
+    color: #02b5ca !important;
+    margin-bottom: 4px !important;
+}
+
+._panel_actus .panel-footer h2._actu_title {
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    font-weight: bolder !important;
+    color: #4f2f8d !important;
+    margin-bottom: 3px !important;
+}
+
+._panel_actus .panel-footer p._actu_description {
+    color: #a29da9 !important;
+    line-height: 21px !important;
+    font-size: 15px !important;
 }

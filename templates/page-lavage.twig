@@ -1,0 +1,151 @@
+{% extends "_base_page.twig" %}
+{% block header %}
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="{{site.url}}">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    <li><button class="_h_btn">Partenaires</button></li>
+                    <li><button class="_h_btn">Emplois</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">Services en stations</h1>
+                                    <p style="font-size: 18px;">
+                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">Services en stations</h1>
+                                    <p style="font-size: 18px;">
+                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">Services en stations</h1>
+                                    <p style="font-size: 18px;">
+                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="wrapper {{sidebar_class}}">
+	<!-- Aide à la navigation -->
+	<div class="content-wrapper _bg_white">
+	    <div class="container">
+	    	<nav aria-label="breadcrumb">
+				<ol class="breadcrumb _bredcrumb_custo">
+			    	<li class="breadcrumb-item"><a href="#">Accueil</a></li>
+			    	<li class="breadcrumb-item"><a href="#">Nos stations</a></li>
+			    	<li class="breadcrumb-item"><a href="#">Services en stations</a></li>
+			    	<li class="breadcrumb-item active">Lavage (les équipements)</li>
+			  	</ol>
+			</nav>
+	    </div>
+	</div>
+	<!-- Aide à la navigation -->
+
+	<div class="content-wrapper _bg_white">
+	    <div class="container">
+	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
+	            <section class="_article_content col-md-6">
+	                <h1 class="_article_title">NOS LAVAGES</h1>
+	                <div class="_article_body">
+	                    <p>Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons la volonté de toujours améliorer votre passage dans nos stations. C’est pourquoi, désormais, nous mettons à votre disposition des portiques de lavage dernière génération. Nos portiques proposent un large choix de programmes avec une meilleure efficacité et rapidité de lavage. </p>
+	                    <p>Nous avons également mis en place une carte d’abonnement afin de pouvoir recharger et vous permettre de bénéficier de réduction sur vos lavages.</p>
+	                    <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim.<br>Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
+	                    <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsu  primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. <br> Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
+	                </div>
+	            </section>
+
+	            <section class="_article_content col-md-6 _blc_img_auto">
+	                <img src="{{ site.theme.link }}/images/_pages/_lavage.jpg" class="_img_auto">
+	            </section>
+
+	        </article>
+	    </div>
+	</div><!-- /content-wrapper -->
+
+	<div class="content-wrapper _quest">
+		<div class="_pd_bt_50 _pd_tp_50 _quest_shadow">
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<h2 class="_quest_ttl">une question?</h2>
+		    		</div>
+		    		<div class="col-md-12 _cnt_btn_quest">
+		    			<a href="#" class="_btn_quest">contactez-nous</a>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+	</div><!-- /content-wrapper -->
+</div>
+
+{% endblock %} 
