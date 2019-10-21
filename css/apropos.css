@@ -200,3 +200,12 @@ label>a {
 .pl_club {
 	padding-left: 40px;
 }
+
+.img_promos {
+	width: 450px;
+}
+
+.t_promos {
+	color: #4f2f8d;
+	text-transform: uppercase;
+}
