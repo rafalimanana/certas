@@ -28,7 +28,6 @@ if (is_page( 'Nos actualités' ) ) {
 	    'post_type' => 'post',
 	    'order_by' => 'date',
 	    'order' => 'DESC',
-	    'posts_per_page' => 6,
 	    'post_status' => 'publish'
 	);
 	$context['posts'] = Timber::get_posts($args);
