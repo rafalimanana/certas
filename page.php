@@ -23,13 +23,16 @@
 
 
 $context = Timber::context();
-$args = array(
-    'post_type' => 'post',
-    'order_by' => 'date',
-    'order' => 'DESC',
-    'post_status' => 'publish'
-);
-$context['posts'] = Timber::get_posts($args);
+if (is_page( 'Nos actualités' ) ) {
+	$args = array(
+	    'post_type' => 'post',
+	    'order_by' => 'date',
+	    'order' => 'DESC',
+	    'posts_per_page' => 6,
+	    'post_status' => 'publish'
+	);
+	$context['posts'] = Timber::get_posts($args);
+}
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
 Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
