@@ -14,8 +14,8 @@
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
-                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item active"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
@@ -141,8 +141,11 @@
 		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Trouver</b></h1>
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-8">
+	  			<div id="map" style="width:100%;height:100%;"></div>
 	  			{% filter shortcodes|raw %}
-	  				[osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid blue" tagged_color="blue"]
+	  				{# [osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid blue" tagged_color="blue"] #}
+	  				{# [osm_map lat="48.887970" long="2.168710" map_center="43.7586,6.9242" zoom="11" width="100%" height="450" tagged_type="contact" marker_name="mic_blue_pinother_02.png" map_border="thin solid"] #}
+	  				{# [osm_map lat="48.887970" long="2.168710" zoom="15" width="100%" height="400" marker="47.069,15.41" map_border="thin solid blue" theme="ol" control="mouseposition,scaleline" marker_name="../../../themes/certas/images/_icons/localization-map.svg" marker_height="37" marker_width="32" marker_focus="5"] #}
 				{% endfilter %}
 		    	{% set location = post.get_field('google_map') %}
 	    		{% if location is not empty %}
@@ -151,13 +154,11 @@
 					</div>
 	    		{% endif %}
 	  		</div>
-	  		<div class="col-md-4">
+	  		<div class="col-md-4" style="padding-top: 116px;padding-left: 60px;">
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
 	  				<span>9 Avenue Edouard Belin,</span><br>
-	  				<div>
-	  					<span>92500 Rueil-Malmaison</span>
-	  				</div>
+	  				<span style="padding-left: 30px;">92500 Rueil-Malmaison</span>
 	  			</p>
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/phone.svg" style="width:21px;">
@@ -177,5 +178,34 @@
   	</div>
   </div><!-- /content-wrapper -->
 </div>
+
+<!-- Fichiers Javascript -->
+
+<script src="{{ site.theme.link }}/leaflet/leaflet.js"></script>
+<script type="text/javascript">
+        // On initialise la latitude et la longitude de Paris (centre de la carte)
+        var lat = 48.887970;
+        var lon = 2.168710;
+        var macarte = null;
+        // Fonction d'initialisation de la carte
+        function initMap() {
+            // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+            macarte = L.map('map', {attributionControl: false}).setView([lat, lon], 11);
+            // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                // attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(macarte);
+
+            // Nous ajoutons un marqueur
+			var marker = L.marker([lat, lon]).addTo(macarte);
+        }
+        window.onload = function(){
+			// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+			initMap(); 
+        };
+</script>
 
 {% endblock %}

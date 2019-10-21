@@ -14,8 +14,8 @@
                     <li class="nav-item active"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
-                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
@@ -139,7 +139,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 text-center _apropos_video">
                 {% set img = post.get_field('first_image') %}
                 <div class="site-header">
                     {{img}}
@@ -149,7 +149,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 second-top">
-            <div class="col-md-5">
+            <div class="col-md-5 text-center _apropos_second">
                 {% set img = post.get_field('second_image') %}
                 <div class="site-header">
                     {{img}}

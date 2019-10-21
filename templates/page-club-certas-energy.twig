@@ -1,0 +1,228 @@
+{% extends "_base_page.twig" %}
+{% block header %}
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="{{site.url}}">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    <li><button class="_h_btn">Partenaires</button></li>
+                    <li><button class="_h_btn">Emplois</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="wrapper {{sidebar_class}}">
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb _bredcrumb_custo">
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item active">{{post.title}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Aide à la navigation -->
+    <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-6">
+                <span class="_comment">Comment <strong>ça marche</strong></span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                </p>
+                <p>
+                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                </p>
+                <p>
+                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                    quis volutpat est vehicula at.
+                </p>
+                <p>
+                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                </p>
+                <p class="text-center">
+                    <a href="#" class="">
+                        <button class="btn btn-secondary btn-first">
+                                En savoir plus
+                        </button>
+                    </a>
+                </p>
+            </div>
+            <div class="col-6 pl_club">
+                <img class="img_club" src="{{ site.theme.link }}/images/Comment-ca-marche.png">
+            </div>
+        </div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 mt-5">
+            <div class="col-6">
+                <img class="img_club" src="{{ site.theme.link }}/images/avantages-services.png">
+            </div>
+            <div class="col-6 pl_club">
+                <span class="_comment">Avantages <strong>& Services</strong></span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                </p>
+                <p>
+                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                </p>
+                <p>
+                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                    quis volutpat est vehicula at.
+                </p>
+                <p>
+                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                </p>
+                <p class="text-center">
+                    <a href="#" class="">
+                        <button class="btn btn-secondary btn-first">
+                                En savoir plus
+                        </button>
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 mt-5">
+            <div class="col-6">
+                <span class="_comment">Le <b>CFC</b></span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                </p>
+                <p>
+                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                </p>
+                <p>
+                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                    quis volutpat est vehicula at.
+                </p>
+                <p>
+                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                </p>
+                <p class="text-center">
+                    <a href="#" class="">
+                        <button class="btn btn-secondary btn-first">
+                                En savoir plus
+                        </button>
+                    </a>
+                </p>
+            </div>
+            <div class="col-6 pl_club">
+                <img class="img_club" src="{{ site.theme.link }}/images/Le-cfc.png">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

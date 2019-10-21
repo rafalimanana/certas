@@ -11,10 +11,10 @@
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
@@ -49,8 +49,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -72,8 +71,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -95,8 +93,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -125,41 +122,102 @@
             </nav>
         </div>
     </div>
-    <!-- Aide à la navigation -->
-	<div class="container content-wrapper _pd_tp_50 _pd_bt_50">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<a href="{{ post.link }}">{{ _e('edit') }}</a>
-				<p class="blog-author">
-					<span>By </span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
 
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
 
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
-</div>
+    <div class="container content-wrapper pb-5">
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-5">
+                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
+            </div>
+            <div class="col-7">
+                <h5 class="t_promos"><b>Promo #1</b></h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                </p>
+                <div>
+                    <a href="#">
+                        <button class="btn btn-secondary btn-first">
+                            Voir la promo
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-5">
+                <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
+            </div>
+            <div class="col-7">
+                <h5 class="t_promos"><b>Promo #2</b></h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                </p>
+                <div>
+                    <a href="#">
+                        <button class="btn btn-secondary btn-first">
+                            Voir la promo
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-5">
+                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
+            </div>
+            <div class="col-7">
+                <h5 class="t_promos"><b>Promo #3</b></h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                </p>
+                <div>
+                    <a href="#">
+                        <button class="btn btn-secondary btn-first">
+                            Voir la promo
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-5">
+                <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
+            </div>
+            <div class="col-7">
+                <h5 class="t_promos"><b>Promo #4</b></h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                </p>
+                <div>
+                    <a href="#">
+                        <button class="btn btn-secondary btn-first">
+                            Voir la promo
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <div class="col-5">
+                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
+            </div>
+            <div class="col-7">
+                <h5 class="t_promos"><b>Promo #5</b></h5>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                </p>
+                <div>
+                    <a href="#">
+                        <button class="btn btn-secondary btn-first">
+                            Voir la promo
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
