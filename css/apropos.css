@@ -213,3 +213,42 @@ label>a {
 .img_produits {
 	width: 100%;
 }
+
+/*.nombre {
+  background-color: #4f2f8d;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}*/
+
+.nombre {
+	/*border-radius: 190px 190px 190px 190px;
+	-moz-border-radius: 190px 190px 190px 190px;
+	-webkit-border-radius: 190px 190px 190px 190px;
+	border: 0px solid #000000;*/
+  	background-color: #4f2f8d;
+  	color: white;
+	display: inline-block;
+    border-radius: 70%;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.nombre p {
+    margin: 0;
+}
+
+span a {
+	color: #4f2f8d;
+}
+
+.t_marche {
+	font-size: 32px;
+}
