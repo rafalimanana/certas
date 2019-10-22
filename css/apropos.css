@@ -126,7 +126,7 @@ h1.title-c { 	color: #4f2f8d; }
 	padding-bottom: 14px;
 }
 .slick-list.draggable {
-	margin: 0 65px !important;
+	/*margin: 0 65px !important;*/
 }
 
 #recent-post-carousel-1.recent-post-carousel button.slick-prev{

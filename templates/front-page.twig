@@ -47,9 +47,9 @@
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
-                                        	{{post.get_field('description_header')}}
-                                    	{% else %}
-                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -70,8 +70,8 @@
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
-                                    	{% else %}
-                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        {% else %}
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -92,8 +92,8 @@
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
-                                    	{% else %}
-                                    		Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        {% else %}
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -110,165 +110,164 @@
 {% endblock %}
 {% block content %}
 <div class="wrapper {{sidebar_class}}">
-    <div class="container-fluid text-center _bg_white pb-5 pt-5">
-        <h1 class="title text-uppercase"><span> Notre </span> <b>réseau</b></h1>
-        <div style="padding-left: 410px;">
-            <div class="row">
-                <div class="col-3">
-                    <div class="media block-6 services d-block text-center">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="nt-reseau">
-                                <img src="{{ site.theme.link }}/images/fuel-station.svg" class="nr-reseau">
-                            </span>
-                        </div>
-                        <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">
-                            	{% if post.get_field('reseau_express') %}
-                            		{{ post.get_field('reseau_express') }}
-                            	{% else %}
-                            		Express
-                            	{% endif %}
-                            </h3>
-                            <p>
-                            	{% if post.get_field('description_express') %}
-                            		{{ post.get_field('description_express') }}
-								{% else %}
-									Prix bas toute l'année,<br>24h/24h
-								{% endif %}
-                            </p>
-                        </div>
+    <div class="container _bg_white _pd_tp_40 _pd_bt_40" id="_reseau">
+        <h1 class="_title_reseau"><span> Notre </span> <b>réseau</b></h1>
+        <div class="row _cnt_bloc">
+            <div class="col-md-4">
+                <div class="_bloc">
+                    <div class="_bloc_ico">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_express.png" class="nr-reseau">
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="media block-6 services d-block text-center">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="nt-reseau">
-                                <img src="{{ site.theme.link }}/images/road.svg" class="nr-reseau">
-                            </span>
-                        </div>
-                        <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">
-                            	{% if post.get_field('reseau_autoroute') %}
-                            		{{ post.get_field('reseau_autoroute') }}
-								{% else %}
-									Autoroute
-								{% endif %}
-                            </h3>
-                            <p>
-                            	{% if post.get_field('description_autoroute') %}
-                            		{{ post.get_field('description_autoroute') }}
-								{% else %}
-									
-									Confort total pour les longs <br>voyages
-								{% endif %}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="media block-6 services d-block text-center">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="nt-reseau">
-                                <img src="{{ site.theme.link }}/images/Objet-dynamique-vectoriel.svg" class="nr-reseau">
-                            </span>
-                        </div>
-                        <div class="media-body py-md-4">
-                            <h3 class="text-uppercase">
-                            	{% if post.get_field('reseau_acheteurs') %}
-                            		{{ post.get_field('reseau_acheteurs') }}
-								{% else %}
-									Acheteurs
-								{% endif %}
-                            </h3>
-                            <p>{{ post.get_field('description_acheteurs') }}</p>
-                        </div>
+                    <div class="_bloc_info">
+                        <h3 class="_bloc_title">
+                            {% if post.get_field('reseau_express') %}
+                            	{{ post.get_field('reseau_express') }}
+                            {% else %}
+                            	Express
+                            {% endif %}
+                        </h3>
+                        <p class="_bloc_desc">
+                            {% if post.get_field('description_express') %}
+                            	{{ post.get_field('description_express') }}
+                            {% else %}
+                            	Prix bas toute l'année,<br>24h/24h
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="_bloc">
+                    <div class="_bloc_ico">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_road.png" class="nr-reseau">
+                    </div>
+                    <div class="_bloc_info">
+                        <h3 class="_bloc_title">
+                            {% if post.get_field('reseau_autoroute') %}
+                            	{{ post.get_field('reseau_autoroute') }}
+                            {% else %}
+                            	Autoroute
+                            {% endif %}
+                        </h3>
+                        <p class="_bloc_desc">
+                            {% if post.get_field('description_autoroute') %}
+                            	{{ post.get_field('description_autoroute') }}
+                            {% else %}
+                            	Confort total pour les longs <br>voyages
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="_bloc">
+                    <div class="_bloc_ico">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_buyer.png" class="nr-reseau">
+                    </div>
+                    <div class="_bloc_info">
+                        <h3 class="_bloc_title">
+                            {% if post.get_field('reseau_acheteurs') %}
+                            	{{ post.get_field('reseau_acheteurs') }}
+                            {% else %}
+                            	Acheteurs
+                            {% endif %}
+                        </h3>
+                        <p class="_bloc_desc">
+                            {% if post.get_field('description_acheteurs') %}
+                            	{{ post.get_field('description_acheteurs') }}
+                            {% else %}
+                            	Service complet,<br>style ESSO
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-12 text-center mt-4">
-            <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}"> <button type="button" class="btn btn-reseau text-uppercase">Découvrez notre réseau</button> </a>
+
+        <div class="col-md-12 _cnt_btn">
+            <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}" class="_btn_lnk">Découvrez notre réseau
+            </a>
         </div>
     </div>
-    <div class="container-fluid content-wrapper _bg_grey">
-        <div class="pt-5 pr-5 pl-5">
-            <div class="row">
+    <div class="content-wrapper _bg_grey _pd_tp_50 _pd_bt_50">
+        <div class="container">
+            <div class="row" id="_prquoi">
                 <div class="col-md-6">
-                    <div class="property-wrap ftco-animate">
+                    <div class="ftco-animate">
                         {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
                         {# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
                         {% if img_sec %}
-                        	<img src="{{img_sec.url}}" style="width:80%">
+                        <img src="{{img_sec.url}}" style="width:100%">
                         {% else %}
-                        	<img src="{{site.theme.link}}/images/Pourquoi-certas.png" style="width:80%">
+                        <img src="{{site.theme.link}}/images/Pourquoi-certas.png" style="width:100%">
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-md-6" style="padding-top: 48px;">
-                    <div class="property-wrap ftco-animate">
-                        <div class="row justify-content-center">
-                        </div>
-                        <div class="row {# d-flex #}">
-                            <div class="col-md-12 heading-section ftco-animate mt-5">
-                            	{% if post.get_field('decouvrez')['second_section_titre'] %}
-                                <span class="title text-uppercase title-sc">
-                                	{{post.get_field('decouvrez')['second_section_titre']}}
-                                </span>
-								{% else %}
-									<span class="title text-uppercase title-sc" style="color: #4f2f8d;">POURQUOI <strong>CHOISIR CERTAS</strong> ?</span>
-								{% endif %}
+                <div class="col-md-6 _cnt_prquoi_bloc">
+                    <div class="ftco-animate">
+                        <div class="row">
+                            <div class="col-md-12 _cnt_title_prquoi">
+                                {% if post.get_field('decouvrez')['second_section_titre'] %}
+	                                <h2 class="_title_prquoi">
+	                                    {{post.get_field('decouvrez')['second_section_titre']}}
+	                                </h2>
+                                {% else %}
+                                	<h2 class="_title_prquoi">POURQUOI <strong>CHOISIR CERTAS</strong> ?</h2>
+                                {% endif %}
                             </div>
-                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-                                <div class="media block-6 why why-competition d-block text-center block-tcell pt-5">
-                                    <div class="icon d-flex justify-content-center align-items-center">
+                            <div class="col-md-4 _prquoi_bloc">
+                                <div class="_bloc" style="background: #02b5ca">
+                                    <div class="_cnt_ico">
                                         <img src="{{site.theme.link}}/images/trophy.svg" class="img-section6">
                                     </div>
-                                    <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">
-                                        	{% if post.get_field('decouvrez')['second_section_competitive'] %}
-                                        		{{post.get_field('decouvrez')['second_section_competitive']}}
-											{% else %}
-												Compétitivité
-											{% endif %}
+                                    <div class="_cnt_bloc_title">
+                                        <h3 class="_bloc_title">
+                                            {% if post.get_field('decouvrez')['second_section_competitive'] %}
+                                            {{post.get_field('decouvrez')['second_section_competitive']}}
+                                            {% else %}
+                                            Compétitivité
+                                            {% endif %}
                                         </h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-                                <div class="media block-6 why why-fiability d-block text-center block-tcell pt-5">
-                                    <div class="icon d-flex justify-content-center align-items-center">
+                            <div class="col-md-4 _prquoi_bloc">
+                                <div class="_bloc" style="background: #4f2f8d">
+                                    <div class="_cnt_ico">
                                         <img src="{{site.theme.link}}/images/trusted.svg" class="img-section6">
                                     </div>
-                                    <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">
-                                        	{% if post.get_field('decouvrez')['second_section_faibilite'] %}
-                                        		{{post.get_field('decouvrez')['second_section_faibilite']}}
-											{% else %}
-												Fiabilité
-											{% endif %}
+                                    <div class="_cnt_bloc_title">
+                                        <h3 class="_bloc_title">
+                                            {% if post.get_field('decouvrez')['second_section_faibilite'] %}
+                                            {{post.get_field('decouvrez')['second_section_faibilite']}}
+                                            {% else %}
+                                            Fiabilité
+                                            {% endif %}
                                         </h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 {# d-flex #} align-self-stretch ftco-animate block-certas">
-                                <div class="media block-6 why why-proprete d-block text-center block-tcell pt-5">
-                                    <div class="icon d-flex justify-content-center align-items-center">
+                            <div class="col-md-4 _prquoi_bloc">
+                                <div class="_bloc" style="background: #a29da9">
+                                    <div class="_cnt_ico">
                                         <img src="{{site.theme.link}}/images/broom.svg" class="img-section6">
                                     </div>
-                                    <div class="media-body py-md-4">
-                                        <h3 class="text-uppercase">
-                                        	{% if post.get_field('decouvrez')['second_section_propriete'] %}
-                                        		{{post.get_field('decouvrez')['second_section_propriete']}}
-											{% else %}
-												Propriété
-											{% endif %}
+                                    <div class="_cnt_bloc_title">
+                                        <h3 class="_bloc_title">
+                                            {% if post.get_field('decouvrez')['second_section_propriete'] %}
+                                            {{post.get_field('decouvrez')['second_section_propriete']}}
+                                            {% else %}
+                                            Propriété
+                                            {% endif %}
                                         </h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-md-12-btn text-center">
-                                <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}">
-                                    <button type="button" class="btn btn-reseau text-uppercase">Notre valeur ajoutée</button>
+                            <div class="col-md-12 _cnt_btn">
+                                <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}" class="_btn_lnk">Notre valeur ajoutée
                                 </a>
                             </div>
                         </div>
@@ -277,17 +276,81 @@
             </div>
         </div>
     </div><!-- /content-wrapper -->
-    <div class="container-fluid _bg_white pt-5 pb-5">
-        {# {{dump(term)}} #}
-        <h1 class="text-center title text-uppercase"><span> Nos </span> <b>Actualités</b></h1>
-        <div class="pl-5 pr-5">
-            {# <div class="row"> #}
-                {% filter shortcodes|raw %}
-                [recent_post_carousel slides_to_show="4" show_date="true"]
-                {# [edv_list_publication_home] #}
-                {# [bdp_post_slider limit="4" category="2" design="design-2" media_size="large" order="DESC" content_words_limit="10"] #}
-                {% endfilter %}
-                {# </div> #}
+    <div class="container _bg_white pt-5 pb-5" id="_nos_actus">
+        <h1 class="_title_actus"><span> Nos </span> <b>Actualités</b></h1>
+        <div class="slick_responsive row" id="slick_article">
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 _cnt_panel_actus">
+                <div class="panel _panel_actus">
+                    <div class="panel-body">
+                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 class="_actu_date">20 avril 2018</h4>
+                        <h2 class="_actu_title">nos lavages</h2>
+                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

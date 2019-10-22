@@ -14,6 +14,14 @@
     padding-bottom: 50px !important;
 }
 
+._pd_tp_40 {
+    padding-top: 40px !important;
+}
+
+._pd_bt_40 {
+    padding-bottom: 40px !important;
+}
+
 ._pd_bt_25 {
     padding-bottom: 25px !important;
 }
@@ -83,7 +91,7 @@
 }
 
 .ftco-navbar-light {
-    top: 65px !important;
+    top: 42px !important;
 }
 
 ._h_cnt_btn {
@@ -396,4 +404,188 @@ section._carbu_img ._carbu_bloc_img ._carbu_bloc_shadow h2._carbu_img_title {
     color: #a29da9 !important;
     line-height: 21px !important;
     font-size: 15px !important;
+}
+
+
+/*------------------------
+-------- Page home ------
+-------------------------- */
+
+/* seection réseau */
+#_reseau h1._title_reseau {
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-size: 31px !important;
+    color: #a29da9 !important;
+    margin-bottom: 15px !important;
+}
+
+
+#_reseau ._cnt_bloc {
+    padding: 0 15% !important;
+}
+
+#_reseau ._cnt_bloc ._bloc {
+    background: #fff ;
+    text-align: center;
+    padding: 58px 5px 68px 5px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3);
+}
+
+#_reseau ._cnt_bloc ._bloc ._bloc_ico img {
+    padding: 0 !important;
+    width: 90px !important;
+}
+
+#_reseau ._cnt_bloc ._bloc ._bloc_info h3._bloc_title {
+    text-transform: uppercase;
+    font-size: 21px;
+    font-weight: bolder;
+    color:#02b5ca;
+    margin: 0;
+    padding-top: 15px;
+}
+
+#_reseau ._cnt_bloc ._bloc ._bloc_info p._bloc_desc {
+    margin: 0;
+    color: #a29da9;
+    line-height: 24px;
+    font-size: 17px;
+}
+
+#_reseau ._cnt_btn {
+    padding-top: 40px !important;
+    padding-bottom: 12px !important;
+    text-align: center !important;
+    padding-right: 0 !important;
+}
+
+#_reseau ._cnt_btn ._btn_lnk {
+    padding: 5px 21px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: transparent;
+    border: #4f2f8d solid 1.5px;
+    border-radius: 20px;
+    color: #4f2f8d;
+    display: inline-block;
+    font-weight: bolder;
+}
+
+/* Section pourqoi */
+#_prquoi {
+    right: 15px;
+    position: relative;
+}
+
+#_prquoi ._cnt_prquoi_bloc {
+    margin: auto !important;
+    padding-left: 60px !important;
+    padding-top: 25px !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc {
+    padding-right: 0 !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc {
+    text-align: center !important;
+    padding: 60px 2px 43px 2px !important;
+    border-radius: 10px !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc ._cnt_bloc_title {
+    padding-top: 16px !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc ._cnt_bloc_title ._bloc_title {
+    color: #fff !important;
+    text-transform: uppercase !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._cnt_btn {
+    padding-top: 30px !important;
+    padding-bottom: 12px !important;
+    text-align: center !important;
+    padding-right: 0 !important;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._cnt_btn ._btn_lnk {
+    padding: 5px 21px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: transparent;
+    border: #4f2f8d solid 1.5px;
+    border-radius: 20px;
+    color: #4f2f8d;
+    display: inline-block;
+    font-weight: bolder;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._cnt_title_prquoi {
+    padding-bottom: 14px;
+}
+
+#_prquoi ._cnt_prquoi_bloc ._cnt_title_prquoi h2._title_prquoi {
+    font-size: 31.5px;
+    color: #4f2f8d;
+    margin: 0;
+}
+
+/*--- section no actualites --*/
+#_nos_actus h1._title_actus {
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-size: 31px !important;
+    color: #a29da9 !important;
+    margin-bottom: 15px !important;
+}
+
+#slick_article ._cnt_panel_actus {
+    padding: 10px !important ;
+}
+
+#slick_article {
+    margin: 0 40px !important;
+}
+
+#slick_article .slick-prev::before,  
+#slick_article .slick-next::before {
+    content: '' !important ;
+}
+
+#slick_article .slick-prev,  
+#slick_article .slick-next {
+    width: 45px !important;
+    height: 45px !important;
+}
+
+#slick_article .slick-prev {
+    left: -65px !important;
+}
+
+#slick_article .slick-next {
+    right: -65px !important;
+}
+
+#slick_article .slick-prev {
+    background-image: url('../images/_icons/back.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    opacity: .3 !important;
+}
+
+#slick_article .slick-next {
+    background-image: url('../images/_icons/next.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    opacity: .3 !important;
+}
+
+#slick_article .panel-footer {
+    min-height: 153px !important;
 }
