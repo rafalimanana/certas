@@ -277,6 +277,9 @@
         </div>
     </div><!-- /content-wrapper -->
     <div class="container _bg_white pt-5 pb-5" id="_nos_actus">
+        {# {% filter shortcodes|raw %}
+    		[recent_post_carousel slides_to_show="3" slides_to_scroll="1"]
+        {% endfilter %} #}
         <h1 class="_title_actus"><span> Nos </span> <b>Actualités</b></h1>
         <div class="slick_responsive row" id="slick_article">
         	{% if posts is not empty %}
