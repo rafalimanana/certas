@@ -176,14 +176,16 @@ label>a {
 
 ._apropos_video 
 {
-	margin-top: 180px !important;
-    margin-bottom: 180px !important;
+	/*margin-top: 180px !important;
+    margin-bottom: 180px !important;*/
+    margin: auto;
 }
 
 ._apropos_second 
 {
-	margin-top: 96px !important;
-    margin-bottom: 96px !important;
+	/*margin-top: 96px !important;
+    margin-bottom: 96px !important;*/
+    margin: auto;
 }
 
 ._comment {
@@ -198,7 +200,8 @@ label>a {
 }
 
 .pl_club {
-	padding-left: 40px;
+	/*padding-left: 40px;*/
+	margin: auto;
 }
 
 .img_promos {
