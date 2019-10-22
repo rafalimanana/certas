@@ -13,10 +13,10 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
-                    <li class="nav-item active"><a href="agent.html" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link text-uppercase">Actualités</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
             </div>
@@ -44,7 +44,13 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Nos carburants
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -66,7 +72,13 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Nos carburants
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -88,7 +100,13 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Nos carburants
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
@@ -116,7 +134,13 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item">Nos carburants</li>
+                    <li class="breadcrumb-item">
+                        {% if post.parent.title %}
+                            {{post.parent.title}}
+                        {% else %}
+                            Nos carburants
+                        {% endif %}
+                    </li>
                     <li class="breadcrumb-item active">Liste des produits vendus</li>
                 </ol>
             </nav>

@@ -14,8 +14,8 @@
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
-                    <li class="nav-item"><a href="services.html" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="properties.html" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item active"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
@@ -136,78 +136,95 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                        {% if posts is not empty %}
+                            {% for term in posts %}
+                                <div class="col-md-3 _cnt_panel_actus">
+                                    <div class="panel _panel_actus">
+                                        <div class="panel-body">
+                                            <img src="{{term.thumbnail.src}}" class="_actu_img">
+                                        </div>
+                                        <div class="panel-footer">
+                                            <h4 class="_actu_date">{{term.date}}</h4>
+                                            <h2 class="_actu_title">{{term.title}}</h2>
+                                            <p class="_actu_description">{{term.post_content|excerpt(13)}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
-                                </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
-                                </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                            {% endfor %}
+                        {% else %}
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
-                                </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
-                                </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 _cnt_panel_actus">
-                            <div class="panel _panel_actus">
-                                <div class="panel-body">
-                                    <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
-                                </div>
-                                <div class="panel-footer">
-                                    <h4 class="_actu_date">20 avril 2018</h4>
-                                    <h2 class="_actu_title">nos lavages</h2>
-                                    <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 _cnt_panel_actus">
+                                <div class="panel _panel_actus">
+                                    <div class="panel-body">
+                                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h4 class="_actu_date">20 avril 2018</h4>
+                                        <h2 class="_actu_title">nos lavages</h2>
+                                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
 	            </section>
 

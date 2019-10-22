@@ -11,11 +11,11 @@
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
+                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
                     <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item active"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
                     <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                 </ul>
@@ -44,13 +44,18 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Club Certas Energy
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -67,13 +72,18 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Club Certas Energy
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -90,13 +100,18 @@
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <h1 class="mb-4">
+                                        {% if post.parent.title %}
+                                            {{post.parent.title}}
+                                        {% else %}
+                                            Club Certas Energy
+                                        {% endif %}
+                                    </h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        	tempor incididunt ut labore et dolore magna aliqua.
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo.
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -112,9 +127,73 @@
 </div>
 {% endblock %}
 {% block content %}
-	<form class="password-form" action="{{site.site_url}}/wp-login.php?action=postpass" method="post">
-		<label for="pwbox-{{post.ID}}">Password:</label>
-		<input class="password-box" name="post_password" id="pwbox-{{post.ID}}" type="password" placeholder="Password" size="20" maxlength="20" />
-		<input class="password-btn" type="submit" name="Submit" value="Submit" />
-	</form>
+<div class="wrapper {{sidebar_class}}">
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb _bredcrumb_custo">
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item">
+                        {% if post.parent.title %}
+                            {{post.parent.title}}
+                        {% else %}
+                            Club Certas Energy
+                        {% endif %}
+                    </li>
+                    <li class="breadcrumb-item active">
+                        {% if post.title %}
+                            {{post.title}}
+                        {% else %}
+                            Comment ça marche
+                        {% endif %} ?
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Aide à la navigation -->
+
+
+    <div class="container content-wrapper pb-5">
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <h5 class="t_promos t_marche">Comment <b>ça marche ?</b></h5>
+        </div>
+        <div class="mt-2">
+            <span class="nombre"><b>1</b></span><span class="pl-4">Rendez-vous sur <a href="https://www.club-certas.com/Account/Register">ww.club-certas.com/Account/Register</a></span>
+        </div>
+        <div class="mt-2">
+            <span class="nombre"><b>2</b></span><span class="pl-4">Complétez le formulaire si vous n'êtes pas encore inscrit</span>
+        </div>
+        <div class="mt-2">
+            <span class="nombre"><b>3</b></span><span class="pl-4">Vous recevrez en email vous demandant de valider votre @ et de confirmer l'activation de votre compte</span>
+        </div>
+        <div class="mt-2">
+            <span class="nombre"><b>4</b></span><span class="pl-4">Faites un plein d'au moins 20 Litres dans l'une des stations participantes</span>
+        </div>
+        <div class="mt-2">
+            <span class="nombre"><b>5</b></span><span class="pl-4">Le jour suivant votre plein, vous recevrez un email avec un code unique(valable pour 1 participation) vous permettant de jouer aux instants gagnants.</span>
+        </div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 mt-4">
+            <p>Vous pourrez jouer aux instants gagnants et tenter votre chance à chaque plein d'au moins 20 Litres jusq'au 23 juin 2019.</p>
+        </div>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
+            <p>Bonne chance !</p>
+        </div>
+    </div>
+    <div class="content-wrapper _quest">
+        <div class="_pd_bt_50 _pd_tp_50 _quest_shadow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="_quest_ttl">une question?</h2>
+                    </div>
+                    <div class="col-md-12 _cnt_btn_quest">
+                        <a href="#" class="_btn_quest">contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /content-wrapper -->
+</div>
 {% endblock %}

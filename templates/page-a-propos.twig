@@ -49,7 +49,8 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                          {{post.post_content}}
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
+                                          {# {{post.post_content}} #}
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -71,7 +72,8 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                          {{post.post_content}}
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
+                                          {# {{post.post_content}} #}
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -93,7 +95,8 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                          {{post.post_content}}
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
+                                          {# {{post.post_content}} #}
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -129,8 +132,26 @@
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
             <div class="col-md-7">
-                <h1>{{ post.get_field('first_title') }}</h1>
-                <p>{{ post.get_field('first_description') }}</p>
+                {% if post.get_field('first_title') %}
+                    <h1>{{ post.get_field('first_title') }}</h1>
+                {% else %}
+                    <h5 class="t_promos t_marche">Certas energy <b>france</b></h5>
+                {% endif %}
+                <p>
+                    {% if post.get_field('first_description') %}
+                        {{ post.get_field('first_description') }}
+                    {% else %}
+                        Certas Energy France est une filiale du groupe DCC qui vient de fêter ses 40 ans (www.dcc.ie). L'activité de Certas Energy France a démarré au ois de juin 2015 avec l'acquisition d'une partie du réseau de stations-service à la manque Esso en France.
+
+                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire <span class="st">français </span>: plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50stations Esso sur autoroutes et un ensemble de clients revendeurs à la marque Esso.
+
+                        La sécurité, une valeur de l'entreprise. Les standards les plus élevés sont appliqués systématiquement par l'équipe Certas Energy France et l'ensemble des intervenants sur nos sites. Seul l'engagement permanent de chacun des collaborateurs  de l'entreprise ou des partenaires permet d'atteindre les objectifs sur la sécurité et le respect de l'environnement.
+
+                        L'Excellence Opérationnelle, un must. Le dynamisme et l'énergie déployés par nos collaborateurs permet d'améliorer chaque jour la qualité de nos opérations et l'accueil de nos clients dans notre réseau.
+
+                        Le Développement, une mission. L'objectif du groupe DCC est de continuer à se développer. C'est donc celui de Certas Energy France.
+                    {% endif %}
+                </p>
                 <div class="text-center">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
                         <button class="btn btn-secondary btn-first">
@@ -142,7 +163,11 @@
             <div class="col-md-5 text-center _apropos_video">
                 {% set img = post.get_field('first_image') %}
                 <div class="site-header">
-                    {{img}}
+                    {% if img %}
+                        {{img}}
+                    {% else %}
+                        <iframe width="560" height="315" src="http://www.youtube.com/embed/hYmIpRvg_DA" frameborder="0" allowfullscreen></iframe>
+                    {% endif %}
                     {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
                 </div>
             </div>
@@ -152,13 +177,33 @@
             <div class="col-md-5 text-center _apropos_second">
                 {% set img = post.get_field('second_image') %}
                 <div class="site-header">
-                    {{img}}
+                    {% if img %}
+                        {{img}}
+                    {% else %}
+                        <iframe width="560" height="315" src="http://www.youtube.com/embed/26vb7CNchoM" frameborder="0" allowfullscreen></iframe>
+                    {% endif %}
                     {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
                 </div>
             </div>
             <div class="col-md-7">
-                <h1>{{ post.get_field('second_title') }}</h1>
-                <p>{{ post.get_field('second_description') }}</p>
+                {% if post.get_field('second_title') %}
+                    <h1>{{ post.get_field('second_title') }}</h1>
+                {% else %}
+                    <h5 class="t_promos t_marche">Le groupe <b>ddc</b></h5>
+                {% endif %}
+                <p>
+                    {% if post.get_field('second_description') %}
+                        {{ post.get_field('second_description') }}
+                    {% else %}
+                        Le groupe DCC est une société spécialisée dans les services de support commercial, de vente, de marketing et de distribution, qui opère dans quatre secteurs : énergie, technologie, santé et environnement. DCC emploie plus de 10500 personnes entre son siège principal à Dublin et ses filiales dasn 15 pays européens
+
+                        La société DCC est cotée au FTSE 100 (Bourse de Londres) dans la catégorie Services de Support et à affiché un chiffre d'affaire de 10,6 milliards de livres soit 14,5 milliards d'Euros l'année denière.
+
+                        L'objectif principal du groupe DCC est celui de bâtir une société grandissante et durable, capable de générer d'importantes liquidités, et d'assurer  une rentabilité des capitaux engagés largement supérieure au coût des investissements.
+
+                        Pour en savoir plus, visitez leDCC (en anglais).
+                    {% endif %}
+                </p>
                 <div class="text-center">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
                         <button class="btn btn-secondary btn-first">
