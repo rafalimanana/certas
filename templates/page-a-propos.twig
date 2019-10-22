@@ -130,8 +130,8 @@
     <!-- Aide à la navigation -->
 
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
-        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
-            <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-6">
                 {% if post.get_field('first_title') %}
                     <h1>{{ post.get_field('first_title') }}</h1>
                 {% else %}
@@ -160,7 +160,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-5 text-center _apropos_video">
+            <div class="col-md-6 text-center _apropos_video">
                 {% set img = post.get_field('first_image') %}
                 <div class="site-header">
                     {% if img %}
@@ -173,8 +173,8 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 second-top">
-            <div class="col-md-5 text-center _apropos_second">
+        <div class="row second-top">
+            <div class="col-md-6 text-center _apropos_second">
                 {% set img = post.get_field('second_image') %}
                 <div class="site-header">
                     {% if img %}
@@ -185,7 +185,7 @@
                     {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 {% if post.get_field('second_title') %}
                     <h1>{{ post.get_field('second_title') }}</h1>
                 {% else %}
