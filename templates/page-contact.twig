@@ -193,6 +193,9 @@
 <!-- Fichiers Javascript -->
 
 <script src="{{ site.theme.link }}/leaflet/leaflet.js"></script>
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
 <script type="text/javascript">
         // On initialise la latitude et la longitude de Paris (centre de la carte)
         var lat = 48.887970;
@@ -210,8 +213,34 @@
                 maxZoom: 20
             }).addTo(macarte);
 
+            var greenIcon = L.icon({
+				iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
+				iconSize:     [38, 95], // size of the icon
+			});
+
+
+
             // Nous ajoutons un marqueur
-			var marker = L.marker([lat, lon]).addTo(macarte);
+			var marker = L.marker([lat, lon], {icon: greenIcon})
+			.addTo(macarte)
+			.bindPopup("<b>Rueil-Malmaison</b><br>9 Avenue Edouard Belin, 92500 Rueil-Malmaison")
+            .openPopup();
+
+			// Control 2: This add a scale to the map
+            L.control.scale().addTo(macarte);
+
+        // Control 3: This add a Search bar
+            var searchControl = new L.esri.Controls.Geosearch().addTo(macarte);
+
+            var results = new L.LayerGroup().addTo(macarte);
+
+              searchControl.on('results', function(data){
+                results.clearLayers();
+                for (var i = data.results.length - 1; i >= 0; i--) {
+                	console.log(data.results[i]);
+                  results.addLayer(L.marker(data.results[i].latlng, {icon: greenIcon}).bindPopup("<b>"+data.results[i].city+"</b><br>"+data.results[i].address+"").openPopup());
+                }
+              });
         }
         window.onload = function(){
 			// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé

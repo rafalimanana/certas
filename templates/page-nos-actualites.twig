@@ -152,7 +152,9 @@
                                         <div class="panel-footer">
                                             <h4 class="_actu_date">{{term.date}}</h4>
                                             <h2 class="_actu_title">{{term.title}}</h2>
-                                            <p class="_actu_description">{{term.post_content|excerpt(13)}}</p>
+                                            <p class="_actu_description">
+                                                {{ term.title|striptags|length > 10 ? term.post_content|excerpt(12) : term.post_content|excerpt(20) }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
