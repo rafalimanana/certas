@@ -9,7 +9,7 @@ $args = array(
     'post_type' => 'post',
     'order_by' => 'date',
     'order' => 'DESC',
-    'posts_per_page' => 10,
+    'posts_per_page' => 4,
     'post_status' => 'publish'
 );
 $context['posts'] = Timber::get_posts($args);

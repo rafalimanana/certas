@@ -961,6 +961,8 @@ article section._article_content h1._article_body {
         #_nos_actus ._panel_actus .panel-body img {
             width: 100% !important;
             border-radius: 10px 10px 0 0 !important;
+            /*Fixed height img*/
+            height: 218px !important;
         }
 
         #_nos_actus ._panel_actus .panel-footer {
@@ -1040,7 +1042,8 @@ article section._article_content h1._article_body {
         }
 
         #_nos_actus #slick_article .panel-footer {
-            min-height: 153px !important;
+            /*min-height: 153px !important;*/
+            min-height: 175px !important;
         }
     /*--- section no actualites --*/
 /*------------------------
