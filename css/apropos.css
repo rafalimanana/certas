@@ -281,3 +281,30 @@ span a {
   left:60px;
   z-index:99999;
 }
+
+
+.input-group.md-form.form-sm.form-1 input{
+	border: 1px solid #bdbdbd;
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+	border: 1px solid #bdbdbd;
+	border-top-left-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border {
+	border: 1px solid #ef9a9a;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border {
+	border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 input.amber-border {
+	border: 1px solid #ffca28;
+}
+
+@media screen and (max-width: 1449px) {
+ .container {
+   max-width: 1100px;
+ }
+}
