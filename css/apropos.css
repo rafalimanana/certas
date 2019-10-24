@@ -282,7 +282,9 @@ span a {
   z-index:99999;
 }
 
-
+.p-a-propos > p{
+	font-size: 13px;
+}
 
 .input-group.md-form.form-sm.form-1 input{
 	border: 1px solid #bdbdbd;
@@ -313,8 +315,5 @@ span a {
 	}
 	#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc ._cnt_bloc_title ._bloc_title {
     	font-size: 16px !important;
-	}
-	.p-a-propos{
-		font-size: 13px;
 	}
 }
