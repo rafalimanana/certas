@@ -44,6 +44,9 @@
 .fw-l{
     font-weight: lighter
 }
+.a-navig{
+    color: #6c757d !important;
+}
 
 article section._article_content h1._article_title {
     color: #4f2f8d;
