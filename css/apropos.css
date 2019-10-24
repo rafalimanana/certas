@@ -282,6 +282,10 @@ span a {
   z-index:99999;
 }
 
+.p-a-propos p{
+	font-size: 13px;
+}
+
 .input-group.md-form.form-sm.form-1 input{
 	border: 1px solid #bdbdbd;
 	border-top-right-radius: 0.25rem;
