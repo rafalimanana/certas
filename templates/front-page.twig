@@ -55,7 +55,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#" class="a-prs">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -77,7 +77,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#" class="a-prs">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -99,7 +99,7 @@
                                         {% if post.get_field('description_header') %}
                                         {{post.get_field('description_header')}}
                                         {% else %}
-                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#">Esso.</a>
+                                        Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#" class="a-prs">Esso.</a>
                                         {% endif %}
                                         <a href="#" class="a-prs"></a>
                                     </p>
@@ -117,7 +117,7 @@
 {% block content %}
 <div class="wrapper {{sidebar_class}}">
     <div class="container _bg_white _pd_tp_40 _pd_bt_40" id="_reseau">
-        <h1 class="_title_reseau"><span> Notre </span> <b>réseau</b></h1>
+        <h1 class="_title_reseau font-family-pers"><span> Notre </span> <b>réseau</b></h1>
         <div class="row _cnt_bloc">
             <div class="col-md-4">
                 <div class="_bloc">
@@ -221,7 +221,7 @@
 	                                    {{post.get_field('decouvrez')['second_section_titre']}}
 	                                </h2>
                                 {% else %}
-                                	<h2 class="_title_prquoi">POURQUOI <strong>CHOISIR CERTAS</strong> ?</h2>
+                                	<h2 class="_title_prquoi font-family-pers">POURQUOI <strong>CHOISIR CERTAS</strong> ?</h2>
                                 {% endif %}
                             </div>
                             <div class="col-md-4 _prquoi_bloc">
@@ -286,7 +286,7 @@
         {# {% filter shortcodes|raw %}
     		[recent_post_carousel slides_to_show="3" slides_to_scroll="1"]
         {% endfilter %} #}
-        <h1 class="_title_actus"><span> Nos </span> <b>Actualités</b></h1>
+        <h1 class="_title_actus font-family-pers"><span> Nos </span> <b>Actualités</b></h1>
         <div class="slick_responsive row" id="slick_article">
         	{% if posts is not empty %}
         		{% for term in posts %}
