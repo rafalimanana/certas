@@ -338,6 +338,10 @@ span a {
 		font-size: 1.75rem;
 	}
 
+	article section._bloc_content h3._bloc_title {
+    	font-size: 13px;
+	}
+
 	/*._apropos_second iframe{
 		height: 450px;
 		border-radius: 10px;
