@@ -40,6 +40,11 @@
 .fw-6{
     font-weight: 600;
 }
+
+.fw-l{
+    font-weight: lighter
+}
+
 article section._article_content h1._article_title {
     color: #4f2f8d;
     text-transform: uppercase;
