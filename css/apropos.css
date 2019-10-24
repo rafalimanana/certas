@@ -317,7 +317,7 @@ span a {
 	#_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc ._cnt_bloc_title ._bloc_title {
     	font-size: 16px !important;
 	}
-	.p-a-propos > p, ._article_body > p{
+	.p-a-propos > p, ._article_body > p, .class-prod-list p{
 		font-size: 13px;
 		line-height: 1.2em;
 	}
@@ -329,7 +329,10 @@ span a {
 		font-size: 1.70rem;
 	}
  	#_pg_lavage  ._bredcrumb_custo,
- 	#_pg_carburants ._bredcrumb_custo{
+ 	#_pg_carburants ._bredcrumb_custo,
+ 	#_pg_produits ._bredcrumb_custo,
+ 	#_pg_stations ._bredcrumb_custo,
+ 	#_pg_a-propos ._bredcrumb_custo {
  		font-size: 14px;
  	}
 	
@@ -344,10 +347,12 @@ span a {
         height: 355px;
     }
      #_nos_actus ._panel_actus .panel-footer p._actu_description {
-            color: #a29da9 !important;
-            line-height: 16px !important;
-            font-size: 13px !important;
-        }
+        color: #a29da9 !important;
+        line-height: 16px !important;
+        font-size: 13px !important;
+    }
+
+   
 
 
 }
