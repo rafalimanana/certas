@@ -328,7 +328,8 @@ span a {
 	.services-h2{
 		font-size: 1.70rem;
 	}
- 	#_pg_lavage  ._bredcrumb_custo{
+ 	#_pg_lavage  ._bredcrumb_custo,
+ 	#_pg_carburants ._bredcrumb_custo{
  		font-size: 14px;
  	}
 	
