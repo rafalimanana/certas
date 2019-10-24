@@ -1,4 +1,4 @@
-{% extends "_base_page.twig" %}
+class="a-navig" {% extends "_base_page.twig" %}
 {% block header %}
 <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -107,10 +107,10 @@
 	    <div class="container">
 	    	<nav aria-label="breadcrumb">
 				<ol class="breadcrumb _bredcrumb_custo">
-			    	<li class="breadcrumb-item"><a href="#">Accueil</a></li>
-			    	<li class="breadcrumb-item"><a href="#">Nos stations</a></li>
-			    	<li class="breadcrumb-item"><a href="#">Services en stations</a></li>
-			    	<li class="breadcrumb-item active">Lavage (les équipements)</li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Accueil</a></li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Nos stations</a></li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Services en stations</a></li>
+			    	<li class="breadcrumb-item active"><strong>Lavage (les équipements)</strong> </li>
 			  	</ol>
 			</nav>
 	    </div>
@@ -121,7 +121,9 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
 	            <section class="_article_content col-md-6">
-	                <h1 class="_article_title">NOS LAVAGES</h1>
+
+                    <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">NOS  </span><strong>LAVAGES</strong></span></p>
+                    </h2>
 	                <div class="_article_body">
 	                    <p>Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons la volonté de toujours améliorer votre passage dans nos stations. C’est pourquoi, désormais, nous mettons à votre disposition des portiques de lavage dernière génération. Nos portiques proposent un large choix de programmes avec une meilleure efficacité et rapidité de lavage. </p>
 	                    <p>Nous avons également mis en place une carte d’abonnement afin de pouvoir recharger et vous permettre de bénéficier de réduction sur vos lavages.</p>
@@ -143,7 +145,8 @@
 		    <div class="container">
 		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<h2 class="_quest_ttl">une question?</h2>
+                         <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #ffffff;"><span class="fw-l">une  </span><strong>question ?</strong></span></p>
+                    </h2>
 		    		</div>
 		    		<div class="col-md-12 _cnt_btn_quest">
 		    			<a href="#" class="_btn_quest">contactez-nous</a>
