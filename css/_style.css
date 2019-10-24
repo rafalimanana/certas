@@ -947,7 +947,7 @@ article section._article_content h1._article_body {
         #_nos_actus ._panel_actus {
             border-radius: 10px !important;
             box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
-            height: 420px;
+            height: 330px;
         }
 
         #_nos_actus ._panel_actus:hover {
@@ -973,14 +973,16 @@ article section._article_content h1._article_body {
         }
 
         #_nos_actus ._panel_actus .panel-footer h4._actu_date {
-            font-size: 15px !important;
+            /*font-size: 15px !important;*/
+            font-size: 11px !important;
             font-weight: bolder !important;
             color: #02b5ca !important;
             margin-bottom: 4px !important;
         }
 
         #_nos_actus ._panel_actus .panel-footer h2._actu_title {
-            font-size: 16px !important;
+            /*font-size: 16px !important;*/
+            font-size: 13px !important;
             text-transform: uppercase !important;
             font-weight: bolder !important;
             color: #4f2f8d !important;
@@ -990,7 +992,8 @@ article section._article_content h1._article_body {
         #_nos_actus ._panel_actus .panel-footer p._actu_description {
             color: #a29da9 !important;
             line-height: 21px !important;
-            font-size: 15px !important;
+            /*font-size: 15px !important;*/
+            font-size: 13px !important;
         }
 
         #_nos_actus h1._title_actus {
