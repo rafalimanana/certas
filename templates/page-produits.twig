@@ -139,7 +139,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item"><a class="a-navig" href="#">Accueil</a></li>
                     <li class="breadcrumb-item">
                         {% if post.parent.title %}
                             {{post.parent.title}}
@@ -147,7 +147,7 @@
                             Nos carburants
                         {% endif %}
                     </li>
-                    <li class="breadcrumb-item active">Liste des produits vendus</li>
+                    <li class="breadcrumb-item active"><strong> Liste des produits vendus </strong></li>
                 </ol>
             </nav>
         </div>
@@ -160,7 +160,8 @@
                 <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
             </div>
             <div class="col-8 pt-5">
-                <h5 class="t_promos">Produit <b>#1</b></h5>
+                 <h5 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #1</strong></span></p>
+                    </h5>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
                 </p>
