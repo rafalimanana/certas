@@ -303,7 +303,10 @@ span a {
 }
 
 @media screen and (max-width: 1449px) {
- .container {
-   max-width: 1100px;
- }
+ 	.container {
+   		max-width: 1100px;
+ 	}
+ 	.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    	font-size: 13px;
+	}
 }
