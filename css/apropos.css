@@ -326,5 +326,9 @@ span a {
 		height: 450px;
 		border-radius: 10px;
 	}
+	._apropos_video iframe{
+		height: 580px;
+        border-radius: 10px;
+	}
 
 }
