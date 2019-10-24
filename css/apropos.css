@@ -308,3 +308,46 @@ span a {
    max-width: 1100px;
  }
 }
+
+
+.map_dropdown {
+	width: 419px;
+	max-height: 365px;
+	border: 2px solid #4e2490;
+	background-clip: padding-box;
+	display: none;
+	margin-top: 2px;
+	overflow: auto;
+}
+
+.p_city {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #d1c6c669;
+	cursor: pointer;
+}
+.l_city {
+	margin-left: 8px;
+}
+
+.p_city:hover {
+	background-color: #6f6fb8;
+	color: #fff;
+}
+
+.l_carte {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 2px 2px 0px .0px rgba(240,240,240,5);
+}
+
+.c_information {
+	color: #988ab8;
+	text-decoration: underline;
+	padding-bottom: 6px;
+}
+
+.t_esso {
+	color: #4f2f8d;
+	font-weight: bold;
+}

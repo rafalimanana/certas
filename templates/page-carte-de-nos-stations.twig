@@ -130,26 +130,71 @@
     <!-- Aide à la navigation -->
   <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
     <div class="row">
-        <div class="col-5">
-
-            <div class="input-group md-form form-sm form-1 pl-0">
-              <div class="input-group-prepend">
-                <span class="input-group-text purple lighten-3" id="basic-text1"><i class="fas fa-search text-white"
-                    aria-hidden="true"></i></span>
-              </div>
-              <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-            </div>
-
-
+        <div class="col-4">
             <div class="input-group md-form form-sm form-2 pl-0">
-              <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+              <input class="form-control my-0 py-1 red-border" name="search" id="search" type="text" placeholder="Recherche par ville" aria-label="Rechercher">
               <div class="input-group-append">
                 <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
                     aria-hidden="true"></i></span>
               </div>
             </div>
+            <div class="dropdown map_dropdown" id="dropdown"></div>
+
+            <div class="col mt-4 l_carte">
+                <h5 class="t_esso">Esso Alouette</h5>
+                <p>
+                    <img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">
+                    <span>3/5 Avenue Général Leclerc,</span><br>
+                    <span style="padding-left: 20px;">Pessac - France</span>
+                </p>
+                <p class="c_information">
+                    <a href="#">
+                        Plus d'informations
+                    </a>
+                </p>
+            </div>
+            <div class="col mt-4 l_carte">
+                <h5 class="t_esso">Esso Arcades</h5>
+                <p>
+                    <img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">
+                    <span>Route des Alpes,</span><br>
+                    <span style="padding-left: 20px;">Aix-en-provence - France</span>
+                </p>
+                <p class="c_information">
+                    <a href="#">
+                        Plus d'informations
+                    </a>
+                </p>
+            </div>
+            <div class="col mt-4 l_carte">
+                <h5 class="t_esso">Esso Alouette</h5>
+                <p>
+                    <img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">
+                    <span>3/5 Avenue Général Leclerc,</span><br>
+                    <span style="padding-left: 20px;">Pessac - France</span>
+                </p>
+                <p class="c_information">
+                    <a href="#">
+                        Plus d'informations
+                    </a>
+                </p>
+            </div>
+            <div class="col mt-4 l_carte">
+                <h5 class="t_esso">Esso Arcades</h5>
+                <p>
+                    <img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">
+                    <span>Route des Alpes,</span><br>
+                    <span style="padding-left: 20px;">Aix-en-provence - France</span>
+                </p>
+                <p class="c_information">
+                    <a href="#">
+                        Plus d'informations
+                    </a>
+                </p>
+            </div>
         </div>
-        <div class="col-7">
+        <div class="col-8">
+            <div id="map" style="width:100%;height:98%;"></div>
         </div>
     </div>
   </div><!-- /content-wrapper -->
@@ -164,9 +209,12 @@
 <script src="https://unpkg.com/esri-leaflet-cluster@2.0.1/dist/esri-leaflet-cluster.js"></script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/esri-leaflet-geocoder@2.3.1/dist/esri-leaflet-geocoder.css">
 <script type="text/javascript">
+            $('#ville').select2({
+
+            });
         // On initialise la latitude et la longitude de Paris (centre de la carte)
-        var lat = 48.887970;
-        var lon = 2.168710;
+        var lat = 44.798770;
+        var lon = -0.663530;
         var macarte = null;
         // Fonction d'initialisation de la carte
         function initMap() {
@@ -185,12 +233,19 @@
                 iconSize:     [38, 95], // size of the icon
             });
 
+            var esso_alou = '<h5 class="t_esso">Esso Alouette</h5>'+
+                '<p>'+
+                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                    '<span>Route des Alpes,</span><br>'+
+                    '<span style="padding-left: 20px;">Aix-en-provence - France</span>'+
+                '</p>';
+
 
 
             // Nous ajoutons un marqueur
             var marker = L.marker([lat, lon], {icon: greenIcon})
             .addTo(macarte)
-            .bindPopup("<b>Rueil-Malmaison</b><br>9 Avenue Edouard Belin, 92500 Rueil-Malmaison")
+            .bindPopup(esso_alou)
             .openPopup();
 
             // Control 2: This add a scale to the map
@@ -216,6 +271,72 @@
             // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
             initMap(); 
         };
+        window.re_bounds=[];
+        window.curerntId = 0
+        $('#search').on('keyup', function(event) {
+            curerntId++
+            let id = curerntId
+            var search = $(this).val();
+            $('#dropdown').html('');
+            $('#dropdown').css('display', 'none');
+            console.log(search.length);
+            if (search != '' && search.length >= 2 && event.keyCode != 46) {
+                setTimeout(function(){
+                  window.recherche=search;
+                  //document.getElementById('map').innerHTML='';
+                  var geocoder = L.esri.Geocoding.geocodeService();
+                  var map = macarte;
+                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                  }).addTo(map);
+                  L.esri.Geocoding.geocode().text(search).run(function (error, results, response) {
+                    if(id != curerntId){
+                        return true
+                    }
+                    if (error) {
+                      return;
+                    }
+                    var res =results.results;
+                    if (res) {
+                        $('#dropdown').css('display', 'inline-block');
+                        $('#dropdown').html('')
+                            console.log("res",res)
+                            console.log("response",response)
+                        for (var i = res.length - 1; i >= 0; i--) {
+                            console.log(res[i])
+                            window.re_bounds[i] = res[i].bounds;
+                            var div = "<div class='p_city'><div id='sel"+i+"' data-val='"+i+"' class='l_city'>"+res[i].text+"</div></div>";
+                            $('#dropdown').append(div);
+                            $('#sel'+i).on('click',function(event) {
+                                $("#dropdown").html('');
+                                $('#search').val('');
+                                $(".l_city").removeClass();
+                                var fil = $(this).data('val');
+                                var c_bounds = re_bounds[fil];
+                                map.fitBounds(c_bounds);
+                            })
+                        }
+                    }
+                    /*if(response.results[0]){
+                        console.log(response.results[0])
+                        map.fitBounds(response.results[0].bounds);
+                    }
+    */
+                  });
+                }, 100);
+            }
+        });
+
+        $(document).on('click', function(event) {
+            console.log(event.target);
+            console.log($('#search')[0]);
+          if (!$(event.target).closest('#dropdown').length && event.target != $('#search')[0])  {
+                $("#dropdown").html('');
+                $('#search').val('');
+                $('#dropdown').css('display', 'none');
+          }
+        });
+
 </script>
 
 {% endblock %}
