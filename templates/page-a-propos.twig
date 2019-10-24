@@ -137,13 +137,13 @@
 
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row">
-            <div class="col-md-6 ">
+            <div class="col-md-6 p-a-propos">
                 {% if post.get_field('first_title') %}
                     <h2>{{ post.get_field('first_title') }}</h2>
                 {% else %}
                     <h5 class="t_promos t_marche font-family-pers">Certas energy <b>france</b></h5>
                 {% endif %}
-                <p class="p-a-propos">
+                <p>
                     {% if post.get_field('first_description') %}
                         {{ post.get_field('first_description') }}
                     {% else %}
@@ -191,13 +191,13 @@
                     {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
                 </div>
             </div>
-            <div class="col-md-6 ">
+            <div class="col-md-6 p-a-propos">
                 {% if post.get_field('second_title') %}
                     <h2>{{ post.get_field('second_title') }}</h2>
                 {% else %}
                     <h5 class="t_promos t_marche font-family-pers"><span class="fw-l"> Le groupe  </span><b>ddc</b></h5>
                 {% endif %}
-                <p class="p-a-propos">
+                <p>
                     {% if post.get_field('second_description') %}
                         {{ post.get_field('second_description') }}
                     {% else %}
