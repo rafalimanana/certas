@@ -391,4 +391,9 @@ span a {
 	.list-unstyled {
     	font-size: 0.75rem;
 	}
+	.copyright-container p, .immobilier-container p {
+    	margin: 5px;
+    	font-size: 0.75rem;
+
+	}
 }
