@@ -319,7 +319,12 @@ span a {
 	}
 	.p-a-propos > p, ._article_body > p, .class-prod-list > p, .class_club_energy > p{
 		font-size: 13px;
-		line-height: 1.2em;
+		line-height: 1.5em;
+	}
+	.slider-text p {
+    	line-height: 1.5;
+    	color: #FFF;
+    	font-size: 15px !important;
 	}
 
 	.p-a-propos h2{
@@ -333,7 +338,9 @@ span a {
  	#_pg_produits ._bredcrumb_custo,
  	#_pg_stations ._bredcrumb_custo,
  	#_pg_a-propos ._bredcrumb_custo,
- 	#_pg_club-energy ._bredcrumb_custo {
+ 	#_pg_club-energy ._bredcrumb_custo,
+ 	#_pg_comment_ca_marche ._bredcrumb_custo,
+ 	#_pg_actualites  ._bredcrumb_custo{
  		font-size: 14px;
  	}
 	

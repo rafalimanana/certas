@@ -139,8 +139,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item">
+                    <li class="breadcrumb-item"><a  class="a-navig" href="#">Accueil</a></li>
+                    <li class="breadcrumb-item a-navig">
                         {% if post.parent.title %}
                             {{post.parent.title}}
                         {% else %}
@@ -148,11 +148,14 @@
                         {% endif %}
                     </li>
                     <li class="breadcrumb-item active">
-                        {% if post.title %}
-                            {{post.title}}
-                        {% else %}
-                            Comment ça marche
-                        {% endif %} ?
+                        <strong>
+                            {% if post.title %}
+                                {{post.title}}
+                            {% else %}
+                                Comment ça marche
+                            {% endif %} ?
+                        </strong>
+                        
                     </li>
                 </ol>
             </nav>
@@ -163,7 +166,9 @@
 
     <div class="container content-wrapper pb-5">
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
-            <h5 class="t_promos t_marche">Comment <b>ça marche ?</b></h5>
+            <h2 class="text-uppercase  services-h2">
+                <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment</span><strong>ça marche ?</strong></span></p>
+            </h2>
         </div>
         <div class="mt-2">
             <span class="nombre"><b>1</b></span><span class="pl-4">Rendez-vous sur <a href="https://www.club-certas.com/Account/Register" target="_blank">ww.club-certas.com/Account/Register</a></span>
