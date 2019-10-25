@@ -983,7 +983,8 @@ article section._article_content h1._article_body {
             border-radius: 0 0 10px 10px !important;
         }
 
-        #_nos_actus ._panel_actus .panel-footer h4._actu_date {
+        #_nos_actus ._panel_actus .panel-footer h4._actu_date, 
+        #_pg_actualites ._panel_actus .panel-footer h4._actu_date {
             /*font-size: 15px !important;*/
             font-size: 11px !important;
             font-weight: bolder !important;
@@ -991,7 +992,8 @@ article section._article_content h1._article_body {
             margin-bottom: 4px !important;
         }
 
-        #_nos_actus ._panel_actus .panel-footer h2._actu_title {
+        #_nos_actus ._panel_actus .panel-footer h2._actu_title, 
+        #_pg_actualites ._panel_actus .panel-footer h2._actu_title {
             /*font-size: 16px !important;*/
             font-size: 14px !important;
             text-transform: uppercase !important;
@@ -1000,7 +1002,8 @@ article section._article_content h1._article_body {
             margin-bottom: 3px !important;
         }
 
-        #_nos_actus ._panel_actus .panel-footer p._actu_description {
+        #_nos_actus ._panel_actus .panel-footer p._actu_description,
+        #_pg_actualites ._panel_actus .panel-footer p._actu_description {
             color: #a29da9 !important;
             line-height: 21px !important;
             /*font-size: 15px !important;*/
