@@ -142,9 +142,9 @@
                     <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
                     <li class="breadcrumb-item">
                         {% if post.parent.title %}
-                            <a href="{{ site.url }}/nos-carburants/"> {{post.parent.title}} </a>
+                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/"> {{post.parent.title}} </a>
                         {% else %}
-                            <a href="{{ site.url }}/nos-carburants/">Nos carburants</a>
+                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/">Nos carburants</a>
                         {% endif %}
                     </li>
                     <li class="breadcrumb-item active"><strong> Liste des produits vendus </strong></li>
