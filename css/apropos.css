@@ -345,6 +345,9 @@ span a {
  	#_pg_promos  ._bredcrumb_custo{
  		font-size: 14px;
  	}
+ 	.btn {
+    	font-size: 14px;
+	}
 	.nombre {
 	    background-color: #4f2f8d;
 	    color: white;
