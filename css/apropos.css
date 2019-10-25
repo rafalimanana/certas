@@ -328,7 +328,7 @@ span a {
 	}
 
 	.p-a-propos h2{
-		font-size: 1.50rem;
+		font-size: 1.69rem;
 	}
 	.services-h2{
 		font-size: 1.50rem;
@@ -353,6 +353,16 @@ span a {
 	    height: 33px;
 	    text-align: center;
     	font-size: 20px;
+	}
+	#_reseau h1._title_reseau, #_nos_actus h1._title_actus {
+    	font-size: 24.5px !important;
+	}
+	#_reseau ._cnt_bloc ._bloc ._bloc_info h3._bloc_title {
+    	font-size: 19px;
+	}
+
+	#_prquoi ._title_prquoi p{
+		font-size: 24.5px;
 	}
 	.form-control::placeholder {
     	font-size: 13px;
