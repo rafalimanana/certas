@@ -215,6 +215,12 @@ article section._article_content h1._article_body {
         }
 
     /* Responsive */
+    /* Responsive */
+        @media only screen and (min-width: 1701px) {
+           #_pg_actualites ._panel_actus {
+             height: 381px;
+            }
+        }
         @media only screen and (min-width: 1445px) and (max-width: 1700px) {
             nav ._navbar_brand {
                 left: 5% !important;
