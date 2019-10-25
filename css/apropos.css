@@ -343,7 +343,16 @@ span a {
  	#_pg_actualites  ._bredcrumb_custo{
  		font-size: 14px;
  	}
-	
+	.nombre {
+    background-color: #4f2f8d;
+    color: white;
+    display: inline-block;
+    border-radius: 60%;
+    width: 30px;
+    height: 33px;
+    text-align: center;
+    font-size: 20px;
+}
 
 	article section._bloc_content h3._bloc_title {
     	font-size: 13px;
