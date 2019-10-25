@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Roboto Black'), local('Roboto-Black'), url(fonts/roboto/Roboto-Black.ttf) format('truetype');
+}
 ._mg_tp_50 {
     margin-top: 50px !important;
 }
