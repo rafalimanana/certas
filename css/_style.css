@@ -8,25 +8,25 @@
   font-family: 'Roboto Medium';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Medium'), url(fonts/roboto/Roboto-Medium.ttf) format('truetype');
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(fonts/roboto/Roboto-Medium.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto Regular';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Regular'), url(fonts/roboto/Roboto-Regular.ttf) format('truetype');
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(fonts/roboto/Roboto-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto Light';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Light'), url(fonts/roboto/Roboto-Light.ttf) format('truetype');
+  src: local('Roboto Light'), local('Roboto-Light'), url(fonts/roboto/Roboto-Light.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto Bold';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Bold'), url(fonts/roboto/Roboto-Bold.ttf) format('truetype');
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(fonts/roboto/Roboto-Bold.ttf) format('truetype');
 }
 ._mg_tp_50 {
     margin-top: 50px !important;
