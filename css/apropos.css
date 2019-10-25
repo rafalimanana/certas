@@ -341,7 +341,8 @@ span a {
  	#_pg_club-energy ._bredcrumb_custo,
  	#_pg_comment_ca_marche ._bredcrumb_custo,
  	#_pg_actualites  ._bredcrumb_custo,
- 	#_pg_contact  ._bredcrumb_custo{
+ 	#_pg_contact  ._bredcrumb_custo,
+ 	#_pg_promos  ._bredcrumb_custo{
  		font-size: 14px;
  	}
 	.nombre {

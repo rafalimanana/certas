@@ -116,14 +116,14 @@
 {% endblock %}
 {% block content %}
 
-<div class="wrapper {{sidebar_class}}">
+<div class="wrapper {{sidebar_class}}" id="_pg_promos">
     <!-- Aide à la navigation -->
     <div class="content-wrapper _bg_white">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item active">{{post.title}}</li>
+                    <li class="breadcrumb-item"><a class="a-navig" href="#">Accueil</a></li>
+                    <li class="breadcrumb-item active"><strong>{{post.title}}</strong></li>
                 </ol>
             </nav>
         </div>
