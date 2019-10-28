@@ -351,3 +351,31 @@ span a {
 	color: #4f2f8d;
 	font-weight: bold;
 }
+
+.c_popup {
+	color: #a29da9;
+}
+
+body { margin:0; padding:0; }
+#map { position:relative; top:0; bottom:0; width:100%; }
+
+.leaflet-popup-content {
+	width: 294px !important;
+	height: 142px !important;
+}
+
+.leaflet-popup-content-wrapper {
+	position: relative;
+	right: 182px !important;
+	border-radius: 12px !important;
+}
+
+.c_information {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+}
+
+#list {
+	display: none;
+}
