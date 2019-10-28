@@ -133,34 +133,35 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="wrapper {{sidebar_class}}">
+<div class="wrapper {{sidebar_class}}" id="_pg_produits">
     <!-- Aide à la navigation -->
     <div class="content-wrapper _bg_white">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
                     <li class="breadcrumb-item">
                         {% if post.parent.title %}
-                            {{post.parent.title}}
+                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/"> {{post.parent.title}} </a>
                         {% else %}
-                            Nos carburants
+                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/">Nos carburants</a>
                         {% endif %}
                     </li>
-                    <li class="breadcrumb-item active">Liste des produits vendus</li>
+                    <li class="breadcrumb-item active"><strong> Liste des produits vendus </strong></li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Aide à la navigation -->
 
-    <div class="container content-wrapper pb-5">
+    <div class="container content-wrapper pb-5 ">
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
             <div class="col-4">
                 <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
             </div>
-            <div class="col-8 pt-5">
-                <h5 class="t_promos">Produit <b>#1</b></h5>
+            <div class="col-8 pt-5 class-prod-list">
+                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #1</strong></span></p>
+                    </h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
                 </p>
@@ -174,8 +175,9 @@
             <div class="col-4">
                 <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
             </div>
-            <div class="col-8 pt-5">
-                <h5 class="t_promos">Produit <b>#2</b></h5>
+            <div class="col-8 pt-5 class-prod-list">
+                <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #2</strong></span></p>
+                    </h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
                 </p>
@@ -189,8 +191,9 @@
             <div class="col-4">
                 <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
             </div>
-            <div class="col-8 pt-5">
-                <h5 class="t_promos">Produit <b>#3</b></h5>
+            <div class="col-8 pt-5 class-prod-list">
+                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #3</strong></span></p>
+                    </h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
                 </p>
@@ -204,8 +207,9 @@
             <div class="col-4">
                 <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
             </div>
-            <div class="col-8 pt-5">
-                <h5 class="t_promos">Produit <b>#4</b></h5>
+            <div class="col-8 pt-5 class-prod-list">
+                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #4</strong></span></p>
+                    </h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
                 </p>

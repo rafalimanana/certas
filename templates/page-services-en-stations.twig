@@ -101,15 +101,15 @@
 {% endblock %}
 {% block content %}
 
-<div class="wrapper {{sidebar_class}}">
+<div class="wrapper {{sidebar_class}}" id="_pg_stations">
 	<!-- Aide à la navigation -->
 	<div class="content-wrapper _bg_white">
 	    <div class="container">
 	    	<nav aria-label="breadcrumb">
 				<ol class="breadcrumb _bredcrumb_custo">
-			    	<li class="breadcrumb-item"><a href="#">Accueil</a></li>
-			    	<li class="breadcrumb-item"><a href="#">Nos stations</a></li>
-			    	<li class="breadcrumb-item active">Service en stations</li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Nos stations</a></li>
+			    	<li class="breadcrumb-item active"><strong>Service en stations</strong></li>
 			  	</ol>
 			</nav>
 	    </div>
@@ -120,7 +120,10 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
 	            <section class="_article_content">
-	                <h1 class="_article_title">Faites le plein d'avantages !</h1>
+	                
+	                <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Faites le plein  </span><strong>d'avantages !</strong></span></p>
+					</h2>
+
 	                <div class="_article_body">
 	                    <p>Vous avez besoin de faire le plein d'essence sur autoroute ou en ville ? Profitez-en aussi pour faire le plein d'avantages ! Chez Esso Express, nous avons bien compris que les automobilistes ne choisissent pas leur station essence par hasard. Le réseau, composé de près de 300 stations-service ouvertes en continu, 7/7 et 24H/24, et partout sur le territoire français, permet de réaliser un plein d'essence avec du carburant de grande qualité et des prix compétitifs, se situant ainsi chaque année dans le top 5 des meilleures enseignes.<br> D'ailleurs nous proposons également un paiement facile et rapide, puisqu'il se réalise uniquement par carte bancaire ou carte carburant comme la « Esso Card », « DKV » ou « UTA ». Les stations-service Esso Express garantissent la sécurité des automobilistes grâce à la vidéosurveillance présente sur les stations: toutes nos caméras sont reliées à un centre de télésurveillance 7/7 et 24H/24.</p>
 	                    <p>Certaines stations-service de notre réseau proposent également de l’AdBlue pour les véhicules et poids lourds, dotés de la nouvelle technologie SCR pour la réduction des émissions polluantes.</p>
@@ -130,7 +133,9 @@
 	        </article>
 	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
 	  			<section class="_article_content">
-	                <h1 class="_article_title">Le plein de services pour satisfaire le client</h1>
+	                <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le plein de services pour   </span><strong>satisfaire le client</strong></span></p>
+					</h2>
+
 	                <div class="_article_body">
 	                    <p>Avec les stations Esso Express, le client a également la possibilité de profiter de nombreux services diversifiés. Certas Energy France ré-ouvre ses boutiques et permet à ses partenaires d’installer leurs activités sur ses stations-service,  par exemple le « café » PauseExpresso à Montaudran, ou encore le caviste Vignobles à Ville d’Avray. De prochaines ouvertures sont prévues au courant de l’année 2017.</p>
 	                    <p>Afin de satisfaire pleinement le client, Certas propose  un service de gonflage de pneu Air-Serv, mais aussi de lavage automatisé WashTec, ou encore de Lockers Amazon pour récupérer vos commandes quand vous voulez.</p>

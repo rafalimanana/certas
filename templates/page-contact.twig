@@ -112,7 +112,7 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="wrapper {{sidebar_class}}">
+<div class="wrapper {{sidebar_class}}" id="_pg_contact">
 
 
     <!-- Aide à la navigation -->
@@ -120,8 +120,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item active">{{post.post_title}}</li>
+                    <li class="breadcrumb-item"><a  class="a-navig" href="{{ site.url }}">Accueil</a></li>
+                    <li class="breadcrumb-item active"><strong>{{post.post_title}}</strong></li>
                 </ol>
             </nav>
         </div>
@@ -129,7 +129,9 @@
     <!-- Aide à la navigation -->
   <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
   	<div>
-		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Contacter</b></h1>
+        <h2 class="text-uppercase  services-h2">
+            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Contacter</strong></span></p>
+        </h2>
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-6">
 	  			{% if post.content%}
@@ -149,7 +151,10 @@
 	  	</div>
   	</div>
   	<div class="mt-5">
-		<h1 class="title title-c text-uppercase pl-3"><span> Nous </span> <b>Trouver</b></h1>
+		<h2 class="text-uppercase  services-h2">
+            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Trouver</strong></span></p>
+        </h2>
+
 	  	<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
 	  		<div class="col-md-8">
 	  			<div id="map" style="width:100%;height:100%;"></div>
@@ -168,20 +173,20 @@
 	  		<div class="col-md-4" style="padding-top: 116px;padding-left: 60px;">
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
-	  				<span>9 Avenue Edouard Belin,</span><br>
-	  				<span style="padding-left: 30px;">92500 Rueil-Malmaison</span>
+	  				<span class="ccm-p">9 Avenue Edouard Belin,</span><br>
+	  				<span style="padding-left: 30px;" class="ccm-p">92500 Rueil-Malmaison</span>
 	  			</p>
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/phone.svg" style="width:21px;">
-	  				<span>01 55 94 06 28</span>
+	  				<span class="ccm-p">01 55 94 06 28</span>
 	  			</p>
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/mail.svg" style="width:23px;">
-	  				<span>contact@certas.fr</span>
+	  				<span class="ccm-p">contact@certas.fr</span>
 	  			</p>
 	  			<div style="padding-left: 40px;">
 		  			<a href="#">
-		  				<button class="btn btn-first">Itinéraire</button>
+		  				<button class="btn btn-first" >Itinéraire</button>
 		  			</a>
 		  		</div>
 	  		</div>

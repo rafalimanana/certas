@@ -119,7 +119,7 @@
 {% endblock %}
 {% block content %}
 
-<div class="wrapper {{sidebar_class}}">
+<div class="wrapper {{sidebar_class}}" id="_pg_a-propos">
 
 
     <!-- Aide à la navigation -->
@@ -127,8 +127,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item active">{{post.title}}</li>
+                    <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
+                    <li class="breadcrumb-item active"><strong>{{post.title}}</strong></li>
                 </ol>
             </nav>
         </div>
@@ -137,11 +137,11 @@
 
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 p-a-propos">
                 {% if post.get_field('first_title') %}
-                    <h1>{{ post.get_field('first_title') }}</h1>
+                    <h2 class="_pd_tp_40">{{ post.get_field('first_title') }}</h2>
                 {% else %}
-                    <h5 class="t_promos t_marche">Certas energy <b>france</b></h5>
+                    <h5 class="t_promos t_marche _pd_tp_40 font-family-pers">Certas energy <b>france</b></h5>
                 {% endif %}
                 <p>
                     {% if post.get_field('first_description') %}
@@ -158,7 +158,7 @@
                         Le Développement, une mission. L'objectif du groupe DCC est de continuer à se développer. C'est donc celui de Certas Energy France.
                     {% endif %}
                 </p>
-                <div class="text-center">
+                <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
                         <button class="btn btn-secondary btn-first">
                             Découvrez notre reseau
@@ -191,11 +191,11 @@
                     {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 p-a-propos">
                 {% if post.get_field('second_title') %}
-                    <h1>{{ post.get_field('second_title') }}</h1>
+                    <h2 class="_pd_tp_50">{{ post.get_field('second_title') }}</h2>
                 {% else %}
-                    <h5 class="t_promos t_marche">Le groupe <b>ddc</b></h5>
+                    <h5 class="t_promos t_marche _pd_tp_50 font-family-pers"><span class="fw-l"> Le groupe  </span><b>ddc</b></h5>
                 {% endif %}
                 <p>
                     {% if post.get_field('second_description') %}
@@ -210,7 +210,7 @@
                         Pour en savoir plus, visitez leDCC (en anglais).
                     {% endif %}
                 </p>
-                <div class="text-center">
+                <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
                         <button class="btn btn-secondary btn-first">
                             Découvrez notre reseau
