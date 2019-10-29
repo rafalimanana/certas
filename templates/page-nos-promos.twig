@@ -10,12 +10,36 @@
                 <span class="oi oi-menu"></span> Menu
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu" id="_nav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" id="_menu">
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item">
+                        <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase">Nos Stations</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item">
+                                <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase">Services en stations</a>
+                                <ul class="nav-item submenu">
+                                    <li class="nav-item">
+                                        <a href="{{site.url}}/nos-stations/services-en-stations/lavage" class="nav-link text-uppercase">Lavage</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item"><a href="{{site.url}}/nos-carburants/produits" class="nav-link text-uppercase">Liste des produits vendus</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item active"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item">
+                        <a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item"><a href="{{site.url}}/club-certas-energy/comment-ca-marche" class="nav-link text-uppercase">Comment ça marche</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                     <li class="nav-item _h_cnt_btn">
@@ -132,10 +156,10 @@
 
     <div class="container content-wrapper pb-5">
         <div class="row">
-            <div class="col-5">
+            <div class="col-md-5">
                 <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-md-7 mt-3">
                 <h5 class="t_promos"><b>Promo #1</b></h5>
                 <p class="ccm-p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
@@ -151,10 +175,10 @@
 
             <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-5">
+            <div class="col-md-5">
                 <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-md-7 mt-3">
                 <h5 class="t_promos"><b>Promo #2</b></h5>
                 <p class="ccm-p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
@@ -170,10 +194,10 @@
 
             <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-5">
+            <div class="col-md-5">
                 <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-md-7 mt-3">
                 <h5 class="t_promos"><b>Promo #3</b></h5>
                 <p class="ccm-p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
@@ -189,10 +213,10 @@
 
             <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-5">
+            <div class="col-md-5">
                 <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-md-7 mt-3">
                 <h5 class="t_promos"><b>Promo #4</b></h5>
                 <p class="ccm-p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
@@ -208,10 +232,10 @@
 
             <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-5">
+            <div class="col-md-5">
                 <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-md-7 mt-3">
                 <h5 class="t_promos"><b>Promo #5</b></h5>
                 <p class="ccm-p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.

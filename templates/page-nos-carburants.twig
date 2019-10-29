@@ -10,12 +10,36 @@
                 <span class="oi oi-menu"></span> Menu
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu" id="_nav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" id="_menu">
                     <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/services-en-stations" class="nav-link text-uppercase">Nos Stations</a></li>
-                    <li class="nav-item active"><a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a></li>
+                    <li class="nav-item">
+                        <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase">Nos Stations</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item">
+                                <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase">Services en stations</a>
+                                <ul class="nav-item submenu">
+                                    <li class="nav-item">
+                                        <a href="{{site.url}}/nos-stations/services-en-stations/lavage" class="nav-link text-uppercase">Lavage</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item"><a href="{{site.url}}/nos-carburants/produits" class="nav-link text-uppercase">Liste des produits vendus</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a></li>
+                    <li class="nav-item">
+                        <a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a>
+                        <ul class="nav-item submenu">
+                            <li class="nav-item"><a href="{{site.url}}/club-certas-energy/comment-ca-marche" class="nav-link text-uppercase">Comment ça marche</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                     <li class="nav-item _h_cnt_btn">
