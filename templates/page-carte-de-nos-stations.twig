@@ -217,17 +217,42 @@ let NL = L;
         // Tiles are 512x512 pixels and are offset by 1 zoom level
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
         // var mcg = L.markerClusterGroup().addTo(map);
-        var markers = new L.MarkerClusterGroup();
-        var markersClusterCustom = new L.MarkerClusterGroup({
+        var markers = new L.MarkerClusterGroup({
+            iconCreateFunction : function (cluster) {
+                let defineBucket = (cc) =>{
+                    let bcks = [
+                        0,10,100,1000,10000,100000
+                    ]
+                    let v = 5
+                    bcks.map((bucket,key) =>{
+                        if(bcks[key+1]){
+                            if(bcks[key] < cc && cc < bcks[key+1]){
+                                v = key+1
+                            }
+                        }
+                        return true
+                    })
+                    return v;
+                }
+                let definedBucket = defineBucket(cluster.getChildCount())
+                    console.log("cc-calculation-out---------------------",definedBucket,cluster.getChildCount())
+                return L.divIcon( {
+                    html : '<b class="map-icon-container"><img class="map-icon" src="{{site.theme.link}}/images/_icons/m'+definedBucket+'.png" /><span class="map-icon-text" >' + cluster.getChildCount() + '</span></b>', 
+                    className : 'mycluster', 
+                    iconSize : [50, 50]
+                });
+            }
+        });
+        /*var markersClusterCustom = new L.MarkerClusterGroup({
             iconCreateFunction: function(cluster) {
-                var digit = cluster.getChildCount();
+                var digit = (cluster.getChildCount()+'').length;
                 return L.divIcon({ 
-                    html: digit, 
+                    html: cluster.getChildCount(), 
                     className: 'mycluster digit-'+digit, 
                     iconSize: null 
                 });
             }
-        });
+        });*/
         var l_mark_icon=L.mapbox.marker;
 
         var addressPoints = [
@@ -237,7 +262,7 @@ let NL = L;
         for (var i = 0; i < 55; i++) {
             var a = addressPoints[0];
             var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
+            var marker = L.marker(new L.LatLng(a[0]+i*0.001, a[1]+i*0.001), {
                 icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
                 title: title
             });
@@ -295,7 +320,7 @@ let NL = L;
                 title: title
             });
             marker.bindPopup(title);
-            markersClusterCustom.addLayer(marker);
+            markers.addLayer(marker);
         }
 
         addressPoints = [
@@ -336,7 +361,7 @@ let NL = L;
             [42.507530, 1.521820, 'Andorre'],
         ];
 
-        for (var i = 0; i < 17; i++) {
+        /*for (var i = 0; i < 17; i++) {
             var a = addressPoints[0];
             var title = a[2];
             var marker = L.marker(new L.LatLng(a[0], a[1]), {
@@ -345,9 +370,9 @@ let NL = L;
             });
             marker.bindPopup(title);
             markers.addLayer(marker);
-        }
+        }*/
         map.addLayer(markers);
-        map.addLayer(markersClusterCustom);
+        //map.addLayer(markersClusterCustom);
 
 
 
