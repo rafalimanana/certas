@@ -349,6 +349,21 @@ span a {
 	font-weight: bold;
 }
 
+.fa {
+    color: #bcb8c1 !important;
+}
+#search{
+  border: initial  !important; 
+}
+#basic-text1{
+  background-color: inherit !important;
+  border:  inherit !important;
+}
+.div-search{
+	border: 1px solid #bcb8c1;
+	border-radius: 5px;
+}
+
 .c_popup {
 	color: #a29da9;
 }
