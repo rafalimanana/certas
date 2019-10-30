@@ -218,6 +218,16 @@ let NL = L;
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
         // var mcg = L.markerClusterGroup().addTo(map);
         var markers = new L.MarkerClusterGroup();
+        var markersClusterCustom = new L.MarkerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                var digit = cluster.getChildCount();
+                return L.divIcon({ 
+                    html: digit, 
+                    className: 'mycluster digit-'+digit, 
+                    iconSize: null 
+                });
+            }
+        });
         var l_mark_icon=L.mapbox.marker;
 
         var addressPoints = [
@@ -285,7 +295,7 @@ let NL = L;
                 title: title
             });
             marker.bindPopup(title);
-            markers.addLayer(marker);
+            markersClusterCustom.addLayer(marker);
         }
 
         addressPoints = [
@@ -330,14 +340,14 @@ let NL = L;
             var a = addressPoints[0];
             var title = a[2];
             var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
+                icon: L.mapbox.marker.icon({'marker-symbol': 'andorre', 'marker-color': '0044FF'}),
                 title: title
             });
             marker.bindPopup(title);
             markers.addLayer(marker);
         }
-
         map.addLayer(markers);
+        map.addLayer(markersClusterCustom);
 
 
 
