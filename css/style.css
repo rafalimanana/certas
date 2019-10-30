@@ -12844,6 +12844,9 @@ h5,
     width: 360%;
     background: #ef9ade;
 }
+.marker-cluster-small div {
+    background-color:  #188ffb !important;
+}
 
 @media (max-width: 767.98px) {
     .aside-stretch {
