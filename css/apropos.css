@@ -363,6 +363,9 @@ span a {
 	border: 1px solid #bcb8c1;
 	border-radius: 5px;
 }
+.div-search .form-control::placeholder {
+    color: #bcb8c1;
+}
 
 .c_popup {
 	color: #a29da9;
