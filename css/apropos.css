@@ -336,6 +336,7 @@ span a {
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 2px 2px 0px .0px rgba(240,240,240,5);
+	border: 1px solid rgb(240, 240, 240);
 }
 
 .c_information {
@@ -354,6 +355,7 @@ span a {
 }
 #search{
   border: initial  !important; 
+  height: initial !important;
 }
 #basic-text1{
   background-color: inherit !important;
