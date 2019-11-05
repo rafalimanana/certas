@@ -158,13 +158,17 @@
         </h2>
 	  	<div class="row">
 	  		<div class="col-md-6">
-	  			{% if post.content%}
-	  				{{post.content|raw}}
+                {% set id_contact = post.get_field('shortcode_formulaire') %}
+                {% if post.content%}
+                    {% filter shortcodes|raw %}
+                         [contact-form-7 id="{{id_contact}}" title="Contact"] 
+                    {% endfilter %}
+	  				{# {{post.content|raw}} #}
 	  			{% else %}
 	  				{% include 'contact-form.twig' %}
 	  			{% endif %}
 	  		</div>
-	  		<div class="col-md-6" style="padding-left:66px">
+	  		<div class="col-md-6 img_contact_left">
 		    	{% set img = post.get_field('image_nous_contacter') %}
 	    		{% if img %}
 	  				<img src="{{img.url}}" style="width: 100%;">

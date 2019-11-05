@@ -485,6 +485,12 @@ article section._article_content h1._article_body {
         text-transform: uppercase;
         color:#02b5ca;
     }
+    @media only screen and (max-width: 768px) {
+        article section._bloc_content {
+            margin: 5px !important;
+        }
+
+    }
 /* --------------------------------------------
 --------- End Page service en stations --------
 ----------------------------------------------- */
@@ -633,6 +639,12 @@ article section._article_content h1._article_body {
         margin: 0;
         font-weight: bolder;
         line-height: 30px
+    }
+    @media only screen and (max-width: 768px) {
+        #_pg_carburants section._carbu_img ._carbu_bloc_img {
+            margin: 5px !important;
+        }
+
     }
 /*---------------------------------
 ----- End Page nos carburants -----
