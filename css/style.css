@@ -11579,8 +11579,8 @@ h5,
         top: 0;
     }
 
-    ul#_menu li:hover > ul.submenu {
-        display: none !important;
+    ul.submenu {
+        display: none;
     }
 
     ul.submenu .nav-item a{
@@ -11596,6 +11596,14 @@ h5,
 
     .i_mobile {
         display: block !important;
+    }
+
+    ul.submenu li.nav-item {
+        padding: 4px 25px !important;
+    }
+
+    ul.submenu li.nav-item:hover {
+        font-weight: bold !important;
     }
 }
 
