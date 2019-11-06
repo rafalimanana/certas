@@ -613,3 +613,81 @@ ul.submenu .nav-item:not(:last-child) a{
     	padding-left: 13px !important;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .l_search {
+    	margin-bottom: 5px !important;
+    }
+}
+
+
+
+.i_page {
+    display: block;
+}
+
+.i_mobile {
+    display: none;
+}
+
+/*@media only screen and (max-width: 64em) and (min-width: 52.01em) {
+  #_nav li {
+    width: 33.333%;
+  }
+
+  #_nav .submenu li {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 52em) {
+  #_nav #_menu {
+    display: block;
+  }
+
+  #toggle-menu, 
+  #_nav label.drop-icon {
+    display: none;
+  }
+
+  #_nav ul span.drop-icon {
+    display: inline-block;
+  }
+
+  #_nav li {
+    float: left;
+    border-width: 0 1px 0 0;
+  }
+
+  #_nav .submenu li {
+    float: none;
+  }
+
+  #_nav .submenu {
+    border-width: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 12em;
+    z-index: 3000;
+  }
+
+  #_nav .submenu, 
+  #_nav input[type="checkbox"]:checked + .submenu {
+    display: none;
+  }
+
+  #_nav .submenu li {
+    border-width: 0 0 1px;
+  }
+
+  #_nav .submenu .submenu {
+    top: 0;
+    left: 100%;
+  }
+
+  #_nav li:hover > input[type="checkbox"] + .submenu {
+    display: block;
+  }
+}*/
