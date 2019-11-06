@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if (screen.width <= 990) {
+	if (screen.width <= 991.98) {
 		console.log('test menu')
 		/*$('.submenu').css('display', 'none');*/
 		var sub_station = document.getElementById("sub_station");

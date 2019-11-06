@@ -11584,8 +11584,10 @@ h5,
     }
 
     ul.submenu .nav-item a{
-      color:#fff !important;
-      font-size: 13px;
+        /*color:#fff !important;*/
+        color:#00aac9  !important;
+        font-size: 13px;
+        border-bottom: 0 !important;
     }
 
     .i_page {
