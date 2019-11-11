@@ -43,9 +43,21 @@
 	padding-left: 35px;
 }
 
-.header-bg{
+/*.header-bg{
 	border-bottom-left-radius: 45%;
     border-bottom-right-radius: 45%;
+}*/
+
+.header-bg {
+   border-bottom-left-radius: 50%;
+   border-bottom-right-radius: 50%;
+   width: 110% !important;
+   left: -5%;
+}
+
+.header{
+	background-image: url(../images/_bg/_bg_img.png);
+	background-color: #fff !important;
 }
 
 #content{
