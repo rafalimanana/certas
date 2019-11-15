@@ -8,8 +8,7 @@ body { margin:0; padding:0; }
 
 .leaflet-popup-content-wrapper {
 	position: relative;
-	right: 182px !important;
-	border-radius: 12px !important;
+	border-radius: 4px !important;
 }
 
 .c_information {
@@ -19,5 +18,9 @@ body { margin:0; padding:0; }
 }
 
 #list {
+	display: none;
+}
+
+.leaflet-popup-tip-container {
 	display: none;
 }

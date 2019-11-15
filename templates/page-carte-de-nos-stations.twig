@@ -227,7 +227,7 @@ let NL = L;
         L.mapbox.accessToken = 'pk.eyJ1IjoiZmFicmljZXdlYiIsImEiOiJjazI1cmpmMGswcXI3M3FwOTJ2c25ldGVzIn0.4X0G-2us5zurU019Yu9tPw';
         var geocoder = L.mapbox.geocoder('mapbox.places');
         // map = L.mapbox.map('map', 'mapbox.streets');
-        var map = L.mapbox.map('map', 'mapbox.streets').setView([lat, lon], 6);
+        var map = L.mapbox.map('map', 'mapbox.streets');
         // Add tiles from the Mapbox Static Tiles API
         // (https://docs.mapbox.com/api/maps/#static-tiles)
         // Tiles are 512x512 pixels and are offset by 1 zoom level
@@ -242,7 +242,7 @@ let NL = L;
                     let v = 5
                     bcks.map((bucket,key) =>{
                         if(bcks[key+1]){
-                            if(bcks[key] < cc && cc < bcks[key+1]){
+                            if(bcks[key] <= cc && cc < bcks[key+1]){
                                 v = key+1
                             }
                         }
@@ -270,8 +270,54 @@ let NL = L;
             }
         });*/
         var l_mark_icon=L.mapbox.marker;
+        var greenIcon = L.icon({
+            iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
+            iconSize:     [30, 60], // size of the icon
+        });
 
-        var addressPoints = [
+        var searchIcon = L.icon({
+            iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
+            iconSize:     [30, 60], // size of the icon
+        });
+
+        $.getJSON("{{site.theme.link}}/json/geoLocation.json", function(data) {
+            var geojson = L.geoJson(data, {
+              onEachFeature: function (feature, layer) {
+                //console.log(feature);
+                var htmlBind = '<div class="pl-1">'+
+                '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
+                '<p>'+
+                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                    '<span class="c_popup">'+
+                    '<span>' + feature.properties.address + ',</span><br>'+
+                    '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '</span>'+
+                '</p>'+
+                '<p>'+
+                    '<span>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                    '</span>'+
+                    '<span class="pl-3">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                    '</span>'+
+                '</p>'+
+                '</div>';
+                // USE A CUSTOM MARKER
+                layer.setIcon(greenIcon);
+
+                // ADD A POPUP WITH A CHART
+                layer.bindPopup(htmlBind);
+
+              }
+            });
+            markers.addLayer(geojson);
+
+            // CONSTRUCT THE MAP
+            map.fitBounds(markers.getBounds());
+            markers.addTo(map);
+          });
+
+        /*var addressPoints = [
             [46.227638, 2.213749, 'France'],
         ];
 
@@ -279,7 +325,7 @@ let NL = L;
             var a = addressPoints[0];
             var title = a[2];
             var marker = L.marker(new L.LatLng(a[0]+i*0.001, a[1]+i*0.001), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
+                icon: L.mapbox.marker.icon({}),
                 title: title
             });
             marker.bindPopup(title);
@@ -375,7 +421,7 @@ let NL = L;
 
         addressPoints = [
             [42.507530, 1.521820, 'Andorre'],
-        ];
+        ];*/
 
         /*for (var i = 0; i < 17; i++) {
             var a = addressPoints[0];
@@ -387,7 +433,7 @@ let NL = L;
             marker.bindPopup(title);
             markers.addLayer(marker);
         }*/
-        map.addLayer(markers);
+        // map.addLayer(markers);
         //map.addLayer(markersClusterCustom);
 
 
@@ -405,7 +451,7 @@ let NL = L;
             }).addTo(macarte);
 
             var greenIcon = L.icon({
-                iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
+                iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
                 iconSize:     [38, 95], // size of the icon
             });
 
@@ -448,6 +494,7 @@ let NL = L;
             initMap(); 
         };
         window.re_bounds=[];
+        window.re_properties=[];
         window.curerntId = 0
        /*$('#search').keyup(function(event) {
             var search = $(this).val();
@@ -526,6 +573,7 @@ let NL = L;
                             for (var i = res.length - 1; i >= 0; i--) {
                                 j_count++;
                                 window.re_bounds[i] = res[i].bounds;
+                                window.re_properties[i] = res[i].properties;
                                 var affiche = '';
                                 if (res[i].properties.City != '') {
                                     affiche=res[i].properties.City;
@@ -557,19 +605,44 @@ let NL = L;
                                             $(".l_city").removeClass();
                                             var fil = $(this).data('val');
                                             var c_bounds = re_bounds[fil];
+                                            var c_properties = re_properties[fil];
+                                            var name = '';
+                                            if (c_properties.City != '') {
+                                                name=c_properties.City;
+                                            }else if(c_properties.LongLabel != '') {
+                                                name=c_properties.LongLabel;
+                                            }else {
+                                                name=c_properties.Place_addr;
+                                            }
+                                            var content = '<div class="pl-1">'+
+                                            '<h5 class="t_esso">' + name + '</h5>'+
+                                            '<p>'+
+                                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                                                '<span class="c_popup">'+
+                                                '<span>' + c_properties.Match_addr + ',</span><br>'+
+                                                '<span style="padding-left: 20px;">' + c_properties.City + ' - ' + c_properties.Country +'</span>'+
+                                                '</span>'+
+                                            '</p>'+
+                                            '<p>'+
+                                                '<span>'+
+                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:34px;">'+
+                                                '</span>'+
+                                                '<span class="pl-3">'+
+                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
+                                                '</span>'+
+                                            '</p>'+
+                                            '</div>';
                                             //map.fitBounds(c_bounds);
                                             /*_map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
                                             //_map.fitBounds(c_bounds);
                                             var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
                                             marker.setLatLng(newLatLng);*/
-                                            var title = affiche;
                                             var marker = _NL.marker(new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng), {
-                                                icon: l_icon.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                                                title: title
+                                                icon: searchIcon
                                             });
                                             var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
                                             marker.setLatLng(newLatLng);
-                                            marker.bindPopup(title);
+                                            marker.bindPopup(content);
                                             markers.addLayer(marker);
                                             //map.addLayer(markers);
                                         })

@@ -571,6 +571,16 @@ li ul.submenu {
     min-width: 220px !important;
     max-width: 220px !important;
   }
+
+  .nav-item:hover> ul{
+    border-top-right-radius: 0px !important; 
+    border-bottom-right-radius: 0px !important; 
+  }
+  .nav-item:hover> ul> li> ul{
+    border-top-left-radius: 0px !important; 
+    border-bottom-left-radius: 0px !important; 
+  }
+
 }
 
 .hr_menu {

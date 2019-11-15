@@ -1,5 +1,10 @@
 {% extends "_base_page.twig" %}
 {% block header %}
+    <style type="text/css">
+    .leaflet-popup-content-wrapper {
+        /*right: 182px !important;*/
+    }
+    </style>
 <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
@@ -206,80 +211,99 @@ let OL = L;</script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <link rel="stylesheet" href="{{ site.theme.link }}/css/_carte-station.css">
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster-src.js"></script>
 <script type="text/javascript">
 let NL = L;
        var lat = 44.798770;
         var lon = -0.663530;
         window.macarte = null
-        // Fonction d'initialisation de la carte
-
         L.mapbox.accessToken = 'pk.eyJ1IjoiZmFicmljZXdlYiIsImEiOiJjazI1cmpmMGswcXI3M3FwOTJ2c25ldGVzIn0.4X0G-2us5zurU019Yu9tPw';
         var geocoder = L.mapbox.geocoder('mapbox.places');
-        // map = L.mapbox.map('map', 'mapbox.streets');
-        var map = L.mapbox.map('map', 'mapbox.streets')
-            .setView([lat, lon], 15);
-
-        // Add tiles from the Mapbox Static Tiles API
-        // (https://docs.mapbox.com/api/maps/#static-tiles)
-        // Tiles are 512x512 pixels and are offset by 1 zoom level
+        var map = L.mapbox.map('map', 'mapbox.streets');
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
+        var myLayer = L.mapbox.featureLayer().addTo(map);
         var greenIcon = L.icon({
             iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
-            iconSize:     [38, 95], // size of the icon
+            iconSize:     [30, 90],
         });
-
         var featureLayer = L.mapbox.featureLayer().addTo(map);
-
         window.marker = L.marker([lat, lon], {icon: greenIcon});
-        var esso_alou = '<div class="pl-1">'+
-        '<h5 class="t_esso">Esso Alouette</h5>'+
-        '<p>'+
-            '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-            '<span class="c_popup">'+
-            '<span>3/5 Avenue Général Leclerc,</span><br>'+
-            '<span style="padding-left: 20px;">Pessac - France</span>'+
-            '</span>'+
-        '</p>'+
-        '<p>'+
-            '<span>'+
-                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
-            '</span>'+
-            '<span class="pl-3">'+
-                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
-            '</span>'+
-        '</p>'+
-        '</div>';
-        marker.addTo(map)
-            .bindPopup(esso_alou)
-            .openPopup();
-
-        function showMap(err, data) {
-            // The geocoder can return an area, like a city, or a
-            // point, like an address. Here we handle both cases,
-            // by fitting the map bounds to an area or zooming to a point.
-
-            if (data.lbounds) {
-                map.fitBounds(data.lbounds);
-            } else if (data.latlng) {
-                map.setView([data.latlng[0], data.latlng[1]], 13);
+        var markers = new L.MarkerClusterGroup({
+            iconCreateFunction : function (cluster) {
+                let defineBucket = (cc) =>{
+                    let bcks = [
+                        0,10,100,1000,10000,100000
+                    ]
+                    let v = 5
+                    bcks.map((bucket,key) =>{
+                        if(bcks[key+1]){
+                            if(bcks[key] <= cc && cc < bcks[key+1]){
+                                v = key+1
+                            }
+                        }
+                        return true
+                    })
+                    return v;
+                }
+                let definedBucket = defineBucket(cluster.getChildCount())
+                return L.divIcon( {
+                    html : '<b class="map-icon-container"><img class="map-icon" src="{{site.theme.link}}/images/_icons/m'+definedBucket+'.png" /><span class="map-icon-text" >' + cluster.getChildCount() + '</span></b>', 
+                    className : 'mycluster', 
+                    iconSize : [50, 50]
+                });
             }
-        }
+        });
+        let lay = {}
+        $.getJSON('{{site.theme.link}}/json/geoLocation.json',function(data){
+            var geojson = L.geoJson(data, {
+              onEachFeature: function (feature, layer) {
+                let id = feature.id
+                lay[id] = layer
+                //console.log(feature);
+                var htmlBind = '<div class="pl-1">'+
+                '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
+                '<p>'+
+                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                    '<span class="c_popup">'+
+                    '<span>' + feature.properties.address + ',</span><br>'+
+                    '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '</span>'+
+                '</p>'+
+                '<p>'+
+                    '<span>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                    '</span>'+
+                    '<span class="pl-3">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                    '</span>'+
+                '</p>'+
+                '</div>';
+                // USE A CUSTOM MARKER
+                layer.setIcon(greenIcon);
 
-       function initMap() {
-        let L = OL
-            // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-            macarte = L.map('maps', {attributionControl: false}).setView([lat, lon], 11);
-            // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                // ADD A POPUP WITH A CHART
+                layer.bindPopup(htmlBind);
+
+              }
+            });
+            markers.addLayer(geojson);
+            map.fitBounds(markers.getBounds());
+            markers.addTo(map);
+
+        });
+        function initMap() {
+            let L = OL
+            macarte = L.map('maps', {attributionControl: false}).setView([lat, lon], 6);
             L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                // Il est toujours bien de laisser le lien vers la source des données
-                // attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
                 minZoom: 1,
                 maxZoom: 20
             }).addTo(macarte);
 
-            /*var greenIcon = L.icon({
+            var greenIcon = L.icon({
                 iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
-                iconSize:     [38, 95], // size of the icon
+                iconSize:     [38, 95]
             });
 
             var esso_alou = '<h5 class="t_esso">Esso Alouette</h5>'+
@@ -287,7 +311,7 @@ let NL = L;
                     '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
                     '<span>Route des Alpes,</span><br>'+
                     '<span style="padding-left: 20px;">Aix-en-provence - France</span>'+
-                '</p>';*/
+                '</p>';
 
 
 
@@ -299,62 +323,12 @@ let NL = L;
 
             // Control 2: This add a scale to the map
             L.control.scale().addTo(macarte);
-
-        // Control 3: This add a Search bar
-            /*var resu = new L.LayerGroup().addTo(macarte);
-
-            L.esri.Geocoding.geocode().text('380 New York St, Redlands, California, 92373').run(function (err, results, response) {
-              if (err) {
-                console.log(err);
-                return;
-              }
-              console.log(results);
-              var res =results.results;
-              resu.clearLayers();
-              for (var i = res.length - 1; i >= 0; i--) {
-                resu.addLayer(L.marker(res[i].latlng, {icon: greenIcon}).bindPopup("<b>"+res[i].city+"</b><br>"+res[i].address+"").openPopup());
-              }
-            });*/
         }
         window.onload = function(){
-            // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
             initMap(); 
         };
         window.re_bounds=[];
         window.curerntId = 0
-       /*$('#search').keyup(function(event) {
-            var search = $(this).val();
-            geocoder.query(search, function(err,data) {
-                if (data.lbounds) {
-
-                                    console.log("data-c_bounds",data.lbounds)
-                    map.fitBounds(data.lbounds);
-                    var newLatLng = new L.LatLng(data.latlng[0], data.latlng[1]);
-                    marker.setLatLng(newLatLng);
-                } else if (data.latlng) {
-
-                    //map.setView([data.latlng[0], data.latlng[1]], 13);
-                    //marker.addTo(map);
-                }
-            });
-        });*/
-        /*var csvLayer = omnivore.csv('/mapbox.js/assets/data/airports.csv', null, L.mapbox.featureLayer()).addTo(map);
-        function search() {
-            // get the value of the search input field
-
-            var searchString = $('#search').val().toLowerCase();
-
-            csvLayer.setFilter(showState);
-
-            // here we're simply comparing the 'state' property of each marker
-            // to the search string, seeing whether the former contains the latter.
-            function showState(feature) {
-            console.log('test');
-                // return feature.properties.state
-                //     .toLowerCase()
-                //     .indexOf(searchString) !== -1;
-            }
-        }*/
         $('#search').on('keyup', function(event) {
             let _map = map
             let L = OL
@@ -364,14 +338,109 @@ let NL = L;
             var search = $(this).val().toLowerCase();
             $('#l_resultat').html('');
             $('#l_resultat').css('display', 'none');
-            console.log(search.length);
             if (search != '' && search.length >= 2 && event.keyCode != 46) {
                setTimeout(function(){
                   window.recherche=search;
-                  //document.getElementById('map').innerHTML='';
                   var geocoder = L.esri.Geocoding.geocodeService();
                   var map = macarte;
-                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  regex = new RegExp(search);
+                  $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
+                    let scores = []
+                    let scoresindex = {}
+                    var geojson = L.geoJson(data, {
+                        onEachFeature: function (feature, layer) {
+                            let properties = feature.properties
+                            let id = feature.id
+                            let score = 0;
+                            Object.keys(properties).map((keyname) =>{
+                                let keyvalue = properties[keyname]
+                                if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
+                                    score++
+                                    console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
+                                }
+                            })
+                            scoresindex[id] = feature
+                            scores.push({
+                                id:id,
+                                score:score,
+                            })
+                        }
+                    });
+                    for (var i = 0; i < scores.length; i++) {
+                        for (var j = i+1; j < scores.length; j++) {
+                            if(scores[i].score<scores[j].score){
+                                let t = scores[i]
+                                scores[i] = scores[j]
+                                scores[j] = t
+                            }
+                        }
+                    }
+                    scores = scores.filter((score) =>{
+                        return score.score>0
+                    })
+                    scores = scores.splice(0,4)
+                    let div = '';
+                    $('#l_resultat').css('display', 'block');
+                    $('#l_resultat').html('')
+                    scores.map((score,i) =>{
+                        let id = score.id
+                        let feature = scoresindex[id]
+                        let affiche=feature.properties.name;
+                        var div = '<div class="col mt-4 l_carte">'+
+                            '<h5 class="t_esso">'+affiche+'</h5>'+
+                            '<p>'+
+                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                                '<span>'+feature.properties.address+'</span><br>'+
+                                '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                            '</p>'+
+                            '<p class="c_information" id="sel'+id+'" data-val="'+id+'" >'+
+                                '<span>Plus d\'informations</span>'+
+                            '</p>'+
+                        '</div>';
+                        $('#l_resultat').append(div);
+
+                        $('#sel'+id).on('click',function(event) {
+                            $("#l_resultat").html('');
+                            $('#search').val('');
+                            $(".l_city").removeClass();
+                            var fil = $(this).data('val');
+                            var feat = scoresindex[id];
+                            var c_bounds =feat.geometry.coordinates;
+                            let lat = feat.geometry.coordinates[1];
+                            let lng = feat.geometry.coordinates[0];
+                            var fit = [
+                                [lat-0.01, lng-0.01],
+                                [lat+0.01, lng+0.01],
+                            ]
+                            _map.fitBounds(fit);
+                            map.panTo(new L.LatLng(lat, lng));
+                            var content = '<div class="pl-1">'+
+                            '<h5 class="t_esso">' + feat.properties.name + '</h5>'+
+                            '<p>'+
+                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                                '<span class="c_popup">'+
+                                '<span>' + feat.properties.address + ',</span><br>'+
+                                '<span style="padding-left: 20px;">' + feat.properties.city + ' - ' + feat.properties.country +'</span>'+
+                                '</span>'+
+                            '</p>'+
+                            '<p>'+
+                                '<span>'+
+                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                                '</span>'+
+                                '<span class="pl-3">'+
+                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                                '</span>'+
+                            '</p>'+
+                            '</div>';
+                            var newLatLng = new L.LatLng(lat,lng);
+                            lay[id]
+                                .openPopup();
+                        })
+
+                    })
+                });
+                  
+                  /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
                   }).addTo(map);
                   L.esri.Geocoding.geocode()
@@ -395,9 +464,10 @@ let NL = L;
                         if (r_count>=4) {
                             return false;
                         }else {
+                            var re_bounds = [];
                             for (var i = res.length - 1; i >= 0; i--) {
                                 r_count++;
-                                window.re_bounds[i] = res[i].bounds;
+                                re_bounds[i] = res[i].bounds;
                                 var affiche = '';
                                 if (res[i].properties.City != '') {
                                     affiche=res[i].properties.City;
@@ -430,10 +500,10 @@ let NL = L;
                                             $(".l_city").removeClass();
                                             var fil = $(this).data('val');
                                             var c_bounds = re_bounds[fil];
+                                            console.log("c_bounds",c_bounds)
                                             map.fitBounds(c_bounds);
 
-                                            console.log("c_bounds",c_bounds)
-                                            _map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
+                                            map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
                                             //_map.fitBounds(c_bounds);
                                             var r_city='';
 
@@ -480,14 +550,12 @@ let NL = L;
                             }
                         }
                     }
-                  });
+                  });*/
                 }, 100);
             }
         });
 
         $(document).on('click', function(event) {
-            console.log(event.target);
-            console.log($('#search')[0]);
           if (!$(event.target).closest('#l_resultat').length && event.target != $('#search')[0])  {
                 $("#l_resultat").html('');
                 $('#search').val('');
