@@ -1,5 +1,7 @@
 .propos-header {
     background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url(../images/Slider.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 .header-bg-front {
     border-bottom-left-radius: initial;
