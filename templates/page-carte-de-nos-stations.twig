@@ -184,6 +184,9 @@
             </div> #}
             <div class="dropdown" id="list">
             </div>
+            
+            <div class="dropdown" id="l_default">
+            </div>
         </div>
         <div class="col-md-8">
             <div id="map" style="width:100%;height:720px;"></div>
@@ -233,6 +236,12 @@ let NL = L;
         // Tiles are 512x512 pixels and are offset by 1 zoom level
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
         // var mcg = L.markerClusterGroup().addTo(map);
+        var l_mark_icon=L.mapbox.marker;
+        var greenIcon = L.icon({
+            iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
+            iconSize:     [30, 60], // size of the icon
+        });
+        window.marker = L.marker([lat, lon], {icon: greenIcon});
         var markers = new L.MarkerClusterGroup({
             iconCreateFunction : function (cluster) {
                 let defineBucket = (cc) =>{
@@ -269,11 +278,6 @@ let NL = L;
                 });
             }
         });*/
-        var l_mark_icon=L.mapbox.marker;
-        var greenIcon = L.icon({
-            iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
-            iconSize:     [30, 60], // size of the icon
-        });
 
         var searchIcon = L.icon({
             iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
@@ -281,8 +285,60 @@ let NL = L;
         });
 
         $.getJSON("{{site.theme.link}}/json/geoLocation.json", function(data) {
+            var d_i = 1; 
             var geojson = L.geoJson(data, {
               onEachFeature: function (feature, layer) {
+                let d_name=feature.properties.name;
+                let d_id = feature.id
+                var d_content = '<div class="col mt-4 l_carte">'+
+                    '<h5 class="t_esso">'+d_name+'</h5>'+
+                    '<p>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<span>'+feature.properties.address+'</span><br>'+
+                        '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '</p>'+
+                    '<p class="c_information" id="d_click'+d_id+'" data-val="'+d_id+'" >'+
+                        '<span>Plus d\'informations</span>'+
+                    '</p>'+
+                '</div>';
+                if (d_i <= 4) {
+                    $('#l_default').append(d_content);
+                    $('#d_click'+d_id).on('click',function(event) {
+                        $("#l_resultat").html('');
+                        $('#search').val('');
+                        var c_bounds =feature.geometry.coordinates;
+                        let d_lat = feature.geometry.coordinates[1];
+                        let d_lng = feature.geometry.coordinates[0];
+                        var fit = [
+                            [d_lat-0.01, d_lng-0.01],
+                            [d_lat+0.01, d_lng+0.01],
+                        ]
+                        map.fitBounds(fit);
+                        var d2_content = '<div class="pl-1">'+
+                        '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
+                        '<p>'+
+                            '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                            '<span class="c_popup">'+
+                            '<span>' + feature.properties.address + ',</span><br>'+
+                            '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                            '</span>'+
+                        '</p>'+
+                        '<p>'+
+                            '<span>'+
+                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                            '</span>'+
+                            '<span class="pl-3">'+
+                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                            '</span>'+
+                        '</p>'+
+                        '</div>';
+                        layer
+                            .openPopup();
+                            
+                            // .bindPopup(d2_content)
+                    })
+                    d_i++;
+                }
                 //console.log(feature);
                 var htmlBind = '<div class="pl-1">'+
                 '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
@@ -539,6 +595,7 @@ let NL = L;
             var search = $(this).val();
             $('#list').html('');
             $('#list').css('display', 'none');
+            $('#l_default').css('display', 'none');
             if (search != '' && search.length >= 2 && event.keyCode != 46) {
                setTimeout(function(){
                   window.recherche=search;
@@ -634,17 +691,28 @@ let NL = L;
                                             '</div>';
                                             //map.fitBounds(c_bounds);
                                             /*_map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
-                                            //_map.fitBounds(c_bounds);
                                             var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
                                             marker.setLatLng(newLatLng);*/
-                                            var marker = _NL.marker(new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng), {
+                                            let lat = res[i].latlng.lat;
+                                            let lng = res[i].latlng.lng;
+                                            var fit = [
+                                                [lat-0.01, lng-0.01],
+                                                [lat+0.01, lng+0.01],
+                                            ]
+                                            _map.fitBounds(fit);
+                                            map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
+                                            /*var marker = _NL.marker(new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng), {
                                                 icon: searchIcon
-                                            });
+                                            });*/
                                             var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
-                                            marker.setLatLng(newLatLng);
-                                            marker.bindPopup(content);
-                                            markers.addLayer(marker);
-                                            //map.addLayer(markers);
+                                            marker
+                                            .setLatLng(newLatLng)
+                                            .addTo(_map)
+                                            .bindPopup(content)
+                                            .openPopup()
+                                            ;
+                                            // markers.addLayer(marker);
+                                            //map.addLayer(markers); 
                                         })
                                     }
                                     _f(i)
@@ -672,6 +740,7 @@ let NL = L;
                 $("#list").html('');
                 $('#search').val('');
                 $('#list').css('display', 'none');
+                $('#l_default').css('display', 'block');
           }
         });
 
