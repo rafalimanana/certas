@@ -29,9 +29,32 @@ if (is_page( array('Nos actualités', 'Nos actualites') ) ) {
 	    'order_by' => 'date',
 	    'order' => 'DESC',
 	    'posts_per_page' => 6,
+	    'category_name' => 'actualites',
 	    'post_status' => 'publish'
 	);
 	$context['posts'] = Timber::get_posts($args);
+}
+if (is_page( array('Produits', 'Liste des produits vendus') ) ) {
+	$args = array(
+	    'post_type' => 'post',
+	    'order_by' => 'date',
+	    'order' => 'DESC',
+	    'posts_per_page' => 4,
+	    'category_name' => 'produits',
+	    'post_status' => 'publish'
+	);
+	$context['produits'] = Timber::get_posts($args);
+}
+if (is_page( array('Promos', 'Nos promos') ) ) {
+	$args = array(
+	    'post_type' => 'post',
+	    'order_by' => 'date',
+	    'order' => 'DESC',
+	    'posts_per_page' => 5,
+	    'category_name' => 'promos',
+	    'post_status' => 'publish'
+	);
+	$context['promos'] = Timber::get_posts($args);
 }
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;

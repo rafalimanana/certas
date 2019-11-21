@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>  
                     </li>
                     <li class="nav-item">
@@ -95,8 +95,12 @@
                                     	{% if post.get_field('description_header') %}
                                     		{{post.get_field('description_header')}}
                                     	{% else %}
-                                    	    {{post.post_content}}
-                                    	{% endif %}<a href="#" class="a-prs"></a> 
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                    	{% endif %}
+                                        <a href="#" class="a-prs"></a> 
                                     </p>
                                 </div>
                             </div>
@@ -112,7 +116,17 @@
                             <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">{{post.post_content}}<a href="#" class="a-prs"></a> </p>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a> 
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +141,17 @@
                             <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">{{post.post_content}}<a href="#" class="a-prs"></a> </p>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a> 
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +172,8 @@
 	    	<nav aria-label="breadcrumb">
 				<ol class="breadcrumb _bredcrumb_custo">
 			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
-			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Nos stations</a></li>
-			    	<li class="breadcrumb-item active"><strong>Service en stations</strong></li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">{{post.parent.title}}</a></li>
+			    	<li class="breadcrumb-item active"><strong>{{post.title}}</strong></li>
 			  	</ol>
 			</nav>
 	    </div>
@@ -161,25 +185,43 @@
 	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
 	            <section class="_article_content">
 	                
-	                <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Faites le plein  </span><strong>d'avantages !</strong></span></p>
+	                <h2 class="text-uppercase  services-h2">
+                        {% if  post.get_field('premier_titre') %}
+                            {{post.get_field('premier_titre')}}
+                        {% else %}
+                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Faites le plein  </span><strong>d'avantages !</strong></span></p>
+                        {% endif %}
 					</h2>
 
 	                <div class="_article_body">
-	                    <p>Vous avez besoin de faire le plein d'essence sur autoroute ou en ville ? Profitez-en aussi pour faire le plein d'avantages ! Chez Esso Express, nous avons bien compris que les automobilistes ne choisissent pas leur station essence par hasard. Le réseau, composé de près de 300 stations-service ouvertes en continu, 7/7 et 24H/24, et partout sur le territoire français, permet de réaliser un plein d'essence avec du carburant de grande qualité et des prix compétitifs, se situant ainsi chaque année dans le top 5 des meilleures enseignes.<br> D'ailleurs nous proposons également un paiement facile et rapide, puisqu'il se réalise uniquement par carte bancaire ou carte carburant comme la « Esso Card », « DKV » ou « UTA ». Les stations-service Esso Express garantissent la sécurité des automobilistes grâce à la vidéosurveillance présente sur les stations: toutes nos caméras sont reliées à un centre de télésurveillance 7/7 et 24H/24.</p>
-	                    <p>Certaines stations-service de notre réseau proposent également de l’AdBlue pour les véhicules et poids lourds, dotés de la nouvelle technologie SCR pour la réduction des émissions polluantes.</p>
-	                    <p>Esso va encore plus loin dans ses performances, en développant la marque Synergy, un nouveau concept de station-service avec des produits encore plus performants. Toutes les stations-service ESSO Express du réseau de Certas Energy France seront équipées, au courant de l’année, de l’empreinte Synergy.</p>
+                        {% if  post.get_field('premier_contenu') %}
+                            {{post.get_field('premier_contenu')}}
+                        {% else %}
+                            <p>Vous avez besoin de faire le plein d'essence sur autoroute ou en ville ? Profitez-en aussi pour faire le plein d'avantages ! Chez Esso Express, nous avons bien compris que les automobilistes ne choisissent pas leur station essence par hasard. Le réseau, composé de près de 300 stations-service ouvertes en continu, 7/7 et 24H/24, et partout sur le territoire français, permet de réaliser un plein d'essence avec du carburant de grande qualité et des prix compétitifs, se situant ainsi chaque année dans le top 5 des meilleures enseignes.<br> D'ailleurs nous proposons également un paiement facile et rapide, puisqu'il se réalise uniquement par carte bancaire ou carte carburant comme la « Esso Card », « DKV » ou « UTA ». Les stations-service Esso Express garantissent la sécurité des automobilistes grâce à la vidéosurveillance présente sur les stations: toutes nos caméras sont reliées à un centre de télésurveillance 7/7 et 24H/24.</p>
+                            <p>Certaines stations-service de notre réseau proposent également de l’AdBlue pour les véhicules et poids lourds, dotés de la nouvelle technologie SCR pour la réduction des émissions polluantes.</p>
+                            <p>Esso va encore plus loin dans ses performances, en développant la marque Synergy, un nouveau concept de station-service avec des produits encore plus performants. Toutes les stations-service ESSO Express du réseau de Certas Energy France seront équipées, au courant de l’année, de l’empreinte Synergy.</p>
+                        {% endif %}
 	                </div>
 	            </section>
 	        </article>
 	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
 	  			<section class="_article_content">
-	                <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le plein de services pour   </span><strong>satisfaire le client</strong></span></p>
+	                <h2 class="text-uppercase  services-h2">
+                        {% if  post.get_field('deuxieme_titre') %}
+                            {{post.get_field('deuxieme_titre')}}
+                        {% else %}
+                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le plein de services pour   </span><strong>satisfaire le client</strong></span></p>
+                        {% endif %}
 					</h2>
 
 	                <div class="_article_body">
-	                    <p>Avec les stations Esso Express, le client a également la possibilité de profiter de nombreux services diversifiés. Certas Energy France ré-ouvre ses boutiques et permet à ses partenaires d’installer leurs activités sur ses stations-service,  par exemple le « café » PauseExpresso à Montaudran, ou encore le caviste Vignobles à Ville d’Avray. De prochaines ouvertures sont prévues au courant de l’année 2017.</p>
-	                    <p>Afin de satisfaire pleinement le client, Certas propose  un service de gonflage de pneu Air-Serv, mais aussi de lavage automatisé WashTec, ou encore de Lockers Amazon pour récupérer vos commandes quand vous voulez.</p>
-	                    <p>Avec Esso Express, Certas Energy France vous propose un réseau de proximité avec une gamme de services variés, sans oublier nos prix bas toute l’année !</p>
+                         {% if  post.get_field('deuxieme_contenu') %}
+                            {{post.get_field('deuxieme_contenu')}}
+                        {% else %}
+                            <p>Avec les stations Esso Express, le client a également la possibilité de profiter de nombreux services diversifiés. Certas Energy France ré-ouvre ses boutiques et permet à ses partenaires d’installer leurs activités sur ses stations-service,  par exemple le « café » PauseExpresso à Montaudran, ou encore le caviste Vignobles à Ville d’Avray. De prochaines ouvertures sont prévues au courant de l’année 2017.</p>
+                            <p>Afin de satisfaire pleinement le client, Certas propose  un service de gonflage de pneu Air-Serv, mais aussi de lavage automatisé WashTec, ou encore de Lockers Amazon pour récupérer vos commandes quand vous voulez.</p>
+                            <p>Avec Esso Express, Certas Energy France vous propose un réseau de proximité avec une gamme de services variés, sans oublier nos prix bas toute l’année !</p>
+                        {% endif %}
 	                </div>
 	            </section>
 	        </article>
@@ -189,14 +231,23 @@
 	<div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-
 	        	<a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
 		        	<div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['premier_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['premier_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">LAVAGES<br>(Les équipements)</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['premier_titre_equipement'] %}
+                                    {{post.get_field('equipements')['premier_titre_equipement']}}
+                                {% else %}
+                                    LAVAGES<br>(Les équipements)
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 			    </a>
@@ -205,9 +256,19 @@
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['deuxieme_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['deuxieme_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">aspirateurs</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['deuxieme_titre_equipement'] %}
+                                    {{post.get_field('equipements')['deuxieme_titre_equipement']}}
+                                {% else %}
+                                    aspirateurs
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 			    </a>
@@ -216,9 +277,19 @@
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['troisieme_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['troisieme_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">gonfleurs</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['troisieme_titre_equipement'] %}
+                                    {{post.get_field('equipements')['troisieme_titre_equipement']}}
+                                {% else %}
+                                    gonfleurs
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 			    </a>
@@ -227,9 +298,19 @@
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['quatrieme_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['quatrieme_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">Boutiques<br>sur mv</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['quatrieme_titre_equipement'] %}
+                                    {{post.get_field('equipements')['quatrieme_titre_equipement']}}
+                                {% else %}
+                                    Boutiques<br>sur mv
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 			    </a>
@@ -238,9 +319,19 @@
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['cinquieme_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['cinquieme_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">lockers<br>amazon</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['cinquieme_titre_equipement'] %}
+                                    {{post.get_field('equipements')['cinquieme_titre_equipement']}}
+                                {% else %}
+                                    lockers<br>amazon
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 			    </a>
@@ -249,9 +340,19 @@
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
-			            		<img src="{{ site.theme.link }}/images/_icons/_pg_stations/_click.png" class="_bloc_ico">
+                                {% if post.get_field('equipements')['sixieme_icon_equipement'] %}
+                                    <img src=" {{post.get_field('equipements')['sixieme_icon_equipement'].url}}" class="_bloc_ico">
+                                {% else %}
+                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_click.png" class="_bloc_ico">
+                                {% endif %}
 			            	</div>
-			            	<h3 class="_bloc_title">click & collect<br>butagaz</h3>
+			            	<h3 class="_bloc_title">
+                                {% if post.get_field('equipements')['sixieme_titre_equipement_'] %}
+                                    {{post.get_field('equipements')['sixieme_titre_equipement_']}}
+                                {% else %}
+                                    click & collect<br>butagaz
+                                {% endif %}
+                            </h3>
 			            </section>
 			        </div>
 				</a>

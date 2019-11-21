@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul> 
                     </li>
                     <li class="nav-item">
@@ -93,7 +93,7 @@
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
                                         {% if post.get_field('description_header') %}
-                                        {{post.get_field('description_header')}}
+                                            {{post.get_field('description_header')}}
                                         {% else %}
                                         Certas Energy France fournit à plus de 100 000 personnes quotidiennement, des carburants de qualité dans environ 400 sites répartis sur l'ensemble du territoire français : plus de 270 stations automates Esso Express ouvertes 24h/24h, 7j/7j, environ 50 stations Esso sur autoroutes et un esemble de clients revendeurs à la marque <a href="#" class="a-prs">Esso.</a>
                                         {% endif %}

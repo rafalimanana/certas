@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -165,7 +165,13 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item active">{{post.post_title}}</li>
+                    {% if post.parent.parent.title %}
+                        <li class="breadcrumb-item">{post.parent.parent.title}}</li>
+                    {% endif %}
+                    {% if post.parent.title %}
+                        <li class="breadcrumb-item">{post.parent.title}}</li>
+                    {% endif %}
+                    <li class="breadcrumb-item active">{{post.title}}</li>
                 </ol>
             </nav>
         </div>

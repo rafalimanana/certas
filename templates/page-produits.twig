@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>  
                     </li>
                     <li class="nav-item active">
@@ -195,70 +195,87 @@
     <!-- Aide à la navigation -->
 
     <div class="container content-wrapper pb-5 ">
-        <div class="row">
-            <div class="col-md-4">
-                <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
+        {% if produits is not empty %}
+            {% for produit in produits %}
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <img class="img_produits" src="{{ produit.thumbnail.src }}">
+                    </div>
+                    <div class="col-md-8 pt-5 class-prod-list">
+                         <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
+                            </h4>
+                        <p>
+                            {{produit.content}}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
+                </div>
+                <div class="col-md-8 pt-5 class-prod-list">
+                     <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #1</strong></span></p>
+                        </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
+                    </p>
+                </div>
             </div>
-            <div class="col-md-8 pt-5 class-prod-list">
-                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #1</strong></span></p>
-                    </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
-                </p>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
+                </div>
+                <div class="col-md-8 pt-5 class-prod-list">
+                    <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #2</strong></span></p>
+                        </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
+                </div>
+                <div class="col-md-8 pt-5 class-prod-list">
+                     <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #3</strong></span></p>
+                        </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
+                    </p>
+                </div>
             </div>
-            <div class="col-md-8 pt-5 class-prod-list">
-                <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #2</strong></span></p>
-                    </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
-                </p>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
+                </div>
+                <div class="col-md-8 pt-5 class-prod-list">
+                     <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #4</strong></span></p>
+                        </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <img class="img_produits" src="{{ site.theme.link }}/images/Produit-1.png">
-            </div>
-            <div class="col-md-8 pt-5 class-prod-list">
-                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #3</strong></span></p>
-                    </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
-                </p>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <img class="img_produits" src="{{ site.theme.link }}/images/Produit-2.png">
-            </div>
-            <div class="col-md-8 pt-5 class-prod-list">
-                 <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Produit  </span><strong> #4</strong></span></p>
-                    </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non. <br>
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi 
-                </p>
-            </div>
-        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

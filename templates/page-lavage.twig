@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul> 
                     </li>
                     <li class="nav-item">
@@ -88,11 +88,15 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Services en stations</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
-                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                        	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -105,11 +109,15 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Services en stations</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
-                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -122,11 +130,15 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Services en stations</h1>
+                                    <h1 class="mb-4">{{post.parent.title}}</h1>
                                     <p style="font-size: 18px;">
-                                    	Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Pratiques, économiques, simples d'utilisations, nos nombreuses stations-service Esso Express sont pensées pour répondre aux besoins et aux attentes de nos clients.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -148,9 +160,9 @@
 	    	<nav aria-label="breadcrumb">
 				<ol class="breadcrumb _bredcrumb_custo">
 			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
-			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}/services-en-stations">Nos stations</a></li>
-			    	<li class="breadcrumb-item"><a class="a-navig" href="#">Services en stations</a></li>
-			    	<li class="breadcrumb-item active"><strong>Lavage (les équipements)</strong> </li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}/services-en-stations">{{post.parent.parent.title}}</a></li>
+			    	<li class="breadcrumb-item"><a class="a-navig" href="#">{{post.parent.title}}</a></li>
+			    	<li class="breadcrumb-item active"><strong>{{post.title}} (les équipements)</strong> </li>
 			  	</ol>
 			</nav>
 	    </div>
@@ -161,19 +173,32 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
 	            <section class="_article_content col-md-6">
-                       <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">NOS  </span><strong>LAVAGES</strong></span></p>
+                       <h2 class="text-uppercase  services-h2">
+                        {% if  post.get_field('premier_titre') %}
+                            {{post.get_field('premier_titre')}}
+                        {% else %}
+                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">NOS  </span><strong>LAVAGES</strong></span></p>
+                        {% endif %}
                     </h2>
 
 	                <div class="_article_body">
-	                    <p>Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons la volonté de toujours améliorer votre passage dans nos stations. C’est pourquoi, désormais, nous mettons à votre disposition des portiques de lavage dernière génération. Nos portiques proposent un large choix de programmes avec une meilleure efficacité et rapidité de lavage. </p>
-	                    <p>Nous avons également mis en place une carte d’abonnement afin de pouvoir recharger et vous permettre de bénéficier de réduction sur vos lavages.</p>
-	                    <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim.<br>Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
-	                    <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsu  primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. <br> Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
+                        {% if  post.get_field('contenu') %}
+                            {{post.get_field('contenu')}}
+                        {% else %}
+                            <p>Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons la volonté de toujours améliorer votre passage dans nos stations. C’est pourquoi, désormais, nous mettons à votre disposition des portiques de lavage dernière génération. Nos portiques proposent un large choix de programmes avec une meilleure efficacité et rapidité de lavage. </p>
+                            <p>Nous avons également mis en place une carte d’abonnement afin de pouvoir recharger et vous permettre de bénéficier de réduction sur vos lavages.</p>
+                            <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim.<br>Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
+                            <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsu  primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. <br> Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
+                        {% endif %}
 	                </div>
 	            </section>
 
 	            <section class="_article_content col-md-6 _blc_img_auto">
-	                <img src="{{ site.theme.link }}/images/_pages/_lavage.jpg" class="_img_auto">
+                    {% if  post.get_field('image') %}
+                        <img src="{{post.get_field('image').url}}" class="_img_auto">
+                    {% else %}
+                        <img src="{{ site.theme.link }}/images/_pages/_lavage.jpg" class="_img_auto">
+                    {% endif %}
 	            </section>
 
 	        </article>

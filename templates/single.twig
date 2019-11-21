@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -88,7 +88,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -111,7 +111,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -134,7 +134,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -174,24 +174,32 @@
     <!-- Aide à la navigation -->
 	<div class="container content-wrapper _pd_tp_50 _pd_bt_50">
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<a href="{{ post.link }}">{{ _e('edit') }}</a>
-				<p class="blog-author">
-					<span>By </span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ post.thumbnail.src }}" width="100%">
+                </div>
+                <div class="col-md-7">
+                    <section class="article-content">
+                        <h1 class="article-h1 t_promos">{{ post.title }}</h1>
+                        {# <a href="{{ post.link }}">{{ _e('edit') }}</a>
+                        <p class="blog-author">
+                            <span>By </span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
+                        </p> #}
+                        <div class="article-body">
+                            {{post.content}}
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <br>
+            <br>
 
 			<!-- comment box -->
 			<section class="comment-box">
 				<!-- comments -->
 				<div class="comments">
 				    {% if post.comments %}
-					<h3> comments </h3>
+					{# <h3> comments </h3> #}
 					{% for cmt in post.comments %}
 					    {% include "comment.twig" with {comment:cmt} %}
 					{% endfor %}
@@ -199,7 +207,7 @@
 				</div>
 
 				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
+					<p> les commentaires pour cet article sont fermés </p>
 				{% else %}
 				    <!-- comment form -->
 				    {% include "comment-form.twig" %}

@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul> 
                     </li>
                     <li class="nav-item">
@@ -92,10 +92,14 @@
                                 <div class="text text-center">
                                     <h1 class="mb-4">Actualités</h1>
                                     <p style="font-size: 18px;">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -112,10 +116,14 @@
                                 <div class="text text-center">
                                     <h1 class="mb-4">Actualités</h1>
                                     <p style="font-size: 18px;">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -132,10 +140,14 @@
                                 <div class="text text-center">
                                     <h1 class="mb-4">Actualités</h1>
                                     <p style="font-size: 18px;">
-                                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>

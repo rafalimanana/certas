@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>  
                     </li>
                     <li class="nav-item">
@@ -172,98 +172,119 @@
 
     <div class="container content-wrapper pb-5">
         <div class="row">
-            <div class="col-md-5">
-                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
-            </div>
-            <div class="col-md-7 mt-3">
-                <h5 class="t_promos"><b>Promo #1</b></h5>
-                <p class="ccm-p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
-                </p>
-                <div>
-                    <a href="#">
-                        <button class="btn btn-secondary btn-first">
-                            Voir la promo
-                        </button>
-                    </a>
+            {% if promos is not empty %}
+                {% for promo in promos %}
+                    <div class="col-md-5">
+                        <img class="img_promos" src="{{ promo.thumbnail.src }}">
+                    </div>
+                    <div class="col-md-7 mt-3">
+                        <h5 class="t_promos"><b>{{promo.title}}</b></h5>
+                        <p class="ccm-p">
+                            {{promo.content}}
+                        </p>
+                        <div>
+                            <a href="{{promo.link}}">
+                                <button class="btn btn-secondary btn-first">
+                                    Voir la promo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-5">
+                    <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
-
-            <div class="col-md-5">
-                <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
-            </div>
-            <div class="col-md-7 mt-3">
-                <h5 class="t_promos"><b>Promo #2</b></h5>
-                <p class="ccm-p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
-                </p>
-                <div>
-                    <a href="#">
-                        <button class="btn btn-secondary btn-first">
-                            Voir la promo
-                        </button>
-                    </a>
+                <div class="col-md-7 mt-3">
+                    <h5 class="t_promos"><b>Promo #1</b></h5>
+                    <p class="ccm-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                    </p>
+                    <div>
+                        <a href="#">
+                            <button class="btn btn-secondary btn-first">
+                                Voir la promo
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-md-5">
-                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
-            </div>
-            <div class="col-md-7 mt-3">
-                <h5 class="t_promos"><b>Promo #3</b></h5>
-                <p class="ccm-p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
-                </p>
-                <div>
-                    <a href="#">
-                        <button class="btn btn-secondary btn-first">
-                            Voir la promo
-                        </button>
-                    </a>
+                <div class="col-md-5">
+                    <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
-
-            <div class="col-md-5">
-                <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
-            </div>
-            <div class="col-md-7 mt-3">
-                <h5 class="t_promos"><b>Promo #4</b></h5>
-                <p class="ccm-p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
-                </p>
-                <div>
-                    <a href="#">
-                        <button class="btn btn-secondary btn-first">
-                            Voir la promo
-                        </button>
-                    </a>
+                <div class="col-md-7 mt-3">
+                    <h5 class="t_promos"><b>Promo #2</b></h5>
+                    <p class="ccm-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                    </p>
+                    <div>
+                        <a href="#">
+                            <button class="btn btn-secondary btn-first">
+                                Voir la promo
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
 
-            <div class="col-md-5">
-                <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
-            </div>
-            <div class="col-md-7 mt-3">
-                <h5 class="t_promos"><b>Promo #5</b></h5>
-                <p class="ccm-p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
-                </p>
-                <div>
-                    <a href="#">
-                        <button class="btn btn-secondary btn-first">
-                            Voir la promo
-                        </button>
-                    </a>
+                <div class="col-md-5">
+                    <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
                 </div>
-            </div>
+                <div class="col-md-7 mt-3">
+                    <h5 class="t_promos"><b>Promo #3</b></h5>
+                    <p class="ccm-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                    </p>
+                    <div>
+                        <a href="#">
+                            <button class="btn btn-secondary btn-first">
+                                Voir la promo
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+
+                <div class="col-md-5">
+                    <img class="img_promos" src="{{ site.theme.link }}/images/promo-2.png">
+                </div>
+                <div class="col-md-7 mt-3">
+                    <h5 class="t_promos"><b>Promo #4</b></h5>
+                    <p class="ccm-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                    </p>
+                    <div>
+                        <a href="#">
+                            <button class="btn btn-secondary btn-first">
+                                Voir la promo
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
+
+                <div class="col-md-5">
+                    <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
+                </div>
+                <div class="col-md-7 mt-3">
+                    <h5 class="t_promos"><b>Promo #5</b></h5>
+                    <p class="ccm-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris.
+                    </p>
+                    <div>
+                        <a href="#">
+                            <button class="btn btn-secondary btn-first">
+                                Voir la promo
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

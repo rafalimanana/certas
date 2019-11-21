@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>
                     </li>
                     <li class="nav-item active">
@@ -88,14 +88,18 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.title}}</h1>
                                     <p style="font-size: 18px;">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -108,14 +112,18 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.title}}</h1>
                                     <p style="font-size: 18px;">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -128,14 +136,18 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
-                                    <h1 class="mb-4">Nos carburants</h1>
+                                    <h1 class="mb-4">{{post.title}}</h1>
                                     <p style="font-size: 18px;">
-                                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
@@ -157,7 +169,7 @@
 	    	<nav aria-label="breadcrumb">
 				<ol class="breadcrumb _bredcrumb_custo">
 			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
-			    	<li class="breadcrumb-item active"> <strong> Nos carburants</strong></li>
+			    	<li class="breadcrumb-item active"> <strong>{{post.title}}</strong></li>
 			  	</ol>
 			</nav>
 	    </div>
@@ -168,28 +180,56 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
 	            <section class="_article_content col-md-12">
-                     <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">NOS  </span><strong> CARBURANTS</strong></span></p>
+                     <h2 class="text-uppercase  services-h2">
+                                {% if post.get_field('titre_carburants') %}
+                                    {{post.get_field('titre_carburants')}}
+                                {% else %}
+                                    <p>
+                                        <span class="font-family-pers" style="color: #4f2f8d;">
+                                        <span class="fw-l">NOS  </span><strong> CARBURANTS</strong></span>
+                                    </p>
+                                {% endif %}
                     </h2>
 	                <div class="_article_body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.</p>
-                        <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
-                        <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
+                        {% if post.get_field('contenu') %}
+                            {{post.get_field('contenu')}}
+                        {% else %}
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.</p>
+                            <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
+                            <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
+                        {% endif %}
 	                </div>
 	            </section>
 
 	            <section class="_article_content col-md-12 _carbu_img">
                     <div class="row">
     	                <div class="col-md-6">
-                            <div class="_carbu_bloc_img" style="background-image: url({{ site.theme.link }}/images/_pages/_nos_carburants/_list_produits_vendus.jpg}}); background-position-y: -55px;">
+                            {% set img_b1 = post.get_field('premier_image_background') %}
+                            <div class="_carbu_bloc_img" style="background-image: url({% if img_b1 %}{{img_b1.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_list_produits_vendus.jpg}}{% endif %}); background-position-y: -55px;">
                                 <div class="_carbu_bloc_shadow">
-                                    <a href="{{ site.url }}/nos-carburants/produits"><h2 class="_carbu_img_title">liste des produits<br>vendus</h2></a>
+                                    <a href="{{ site.url }}/nos-carburants/produits">
+                                        <h2 class="_carbu_img_title">
+                                        {% if post.get_field('produits_vendus') %}
+                                            {{post.get_field('produits_vendus')}}
+                                        {% else %}
+                                            liste des produits<br>vendus
+                                        {% endif %}
+                                        </h2>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="_carbu_bloc_img" style="background-image: url({{ site.theme.link }}/images/_pages/_nos_carburants/_specificites_avantages.jpg}}); background-position-y: -175px;">
+                            {% set img_b2 = post.get_field('deuxieme_image_background') %}
+                            <div class="_carbu_bloc_img" style="background-image: url({% if img_b2 %}{{img_b2.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_specificites_avantages.jpg}}{% endif %}); background-position-y: -175px;">
                                 <div class="_carbu_bloc_shadow">
-                                    <h2 class="_carbu_img_title">spécificités techniques<br>& avantages</h2>
+                                    <h2 class="_carbu_img_title">
+                                        {% if post.get_field('produits_vendus') %}
+                                            {{post.get_field('produits_vendus')}}
+                                        {% else %}
+                                            spécificités techniques<br>& avantages
+                                        {% endif %}
+                                    </h2>
                                 </div>
                             </div>
                         </div>

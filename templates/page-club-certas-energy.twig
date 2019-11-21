@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul>  
                     </li>
                     <li class="nav-item">
@@ -172,26 +172,36 @@
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row">
             <div class="col-md-6 class_club_energy">
-                 <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment  </span><strong>ça marche</strong></span></p>
-                    </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                </p>
-                <p>
-                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                    quis volutpat est vehicula at.
-                </p>
-                <p>
-                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                </p>
+                <h2 class="text-uppercase  services-h2">
+                    {% if  post.get_field('premier_titre') %}
+                        {{post.get_field('premier_titre')}}
+                    {% else %}
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment  </span><strong>ça marche</strong></span></p>
+                    {% endif %}
+
+                </h2>
+                {% if  post.get_field('premier_contenu') %}
+                    {{post.get_field('premier_contenu')}}
+                {% else %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                    </p>
+                    <p>
+                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                        quis volutpat est vehicula at.
+                    </p>
+                    <p>
+                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                {% endif %}
                 <p class="text-center _pd_tp_40">
                     <a href="{{site.url}}/club-certas-energy/comment-ca-marche" class="">
                         <button class="btn btn-secondary btn-first">
@@ -201,34 +211,55 @@
                 </p>
             </div>
             <div class="col-md-6 pl_club">
-                <img class="img_club" src="{{ site.theme.link }}/images/Comment-ca-marche.png">
+
+                {% if  post.get_field('premier_image') %}
+                    {% set img_p = post.get_field('premier_image') %}
+                    <img class="img_club" src="{{img_p.url}}">
+                {% else %}
+                    <img class="img_club" src="{{ site.theme.link }}/images/Comment-ca-marche.png">
+                {% endif %}
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-md-6">
-                <img class="img_club" src="{{ site.theme.link }}/images/avantages-services.png">
+                {% if  post.get_field('premier_image') %}
+                    <img class="img_club" src="{{post.get_field('deuxieme_image').url}}">
+                {% else %}
+                    <img class="img_club" src="{{ site.theme.link }}/images/avantages-services.png">
+                {% endif %}
             </div>
             <div class="col-md-6 pl_club class_club_energy">
-                 <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Avantages  </span><strong>& Services</strong></span></p>
+                 <h2 class="text-uppercase  services-h2">
+
+                    {% if  post.get_field('deuxieme_titre') %}
+                        {{post.get_field('deuxieme_titre')}}
+                    {% else %}
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Avantages  </span><strong>& Services</strong></span></p>
+                    {% endif %}
+
                     </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                </p>
-                <p>
-                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                    quis volutpat est vehicula at.
-                </p>
-                <p>
-                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                </p>
+                {% if  post.get_field('deuxieme_contenu') %}
+                    {{post.get_field('deuxieme_contenu')}}
+                {% else %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                    </p>
+                    <p>
+                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                        quis volutpat est vehicula at.
+                    </p>
+                    <p>
+                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                {% endif %}
                 <p class="text-center _pd_tp_40">
                     <a href="#" class="">
                         <button class="btn btn-secondary btn-first">
@@ -240,26 +271,35 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-6 class_club_energy">
-                <h2 class="text-uppercase  services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le </span><strong>CFC</strong></span></p>
+                <h2 class="text-uppercase  services-h2">
+                    {% if  post.get_field('troisieme_titre') %}
+                        {{post.get_field('troisieme_titre')}}
+                    {% else %}
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le </span><strong>CFC</strong></span></p>
+                    {% endif %}
                     </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                </p>
-                <p>
-                    Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                    Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                </p>
-                <p>
-                    Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                    tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                    quis volutpat est vehicula at.
-                </p>
-                <p>
-                    Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                    primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                    semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                    Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                </p>
+                {% if  post.get_field('troisieme_contenu') %}
+                    {{post.get_field('troisieme_contenu')}}
+                {% else %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
+                    </p>
+                    <p>
+                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
+                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
+                    </p>
+                    <p>
+                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
+                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
+                        quis volutpat est vehicula at.
+                    </p>
+                    <p>
+                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
+                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
+                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
+                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                {% endif %}
                 <p class="text-center _pd_tp_40">
                     <a href="#" class="">
                         <button class="btn btn-secondary btn-first ">
@@ -269,7 +309,11 @@
                 </p>
             </div>
             <div class="col-md-6 pl_club">
-                <img class="img_club" src="{{ site.theme.link }}/images/Le-cfc.png">
+                {% if  post.get_field('premier_image') %}
+                    <img class="img_club" src="{{post.get_field('troisieme_image').url}}">
+                {% else %}
+                    <img class="img_club" src="{{ site.theme.link }}/images/Le-cfc.png">
+                {% endif %}
             </div>
         </div>
     </div>

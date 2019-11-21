@@ -33,7 +33,7 @@
                                 </ul>
                             </li>
                             {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations Adresse sélectionné</a></li>
+                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
                         </ul> 
                     </li>
                     <li class="nav-item">
@@ -228,7 +228,7 @@ let NL = L;
         var myLayer = L.mapbox.featureLayer().addTo(map);
         var greenIcon = L.icon({
             iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
-            iconSize:     [30, 90],
+            iconSize:     [35, 90],
         });
         var featureLayer = L.mapbox.featureLayer().addTo(map);
         window.marker = L.marker([lat, lon], {icon: greenIcon});
@@ -264,7 +264,7 @@ let NL = L;
               onEachFeature: function (feature, layer) {
                 let d_name=feature.properties.name;
                 let d_id = feature.id
-                var d_content = '<div class="col mt-4 l_carte">'+
+                var d_content = '<div class="col mt-2 l_carte">'+
                     '<h5 class="t_esso">'+d_name+'</h5>'+
                     '<p>'+
                         '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
@@ -440,7 +440,7 @@ let NL = L;
                         let id = score.id
                         let feature = scoresindex[id];
                         let affiche=feature.properties.name;
-                        var div = '<div class="col mt-4 l_carte">'+
+                        var div = '<div class="col mt-2 l_carte">'+
                             '<h5 class="t_esso">'+affiche+'</h5>'+
                             '<p>'+
                                 '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
