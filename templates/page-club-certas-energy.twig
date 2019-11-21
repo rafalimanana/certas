@@ -88,7 +88,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -110,7 +110,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -132,7 +132,7 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
                                     <p style="font-size: 18px;">
@@ -237,7 +237,7 @@
                         <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Avantages  </span><strong>& Services</strong></span></p>
                     {% endif %}
 
-                    </h2>
+                </h2>
                 {% if  post.get_field('deuxieme_contenu') %}
                     {{post.get_field('deuxieme_contenu')}}
                 {% else %}
