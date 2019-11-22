@@ -323,12 +323,13 @@ article section._article_content h1._article_body {
 ---------------------------------- */
 
     footer {
-        padding: 70px 0 0 0 !important;
+        padding: 30px 0 0 0 !important;
     }
 
     footer .ftco-footer-widget * {
         color: #fff !important;
         font-weight: 600;
+
     }
 
     footer ._navbar_brand {
@@ -338,7 +339,8 @@ article section._article_content h1._article_body {
     }
 
     footer ._navbar_brand img._h_logo {
-        width: 185px !important;
+        width: 70% !important;
+        padding-top: 15%;
     }
 
     footer ._f_social_ntwrk {
@@ -373,12 +375,13 @@ article section._article_content h1._article_body {
         padding-left: 29%;
     }
 
-    footer ._cnt_f_list {
+    /*footer ._cnt_f_list {
         padding-bottom: 20px !important;
-    }
+    }*/
 
     /* responsive */ 
-        @media only screen and (min-width: 992px) and (max-width: 1080px) {
+       
+         @media only screen and (min-width: 992px) and (max-width: 1080px) {
             footer ._cnt_link1 {
                 padding-left: 20%;
             }
@@ -785,15 +788,39 @@ article section._article_content h1._article_body {
         #_reseau ._cnt_bloc ._bloc {
             background: #fff ;
             text-align: center;
-            padding: 58px 5px 68px 5px;
+            padding: 28px 5px 38px 5px;
             border-radius: 10px;
             box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3);
+            transition-property: transform,  box-shadow;
+            transition-duration: 1s;
+            height: 220px;
+        }
+        .nr-reseau-hover{
+            display: none;
+        }
+       
+
+        #_reseau ._cnt_bloc ._bloc:hover {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transform: scale(1.1);
+            background-color: #4E3189;
+        }
+        #_reseau ._cnt_bloc ._bloc:hover .nr-reseau-hover{
+            display: inline-block;
+        }
+         #_reseau ._cnt_bloc ._bloc:hover .nr-reseau{
+            display: none;
+        }
+
+        #_reseau ._cnt_bloc ._bloc:hover ._bloc_info p._bloc_desc {
+            color: #FFF;
         }
 
         #_reseau ._cnt_bloc ._bloc ._bloc_ico img {
             padding: 0 !important;
-            width: 90px !important;
+            width: 70px !important;
         }
+        
 
         #_reseau ._cnt_bloc ._bloc ._bloc_info h3._bloc_title {
             text-transform: uppercase;
@@ -881,7 +908,7 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc {
             margin: auto !important;
-            padding-left: 60px !important;
+            padding-right: 60px !important;
             padding-top: 25px !important;
         }
 
@@ -891,7 +918,7 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc {
             text-align: center !important;
-            padding: 60px 2px 43px 2px !important;
+            padding: 30px 2px 13px 2px !important;
             border-radius: 10px !important;
         }
 
@@ -939,6 +966,14 @@ article section._article_content h1._article_body {
             font-size: 31.5px;
             color: #4f2f8d;
             margin: 0;
+        }
+
+        .div-img-pourquoi img{
+            width:80%;
+            border-radius: 11px;
+        }
+        .div-img-pourquoi{
+            text-align: center;
         }
 
         @media only screen and (min-width: 600px) and (max-width: 1024px) {
