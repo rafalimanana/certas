@@ -195,12 +195,12 @@
             <br>
 
 			<!-- comment box -->
-			<section class="comment-box">
+			{# <section class="comment-box"> #}
 				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
+				{# <div class="comments">
+				    {% if post.comments %} #}
 					{# <h3> comments </h3> #}
-					{% for cmt in post.comments %}
+					{# {% for cmt in post.comments %}
 					    {% include "comment.twig" with {comment:cmt} %}
 					{% endfor %}
 				    {% endif %}
@@ -208,11 +208,11 @@
 
 				{% if post.comment_status == "closed" %}
 					<p> les commentaires pour cet article sont fermés </p>
-				{% else %}
+				{% else %} #}
 				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
+				   {#  {% include "comment-form.twig" %}
+				{% endif %} #}
+			{# </section> #}
 		</article>
 	</div><!-- /content-wrapper -->
 </div>

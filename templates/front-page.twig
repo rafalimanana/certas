@@ -332,14 +332,16 @@
         		{% for term in posts %}
 		            <div class="col-md-3 _cnt_panel_actus">
 		                <div class="panel _panel_actus">
-		                    <div class="panel-body">
-		                        <img src="{{term.thumbnail.src}}" class="_actu_img">
-		                    </div>
-		                    <div class="panel-footer">
-		                        <h4 class="_actu_date">{{term.date}}</h4>
-		                        <h2 class="_actu_title">{{term.title}}</h2>
-		                        <p class="_actu_description">{{term.post_content|excerpt(13)}}</p>
-		                    </div>
+                            <a href="{{term.link}}">
+                                <div class="panel-body">
+                                    <img src="{{term.thumbnail.src}}" class="_actu_img">
+                                </div>
+                                <div class="panel-footer">
+                                    <h4 class="_actu_date">{{term.date}}</h4>
+                                    <h2 class="_actu_title">{{term.title}}</h2>
+                                    <p class="_actu_description">{{term.post_content|excerpt(13)}}</p>
+                                </div>
+                            </a>
 		                </div>
 		            </div>
                  {% endfor %}
