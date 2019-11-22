@@ -201,11 +201,16 @@
             {% for produit in produits %}
                 <div class="row mt-5">
                     <div class="col-md-4">
-                        <img class="img_produits" src="{{ produit.thumbnail.src }}">
+                        <a href="{{produit.link}}">
+                            <img class="img_produits" src="{{ produit.thumbnail.src }}">
+                        </a>
                     </div>
                     <div class="col-md-8 pt-5 class-prod-list">
-                         <h4 class="text-uppercase t_promos services-h2"><p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
+                        <a href="{{produit.link}}">
+                            <h4 class="text-uppercase t_promos services-h2">
+                                <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
                             </h4>
+                        </a>
                         <p>
                             {{produit.content}}
                         </p>
