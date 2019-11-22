@@ -365,7 +365,8 @@ article section._article_content h1._article_body {
     }*/
 
     /* responsive */ 
-        @media only screen and (min-width: 992px) and (max-width: 1080px) {
+       
+         @media only screen and (min-width: 992px) and (max-width: 1080px) {
             footer ._cnt_link1 {
                 padding-left: 20%;
             }
@@ -776,6 +777,7 @@ article section._article_content h1._article_body {
             box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3);
             transition-property: transform,  box-shadow;
             transition-duration: 1s;
+            height: 220px;
         }
         .nr-reseau-hover{
             display: none;
