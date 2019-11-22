@@ -63,12 +63,20 @@
                     </li>
                     <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
+                    <li class="nav-item _h_cnt_btn">
+                        <ul class="_h_lst_btn">
+                            <li><a href="#" class="_h_btn">Partenaires</a></li>
+                            <li><a href="#" class="_h_btn">Emplois</a></li>
+                            <li><a href="#" class="_h_btn">Immobilier</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
-            <div class="_h_cnt_btn">
+           <div class="_h_cnt_btn">
                 <ul class="_h_lst_btn">
                     <li><button class="_h_btn">Partenaires</button></li>
                     <li><button class="_h_btn">Emplois</button></li>
+                    <li><button class="_h_btn">Immobilier</button></li>
                 </ul>
             </div>
         </div>
@@ -216,6 +224,7 @@ let OL = L;</script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css">
 <script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <script type="text/javascript">
 let NL = L;
        var lat = 44.798770;
@@ -396,6 +405,7 @@ let NL = L;
             if (search != '' && search.length >= 2 && event.keyCode != 46) {
                setTimeout(function(){
                   window.recherche=search;
+                  var low_search=search.toLowerCase();
                   var geocoder = L.esri.Geocoding.geocodeService();
                   var map = macarte;
                   $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
@@ -410,7 +420,7 @@ let NL = L;
                                 let keyvalue = properties[keyname]
                                 if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
                                     score++
-                                    console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
+                                    // console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
                                 }
                             })
                             scoresindex[id] = feature
@@ -433,65 +443,84 @@ let NL = L;
                         return score.score>0
                     })
                     scores = scores.splice(0,4)
+                    if (Array.isArray(scores) && scores.length == 0) {
+                        L.esri.Geocoding.geocode()
+                        .address(low_search)
+                        .city(low_search)
+                        .region(low_search)
+                        .country(low_search)
+                        .run(function (error, results, response) {
+                            if(id != curerntId){
+                                return true
+                            }
+                            if (error) {
+                              return;
+                            }
+                            var res =results.results;
+                            if (res) {
+                                var f_res=res[0];
+                                var latS = f_res.latlng.lat;
+                                var lonS = f_res.latlng.lng;
+                                $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
+                                    let scores = []
+                                    let scoresindex = {}
+                                    var geojson = L.geoJson(data, {
+                                        onEachFeature: function (feature, layer) {
+                                            let properties = feature.properties
+                                            let id = feature.id
+                                            let n_score = 0;
+                                            var geoLat = feature.geometry.coordinates[1];
+                                            var geoLng = feature.geometry.coordinates[0];
+                                            var p1 = new google.maps.LatLng(latS, lonS);
+                                            var p2 = new google.maps.LatLng(geoLat, geoLng);
+                                            var distance = calcDistance(p1, p2);
+                                            if (distance <= 150) {
+                                                n_score++
+                                            }
+                                           /*if(distance(latS,lonS,geoLat,geoLng,"K")<=0.1){
+                                                n_score++
+                                            }
+                                            Object.keys(properties).map((keyname) =>{
+                                                let keyvalue = properties[keyname]
+                                                if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
+                                                    score++
+                                                    // console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
+                                                }
+                                            })*/
+
+                                            scoresindex[id] = feature
+                                            scores.push({
+                                                id:id,
+                                                score:n_score,
+                                            });
+                                        }
+                                    });
+                                    for (var i = 0; i < scores.length; i++) {
+                                        for (var j = i+1; j < scores.length; j++) {
+                                            if(scores[i].score<scores[j].score){
+                                                let t = scores[i]
+                                                scores[i] = scores[j]
+                                                scores[j] = t
+                                            }
+                                        }
+                                    }
+                                    scores = scores.filter((score) =>{
+                                        return score.score>0
+                                    })
+                                    scores = scores.splice(0,4)
+                                    console.log('scores ts misy', scores);
+                                    console.log('scoresindex ts misy', scoresindex);
+                                    scoresFunction(scores,scoresindex,_map,map,lay);
+                                    return;
+                                });
+                            }
+                        })
+                    }
+                    console.log('scores', scores)
                     let div = '';
                     $('#l_resultat').css('display', 'block');
                     $('#l_resultat').html('')
-                    scores.map((score,i) =>{
-                        let id = score.id
-                        let feature = scoresindex[id];
-                        let affiche=feature.properties.name;
-                        var div = '<div class="col mt-2 l_carte">'+
-                            '<h5 class="t_esso">'+affiche+'</h5>'+
-                            '<p>'+
-                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                                '<span>'+feature.properties.address+'</span><br>'+
-                                '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
-                            '</p>'+
-                            '<p class="c_information" id="sel'+id+'" data-val="'+id+'" >'+
-                                '<span>Plus d\'informations</span>'+
-                            '</p>'+
-                        '</div>';
-                        $('#l_resultat').append(div);
-
-                        $('#sel'+id).on('click',function(event) {
-                            $("#l_resultat").html('');
-                            $('#search').val('');
-                            $(".l_city").removeClass();
-                            var fil = $(this).data('val');
-                            var feat = scoresindex[id];
-                            var c_bounds =feat.geometry.coordinates;
-                            let lat = feat.geometry.coordinates[1];
-                            let lng = feat.geometry.coordinates[0];
-                            var fit = [
-                                [lat-0.01, lng-0.01],
-                                [lat+0.01, lng+0.01],
-                            ]
-                            _map.fitBounds(fit);
-                            map.panTo(new L.LatLng(lat, lng));
-                            var content = '<div class="pl-1">'+
-                            '<h5 class="t_esso">' + feat.properties.name + '</h5>'+
-                            '<p>'+
-                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                                '<span class="c_popup">'+
-                                '<span>' + feat.properties.address + ',</span><br>'+
-                                '<span style="padding-left: 20px;">' + feat.properties.city + ' - ' + feat.properties.country +'</span>'+
-                                '</span>'+
-                            '</p>'+
-                            '<p>'+
-                                '<span>'+
-                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
-                                '</span>'+
-                                '<span class="pl-3">'+
-                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
-                                '</span>'+
-                            '</p>'+
-                            '</div>';
-                            var newLatLng = new L.LatLng(lat,lng);
-                            lay[id]
-                                .openPopup();
-                        })
-
-                    })
+                    scoresFunction(scores,scoresindex,_map,map,lay);
                 });
                   
                   /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -617,6 +646,85 @@ let NL = L;
                 $('#l_default').css('display', 'block');
           }
         });
+
+        function distance(lat1, lon1, lat2, lon2, unit) {
+            var radlat1 = Math.PI * lat1/180
+            var radlat2 = Math.PI * lat2/180
+            var theta = lon1-lon2
+            var radtheta = Math.PI * theta/180
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist)
+            dist = dist * 180/Math.PI
+            dist = dist * 60 * 1.1515
+            if (unit=="K") { dist = dist * 1.609344 }
+            if (unit=="N") { dist = dist * 0.8684 }
+            return dist
+        }
+
+        function calcDistance(p1, p2) {
+          return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+        }
+        function scoresFunction(scores,scoresindex,_map,map,lay) {
+            scores.map((score,i) =>{
+                let id = score.id
+                let feature = scoresindex[id];
+                let affiche=feature.properties.name;
+                var div = '<div class="col mt-2 l_carte">'+
+                    '<h5 class="t_esso">'+affiche+'</h5>'+
+                    '<p>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<span>'+feature.properties.address+'</span><br>'+
+                        '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '</p>'+
+                    '<p class="c_information" id="sel'+id+'" data-val="'+id+'" >'+
+                        '<span>Plus d\'informations</span>'+
+                    '</p>'+
+                '</div>';
+                $('#l_resultat').append(div);
+
+                $('#sel'+id).on('click',function(event) {
+                    $("#l_resultat").html('');
+                    $('#search').val('');
+                    $(".l_city").removeClass();
+                    var fil = $(this).data('val');
+                    var feat = scoresindex[id];
+                    var c_bounds =feat.geometry.coordinates;
+                    let lat = feat.geometry.coordinates[1];
+                    let lng = feat.geometry.coordinates[0];
+                    var fit = [
+                        [lat-0.01, lng-0.01],
+                        [lat+0.01, lng+0.01],
+                    ]
+                    _map.fitBounds(fit);
+                    map.panTo(new L.LatLng(lat, lng));
+                    var content = '<div class="pl-1">'+
+                    '<h5 class="t_esso">' + feat.properties.name + '</h5>'+
+                    '<p>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<span class="c_popup">'+
+                        '<span>' + feat.properties.address + ',</span><br>'+
+                        '<span style="padding-left: 20px;">' + feat.properties.city + ' - ' + feat.properties.country +'</span>'+
+                        '</span>'+
+                    '</p>'+
+                    '<p>'+
+                        '<span>'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                        '</span>'+
+                        '<span class="pl-3">'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                        '</span>'+
+                    '</p>'+
+                    '</div>';
+                    var newLatLng = new L.LatLng(lat,lng);
+                    lay[id]
+                        .openPopup();
+                })
+
+            })
+        }
 
 </script>
 

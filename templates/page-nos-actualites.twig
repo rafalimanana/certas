@@ -62,14 +62,16 @@
                     	<ul class="_h_lst_btn">
 		                    <li><a href="#" class="_h_btn">Partenaires</a></li>
 		                    <li><a href="#" class="_h_btn">Emplois</a></li>
+		                    <li><a href="#" class="_h_btn">Immobilier</a></li>
 		                </ul>
                     </li>
                 </ul>
             </div>
-            <div class="_h_cnt_btn">
+           <div class="_h_cnt_btn">
                 <ul class="_h_lst_btn">
                     <li><button class="_h_btn">Partenaires</button></li>
                     <li><button class="_h_btn">Emplois</button></li>
+                    <li><button class="_h_btn">Immobilier</button></li>
                 </ul>
             </div>
         </div>
@@ -200,16 +202,18 @@
                             {% for term in posts %}
                                 <div class="col-md-3 _cnt_panel_actus">
                                     <div class="panel _panel_actus">
-                                        <div class="panel-body">
-                                            <img src="{{term.thumbnail.src}}" class="_actu_img">
-                                        </div>
-                                        <div class="panel-footer">
-                                            <h4 class="_actu_date">{{term.date}}</h4>
-                                            <h2 class="_actu_title">{{term.title}}</h2>
-                                            <p class="_actu_description">
-                                                {{ term.title|striptags|length > 10 ? term.post_content|excerpt(12) : term.post_content|excerpt(20) }}
-                                            </p>
-                                        </div>
+                                        <a href="{{term.link}}">
+                                            <div class="panel-body">
+                                                <img src="{{term.thumbnail.src}}" class="_actu_img">
+                                            </div>
+                                            <div class="panel-footer">
+                                                <h4 class="_actu_date">{{term.date}}</h4>
+                                                <h2 class="_actu_title">{{term.title}}</h2>
+                                                <p class="_actu_description">
+                                                    {{ term.title|striptags|length > 10 ? term.post_content|excerpt(12) : term.post_content|excerpt(20) }}
+                                                </p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             {% endfor %}
