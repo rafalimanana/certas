@@ -787,8 +787,6 @@ article section._article_content h1._article_body {
         }
         #_reseau ._cnt_bloc ._bloc:hover .nr-reseau-hover{
             display: inline-block;
-            width: 30% !important;
-
         }
          #_reseau ._cnt_bloc ._bloc:hover .nr-reseau{
             display: none;
@@ -890,7 +888,7 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc {
             margin: auto !important;
-            padding-left: 60px !important;
+            padding-right: 60px !important;
             padding-top: 25px !important;
         }
 
@@ -900,7 +898,7 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc {
             text-align: center !important;
-            padding: 60px 2px 43px 2px !important;
+            padding: 30px 2px 13px 2px !important;
             border-radius: 10px !important;
         }
 
@@ -948,6 +946,14 @@ article section._article_content h1._article_body {
             font-size: 31.5px;
             color: #4f2f8d;
             margin: 0;
+        }
+
+        .div-img-pourquoi img{
+            width:80%;
+            border-radius: 11px;
+        }
+        .div-img-pourquoi{
+            text-align: center;
         }
 
         @media only screen and (min-width: 600px) and (max-width: 1024px) {

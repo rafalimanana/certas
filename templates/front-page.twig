@@ -163,7 +163,7 @@
                 <div class="_bloc">
                     <div class="_bloc_ico">
                             <img src="{{ site.theme.link }}/images/_icons/_pg_home/_express.png" class="nr-reseau">
-                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_express.svg" class="nr-reseau-hover">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/__express.png" class="nr-reseau-hover">
                     </div>
                     <div class="_bloc_info">
                         <h3 class="_bloc_title">
@@ -188,7 +188,7 @@
                 <div class="_bloc">
                     <div class="_bloc_ico">
                             <img src="{{ site.theme.link }}/images/_icons/_pg_home/_road.png" class="nr-reseau">
-                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_road.svg" class="nr-reseau-hover">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/__road.png" class="nr-reseau-hover">
                     </div>
                     <div class="_bloc_info">
                         <h3 class="_bloc_title">
@@ -213,7 +213,7 @@
                 <div class="_bloc">
                     <div class="_bloc_ico">
                             <img src="{{ site.theme.link }}/images/_icons/_pg_home/_buyer.png" class="nr-reseau">
-                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/_buyer.svg" class="nr-reseau-hover ">
+                            <img src="{{ site.theme.link }}/images/_icons/_pg_home/__buyer.png" class="nr-reseau-hover ">
                     </div>
                     <div class="_bloc_info">
                         <h3 class="_bloc_title">
@@ -245,13 +245,12 @@
         <div class="container">
             <div class="row" id="_prquoi">
                 <div class="col-md-6">
-                    <div class="ftco-animate">
+                    <div class="ftco-animate div-img-pourquoi">
                         {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
-                        {# <a href="#" class="img" style="background-image: url({{ site.theme.link }}/images/work-1.jpg);"></a> #}
                         {% if img_sec %}
                         <img src="{{img_sec.url}}" style="width:100%">
                         {% else %}
-                        <img src="{{site.theme.link}}/images/Pourquoi-certas.png" style="width:100%;border-radius: 11px;">
+                        <img src="{{site.theme.link}}/images/Pourquoi-certas.png" >
                         {% endif %}
                     </div>
                 </div>
