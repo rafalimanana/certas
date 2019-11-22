@@ -448,6 +448,7 @@ let NL = L;
                         .address(low_search)
                         .city(low_search)
                         .region(low_search)
+                        .postal(low_search)
                         .country(low_search)
                         .run(function (error, results, response) {
                             if(id != curerntId){
@@ -475,7 +476,7 @@ let NL = L;
                                             var p2 = new google.maps.LatLng(geoLat, geoLng);
                                             var distance = calcDistance(p1, p2);
                                             if (distance <= 150) {
-                                                n_score++
+                                                n_score=distance;
                                             }
                                            /*if(distance(latS,lonS,geoLat,geoLng,"K")<=0.1){
                                                 n_score++
@@ -497,7 +498,7 @@ let NL = L;
                                     });
                                     for (var i = 0; i < scores.length; i++) {
                                         for (var j = i+1; j < scores.length; j++) {
-                                            if(scores[i].score<scores[j].score){
+                                            if(scores[i].score-0>scores[j].score-0){
                                                 let t = scores[i]
                                                 scores[i] = scores[j]
                                                 scores[j] = t
@@ -507,16 +508,25 @@ let NL = L;
                                     scores = scores.filter((score) =>{
                                         return score.score>0
                                     })
-                                    scores = scores.splice(0,4)
-                                    console.log('scores ts misy', scores);
-                                    console.log('scoresindex ts misy', scoresindex);
+                                    // console.log('scores ts misy limit', scores)
+                                    let _scores = scores.filter((s,k) =>{
+                                        if(k<4){
+                                            return true
+                                        }
+                                        return false
+                                    })
+                                    //scores = scores.splice(0,4)
+                                    scores = _scores
+                                    /*console.log('scores ts misy limit 4', scores)
+                                    console.log('scores limite', scores);
+                                    console.log('scoresindex ts misy', scoresindex);*/
                                     scoresFunction(scores,scoresindex,_map,map,lay);
                                     return;
                                 });
                             }
                         })
                     }
-                    console.log('scores', scores)
+                    // console.log('scores', scores)
                     let div = '';
                     $('#l_resultat').css('display', 'block');
                     $('#l_resultat').html('')
