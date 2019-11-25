@@ -45,7 +45,7 @@ function mytheme_timber_context( $context ) {
 }*/
 
 function add_to_timber_context($context) {
-    $context['menu'] = new TimberMenu('topmenu');
+    $context['topmenu'] = new TimberMenu('topmenu');
     $context['navigation'] = new TimberMenu('navigation');
     $context['footer'] = new TimberMenu('footer');
     return $context;
