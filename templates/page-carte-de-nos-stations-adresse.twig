@@ -65,18 +65,32 @@
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                     <li class="nav-item _h_cnt_btn">
                         <ul class="_h_lst_btn">
-                            <li><a href="#" class="_h_btn">Partenaires</a></li>
+                            {% for menu_nav in navigation.get_items %}
+                                <li>
+                                    <a href="{{menu_nav.link}}">
+                                        <button class="_h_btn">{{menu_nav.title}}</button>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            {# <li><a href="#" class="_h_btn">Partenaires</a></li>
                             <li><a href="#" class="_h_btn">Emplois</a></li>
-                            <li><a href="#" class="_h_btn">Immobilier</a></li>
+                            <li><a href="#" class="_h_btn">Immobilier</a></li> #}
                         </ul>
                     </li>
                 </ul>
             </div>
            <div class="_h_cnt_btn">
                 <ul class="_h_lst_btn">
-                    <li><button class="_h_btn">Partenaires</button></li>
+                    {% for menu_nav in navigation.get_items %}
+                        <li>
+                            <a href="{{menu_nav.link}}">
+                                <button class="_h_btn">{{menu_nav.title}}</button>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    {# <li><button class="_h_btn">Partenaires</button></li>
                     <li><button class="_h_btn">Emplois</button></li>
-                    <li><button class="_h_btn">Immobilier</button></li>
+                    <li><button class="_h_btn">Immobilier</button></li> #}
                 </ul>
             </div>
         </div>
@@ -451,9 +465,6 @@ let NL = L;
                         .postal(low_search)
                         .country(low_search)
                         .run(function (error, results, response) {
-                            if(id != curerntId){
-                                return true
-                            }
                             if (error) {
                               return;
                             }
@@ -478,17 +489,6 @@ let NL = L;
                                             if (distance <= 150) {
                                                 n_score=distance;
                                             }
-                                           /*if(distance(latS,lonS,geoLat,geoLng,"K")<=0.1){
-                                                n_score++
-                                            }
-                                            Object.keys(properties).map((keyname) =>{
-                                                let keyvalue = properties[keyname]
-                                                if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
-                                                    score++
-                                                    // console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
-                                                }
-                                            })*/
-
                                             scoresindex[id] = feature
                                             scores.push({
                                                 id:id,
@@ -508,25 +508,19 @@ let NL = L;
                                     scores = scores.filter((score) =>{
                                         return score.score>0
                                     })
-                                    // console.log('scores ts misy limit', scores)
                                     let _scores = scores.filter((s,k) =>{
                                         if(k<4){
                                             return true
                                         }
                                         return false
                                     })
-                                    //scores = scores.splice(0,4)
-                                    scores = _scores
-                                    /*console.log('scores ts misy limit 4', scores)
-                                    console.log('scores limite', scores);
-                                    console.log('scoresindex ts misy', scoresindex);*/
+                                    scores = _scores;
                                     scoresFunction(scores,scoresindex,_map,map,lay);
                                     return;
                                 });
                             }
                         })
                     }
-                    // console.log('scores', scores)
                     let div = '';
                     $('#l_resultat').css('display', 'block');
                     $('#l_resultat').html('')
@@ -650,10 +644,10 @@ let NL = L;
 
         $(document).on('click', function(event) {
           if (!$(event.target).closest('#l_resultat').length && event.target != $('#search')[0])  {
-                $("#l_resultat").html('');
+                // $("#l_resultat").html('');
                 $('#search').val('');
-                $('#l_resultat').css('display', 'none');
-                $('#l_default').css('display', 'block');
+                $('#l_resultat').css('display', 'block');
+                // $('#l_default').css('display', 'block');
           }
         });
 
@@ -678,6 +672,7 @@ let NL = L;
           return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
         }
         function scoresFunction(scores,scoresindex,_map,map,lay) {
+            $('#l_resultat').html('')
             scores.map((score,i) =>{
                 let id = score.id
                 let feature = scoresindex[id];
@@ -696,7 +691,7 @@ let NL = L;
                 $('#l_resultat').append(div);
 
                 $('#sel'+id).on('click',function(event) {
-                    $("#l_resultat").html('');
+                    // $("#l_resultat").html('');
                     $('#search').val('');
                     $(".l_city").removeClass();
                     var fil = $(this).data('val');

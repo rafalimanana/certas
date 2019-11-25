@@ -60,18 +60,32 @@
                     <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
                     <li class="nav-item _h_cnt_btn">
                     	<ul class="_h_lst_btn">
-		                    <li><a href="#" class="_h_btn">Partenaires</a></li>
+
+                            {% for menu in navigation.get_items %}
+                                <li>
+                                    <a href="{{menu.link}}">
+                                        <button class="_h_btn">{{menu.title}}</button>
+                                    </a>
+                                </li>
+                            {% endfor %}
+		                    {# <li><a href="#" class="_h_btn">Partenaires</a></li>
 		                    <li><a href="#" class="_h_btn">Emplois</a></li>
 		                    <li><a href="#" class="_h_btn">Immobilier</a></li>
-		                </ul>
+ #}		                </ul>
                     </li>
                 </ul>
             </div>
            <div class="_h_cnt_btn">
                 <ul class="_h_lst_btn">
-                    <li><button class="_h_btn">Partenaires</button></li>
-                    <li><button class="_h_btn">Emplois</button></li>
-                    <li><button class="_h_btn">Immobilier</button></li>
+                    {% for menu in navigation.get_items %}
+                        <li>
+                            <a href="{{menu.link}}">
+                                <button class="_h_btn">{{menu.title}}</button>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    {# <li><button class="_h_btn">Emplois</button></li>
+                    <li><button class="_h_btn">Immobilier</button></li> #}
                 </ul>
             </div>
         </div>
@@ -189,16 +203,21 @@
 
 	            <section class="_article_content col-md-12 ">
                     <div class="row">
-    	                <div class="col-md-6 _cnt_panel_actus">
-                            <div class="_big_bloc_actus" style="background-image: url({{ site.theme.link }}/images/_pages/_nos_actualites/subway_beach_flags.jpg}})">
-                                <div class="_bloc_shadow">
-                                    <h4 class="_bloc_date">20 avril 2018</h4>
-                                    <h2 class="_bloc_title">Ouverture d'un restaurant<br>subway</h2>
-                                    <p class="_bloc_description">Dans le cadre de la réouverture progressive des boutiques sur nos stations...</p>
+
+                        {% if last_posts is not empty or posts is not empty %}
+                            {% for last in last_posts %}
+            	                <div class="col-md-6 _cnt_panel_actus">
+                                    <a href="{{last.link}}">
+                                        <div class="_big_bloc_actus" style="background-image: url({% if last.thumbnail.src %}{{last.thumbnail.src}}{% else %}{{site.theme.link }}/images/_pages/_nos_actualites/subway_beach_flags.jpg}}{% endif %})">
+                                            <div class="_bloc_shadow">
+                                                <h4 class="_bloc_date">{{last.date}}</h4>
+                                                <h2 class="_bloc_title">{{last.title}}</h2>
+                                                <p class="_bloc_description">{{ last.post_content|excerpt(50) }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        {% if posts is not empty %}
+                            {% endfor %}
                             {% for term in posts %}
                                 <div class="col-md-3 _cnt_panel_actus">
                                     <div class="panel _panel_actus">
@@ -218,6 +237,15 @@
                                 </div>
                             {% endfor %}
                         {% else %}
+                            <div class="col-md-6 _cnt_panel_actus">
+                                <div class="_big_bloc_actus" style="background-image: url({{ site.theme.link }}/images/_pages/_nos_actualites/subway_beach_flags.jpg}})">
+                                    <div class="_bloc_shadow">
+                                        <h4 class="_bloc_date">20 avril 2018</h4>
+                                        <h2 class="_bloc_title">Ouverture d'un restaurant<br>subway</h2>
+                                        <p class="_bloc_description">Dans le cadre de la réouverture progressive des boutiques sur nos stations...</p>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-3 _cnt_panel_actus">
                                 <div class="panel _panel_actus">
                                     <div class="panel-body">

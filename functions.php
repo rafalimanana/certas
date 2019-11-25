@@ -36,6 +36,22 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 
+
+
+/*add_filter( 'timber_context', 'mytheme_timber_context'  );
+function mytheme_timber_context( $context ) {
+    $context['options'] = get_fields('option');
+    return $context;
+}*/
+
+function add_to_timber_context($context) {
+    $context['menu'] = new TimberMenu('topmenu');
+    $context['navigation'] = new TimberMenu('navigation');
+    $context['footer'] = new TimberMenu('footer');
+    return $context;
+}
+add_filter('timber_context', 'add_to_timber_context');
+
 /**
  * Sets the directories (inside your theme) to find .twig files
  */

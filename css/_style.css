@@ -204,7 +204,8 @@ article section._article_content h1._article_body {
         }
 
         #_header_carousel .ftco-animate {
-            top: 25px;
+            /*top: 25px;*/
+            top: 30px;
         }
 
         #_header_carousel .slider-text h1 {
@@ -231,19 +232,25 @@ article section._article_content h1._article_body {
             }
         }
 
+        @media only screen and (max-width: 1440px) {
+            nav ._h_cnt_btn {
+                /*top: -15px !important;*/
+            }
+        }
+
         @media only screen and (min-width: 1200px) and (max-width: 1444px) {
             nav ._navbar_brand {
                 left: 1% !important;
             }
             nav ._h_cnt_btn {
                 right: 1% !important;
-                top: 28%;
+                /*top: 28%;*/
             }
         }
 
         @media only screen and (min-width: 1200px) and (max-width: 1437px) {
             nav ._h_cnt_btn {
-                top: -30%;
+                /*top: -30%;*/
             }
         }
 
