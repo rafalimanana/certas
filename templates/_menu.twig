@@ -1,0 +1,153 @@
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="_navbar_brand" href="{{site.url}}">
+                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#_nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse _h_cnt_menu" id="_nav">
+                <ul class="navbar-nav ml-auto" id="_menu">
+                    {% for key,item in topmenu.items %}
+                        <li class="nav-item {{ item.current ? 'active' : '' }}">
+                            {% if item.children %}
+                                <a href="{{item.link}}" class="nav-link text-uppercase i_page">{{item.title}}</a>
+                                <a href="#" class="nav-link text-uppercase i_mobile" id="n_station{{key}}" onclick="menuP({{key}}, event)">{{item.title}}</a>
+                                <ul class="nav-item submenu i_chil" id="sub_station{{key}}">
+                                    <li class="nav-item">
+                                    <a href="{{item.link}}" class="nav-link text-uppercase i_mobile">{{item.title}}</a></li>
+                                    {% for k,child in item.children %}
+                                        <li class="nav-item">
+                                            {% if child.children %}
+                                                <a href="{{child.link}}" class="nav-link text-uppercase i_page">{{child.title}}</a>
+                                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station{{key}}{{k}}" onclick="childF({{key}}{{k}}, event)">{{child.title}}</a>
+                                                <ul class="nav-item submenu i_c_chil"  id="lavage_station{{key}}{{k}}">
+                                                    <li class="nav-item i_mobile">
+                                                        <a href="{{child.link}}" class="nav-link text-uppercase">{{child.title}}</a>
+                                                    </li>
+                                                    {% for t in child.children %}
+                                                        <li class="nav-item">
+                                                            <a href="{{t.link}}" class="nav-link text-uppercase">{{t.title}}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <a href="{{child.link}}" class="nav-link text-uppercase">{{child.title}}</a>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <a href="{{item.link}}" class="nav-link text-uppercase">{{item.title}}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                    <li class="nav-item _h_cnt_btn">
+                        <ul class="_h_lst_btn">
+                            {% for menu_nav in navigation.get_items %}
+                                <li>
+                                    <a href="{{menu_nav.link}}">
+                                        <button class="_h_btn">{{menu_nav.title}}</button>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+           <div class="_h_cnt_btn">
+                <ul class="_h_lst_btn">
+                    {% for menu_nav in navigation.get_items %}
+                        <li>
+                            <a href="{{menu_nav.link}}">
+                                <button class="_h_btn">{{menu_nav.title}}</button>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#_header_carousel" data-slide-to="1"></li>
+            <li data-target="#_header_carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner {% if fn('is_front_page') %}_home{% endif %}">
+            <div class="carousel-item active">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                            {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text justify-content-center align-items-center">
+                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
+                                <div class="text text-center">
+                                    <h1 class="mb-4">{{post.post_title}}</h1>
+                                    <p style="font-size: 18px;">
+                                        {% if post.get_field('description_header') %}
+                                        {{post.get_field('description_header')}}
+                                        {% else %}
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        {% endif %}
+                                        <a href="#" class="a-prs"></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+    </div>
+</div>
