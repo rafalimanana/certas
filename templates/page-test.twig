@@ -11,20 +11,20 @@
             </button>
             <div class="collapse navbar-collapse _h_cnt_menu" id="_nav">
                 <ul class="navbar-nav ml-auto" id="_menu">
-                    {% for item in topmenu.get_items %}
+                    {% for key,item in topmenu.items %}
                         <li class="nav-item {{ item.current ? 'active' : '' }}">
-                            <a href="{{item.link}}" class="nav-link text-uppercase i_page">{{item.title}}</a>
                             {% if item.children %}
-                                <a href="#" class="nav-link text-uppercase i_mobile" id="n_station">{{item.title}}</a>
-                                <ul class="nav-item submenu" id="sub_station">
+                                <a href="{{item.link}}" class="nav-link text-uppercase i_page">{{item.title}}</a>
+                                <a href="#" class="nav-link text-uppercase i_mobile" id="n_station{{key}}" onclick="menuP({{key}}, event)">{{item.title}}</a>
+                                <ul class="nav-item submenu i_chil" id="sub_station{{key}}">
                                     <li class="nav-item">
-                                    <a href="{{item.link}}" class="nav-link text-uppercase i_mobile" id="n_station">{{item.title}}</a></li>
-                                    {% for child in item.children %}
+                                    <a href="{{item.link}}" class="nav-link text-uppercase i_mobile">{{item.title}}</a></li>
+                                    {% for k,child in item.children %}
                                         <li class="nav-item">
-                                            <a href="{{child.link}}" class="nav-link text-uppercase i_page">{{child.title}}</a>
                                             {% if child.children %}
-                                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station">{{child.title}}</a>
-                                                <ul class="nav-item submenu"  id="lavage_station">
+                                                <a href="{{child.link}}" class="nav-link text-uppercase i_page">{{child.title}}</a>
+                                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station{{key}}{{k}}" onclick="childF({{key}}{{k}}, event)">{{child.title}}</a>
+                                                <ul class="nav-item submenu i_c_chil"  id="lavage_station{{key}}{{k}}">
                                                     <li class="nav-item i_mobile">
                                                         <a href="{{child.link}}" class="nav-link text-uppercase">{{child.title}}</a>
                                                     </li>
@@ -34,10 +34,14 @@
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
+                                            {% else %}
+                                                <a href="{{child.link}}" class="nav-link text-uppercase">{{child.title}}</a>
                                             {% endif %}
                                         </li>
                                     {% endfor %}
                                 </ul>
+                            {% else %}
+                                <a href="{{item.link}}" class="nav-link text-uppercase">{{item.title}}</a>
                             {% endif %}
                         </li>
                         {# <li class="{{ item.classes | join(' ') }}">
@@ -237,4 +241,30 @@
         </article>
     </div><!-- /content-wrapper -->
 </div>
+
+<script type="text/javascript">
+if (screen.width <= 991.98) {
+    $('.i_chil').css('display', 'none');
+    $('.i_c_chil').css('display', 'none');
+    menuP = (key,event) => {
+        $("#sub_station"+key).attr("data-display",$("#sub_station"+key).css("display"));
+        $("*[id^=sub_station]").css("display", "none");
+        if($("#sub_station"+key).css("data-display") == "block") {
+            $("#sub_station"+key).css("display", "none");
+        }else {
+            $("#sub_station"+key).css("display", "block");
+        }
+    };
+    childF = (key,event) => {
+        $("#lavage_station"+key).attr("data-display",$("#lavage_station"+key).css("display"));
+        $("*[id^=lavage_station]").css("display", "none");
+        if($("#lavage_station"+key).css("data-display") == "block") {
+            $("#lavage_station"+key).css("display", "none");
+        }else {
+            $("#lavage_station"+key).css("display", "block");
+        }
+        // $('#lavage_station'+key).css('display', 'block');
+    };
+}
+</script>
 {% endblock %}

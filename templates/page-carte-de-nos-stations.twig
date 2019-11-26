@@ -1,179 +1,10 @@
 {% extends "_base_page.twig" %}
 {% block header %}
-<style>
-</style>
-<div class="wrapper">
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="_navbar_brand" href="{{site.url}}">
-                <img src="{{ site.theme.link }}/images/_icons/certas.png" class="_h_logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#_nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-            </button>
-            <div class="collapse navbar-collapse _h_cnt_menu" id="_nav">
-                <ul class="navbar-nav ml-auto" id="_menu">
-                    <li class="nav-item"><a href="{{site.url}}/a-propos" class="nav-link text-uppercase">A Propos</a></li>
-                    <li class="nav-item has-sub active">
-                        <a href="#" class="nav-link text-uppercase" id="n_station">Nos Stations</a>
-                        <ul class="nav-item submenu" id="sub_station">
-                            <li class="nav-item">
-                                <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase i_page">Services en stations</a>
-                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station">Services en stations</a>
-                                <ul class="nav-item submenu"  id="lavage_station">
-                                    <li class="nav-item i_mobile">
-                                        <a href="{{site.url}}/nos-stations/services-en-stations" class="nav-link text-uppercase">Services en stations</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{site.url}}/nos-stations/services-en-stations/lavage" class="nav-link text-uppercase">Lavage</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            {# <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations" class="nav-link text-uppercase">Carte de nos stations</a></li> #}
-                            <li class="nav-item"><a href="{{site.url}}/nos-stations/carte-de-nos-stations-adresse" class="nav-link text-uppercase">Carte de nos stations</a></li>
-                        </ul>  
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase i_page">Nos carburants</a>
-                        <a href="#" class="nav-link text-uppercase i_mobile" id="n_carburant">Nos carburants</a>
-                        <ul class="nav-item submenu" id="l_produit">
-                            <li class="nav-item i_mobile">
-                                <a href="{{site.url}}/nos-carburants" class="nav-link text-uppercase">Nos carburants</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{site.url}}/nos-carburants/produits" class="nav-link text-uppercase">Liste des produits vendus</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="{{site.url}}/nos-promos" class="nav-link text-uppercase">Nos Promos</a></li>
-                    <li class="nav-item">
-                        <a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase i_page">Club certas Anergy</a>
-                        <a href="#" class="nav-link text-uppercase i_mobile" id="c_energy">Club certas Anergy</a>
-                        <ul class="nav-item submenu" id="c_marche">
-                            <li class="nav-item i_mobile">
-                                <a href="{{site.url}}/club-certas-energy" class="nav-link text-uppercase">Club certas Anergy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{site.url}}/club-certas-energy/comment-ca-marche" class="nav-link text-uppercase">Comment ça marche</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="{{site.url}}/nos-actualites" class="nav-link text-uppercase">Actualités</a></li>
-                    <li class="nav-item"><a href="{{site.url}}/contact" class="nav-link  text-uppercase">Nous contacter</a></li>
-                    <li class="nav-item _h_cnt_btn">
-                        <ul class="_h_lst_btn">
-                            {% for menu_nav in navigation.get_items %}
-                                <li>
-                                    <a href="{{menu_nav.link}}">
-                                        <button class="_h_btn">{{menu_nav.title}}</button>
-                                    </a>
-                                </li>
-                            {% endfor %}
-                            {# <li><a href="#" class="_h_btn">Partenaires</a></li>
-                            <li><a href="#" class="_h_btn">Emplois</a></li>
-                            <li><a href="#" class="_h_btn">Immobilier</a></li> #}
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-           <div class="_h_cnt_btn">
-                <ul class="_h_lst_btn">
-                    {% for menu_nav in navigation.get_items %}
-                        <li>
-                            <a href="{{menu_nav.link}}">
-                                <button class="_h_btn">{{menu_nav.title}}</button>
-                            </a>
-                        </li>
-                    {% endfor %}
-                   {#  <li><button class="_h_btn">Partenaires</button></li>
-                    <li><button class="_h_btn">Emplois</button></li>
-                    <li><button class="_h_btn">Immobilier</button></li> #}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div id="_header_carousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#_header_carousel" data-slide-to="1"></li>
-            <li data-target="#_header_carousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_header') %}
-                                        	{{post.get_field('description_header')}}
-                                        {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
-                                          {# {{post.post_content}} #}
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_header') %}
-                                        {{post.get_field('description_header')}}
-                                        {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
-                                          {# {{post.post_content}} #}
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" data-stellar-background-ratio="0.5">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                <div class="text text-center">
-                                    <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_header') %}
-                                        {{post.get_field('description_header')}}
-                                        {% else %}
-                                        	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat rutrum leo et tincidunt. Nam eget erat felis. Vivamus nulla metus, maximus at mollis sed, blandit ac dui. Praesent lobortis lobortis volutpat. Aenean euismod ornare justo. 
-                                          {# {{post.post_content}} #}
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Left and right controls -->
-    </div>
-</div>
+    <style type="text/css">
+    .leaflet-popup-content-wrapper {
+        /*right: 182px !important;*/
+    }
+    </style>
 {% endblock %}
 {% block content %}
 <div class="wrapper {{sidebar_class}}">
@@ -202,11 +33,10 @@
                     aria-hidden="true"></i></span>
               </div>
             </div>
-            {# <div class="dropdown map_dropdown" id="dropdown">
-            </div> #}
-            <div class="dropdown" id="list">
+            <div class="dropdown map_dropdown" id="dropdown">
             </div>
-            
+            <div class="dropdown" id="l_resultat">
+            </div>
             <div class="dropdown" id="l_default">
             </div>
         </div>
@@ -231,38 +61,27 @@ let OL = L;</script>
 <script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css' rel='stylesheet' />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<link rel="stylesheet" href="{{ site.theme.link }}/css/_carte-station.css">
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-{# <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
-<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' /> #}
-<!-- Leaflet.markercluster assets -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css">
-  <link rel="stylesheet" href="{{ site.theme.link }}/css/_carte-station.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css">
-  <script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster-src.js"></script>
-<!-- Example data. -->
-<script src="/mapbox.js/assets/data/realworld.388.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <script type="text/javascript">
 let NL = L;
-       var lat = 46.227638;
-        var lon = 2.213749;
+       var lat = 44.798770;
+        var lon = -0.663530;
         window.macarte = null
-        // Fonction d'initialisation de la carte
-
         L.mapbox.accessToken = 'pk.eyJ1IjoiZmFicmljZXdlYiIsImEiOiJjazI1cmpmMGswcXI3M3FwOTJ2c25ldGVzIn0.4X0G-2us5zurU019Yu9tPw';
         var geocoder = L.mapbox.geocoder('mapbox.places');
-        // map = L.mapbox.map('map', 'mapbox.streets');
         var map = L.mapbox.map('map', 'mapbox.streets');
-        // Add tiles from the Mapbox Static Tiles API
-        // (https://docs.mapbox.com/api/maps/#static-tiles)
-        // Tiles are 512x512 pixels and are offset by 1 zoom level
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
-        // var mcg = L.markerClusterGroup().addTo(map);
-        var l_mark_icon=L.mapbox.marker;
+        var myLayer = L.mapbox.featureLayer().addTo(map);
         var greenIcon = L.icon({
-            iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
-            iconSize:     [30, 60], // size of the icon
+            iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
+            iconSize:     [35, 90],
         });
+        var featureLayer = L.mapbox.featureLayer().addTo(map);
         window.marker = L.marker([lat, lon], {icon: greenIcon});
         var markers = new L.MarkerClusterGroup({
             iconCreateFunction : function (cluster) {
@@ -282,7 +101,6 @@ let NL = L;
                     return v;
                 }
                 let definedBucket = defineBucket(cluster.getChildCount())
-                    console.log("cc-calculation-out---------------------",definedBucket,cluster.getChildCount())
                 return L.divIcon( {
                     html : '<b class="map-icon-container"><img class="map-icon" src="{{site.theme.link}}/images/_icons/m'+definedBucket+'.png" /><span class="map-icon-text" >' + cluster.getChildCount() + '</span></b>', 
                     className : 'mycluster', 
@@ -290,29 +108,14 @@ let NL = L;
                 });
             }
         });
-        /*var markersClusterCustom = new L.MarkerClusterGroup({
-            iconCreateFunction: function(cluster) {
-                var digit = (cluster.getChildCount()+'').length;
-                return L.divIcon({ 
-                    html: cluster.getChildCount(), 
-                    className: 'mycluster digit-'+digit, 
-                    iconSize: null 
-                });
-            }
-        });*/
-
-        var searchIcon = L.icon({
-            iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
-            iconSize:     [30, 60], // size of the icon
-        });
-
-        $.getJSON("{{site.theme.link}}/json/geoLocation.json", function(data) {
+        let lay = {}
+        $.getJSON('{{site.theme.link}}/json/geoLocation.json',function(data){
             var d_i = 1; 
             var geojson = L.geoJson(data, {
               onEachFeature: function (feature, layer) {
                 let d_name=feature.properties.name;
                 let d_id = feature.id
-                var d_content = '<div class="col mt-4 l_carte">'+
+                var d_content = '<div class="col mt-2 l_carte">'+
                     '<h5 class="t_esso">'+d_name+'</h5>'+
                     '<p>'+
                         '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
@@ -361,6 +164,8 @@ let NL = L;
                     })
                     d_i++;
                 }
+                let id = feature.id
+                lay[id] = layer
                 //console.log(feature);
                 var htmlBind = '<div class="pl-1">'+
                 '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
@@ -389,148 +194,21 @@ let NL = L;
               }
             });
             markers.addLayer(geojson);
-
-            // CONSTRUCT THE MAP
             map.fitBounds(markers.getBounds());
             markers.addTo(map);
-          });
 
-        /*var addressPoints = [
-            [46.227638, 2.213749, 'France'],
-        ];
-
-        for (var i = 0; i < 55; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0]+i*0.001, a[1]+i*0.001), {
-                icon: L.mapbox.marker.icon({}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-        addressPoints = [
-            [50.845539, 4.355710, 'Belgique'],
-        ];
-
-
-
-        for (var i = 0; i < 60; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-
-        addressPoints = [
-            [49.815273, 6.129583, 'Luxembourg'],
-        ];
-
-
-        for (var i = 0; i < 39; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-
-
-
-        addressPoints = [
-            [46.948002, 7.448130, 'Suisse'],
-        ];
-
-
-        for (var i = 0; i < 4; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-        addressPoints = [
-            [48.856613, 2.352222, 'Paris'],
-        ];
-
-        for (var i = 0; i < 50; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-
-
-        addressPoints = [
-            [43.738419, 7.424616, 'Monaco'],
-        ];
-
-
-        for (var i = 0; i < 47; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }
-
-
-        addressPoints = [
-            [42.507530, 1.521820, 'Andorre'],
-        ];*/
-
-        /*for (var i = 0; i < 17; i++) {
-            var a = addressPoints[0];
-            var title = a[2];
-            var marker = L.marker(new L.LatLng(a[0], a[1]), {
-                icon: L.mapbox.marker.icon({'marker-symbol': 'andorre', 'marker-color': '0044FF'}),
-                title: title
-            });
-            marker.bindPopup(title);
-            markers.addLayer(marker);
-        }*/
-        // map.addLayer(markers);
-        //map.addLayer(markersClusterCustom);
-
-
-
-       function initMap() {
-        let L = OL
-            // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-            macarte = L.map('maps', {attributionControl: false}).setView([lat, lon], 11);
-            // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+        });
+        function initMap() {
+            let L = OL
+            macarte = L.map('maps', {attributionControl: false}).setView([lat, lon], 6);
             L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                // Il est toujours bien de laisser le lien vers la source des données
-                // attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
                 minZoom: 1,
                 maxZoom: 20
             }).addTo(macarte);
 
             var greenIcon = L.icon({
-                iconUrl: '{{site.theme.link}}/images/_map/logo-esso.svg',
-                iconSize:     [38, 95], // size of the icon
+                iconUrl: '{{site.theme.link}}/images/_icons/localization-map.svg',
+                iconSize:     [38, 95]
             });
 
             var esso_alou = '<h5 class="t_esso">Esso Alouette</h5>'+
@@ -550,81 +228,134 @@ let NL = L;
 
             // Control 2: This add a scale to the map
             L.control.scale().addTo(macarte);
-
-        // Control 3: This add a Search bar
-            var resu = new L.LayerGroup().addTo(macarte);
-
-            L.esri.Geocoding.geocode().text('380 New York St, Redlands, California, 92373').run(function (err, results, response) {
-              if (err) {
-                console.log(err);
-                return;
-              }
-              console.log(results);
-              var res =results.results;
-              resu.clearLayers();
-              for (var i = res.length - 1; i >= 0; i--) {
-                resu.addLayer(L.marker(res[i].latlng, {icon: greenIcon}).bindPopup("<b>"+res[i].city+"</b><br>"+res[i].address+"").openPopup());
-              }
-            });
         }
         window.onload = function(){
-            // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
             initMap(); 
         };
         window.re_bounds=[];
-        window.re_properties=[];
         window.curerntId = 0
-       /*$('#search').keyup(function(event) {
-            var search = $(this).val();
-            geocoder.query(search, function(err,data) {
-                if (data.lbounds) {
-
-                                    console.log("data-c_bounds",data.lbounds)
-                    map.fitBounds(data.lbounds);
-                    var newLatLng = new L.LatLng(data.latlng[0], data.latlng[1]);
-                    marker.setLatLng(newLatLng);
-                } else if (data.latlng) {
-
-                    //map.setView([data.latlng[0], data.latlng[1]], 13);
-                    //marker.addTo(map);
-                }
-            });
-        });*/
-        /*var csvLayer = omnivore.csv('/mapbox.js/assets/data/airports.csv', null, L.mapbox.featureLayer()).addTo(map);
-        function search() {
-            // get the value of the search input field
-
-            var searchString = $('#search').val().toLowerCase();
-
-            csvLayer.setFilter(showState);
-
-            // here we're simply comparing the 'state' property of each marker
-            // to the search string, seeing whether the former contains the latter.
-            function showState(feature) {
-            console.log('test');
-                // return feature.properties.state
-                //     .toLowerCase()
-                //     .indexOf(searchString) !== -1;
-            }
-        }*/
         $('#search').on('keyup', function(event) {
             let _map = map
             let L = OL
             let _NL = NL
-            let l_icon = l_mark_icon
             curerntId++
             let id = curerntId
-            var search = $(this).val();
-            $('#list').html('');
-            $('#list').css('display', 'none');
+            var search = $(this).val().toLowerCase();
+            $('#l_resultat').html('');
+            $('#l_resultat').css('display', 'none');
             $('#l_default').css('display', 'none');
             if (search != '' && search.length >= 2 && event.keyCode != 46) {
                setTimeout(function(){
                   window.recherche=search;
-                  //document.getElementById('map').innerHTML='';
+                  var low_search=search.toLowerCase();
                   var geocoder = L.esri.Geocoding.geocodeService();
                   var map = macarte;
-                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
+                    let scores = []
+                    let scoresindex = {}
+                    var geojson = L.geoJson(data, {
+                        onEachFeature: function (feature, layer) {
+                            let properties = feature.properties
+                            let id = feature.id
+                            let score = 0;
+                            Object.keys(properties).map((keyname) =>{
+                                let keyvalue = properties[keyname]
+                                if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
+                                    score++
+                                    // console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
+                                }
+                            })
+                            scoresindex[id] = feature
+                            scores.push({
+                                id:id,
+                                score:score,
+                            })
+                        }
+                    });
+                    for (var i = 0; i < scores.length; i++) {
+                        for (var j = i+1; j < scores.length; j++) {
+                            if(scores[i].score<scores[j].score){
+                                let t = scores[i]
+                                scores[i] = scores[j]
+                                scores[j] = t
+                            }
+                        }
+                    }
+                    scores = scores.filter((score) =>{
+                        return score.score>0
+                    })
+                    scores = scores.splice(0,4)
+                    if (Array.isArray(scores) && scores.length == 0) {
+                        L.esri.Geocoding.geocode()
+                        .address(low_search)
+                        .city(low_search)
+                        .region(low_search)
+                        .postal(low_search)
+                        .country(low_search)
+                        .run(function (error, results, response) {
+                            if (error) {
+                              return;
+                            }
+                            var res =results.results;
+                            if (res) {
+                                var f_res=res[0];
+                                var latS = f_res.latlng.lat;
+                                var lonS = f_res.latlng.lng;
+                                $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
+                                    let scores = []
+                                    let scoresindex = {}
+                                    var geojson = L.geoJson(data, {
+                                        onEachFeature: function (feature, layer) {
+                                            let properties = feature.properties
+                                            let id = feature.id
+                                            let n_score = 0;
+                                            var geoLat = feature.geometry.coordinates[1];
+                                            var geoLng = feature.geometry.coordinates[0];
+                                            var p1 = new google.maps.LatLng(latS, lonS);
+                                            var p2 = new google.maps.LatLng(geoLat, geoLng);
+                                            var distance = calcDistance(p1, p2);
+                                            if (distance <= 150) {
+                                                n_score=distance;
+                                            }
+                                            scoresindex[id] = feature
+                                            scores.push({
+                                                id:id,
+                                                score:n_score,
+                                            });
+                                        }
+                                    });
+                                    for (var i = 0; i < scores.length; i++) {
+                                        for (var j = i+1; j < scores.length; j++) {
+                                            if(scores[i].score-0>scores[j].score-0){
+                                                let t = scores[i]
+                                                scores[i] = scores[j]
+                                                scores[j] = t
+                                            }
+                                        }
+                                    }
+                                    scores = scores.filter((score) =>{
+                                        return score.score>0
+                                    })
+                                    let _scores = scores.filter((s,k) =>{
+                                        if(k<4){
+                                            return true
+                                        }
+                                        return false
+                                    })
+                                    scores = _scores;
+                                    scoresFunction(scores,scoresindex,_map,map,lay);
+                                    return;
+                                });
+                            }
+                        })
+                    }
+                    let div = '';
+                    $('#l_resultat').css('display', 'block');
+                    $('#l_resultat').html('')
+                    scoresFunction(scores,scoresindex,_map,map,lay);
+                });
+                  
+                  /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
                   }).addTo(map);
                   L.esri.Geocoding.geocode()
@@ -642,21 +373,21 @@ let NL = L;
                     }
                     var res =results.results;
                     if (res) {
-                        $('#list').css('display', 'block');
-                        $('#list').html('')
-                        console.log(res)
-                        var j_count=0;
-                        if (j_count>=4) {
+                        $('#l_resultat').css('display', 'block');
+                        $('#l_resultat').html('')
+                        var r_count=0;
+                        if (r_count>=4) {
                             return false;
                         }else {
+                            var re_bounds = [];
                             for (var i = res.length - 1; i >= 0; i--) {
-                                j_count++;
-                                window.re_bounds[i] = res[i].bounds;
-                                window.re_properties[i] = res[i].properties;
+                                r_count++;
+                                re_bounds[i] = res[i].bounds;
                                 var affiche = '';
                                 if (res[i].properties.City != '') {
                                     affiche=res[i].properties.City;
-                                }else if(res[i].properties.LongLabel != '') {
+                                }
+                                else if(res[i].properties.LongLabel != '') {
                                     affiche=res[i].properties.LongLabel;
                                 }
                                 else if (res[i].text != '') {
@@ -664,107 +395,169 @@ let NL = L;
                                 }else {
                                     affiche=res[i].properties.Place_addr;
                                 }
-                                 var div = '<div class="col mt-4 l_carte">'+
+                                var div = "<div class='p_city'><div id='sel"+i+"' data-val='"+i+"' class='l_city'>"+affiche+"</div></div>";
+                                var div = '<div class="col mt-4 l_carte">'+
                                     '<h5 class="t_esso">'+affiche+'</h5>'+
                                     '<p>'+
                                         '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
                                         '<span>'+res[i].properties.Place_addr+'</span>'+
                                     '</p>'+
-                                    '<p class="c_information" id="sel'+i+'" data-val="'+i+'">'+
+                                    '<p class="c_information" id="sel'+i+'" data-val="'+i+'" >'+
                                         '<span>Plus d\'informations</span>'+
                                     '</p>'+
                                 '</div>';
-                                // var div = "<div class='p_city'><div id='sel"+i+"' data-val='"+i+"' class='l_city'>"+affiche+"</div></div>";
-                                let __then = () =>{
-                                    $('#list').append(div);
+                                let __result = () =>{
+                                    $('#l_resultat').append(div);
                                     function _f(i){
                                         $('#sel'+i).on('click',function(event) {
-                                            $("#list").html('');
+                                            $("#l_resultat").html('');
                                             $('#search').val('');
                                             $(".l_city").removeClass();
                                             var fil = $(this).data('val');
                                             var c_bounds = re_bounds[fil];
-                                            var c_properties = re_properties[fil];
-                                            var name = '';
-                                            if (c_properties.City != '') {
-                                                name=c_properties.City;
-                                            }else if(c_properties.LongLabel != '') {
-                                                name=c_properties.LongLabel;
-                                            }else {
-                                                name=c_properties.Place_addr;
+                                            console.log("c_bounds",c_bounds)
+                                            map.fitBounds(c_bounds);
+
+                                            map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
+                                            //_map.fitBounds(c_bounds);
+                                            var r_city='';
+
+                                            if (res[i].properties.City != '') {
+                                                r_city=res[i].properties.City;
                                             }
-                                            var content = '<div class="pl-1">'+
-                                            '<h5 class="t_esso">' + name + '</h5>'+
+                                            else if(res[i].properties.LongLabel != '') {
+                                                r_city=res[i].properties.LongLabel;
+                                            }
+                                            else if (res[i].text != '') {
+                                                r_city=res[i].text;
+                                            }else {
+                                                r_city=res[i].properties.Place_addr;
+                                            }
+
+                                            esso_alou = '<div class="pl-1">'+
+                                            '<h5 class="t_esso">'+r_city+'</h5>'+
                                             '<p>'+
                                                 '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
                                                 '<span class="c_popup">'+
-                                                '<span>' + c_properties.Match_addr + ',</span><br>'+
-                                                '<span style="padding-left: 20px;">' + c_properties.City + ' - ' + c_properties.Country +'</span>'+
+                                                '<span>'+res[i].properties.Place_addr+'</span>'+
                                                 '</span>'+
                                             '</p>'+
                                             '<p>'+
                                                 '<span>'+
-                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:34px;">'+
+                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
                                                 '</span>'+
                                                 '<span class="pl-3">'+
-                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
+                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
                                                 '</span>'+
                                             '</p>'+
                                             '</div>';
-                                            //map.fitBounds(c_bounds);
-                                            /*_map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
                                             var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
-                                            marker.setLatLng(newLatLng);*/
-                                            let lat = res[i].latlng.lat;
-                                            let lng = res[i].latlng.lng;
-                                            var fit = [
-                                                [lat-0.01, lng-0.01],
-                                                [lat+0.01, lng+0.01],
-                                            ]
-                                            _map.fitBounds(fit);
-                                            map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
-                                            /*var marker = _NL.marker(new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng), {
-                                                icon: searchIcon
-                                            });*/
-                                            var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
-                                            marker
-                                            .setLatLng(newLatLng)
-                                            .addTo(_map)
-                                            .bindPopup(content)
-                                            .openPopup()
-                                            ;
-                                            // markers.addLayer(marker);
-                                            //map.addLayer(markers); 
+                                            marker.setLatLng(newLatLng)
+                                                .bindPopup(esso_alou)
+                                                .openPopup();
                                         })
                                     }
                                     _f(i)
-
                                 }
-                                if(j_count<=4){
-                                    __then()
+                                if(r_count<=4){
+                                    __result()
                                 }
                             }
                         }
                     }
-                    /*f(response.results[0]){
-                        console.log(response.results[0])
-                        map.fitBounds(response.results[0].bounds);
-                    }*/
-                  });
+                  });*/
                 }, 100);
             }
         });
 
         $(document).on('click', function(event) {
-            console.log(event.target);
-            console.log($('#search')[0]);
-          if (!$(event.target).closest('#list').length && event.target != $('#search')[0])  {
-                $("#list").html('');
+          if (!$(event.target).closest('#l_resultat').length && event.target != $('#search')[0])  {
+                // $("#l_resultat").html('');
                 $('#search').val('');
-                $('#list').css('display', 'none');
-                $('#l_default').css('display', 'block');
+                $('#l_resultat').css('display', 'block');
+                // $('#l_default').css('display', 'block');
           }
         });
+
+        function distance(lat1, lon1, lat2, lon2, unit) {
+            var radlat1 = Math.PI * lat1/180
+            var radlat2 = Math.PI * lat2/180
+            var theta = lon1-lon2
+            var radtheta = Math.PI * theta/180
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist)
+            dist = dist * 180/Math.PI
+            dist = dist * 60 * 1.1515
+            if (unit=="K") { dist = dist * 1.609344 }
+            if (unit=="N") { dist = dist * 0.8684 }
+            return dist
+        }
+
+        function calcDistance(p1, p2) {
+          return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+        }
+        function scoresFunction(scores,scoresindex,_map,map,lay) {
+            $('#l_resultat').html('')
+            scores.map((score,i) =>{
+                let id = score.id
+                let feature = scoresindex[id];
+                let affiche=feature.properties.name;
+                var div = '<div class="col mt-2 l_carte">'+
+                    '<h5 class="t_esso">'+affiche+'</h5>'+
+                    '<p>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<span>'+feature.properties.address+'</span><br>'+
+                        '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '</p>'+
+                    '<p class="c_information" id="sel'+id+'" data-val="'+id+'" >'+
+                        '<span>Plus d\'informations</span>'+
+                    '</p>'+
+                '</div>';
+                $('#l_resultat').append(div);
+
+                $('#sel'+id).on('click',function(event) {
+                    // $("#l_resultat").html('');
+                    $('#search').val('');
+                    $(".l_city").removeClass();
+                    var fil = $(this).data('val');
+                    var feat = scoresindex[id];
+                    var c_bounds =feat.geometry.coordinates;
+                    let lat = feat.geometry.coordinates[1];
+                    let lng = feat.geometry.coordinates[0];
+                    var fit = [
+                        [lat-0.01, lng-0.01],
+                        [lat+0.01, lng+0.01],
+                    ]
+                    _map.fitBounds(fit);
+                    map.panTo(new L.LatLng(lat, lng));
+                    var content = '<div class="pl-1">'+
+                    '<h5 class="t_esso">' + feat.properties.name + '</h5>'+
+                    '<p>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<span class="c_popup">'+
+                        '<span>' + feat.properties.address + ',</span><br>'+
+                        '<span style="padding-left: 20px;">' + feat.properties.city + ' - ' + feat.properties.country +'</span>'+
+                        '</span>'+
+                    '</p>'+
+                    '<p>'+
+                        '<span>'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                        '</span>'+
+                        '<span class="pl-3">'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                        '</span>'+
+                    '</p>'+
+                    '</div>';
+                    var newLatLng = new L.LatLng(lat,lng);
+                    lay[id]
+                        .openPopup();
+                })
+
+            })
+        }
 
 </script>
 
