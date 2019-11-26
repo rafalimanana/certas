@@ -1232,3 +1232,9 @@ article section._article_content h1._article_body {
     right: 5%;
     padding: 0 5%;
 } 
+
+/*.submenu > .nav-item.active > a {
+    color: #fff !important;
+    border-bottom: #00aac9 solid 3px;
+    font-weight: bold !important;
+}*/
