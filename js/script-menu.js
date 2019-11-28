@@ -53,6 +53,7 @@
 	}
 })*/
 
+	alert(5)
 
     window.addEventListener('load',() =>{
             $('.i_chil').css('display', 'none');
