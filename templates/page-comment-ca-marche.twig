@@ -9,23 +9,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a  class="a-navig" href="{{ site.url }}">Accueil</a></li>
-                    <li class="breadcrumb-item a-navig">
-                        {% if post.parent.title %}
-                            {{post.parent.title}}
-                        {% else %}
-                            Club Certas Energy
-                        {% endif %}
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <strong>
-                            {% if post.title %}
-                                {{post.title}}
-                            {% else %}
-                                Comment ça marche
-                            {% endif %} ?
-                        </strong>
-                        
-                    </li>
+                    {% if post.parent.title %}
+                        <li class="breadcrumb-item a-navig"><a  class="a-navig" href="{{post.parent.link}}">{{post.parent.title}}</a></li>
+                    {% endif %}
+                    <li class="breadcrumb-item active">{{post.title}}</li>
                 </ol>
             </nav>
         </div>

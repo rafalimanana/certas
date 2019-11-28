@@ -9,13 +9,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
-                    <li class="breadcrumb-item">
                         {% if post.parent.title %}
-                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/"> {{post.parent.title}} </a>
-                        {% else %}
-                            <a  class="a-navig" href="{{ site.url }}/nos-carburants/">Nos carburants</a>
+                            <li class="breadcrumb-item"><a class="a-navig" href="{{post.parent.link}}">{{post.parent.title}}</a></li>
                         {% endif %}
-                    </li>
                     <li class="breadcrumb-item active"><strong> Liste des produits vendus </strong></li>
                 </ol>
             </nav>

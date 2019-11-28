@@ -29,7 +29,7 @@
                         <li class="nav-item {{ (item.current or o["t" ~ item.id] )? 'active' : '' }}">
                             {% if item.children %}
                                 <a href="{{item.link}}" class="nav-link text-uppercase i_page">{{item.title}}</a>
-                                <a href="#" class="nav-link text-uppercase i_mobile" id="n_station{{key}}" onclick="menuP({{key}}, event)">{{item.title}}</a>
+                                <a href="#" class="nav-link text-uppercase i_mobile" id="n_station{{key}}" onClick="menuP({{key}}, event)">{{item.title}}</a>
                                 <ul class="nav-item submenu i_chil" id="sub_station{{key}}">
                                     <li class="nav-item">
                                     <a href="{{item.link}}" class="nav-link text-uppercase i_mobile">{{item.title}}</a></li>
@@ -40,7 +40,7 @@
                                             {% endif %}
                                             {% if child.children %}
                                                 <a href="{{child.link}}" class="nav-link text-uppercase i_page">{{child.title}}</a>
-                                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station{{key}}{{k}}" onclick="childF({{key}}{{k}}, event)">{{child.title}}</a>
+                                                <a href="#" class="nav-link text-uppercase i_mobile"  id="child_station{{key}}{{k}}" onClick="childF({{key}}{{k}}, event)">{{child.title}}</a>
                                                 <ul class="nav-item submenu i_c_chil"  id="lavage_station{{key}}{{k}}">
                                                     <li class="nav-item i_mobile">
                                                         <a href="{{child.link}}" class="nav-link text-uppercase">{{child.title}}</a>
