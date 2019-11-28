@@ -1,7 +1,6 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 	if (screen.width <= 991.98) {
 		console.log('test menu')
-		/*$('.submenu').css('display', 'none');*/
 		var sub_station = document.getElementById("sub_station");
 		var lavage_station = document.getElementById("lavage_station");
 		var l_produit = document.getElementById("l_produit");
@@ -11,8 +10,6 @@ $(document).ready(function() {
 		l_produit.style.display = "none";
 		c_marche.style.display = "none";
 		$('#n_station').click(function(e) {
-			// $(".submenu").removeClass("submenu");
-			// $('#_menu li').parent().find('ul#sub_station').removeClass('submenu');
 			l_produit.style.display = "none";
 			c_marche.style.display = "none";
 			if (sub_station.style.display === "block") {
@@ -20,7 +17,6 @@ $(document).ready(function() {
 			 } else {
 			    sub_station.style.display = "block";
 			 }
-			// $('#sub_station').css('display', 'block')
 		})
 
 		$('#child_station').click(function(e) {
@@ -55,4 +51,32 @@ $(document).ready(function() {
 			 }
 		})
 	}
-})
+})*/
+
+
+    window.addEventListener('load',() =>{
+        if (screen.width <= 991.98) {
+            $('.i_chil').css('display', 'none');
+            $('.i_c_chil').css('display', 'none');
+            menuP = (key,event) => {
+                $("#sub_station"+key).attr("data-display",$("#sub_station"+key).css("display"));
+                $("*[id^=sub_station]").css("display", "none");
+                $("*[id^=lavage_station]").css("display", "none");
+                if($("#sub_station"+key).attr("data-display") == "block") {
+                    $("#sub_station"+key).css("display", "none");
+                }else {
+                    $("#sub_station"+key).css("display", "block");
+                }
+            };
+            childF = (key,event) => {
+                $("#lavage_station"+key).attr("data-display",$("#lavage_station"+key).css("display"));
+                $("*[id^=lavage_station]").css("display", "none");
+                if($("#lavage_station"+key).attr("data-display") == "block") {
+                    $("#lavage_station"+key).css("display", "none");
+                }else {
+                    $("#lavage_station"+key).css("display", "block");
+                }
+                // $('#lavage_station'+key).css('display', 'block');
+            };
+        }
+    });
