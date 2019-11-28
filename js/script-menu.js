@@ -1,5 +1,5 @@
-/*$(document).ready(function() {
-	if (screen.width <= 991.98) {
+$(document).ready(function() {
+	/*if (screen.width <= 991.98) {
 		console.log('test menu')
 		var sub_station = document.getElementById("sub_station");
 		var lavage_station = document.getElementById("lavage_station");
@@ -50,32 +50,32 @@
 			    c_marche.style.display = "block";
 			 }
 		})
-	}
-})*/
-    window.addEventListener('load',() =>{
-        if (screen.width <= 991.98) {
-            /*$('.i_chil').css('display', 'none');
-            $('.i_c_chil').css('display', 'none');*/
-            menuP = (key,event) => {
-				var sub_station = document.getElementById("sub_station"+key);
-                $("#sub_station"+key).attr("data-display",$("#sub_station"+key).css("display"));
-                $("*[id^=sub_station]").css("display", "none");
-                $("*[id^=lavage_station]").css("display", "none");
-                if($("#sub_station"+key).attr("data-display") == "block") {
-                    $("#sub_station"+key).css("display", "none");
-                }else {
-                    $("#sub_station"+key).css("display", "block");
-                }
-            };
-            childF = (key,event) => {
-				var lavage_station = document.getElementById("lavage_station"+key);
-                $("#lavage_station"+key).attr("data-display",$("#lavage_station"+key).css("display"));
-                $("*[id^=lavage_station]").css("display", "none");
-                if($("#lavage_station"+key).attr("data-display") == "block") {
-                    $("#lavage_station"+key).css("display", "none");
-                }else {
-                    $("#lavage_station"+key).css("display", "block");
-                }
-            };
-        }
-    });
+	}*/
+    if (screen.width <= 991.98) {
+        /*$('.i_chil').css('display', 'none');
+        $('.i_c_chil').css('display', 'none');*/
+        menuP = (key,event) => {
+			var sub_station = document.getElementById("sub_station"+key);
+            $("#sub_station"+key).attr("data-display",$("#sub_station"+key).css("display"));
+            $("*[id^=sub_station]").css("display", "none");
+            $("*[id^=lavage_station]").css("display", "none");
+            if($("#sub_station"+key).attr("data-display") == "block") {
+                $("#sub_station"+key).css("display", "none");
+            }else {
+                $("#sub_station"+key).css("display", "block");
+            }
+        };
+        childF = (key,event) => {
+			var lavage_station = document.getElementById("lavage_station"+key);
+            $("#lavage_station"+key).attr("data-display",$("#lavage_station"+key).css("display"));
+            $("*[id^=lavage_station]").css("display", "none");
+            if($("#lavage_station"+key).attr("data-display") == "block") {
+                $("#lavage_station"+key).css("display", "none");
+            }else {
+                $("#lavage_station"+key).css("display", "block");
+            }
+        };
+    }
+})
+   /* window.addEventListener('load',() =>{
+    });*/
