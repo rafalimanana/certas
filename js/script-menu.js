@@ -55,7 +55,6 @@
 
 
     window.addEventListener('load',() =>{
-        if (screen.width <= 991.98) {
             $('.i_chil').css('display', 'none');
             $('.i_c_chil').css('display', 'none');
             menuP = (key,event) => {
@@ -78,5 +77,4 @@
                 }
                 // $('#lavage_station'+key).css('display', 'block');
             };
-        }
     });
