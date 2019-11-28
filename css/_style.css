@@ -1223,6 +1223,65 @@ article section._article_content h1._article_body {
     }
 }
 
+
+@media only screen and (max-width: 783px) {
+    ._apropos_video 
+    {
+        margin-top: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 783px) {
+    ._apropos_video 
+    {
+        margin-top: 50px !important;
+    }
+
+    .t_page {
+        display: none !important;
+    }
+    .t_mobile {
+        display: block !important;
+    }
+}
+
+.p_video {
+    display: block;
+}
+.t_page {
+    display: block;
+}
+.t_mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 520px) {
+    .m_video {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .m_video iframe,  
+    .m_video object,  
+    .m_video embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .entry-content img, 
+    .entry-content iframe, 
+    .entry-content object, 
+    .entry-content embed {
+            max-width: 100%;
+    }
+}
+
 .carousel-inner:not(._home) {
     position: relative;
     width: 110%;
@@ -1232,6 +1291,11 @@ article section._article_content h1._article_body {
     right: 5%;
     padding: 0 5%;
 } 
+
+body {
+    overflow-x: hidden;
+    /*width: 100%;*/
+}
 
 /*.submenu > .nav-item.active > a {
     color: #fff !important;
