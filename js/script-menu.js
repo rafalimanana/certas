@@ -52,31 +52,3 @@
 		})
 	}
 })*/
-
-
-    window.addEventListener('load',() =>{
-        if (screen.width <= 991.98) {
-            $('.i_chil').css('display', 'none');
-            $('.i_c_chil').css('display', 'none');
-            menuP = (key,event) => {
-                $("#sub_station"+key).attr("data-display",$("#sub_station"+key).css("display"));
-                $("*[id^=sub_station]").css("display", "none");
-                $("*[id^=lavage_station]").css("display", "none");
-                if($("#sub_station"+key).attr("data-display") == "block") {
-                    $("#sub_station"+key).css("display", "none");
-                }else {
-                    $("#sub_station"+key).css("display", "block");
-                }
-            };
-            childF = (key,event) => {
-                $("#lavage_station"+key).attr("data-display",$("#lavage_station"+key).css("display"));
-                $("*[id^=lavage_station]").css("display", "none");
-                if($("#lavage_station"+key).attr("data-display") == "block") {
-                    $("#lavage_station"+key).css("display", "none");
-                }else {
-                    $("#lavage_station"+key).css("display", "block");
-                }
-                // $('#lavage_station'+key).css('display', 'block');
-            };
-        }
-    });
