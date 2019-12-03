@@ -50,9 +50,14 @@
                     </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
-                    <a href="{{site.url}}/club-certas-energy/comment-ca-marche" class="">
+                    {% set p_url = post.get_field('premier_url_savoir_plus') %}
+                    <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
+                            {% if post.get_field('premier_texte_savoir_plus') %}
+                                {{post.get_field('premier_texte_savoir_plus')}}
+                            {% else %}
                                 En savoir plus
+                            {% endif %}
                         </button>
                     </a>
                 </p>
@@ -69,7 +74,7 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-6">
-                {% if  post.get_field('premier_image') %}
+                {% if  post.get_field('deuxieme_image') %}
                     <img class="img_club" src="{{post.get_field('deuxieme_image').url}}">
                 {% else %}
                     <img class="img_club" src="{{ site.theme.link }}/images/avantages-services.png">
@@ -108,9 +113,14 @@
                     </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
-                    <a href="#" class="">
+                    {% set d_url = post.get_field('deuxieme_url_savoir_plus') %}
+                    <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
+                            {% if post.get_field('deuxieme_texte_savoir_plus') %}
+                                {{post.get_field('deuxieme_texte_savoir_plus')}}
+                            {% else %}
                                 En savoir plus
+                            {% endif %}
                         </button>
                     </a>
                 </p>
@@ -148,15 +158,20 @@
                     </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
-                    <a href="#" class="">
+                    {% set t_url = post.get_field('troisieme_url_savoir_plus') %}
+                    <a href="{% if t_url.url %}{{t_url.url}}{% else %}#{% endif %}" class=""  target="{% if t_url.target %}{{t_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first ">
+                            {% if post.get_field('troisieme_texte_savoir_plus') %}
+                                {{post.get_field('troisieme_texte_savoir_plus')}}
+                            {% else %}
                                 En savoir plus
+                            {% endif %}
                         </button>
                     </a>
                 </p>
             </div>
             <div class="col-md-6 pl_club">
-                {% if  post.get_field('premier_image') %}
+                {% if  post.get_field('troisieme_image') %}
                     <img class="img_club" src="{{post.get_field('troisieme_image').url}}">
                 {% else %}
                     <img class="img_club" src="{{ site.theme.link }}/images/Le-cfc.png">

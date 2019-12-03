@@ -45,7 +45,11 @@
                 <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
                         <button class="btn btn-secondary btn-first">
-                            Découvrez notre reseau
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_first') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_first')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
                         </button>
                     </a>
                 </div>
@@ -74,7 +78,11 @@
                 <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
                         <button class="btn btn-secondary btn-first">
-                            Découvrez notre reseau
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_first') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_first')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
                         </button>
                     </a>
                 </div>
@@ -148,7 +156,11 @@
                 <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
                         <button class="btn btn-secondary btn-first">
-                            Découvrez notre reseau
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_second') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_second')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
                         </button>
                     </a>
                 </div>
@@ -175,7 +187,11 @@
                 <div class="text-center _pd_tp_40">
                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
                         <button class="btn btn-secondary btn-first">
-                            Découvrez notre reseau
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_second') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_second')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
                         </button>
                     </a>
                 </div>

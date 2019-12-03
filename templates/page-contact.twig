@@ -20,14 +20,19 @@
   <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
   	<div>
         <h2 class="text-uppercase  services-h2">
-            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Contacter</strong></span></p>
+        	{% if post.get_field('titre_nous_contacter') %}
+        		{{post.get_field('titre_nous_contacter')}}
+        	{% else %}
+            	<p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Contacter</strong></span></p>
+        	{% endif %}
         </h2>
 	  	<div class="row">
 	  		<div class="col-md-6">
-                {% set id_contact = post.get_field('shortcode_formulaire') %}
-                {% if post.content%}
+                {% set shortcode_form = post.get_field('shortcode_formulaire') %}
+                {% if shortcode_form %}
                     {% filter shortcodes|raw %}
-                         [contact-form-7 id="{{id_contact}}" title="Contact"] 
+                         {# [contact-form-7 id="{{id_contact}}" title="Contact"]  #}
+                         {{shortcode_form|raw}}
                     {% endfilter %}
 	  				{# {{post.content|raw}} #}
 	  			{% else %}
@@ -46,7 +51,11 @@
   	</div>
   	<div class="mt-5">
 		<h2 class="text-uppercase  services-h2">
-            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Trouver</strong></span></p>
+        	{% if post.get_field('titre_nous_trouver') %}
+        		{{post.get_field('titre_nous_trouver')}}
+        	{% else %}
+            	<p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nous</span><strong> Trouver</strong></span></p>
+        	{% endif %}
         </h2>
 
 	  	<div class="row">
@@ -67,16 +76,32 @@
 	  		<div class="col-md-4" style="padding-top: 116px;padding-left: 60px;">
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
-	  				<span class="ccm-p">9 Avenue Edouard Belin,</span><br>
-	  				<span style="padding-left: 30px;" class="ccm-p">92500 Rueil-Malmaison</span>
+	  				{% if post.get_field('localisation') %}
+	  					{{post.get_field('localisation')|replace({'<p>': '','</p>': ''})}}
+	  				{% else %}
+		  				<span class="ccm-p">9 Avenue Edouard Belin,</span><br>
+		  				<span style="padding-left: 30px;" class="ccm-p">92500 Rueil-Malmaison</span>
+	  				{% endif %}
 	  			</p>
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/phone.svg" style="width:21px;">
-	  				<span class="ccm-p">01 55 94 06 28</span>
+	  				<span class="ccm-p">
+	  					{% if post.get_field('telephone') %}
+	  						{{post.get_field('telephone')}}
+	  					{% else %}
+	  						01 55 94 06 28
+	  					{% endif %}
+	  				</span>
 	  			</p>
 	  			<p>
 	  				<img src="{{ site.theme.link }}/images/_icons/mail.svg" style="width:23px;">
-	  				<span class="ccm-p">contact@certas.fr</span>
+	  				<span class="ccm-p">
+	  					{% if post.get_field('email') %}
+	  						{{post.get_field('email')}}
+	  					{% else %}
+	  						contact@certas.fr
+	  					{% endif %}
+	  				</span>
 	  			</p>
 	  			{# <div style="padding-left: 40px;">
 		  			<a href="#">

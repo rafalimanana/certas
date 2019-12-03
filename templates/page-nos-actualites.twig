@@ -22,7 +22,11 @@
 	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
 	            <section class="_article_content col-md-12">
                     <h2 class="text-uppercase  services-h2">
-                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">nos</span><strong> actualités</strong></span></p>
+                        {% if post.get_field('titre_nos_actualites') %}
+                            {{post.get_field('titre_nos_actualites')}}
+                        {% else %}
+                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">nos</span><strong> actualités</strong></span></p>
+                        {% endif %}
                     </h2>
 	            </section>
 

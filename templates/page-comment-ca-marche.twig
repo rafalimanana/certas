@@ -23,7 +23,13 @@
     <div class="container content-wrapper pb-5">
         <div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12">
             <h2 class="text-uppercase  services-h2">
-                <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment</span><strong> ça marche ?</strong></span></p>
+                {% if post.get_field('premier_titre') %}
+                    {{post.get_field('premier_titre')}}
+                {% else %}
+                    <p>
+                        <span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment</span><strong> ça marche ?</strong></span>
+                    </p>
+                {% endif %}
             </h2>
         </div>
         {% set more = post.get_field('contenu')|split('<!--more-->') %}
@@ -69,11 +75,23 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="text-uppercase  text-center services-h2">
-                            <p><span class="font-family-pers" style="color: #ffffff;"><span class="fw-l">une  </span><strong>question ?</strong></span></p>
+                            {% if post.get_field('texte_une_question') %}
+                                <span class="font-family-pers" style="color: #ffffff;">
+                                    {{post.get_field('texte_une_question')|replace({'<p>': '', '</p>': ''})|raw}}
+                                </span>
+                            {% else %}
+                                <p><span class="font-family-pers" style="color: #ffffff;"><span class="fw-l">une  </span><strong>question ?</strong></span></p>
+                            {% endif %}
                         </h2>
                     </div>
                     <div class="col-md-12 _cnt_btn_quest">
-                        <a href="{{site.url}}/contact" class="_btn_quest">contactez-nous</a>
+                        <a href="{{site.url}}/contact" class="_btn_quest">
+                            {% if post.get_field('texte_contactez_nous') %}
+                                {{post.get_field('texte_contactez_nous')}}
+                            {% else %}
+                                contactez-nous
+                            {% endif %}
+                        </a>
                     </div>
                 </div>
             </div>
