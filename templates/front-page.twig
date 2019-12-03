@@ -90,13 +90,21 @@
         </div>
 
         <div class="col-md-12 _cnt_btn">
-            <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}" class="_btn_lnk">
+            {% set b_url = post.get_field('bouton_decouvrez_notre_reseauLien') %}
+            <a href="{% if b_url.url %}{{b_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if b_url.target %}{{b_url.target}}{% else %}_self{% endif %}">
+                    {% if post.get_field('texte_bouton_decouvrez_notre_reseau') %}
+                        {{post.get_field('texte_bouton_decouvrez_notre_reseau')}}
+                    {% else %}
+                        Découvrez notre réseau
+                    {% endif %}
+            </a>
+            {# <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}" class="_btn_lnk">
                 {% if post.get_field('texte_bouton_decouvrez_notre_reseau') %}
                     {{post.get_field('texte_bouton_decouvrez_notre_reseau')}}
                 {% else %}
                     Découvrez notre réseau
                 {% endif %}
-            </a>
+            </a> #}
         </div>
     </div>
     <div class="content-wrapper _bg_grey _pd_tp_50 _pd_bt_50">
@@ -188,13 +196,21 @@
                                 </div>
                             </div>
                             <div class="col-md-12 _cnt_btn">
-                                <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}" class="_btn_lnk">
+                                {% set v_url = post.get_field('decouvrez')['bouton_notre_valeur_ajoute'] %}
+                                <a href="{% if v_url.url %}{{v_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if v_url.target %}{{v_url.target}}{% else %}_self{% endif %}">
+                                        {% if post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute'] %}
+                                            {{post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute']}}
+                                        {% else %}
+                                            Notre valeur ajoutée
+                                        {% endif %}
+                                </a>
+                                {# <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}" class="_btn_lnk">
                                     {% if post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute'] %}
                                         {{post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute']}}
                                     {% else %}
                                         Notre valeur ajoutée
                                     {% endif %}
-                                </a>
+                                </a> #}
                             </div>
                         </div>
                     </div>
