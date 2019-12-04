@@ -46,9 +46,10 @@
                     <div class="row">
     	                <div class="col-md-6">
                             {% set img_b1 = post.get_field('premier_image_background') %}
+                            {% set p_url = post.get_field('url_produits_vendus') %}
                             <div class="_carbu_bloc_img" style="background-image: url({% if img_b1 %}{{img_b1.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_list_produits_vendus.jpg}}{% endif %}); background-position-y: -55px;">
                                 <div class="_carbu_bloc_shadow">
-                                    <a href="{{ site.url }}/nos-carburants/produits">
+                                    <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
                                         <h2 class="_carbu_img_title">
                                         {% if post.get_field('produits_vendus') %}
                                             {{post.get_field('produits_vendus')}}
@@ -64,13 +65,16 @@
                             {% set img_b2 = post.get_field('deuxieme_image_background') %}
                             <div class="_carbu_bloc_img" style="background-image: url({% if img_b2 %}{{img_b2.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_specificites_avantages.jpg}}{% endif %}); background-position-y: -175px;">
                                 <div class="_carbu_bloc_shadow">
-                                    <h2 class="_carbu_img_title">
-                                        {% if post.get_field('specificites') %}
-                                            {{post.get_field('specificites')}}
-                                        {% else %}
-                                            spécificités techniques<br>& avantages
-                                        {% endif %}
-                                    </h2>
+                                    {% set s_url = post.get_field('url_specificites') %}
+                                    <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
+                                        <h2 class="_carbu_img_title">
+                                            {% if post.get_field('specificites') %}
+                                                {{post.get_field('specificites')}}
+                                            {% else %}
+                                                spécificités techniques<br>& avantages
+                                            {% endif %}
+                                        </h2>
+                                    </a>
                                 </div>
                             </div>
                         </div>
