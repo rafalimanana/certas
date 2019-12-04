@@ -71,7 +71,9 @@
 	<div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-	        	<a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+            	{% set pe_url = post.get_field('premier_url_equipement') %}
+	        	<a href="{% if pe_url.url %}{{pe_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
+	        	target="{% if pe_url.target %}{{pe_url.target}}{% else %}_self{% endif %}">
 		        	<div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
@@ -92,7 +94,9 @@
 			        </div>
 			    </a>
 
-			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+            	{% set de_url = post.get_field('deuxieme_url_equipement') %}
+			    <a href="{% if de_url.url %}{{de_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
+	        	target="{% if de_url.target %}{{de_url.target}}{% else %}_self{% endif %}">
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
@@ -112,8 +116,10 @@
 			            </section>
 			        </div>
 			    </a>
-			        
-			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+
+			    {% set te_url = post.get_field('troisieme_url_equipement') %}
+			    <a href="{% if te_url.url %}{{te_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
+	        	target="{% if te_url.target %}{{te_url.target}}{% else %}_self{% endif %}">
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
@@ -134,7 +140,9 @@
 			        </div>
 			    </a>
 
-			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+				{% set qe_url = post.get_field('quatrieme_url_equipement') %}
+			    <a href="{% if qe_url.url %}{{qe_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
+	        	target="{% if qe_url.target %}{{qe_url.target}}{% else %}_self{% endif %}">
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
@@ -155,7 +163,9 @@
 			        </div>
 			    </a>
 
-			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+				{% set ce_url = post.get_field('cinquieme_url_equipement') %}
+			    <a href="{% if ce_url.url %}{{ce_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
+	        	target="{% if ce_url.target %}{{ce_url.target}}{% else %}_self{% endif %}">
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
@@ -176,7 +186,9 @@
 			        </div>
 			    </a>
 
-			    <a href="{{site.url}}/services-en-stations/lavage" class="_lnk_bloc">
+			    {% set se_url = post.get_field('sixieme_url_equipement') %}
+			    <a href="{% if se_url.url %}{{se_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
+	        	target="{% if se_url.target %}{{se_url.target}}{% else %}_self{% endif %}">
 			        <div class="col-md-2">
 			            <section class="_bloc_content">
 			            	<div class="_cnt_ico">
