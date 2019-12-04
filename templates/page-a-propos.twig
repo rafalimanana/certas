@@ -43,7 +43,8 @@
                     {% endif %}
                 </p>
                 <div class="text-center _pd_tp_40">
-                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
+                    {% set u_url = post.get_field('url_bouton_decouvrez_notre_reseau_first') %}
+                    <a href="{% if u_url.url %}{{u_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if u_url.target %}{{u_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
                             {% if post.get_field('texte_bouton_decouvrez_notre_reseau_first') %}
                                 {{post.get_field('texte_bouton_decouvrez_notre_reseau_first')}}
@@ -52,6 +53,15 @@
                             {% endif %}
                         </button>
                     </a>
+                    {# <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
+                        <button class="btn btn-secondary btn-first">
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_first') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_first')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
+                        </button>
+                    </a>  #}
                 </div>
             </div>
             <div class="col-md-12 col-lg-12 t_mobile">
@@ -76,7 +86,8 @@
                     {% endif %}
                 </p>
                 <div class="text-center _pd_tp_40">
-                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_first')}}">
+                    {% set u_url = post.get_field('url_bouton_decouvrez_notre_reseau_first') %}
+                    <a href="{% if u_url.url %}{{u_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if u_url.target %}{{u_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
                             {% if post.get_field('texte_bouton_decouvrez_notre_reseau_first') %}
                                 {{post.get_field('texte_bouton_decouvrez_notre_reseau_first')}}
@@ -154,7 +165,8 @@
                     {% endif %}
                 </p>
                 <div class="text-center _pd_tp_40">
-                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
+                    {% set s_url = post.get_field('url_bouton_decouvrez_notre_reseau_second') %}
+                    <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
                             {% if post.get_field('texte_bouton_decouvrez_notre_reseau_second') %}
                                 {{post.get_field('texte_bouton_decouvrez_notre_reseau_second')}}
@@ -163,6 +175,15 @@
                             {% endif %}
                         </button>
                     </a>
+{#                     <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
+                        <button class="btn btn-secondary btn-first">
+                            {% if post.get_field('texte_bouton_decouvrez_notre_reseau_second') %}
+                                {{post.get_field('texte_bouton_decouvrez_notre_reseau_second')}}
+                            {% else %}
+                                Découvrez notre réseau
+                            {% endif %}
+                        </button>
+                    </a> #}
                 </div>
             </div>
             <div class="col-md-12 col-lg-12 p-a-propos t_mobile">
@@ -185,7 +206,8 @@
                     {% endif %}
                 </p>
                 <div class="text-center _pd_tp_40">
-                    <a href="{{post.get_field('url_bouton_decouvrez_notre_reseau_second')}}">
+                    {% set s_url = post.get_field('url_bouton_decouvrez_notre_reseau_second') %}
+                    <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
                         <button class="btn btn-secondary btn-first">
                             {% if post.get_field('texte_bouton_decouvrez_notre_reseau_second') %}
                                 {{post.get_field('texte_bouton_decouvrez_notre_reseau_second')}}

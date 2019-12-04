@@ -90,7 +90,7 @@
         </div>
 
         <div class="col-md-12 _cnt_btn">
-            {% set b_url = post.get_field('bouton_decouvrez_notre_reseauLien') %}
+            {% set b_url = post.get_field('bouton_decouvrez_notre_reseau') %}
             <a href="{% if b_url.url %}{{b_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if b_url.target %}{{b_url.target}}{% else %}_self{% endif %}">
                     {% if post.get_field('texte_bouton_decouvrez_notre_reseau') %}
                         {{post.get_field('texte_bouton_decouvrez_notre_reseau')}}
