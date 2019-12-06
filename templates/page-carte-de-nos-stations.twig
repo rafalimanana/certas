@@ -118,11 +118,11 @@ let NL = L;
                 let d_name=feature.properties.name;
                 let d_id = feature.id
                 var d_content = '<div class="col mt-2 l_carte">'+
-                    '<h5 class="t_esso">'+d_name+'</h5>'+
+                    '<h5 class="t_esso">'+titleCase(d_name)+'</h5>'+
                     '<p>'+
                         '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                        '<span>'+feature.properties.address+'</span><br>'+
-                        '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                        '<span>'+titleCase(feature.properties.address)+'</span><br>'+
+                        '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</p>'+
                     '<p class="c_information" id="d_click'+d_id+'" data-val="'+d_id+'" >'+
                         '<span>Plus d\'informations</span>'+
@@ -142,20 +142,20 @@ let NL = L;
                         ]
                         map.fitBounds(fit);
                         var d2_content = '<div class="pl-1">'+
-                        '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
+                        '<h5 class="t_esso">' + titleCase(feature.properties.name) + '</h5>'+
                         '<p>'+
                             '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
                             '<span class="c_popup">'+
-                            '<span>' + feature.properties.address + ',</span><br>'+
-                            '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                            '<span>' + titleCase(feature.properties.address) + ',</span><br>'+
+                            '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                             '</span>'+
                         '</p>'+
                         '<p>'+
                             '<span>'+
-                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+
                             '</span>'+
                             '<span class="pl-3">'+
-                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
                             '</span>'+
                         '</p>'+
                         '</div>';
@@ -170,20 +170,20 @@ let NL = L;
                 lay[id] = layer
                 //console.log(feature);
                 var htmlBind = '<div class="pl-1">'+
-                '<h5 class="t_esso">' + feature.properties.name + '</h5>'+
+                '<h5 class="t_esso">' + titleCase(feature.properties.name) + '</h5>'+
                 '<p>'+
                     '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
                     '<span class="c_popup">'+
-                    '<span>' + feature.properties.address + ',</span><br>'+
-                    '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                    '<span>' + titleCase(feature.properties.address) + ',</span><br>'+
+                    '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</span>'+
                 '</p>'+
                 '<p>'+
                     '<span>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+
                     '</span>'+
                     '<span class="pl-3">'+
-                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
                     '</span>'+
                 '</p>'+
                 '</div>';
@@ -506,13 +506,13 @@ let NL = L;
             scores.map((score,i) =>{
                 let id = score.id
                 let feature = scoresindex[id];
-                let affiche=feature.properties.name;
+                let affiche=titleCase(feature.properties.name);
                 var div = '<div class="col mt-2 l_carte">'+
                     '<h5 class="t_esso">'+affiche+'</h5>'+
                     '<p>'+
                         '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                        '<span>'+feature.properties.address+'</span><br>'+
-                        '<span style="padding-left: 20px;">' + feature.properties.city + ' - ' + feature.properties.country +'</span>'+
+                        '<span>'+titleCase(feature.properties.address)+'</span><br>'+
+                        '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</p>'+
                     '<p class="c_information" id="sel'+id+'" data-val="'+id+'" >'+
                         '<span>Plus d\'informations</span>'+
@@ -546,10 +546,10 @@ let NL = L;
                     '</p>'+
                     '<p>'+
                         '<span>'+
-                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+
                         '</span>'+
                         '<span class="pl-3">'+
-                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
+                            '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
                         '</span>'+
                     '</p>'+
                     '</div>';
@@ -560,6 +560,17 @@ let NL = L;
 
             })
         }
+
+    function titleCase(str) {
+       var splitStr = str.toLowerCase().split(' ');
+       for (var i = 0; i < splitStr.length; i++) {
+           // You do not need to check if i is larger than splitStr length, as your for does that for you
+           // Assign it back to the array
+           splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+       }
+       // Directly return the joined string
+       return splitStr.join(' '); 
+    }
 
 </script>
 
