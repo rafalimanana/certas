@@ -152,7 +152,7 @@ let NL = L;
                         '</p>'+
                         '<p>'+
                             '<span>'+
-                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+
+                                '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+feature.properties.wash+
                             '</span>'+
                             '<span class="pl-3">'+
                                 '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
@@ -168,6 +168,15 @@ let NL = L;
                 }
                 let id = feature.id
                 lay[id] = layer
+
+                let ico_wash = '';
+
+                if (feature.properties.wash) {
+                    ico_wash = '<span>'+
+                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+feature.properties.wash+
+                    '</span>';
+                }
+
                 //console.log(feature);
                 var htmlBind = '<div class="pl-1">'+
                 '<h5 class="t_esso">' + titleCase(feature.properties.name) + '</h5>'+
@@ -178,10 +187,7 @@ let NL = L;
                     '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</span>'+
                 '</p>'+
-                '<p>'+
-                    '<span>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+
-                    '</span>'+
+                '<p>'+ico_wash+
                     '<span class="pl-3">'+
                         '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
                     '</span>'+
