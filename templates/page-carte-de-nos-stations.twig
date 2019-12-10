@@ -169,13 +169,47 @@ let NL = L;
                 let id = feature.id
                 lay[id] = layer
 
-                let ico_wash = '';
+                let carburant = [] ;
 
-                if (feature.properties.wash) {
-                    ico_wash = '<span>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:30px;">'+feature.properties.wash+
-                    '</span>';
+                if (feature.properties.SP95_E10 && feature.properties.SP95_E10==="yes") {
+                    carburant.push('SP95-E10');
                 }
+                if (feature.properties.SP98S && feature.properties.SP98S==="yes") {
+                    carburant.push('SP98S');
+                }
+                if (feature.properties.GO && feature.properties.GO==="yes") {
+                    carburant.push('GO');
+                }
+                if (feature.properties.GOS && feature.properties.GOS==="yes") {
+                    carburant.push('GOS');
+                }
+                if (feature.properties.AdBlue && feature.properties.AdBlue==="yes") {
+                    carburant.push('AdBlue');
+                }
+                if (feature.properties.SP95_E5 && feature.properties.SP95_E5==="yes") {
+                    carburant.push('SP95-E5');
+                }
+                if (feature.properties.GPL && feature.properties.GPL==="yes") {
+                    carburant.push('GPL');
+                }
+
+                let _carburants = carburant.join(', ');
+
+                let service = [] ;
+                let _service = '' ;
+                if (feature.properties.amazon) {
+                    service.push('Amazon ('+feature.properties.amazon+')')
+                }
+                if (feature.properties.air && feature.properties.air==="Yes") {
+                    service.push('BORNE AIR')
+                }
+                if (feature.properties.wash) {
+                    service.push('CAR WASH ('+feature.properties.wash+')')
+                }
+                if (service.length > 0) {
+                    _service = '<p style="color:#a29da9;"><span style="font-weight: bold">Services : </span>'+service.join(', ')+'</p>'
+                }
+
 
                 //console.log(feature);
                 var htmlBind = '<div class="pl-1">'+
@@ -187,11 +221,8 @@ let NL = L;
                     '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</span>'+
                 '</p>'+
-                '<p>'+ico_wash+
-                    '<span class="pl-3">'+
-                        '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:30px;">'+
-                    '</span>'+
-                '</p>'+
+                '<p style="color:#a29da9;"><span style="font-weight: bold">Caburants : </span>'+_carburants+'</p>'
+                    +_service+
                 '</div>';
                 // USE A CUSTOM MARKER
                 layer.setIcon(greenIcon);
@@ -305,7 +336,7 @@ let NL = L;
                               return;
                             }
                             var res =results.results;
-                            if (res) {
+                            if (res && res[0]) {
                                 var f_res=res[0];
                                 var latS = f_res.latlng.lat;
                                 var lonS = f_res.latlng.lng;
