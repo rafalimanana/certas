@@ -5,11 +5,10 @@
 
 $context = Timber::context();
 $args = array(
-    'post_type' => 'post',
+    'post_type' => 'produit',
     'order_by' => 'date',
     'order' => 'DESC',
     'posts_per_page' => 4,
-    'category_name' => 'produits',
     'post_status' => 'publish'
 );
 $timber_post = new Timber\Post();
