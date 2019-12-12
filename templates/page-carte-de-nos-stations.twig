@@ -4,6 +4,12 @@
     .leaflet-popup-content-wrapper {
         /*right: 182px !important;*/
     }
+    .tooltip-inner {
+        background-color: #4e2490 !important;
+    }
+    .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+        border-top-color: #4e2490 !important;
+    }
     </style>
 {% endblock %}
 {% block content %}
@@ -120,7 +126,7 @@ let NL = L;
                 var d_content = '<div class="col mt-2 l_carte">'+
                     '<h5 class="t_esso">'+titleCase(d_name)+'</h5>'+
                     '<p>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                         '<span>'+titleCase(feature.properties.address)+'</span><br>'+
                         '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</p>'+
@@ -131,6 +137,10 @@ let NL = L;
                 if (d_i <= 4) {
                     $('#l_default').append(d_content);
                     $('#d_click'+d_id).on('click',function(event) {
+                        setTimeout(function(){
+                            $('img').tooltip() ;
+                            console.log('ok')
+                        }, 200)
                         $("#l_resultat").html('');
                         $('#search').val('');
                         var c_bounds =feature.geometry.coordinates;
@@ -144,7 +154,7 @@ let NL = L;
                         var d2_content = '<div class="pl-1">'+
                         '<h5 class="t_esso">' + titleCase(feature.properties.name) + '</h5>'+
                         '<p>'+
-                            '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                            '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                             '<span class="c_popup">'+
                             '<span>' + titleCase(feature.properties.address) + ',</span><br>'+
                             '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
@@ -172,42 +182,49 @@ let NL = L;
                 let carburant = [] ;
 
                 if (feature.properties.SP95_E10 && feature.properties.SP95_E10==="yes") {
-                    carburant.push('SP95-E10');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E10">');
                 }
                 if (feature.properties.SP98S && feature.properties.SP98S==="yes") {
-                    carburant.push('SP98S');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP98.svg" style="width:30px;" data-toggle="tooltip" title="SP98S">');
                 }
                 if (feature.properties.GO && feature.properties.GO==="yes") {
-                    carburant.push('GO');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_standard.svg" style="width:30px;" data-toggle="tooltip" title="Diesel standard">');
                 }
                 if (feature.properties.GOS && feature.properties.GOS==="yes") {
-                    carburant.push('GOS');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_premium.svg" style="width:30px;" data-toggle="tooltip" title="Diesel premium">');
                 }
                 if (feature.properties.AdBlue && feature.properties.AdBlue==="yes") {
-                    carburant.push('AdBlue');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_adblue.svg" style="width:30px;" data-toggle="tooltip" title="AdBlue">');
                 }
                 if (feature.properties.SP95_E5 && feature.properties.SP95_E5==="yes") {
-                    carburant.push('SP95-E5');
+                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E5">');
                 }
                 if (feature.properties.GPL && feature.properties.GPL==="yes") {
                     carburant.push('GPL');
                 }
 
-                let _carburants = carburant.join(', ');
+                let _carburants = carburant.join(' ');
 
                 let service = [] ;
                 let _service = '' ;
                 if (feature.properties.amazon) {
-                    service.push('Amazon ('+feature.properties.amazon+')')
+                    if (feature.properties.amazon === 'amazon-locker' ) {
+                        service.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_amazon_locker.png" style="width:17px;" data-toggle="tooltip" title="'+feature.properties.amazon+'">')
+                    } else {
+                        service.push('<img src="{{ site.theme.link }}/images/_icons/_carte/_amazon.png" style="width:27px;" data-toggle="tooltip" title="'+feature.properties.amazon+'">')
+                    }
                 }
                 if (feature.properties.air && feature.properties.air==="Yes") {
-                    service.push('BORNE AIR')
+                    service.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_gonflage.svg" style="width:30px;" data-toggle="tooltip" title="Gonflage">')
                 }
                 if (feature.properties.wash) {
-                    service.push('CAR WASH ('+feature.properties.wash+')')
+                    service.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_car_wash.svg" style="width:17px;" data-toggle="tooltip" title="'+feature.properties.wash+'">')
+                }
+                if (feature.properties.shop && feature.properties.shop!='') {
+                    service.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_shop.svg" style="width:17px;" data-toggle="tooltip" title="Shop : '+feature.properties.shop+'">')
                 }
                 if (service.length > 0) {
-                    _service = '<p style="color:#a29da9;"><span style="font-weight: bold">Services : </span>'+service.join(', ')+'</p>'
+                    _service = '<p style="color:#a29da9;"><span style="font-weight: bold">Services : </span>'+service.join(' ')+'</p>'
                 }
 
 
@@ -215,7 +232,7 @@ let NL = L;
                 var htmlBind = '<div class="pl-1">'+
                 '<h5 class="t_esso">' + titleCase(feature.properties.name) + '</h5>'+
                 '<p>'+
-                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                     '<span class="c_popup">'+
                     '<span>' + titleCase(feature.properties.address) + ',</span><br>'+
                     '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
@@ -229,6 +246,7 @@ let NL = L;
 
                 // ADD A POPUP WITH A CHART
                 layer.bindPopup(htmlBind);
+                $('img').tooltip() ;
 
               }
             });
@@ -252,7 +270,7 @@ let NL = L;
 
             var esso_alou = '<h5 class="t_esso">Esso Alouette</h5>'+
                 '<p>'+
-                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                    '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                     '<span>Route des Alpes,</span><br>'+
                     '<span style="padding-left: 20px;">Aix-en-provence - France</span>'+
                 '</p>';
@@ -547,7 +565,7 @@ let NL = L;
                 var div = '<div class="col mt-2 l_carte">'+
                     '<h5 class="t_esso">'+affiche+'</h5>'+
                     '<p>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                         '<span>'+titleCase(feature.properties.address)+'</span><br>'+
                         '<span style="padding-left: 20px;">' + titleCase(feature.properties.city) + ' - ' + feature.properties.country +'</span>'+
                     '</p>'+
@@ -558,6 +576,10 @@ let NL = L;
                 $('#l_resultat').append(div);
 
                 $('#sel'+id).on('click',function(event) {
+                    setTimeout(function(){
+                        $('img').tooltip() ;
+                        console.log('ok')
+                    }, 200)
                     // $("#l_resultat").html('');
                     $('#search').val('');
                     $(".l_city").removeClass();
@@ -575,7 +597,7 @@ let NL = L;
                     var content = '<div class="pl-1">'+
                     '<h5 class="t_esso">' + feat.properties.name + '</h5>'+
                     '<p>'+
-                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
+                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px; margin-right: 8px;">'+
                         '<span class="c_popup">'+
                         '<span>' + feat.properties.address + ',</span><br>'+
                         '<span style="padding-left: 20px;">' + feat.properties.city + ' - ' + feat.properties.country +'</span>'+
@@ -593,6 +615,7 @@ let NL = L;
                     var newLatLng = new L.LatLng(lat,lng);
                     lay[id]
                         .openPopup();
+
                 })
 
             })
@@ -608,7 +631,11 @@ let NL = L;
        // Directly return the joined string
        return splitStr.join(' '); 
     }
-
+    window.addEventListener('click',() =>{
+        setTimeout(function(){
+            $('img').tooltip() ;
+        }, 200)
+    });
 </script>
 
 {% endblock %}

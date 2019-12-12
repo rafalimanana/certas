@@ -8961,7 +8961,7 @@
             "GOS": "yes",
             "AdBlue": "yes",
             "SP95_E5": "0",
-            "GPL": " "
+            "GPL": ""
         },
         "geometry":
         {
@@ -9442,7 +9442,7 @@
             "GOS": "yes",
             "AdBlue": "0",
             "SP95_E5": "0",
-            "GPL": " "
+            "GPL": ""
         },
         "geometry":
         {
@@ -9501,7 +9501,7 @@
             "s_type": "Express",
             "amazon": "ROMANE",
             "air": "Yes",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9568,7 +9568,7 @@
             "GOS": "yes",
             "AdBlue": "yes",
             "SP95_E5": "0",
-            "GPL": " "
+            "GPL": ""
         },
         "geometry":
         {
@@ -9598,7 +9598,7 @@
             "GOS": "yes",
             "AdBlue": "yes",
             "SP95_E5": "0",
-            "GPL": " "
+            "GPL": ""
         },
         "geometry":
         {
@@ -9651,7 +9651,7 @@
             "postalCode": "95570",
             "street": "RN1",
             "s_type": "Express",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9681,7 +9681,7 @@
             "postalCode": "78180",
             "street": "RUE DES PRES",
             "s_type": "Express",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9807,7 +9807,7 @@
             "hoover": "1",
             "weekday": "24/24",
             "weekend": "24/24",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9837,7 +9837,7 @@
             "postalCode": "91100",
             "street": "46 avenue du 8 mai 1945",
             "s_type": "Express",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9872,7 +9872,7 @@
             "hoover": "0",
             "weekday": "7h /21h  L-S",
             "weekend": "7h /21h  L-S",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
@@ -9902,7 +9902,7 @@
             "postalCode": "31140",
             "street": "15 ROUTE DU FRONTON",
             "s_type": "Express",
-            "shop": " ",
+            "shop": "",
             "SP95_E10": "yes",
             "SP98S": "yes",
             "GO": "yes",
