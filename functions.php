@@ -53,17 +53,6 @@ function add_to_timber_context($context) {
 }
 add_filter('timber_context', 'add_to_timber_context');
 
-function mailtrap($phpmailer) {
-  $phpmailer->isSMTP();
-  $phpmailer->Host = 'smtp.mailtrap.io';
-  $phpmailer->SMTPAuth = true;
-  $phpmailer->Port = 2525;
-  $phpmailer->Username = '1a541f8281cb7a';
-  $phpmailer->Password = '19351422688045';
-}
-
-add_action('phpmailer_init', 'mailtrap');
-
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
