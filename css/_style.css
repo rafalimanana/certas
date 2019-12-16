@@ -1006,7 +1006,8 @@ article section._article_content h1._article_body {
                 right: 0px;
             }
             #_prquoi > .col-md-6._cnt_prquoi_bloc {
-                padding-left: 15px !important;
+                /*padding-left: 15px !important;*/
+                padding-left: 60px !important;
             }
             #_prquoi ._cnt_prquoi_bloc ._prquoi_bloc {
                 padding-right: 15px !important;
