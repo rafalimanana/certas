@@ -1213,6 +1213,12 @@ article section._article_content h1._article_body {
         font-size: 34px;
     }
 }
+@media only screen and (max-width: 767.9px) {
+    .d_hea {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
 @media only screen and (max-width: 335px) {
     #_nos_actus #slick_article {
         margin: 0 !important;

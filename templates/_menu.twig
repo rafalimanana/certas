@@ -100,22 +100,24 @@
         <div class="carousel-inner {% if fn('is_front_page') %}_home{% endif %}">
             <div class="carousel-item active">
                 {% set slide_image_1 = post.get_field('slide_image_1') %}
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link }}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_slide_1') %}
-                                            {{post.get_field('description_slide_1')}}
-                                        {% else %}
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua.
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
+                                    <div class="d_hea" style="font-size: 18px;">
+                                        <p>
+                                            {% if post.get_field('description_slide_1') %}
+                                                {{post.get_field('description_slide_1')}}
+                                            {% else %}
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.
+                                            {% endif %}
+                                            <a href="#" class="a-prs"></a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -124,22 +126,24 @@
             </div>
             <div class="carousel-item">
                 {% set slide_image_2 = post.get_field('slide_image_2') %}
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_2 %}{{slide_image_2.url}}{% else %}{{site.theme.link }}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_2 %}{{slide_image_2.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_slide_2') %}
-                                        {{post.get_field('description_slide_2')}}
-                                        {% else %}
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua.
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
+                                    <div class="d_hea" style="font-size: 18px;">
+                                        <p>
+                                            {% if post.get_field('description_slide_2') %}
+                                            {{post.get_field('description_slide_2')}}
+                                            {% else %}
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.
+                                            {% endif %}
+                                            <a href="#" class="a-prs"></a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -148,22 +152,24 @@
             </div>
             <div class="carousel-item">
                 {% set slide_image_3 = post.get_field('slide_image_3') %}
-                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_3 %}{{slide_image_3.url}}{% else %}{{site.theme.link }}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                <div class="hero-wrap ftco-degree-bg header-bg propos-header" style="background: linear-gradient(rgba(74, 45, 127, 0.8), rgba(74, 45, 127, 0.59)),url({% if slide_image_3 %}{{slide_image_3.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: 100% auto;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row no-gutters slider-text justify-content-center align-items-center">
                             <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
                                 <div class="text text-center">
                                     <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <p style="font-size: 18px;">
-                                        {% if post.get_field('description_slide_3') %}
-                                        {{post.get_field('description_slide_3')}}
-                                        {% else %}
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua.
-                                        {% endif %}
-                                        <a href="#" class="a-prs"></a>
-                                    </p>
+                                    <div class="d_hea" style="font-size: 18px;">
+                                        <p>
+                                            {% if post.get_field('description_slide_3') %}
+                                            {{post.get_field('description_slide_3')}}
+                                            {% else %}
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.
+                                            {% endif %}
+                                            <a href="#" class="a-prs"></a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
