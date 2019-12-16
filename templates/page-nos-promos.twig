@@ -27,7 +27,7 @@
                     <div class="col-md-7 mt-3">
                         <h5 class="t_promos"><b>{{promo.title}}</b></h5>
                         <p class="ccm-p">
-                            {{promo.content}}
+                            {{ promo.content|excerpt(34) }}
                         </p>
                         <div>
                             <a href="{{promo.link}}">
