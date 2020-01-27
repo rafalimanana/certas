@@ -29,13 +29,13 @@
                 {% endif %}
                 <p class="text-center _pd_tp_40">
                     {% set p_url = post.get_field('premier_url_savoir_plus') %}
-                    <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
-                        {% if post.get_field('premier_texte_savoir_plus') %}
-                            <button class="btn btn-secondary btn-first">
-                                    {{post.get_field('premier_texte_savoir_plus')}}
-                            </button>
-                        {% endif %}
-                    </a>
+                    {% if post.get_field('premier_texte_savoir_plus') and p_url.url %}
+                        <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
+                                <button class="btn btn-secondary btn-first">
+                                        {{post.get_field('premier_texte_savoir_plus')}}
+                                </button>
+                        </a>
+                    {% endif %}
                 </p>
             </div>
             <div class="col-md-6 pl_club">
@@ -62,13 +62,13 @@
                 {% endif %}
                 <p class="text-center _pd_tp_40">
                     {% set d_url = post.get_field('deuxieme_url_savoir_plus') %}
-                    <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
-                        {% if post.get_field('deuxieme_texte_savoir_plus') %}
-                            <button class="btn btn-secondary btn-first">
-                                {{post.get_field('deuxieme_texte_savoir_plus')}}
-                            </button>
-                        {% endif %}
-                    </a>
+                    {% if post.get_field('deuxieme_texte_savoir_plus') and d_url.url %}
+                        <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
+                                <button class="btn btn-secondary btn-first">
+                                    {{post.get_field('deuxieme_texte_savoir_plus')}}
+                                </button>
+                        </a>
+                    {% endif %}
                 </p>
             </div>
         </div>
