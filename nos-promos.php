@@ -14,7 +14,7 @@ $args = array(
     'post_type' => 'promo',
     'order_by' => 'date',
     'order' => 'DESC',
-    'posts_per_page' => 10,
+    'posts_per_page' => 5,
     // 'category_name' => 'promos',
     'post_status' => 'publish'
 );

@@ -41,7 +41,7 @@
                 {% endfor %}
 
                 <div class="tool-pagination c-std">
-                    {% if promos.pagination %}
+                    {% if promos.pagination.pages|length > 0 %}
                         <div class="pagination">
                             {% if promos.pagination.prev %}
                                 <a href="{{promos.pagination.prev.link}}" class="page-numbers prev {{promos.pagination.prev.link|length ? '' : 'invisible'}}">Précédent</a>
