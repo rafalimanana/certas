@@ -820,7 +820,7 @@ article section._article_content h1._article_body {
             display: none;
         }
 
-        #_reseau ._cnt_bloc ._bloc:hover ._bloc_info p._bloc_desc {
+        #_reseau ._cnt_bloc ._bloc:hover ._bloc_info /*p._bloc_desc*/ {
             color: #FFF;
         }
 
