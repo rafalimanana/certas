@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page lavage
+ * Template Name: Page détail services
  */
 
 $context = Timber::context();
