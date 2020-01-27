@@ -12,7 +12,7 @@ $args = array(
     'post_type' => 'produit',
     'order_by' => 'date',
     'order' => 'DESC',
-    'posts_per_page' => 10,
+    'posts_per_page' => 5,
     'paged' => $paged,
     'post_status' => 'publish'
 );

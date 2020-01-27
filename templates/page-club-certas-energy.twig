@@ -19,56 +19,29 @@
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         <div class="row">
             <div class="col-md-6 class_club_energy">
-                <h2 class="text-uppercase  services-h2">
-                    {% if  post.get_field('premier_titre') %}
+                {% if  post.get_field('premier_titre') %}
+                    <h2 class="text-uppercase  services-h2">
                         {{post.get_field('premier_titre')}}
-                    {% else %}
-                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment  </span><strong>ça marche</strong></span></p>
-                    {% endif %}
-
-                </h2>
+                    </h2>
+                {% endif %}
                 {% if  post.get_field('premier_contenu') %}
                     {{post.get_field('premier_contenu')}}
-                {% else %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                    </p>
-                    <p>
-                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                    </p>
-                    <p>
-                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                        quis volutpat est vehicula at.
-                    </p>
-                    <p>
-                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
                     {% set p_url = post.get_field('premier_url_savoir_plus') %}
                     <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
-                        <button class="btn btn-secondary btn-first">
-                            {% if post.get_field('premier_texte_savoir_plus') %}
-                                {{post.get_field('premier_texte_savoir_plus')}}
-                            {% else %}
-                                En savoir plus
-                            {% endif %}
-                        </button>
+                        {% if post.get_field('premier_texte_savoir_plus') %}
+                            <button class="btn btn-secondary btn-first">
+                                    {{post.get_field('premier_texte_savoir_plus')}}
+                            </button>
+                        {% endif %}
                     </a>
                 </p>
             </div>
             <div class="col-md-6 pl_club">
-
                 {% if  post.get_field('premier_image') %}
                     {% set img_p = post.get_field('premier_image') %}
                     <img class="img_club" src="{{img_p.url}}">
-                {% else %}
-                    <img class="img_club" src="{{ site.theme.link }}/images/Comment-ca-marche.png">
                 {% endif %}
             </div>
         </div>
@@ -76,105 +49,53 @@
             <div class="col-md-6">
                 {% if  post.get_field('deuxieme_image') %}
                     <img class="img_club" src="{{post.get_field('deuxieme_image').url}}">
-                {% else %}
-                    <img class="img_club" src="{{ site.theme.link }}/images/avantages-services.png">
                 {% endif %}
             </div>
             <div class="col-md-6 pl_club class_club_energy">
-                 <h2 class="text-uppercase  services-h2">
-
-                    {% if  post.get_field('deuxieme_titre') %}
+                {% if  post.get_field('deuxieme_titre') %}
+                    <h2 class="text-uppercase  services-h2">
                         {{post.get_field('deuxieme_titre')}}
-                    {% else %}
-                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Avantages  </span><strong>& Services</strong></span></p>
-                    {% endif %}
-
-                </h2>
+                    </h2>
+                {% endif %}
                 {% if  post.get_field('deuxieme_contenu') %}
                     {{post.get_field('deuxieme_contenu')}}
-                {% else %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                    </p>
-                    <p>
-                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                    </p>
-                    <p>
-                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                        quis volutpat est vehicula at.
-                    </p>
-                    <p>
-                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
                     {% set d_url = post.get_field('deuxieme_url_savoir_plus') %}
                     <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
-                        <button class="btn btn-secondary btn-first">
-                            {% if post.get_field('deuxieme_texte_savoir_plus') %}
+                        {% if post.get_field('deuxieme_texte_savoir_plus') %}
+                            <button class="btn btn-secondary btn-first">
                                 {{post.get_field('deuxieme_texte_savoir_plus')}}
-                            {% else %}
-                                En savoir plus
-                            {% endif %}
-                        </button>
+                            </button>
+                        {% endif %}
                     </a>
                 </p>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-md-6 class_club_energy">
-                <h2 class="text-uppercase  services-h2">
-                    {% if  post.get_field('troisieme_titre') %}
+                {% if  post.get_field('troisieme_titre') %}
+                    <h2 class="text-uppercase  services-h2">
                         {{post.get_field('troisieme_titre')}}
-                    {% else %}
-                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Le </span><strong>CFC</strong></span></p>
-                    {% endif %}
                     </h2>
+                {% endif %}
                 {% if  post.get_field('troisieme_contenu') %}
                     {{post.get_field('troisieme_contenu')}}
-                {% else %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. 
-                    </p>
-                    <p>
-                        Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.
-                        Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. 
-                    </p>
-                    <p>
-                        Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales 
-                        tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh
-                        quis volutpat est vehicula at.
-                    </p>
-                    <p>
-                        Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum 
-                        primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, 
-                        semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. 
-                        Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
                 {% endif %}
                 <p class="text-center _pd_tp_40">
                     {% set t_url = post.get_field('troisieme_url_savoir_plus') %}
                     <a href="{% if t_url.url %}{{t_url.url}}{% else %}#{% endif %}" class=""  target="{% if t_url.target %}{{t_url.target}}{% else %}_self{% endif %}">
-                        <button class="btn btn-secondary btn-first ">
-                            {% if post.get_field('troisieme_texte_savoir_plus') %}
-                                {{post.get_field('troisieme_texte_savoir_plus')}}
-                            {% else %}
-                                En savoir plus
-                            {% endif %}
-                        </button>
+                        {% if post.get_field('troisieme_texte_savoir_plus') %}
+                            <button class="btn btn-secondary btn-first ">
+                                    {{post.get_field('troisieme_texte_savoir_plus')}}
+                            </button>
+                        {% endif %}
                     </a>
                 </p>
             </div>
             <div class="col-md-6 pl_club">
                 {% if  post.get_field('troisieme_image') %}
                     <img class="img_club" src="{{post.get_field('troisieme_image').url}}">
-                {% else %}
-                    <img class="img_club" src="{{ site.theme.link }}/images/Le-cfc.png">
                 {% endif %}
             </div>
         </div>

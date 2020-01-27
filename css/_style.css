@@ -1312,7 +1312,52 @@ body {
     font-weight: bold !important;
 }*/
 
+
 .tool-pagination {
+  text-align: center !important;
+  margin: 40px 0;
+}
+
+.pagination {
+    display: inline-block;
+    height: 50px;
+    margin-top: 70px;
+    padding: 0 20px;
+    border-radius: 35px;
+    background-color: #eee;
+
+    /*@include breakpoint(1199px) {
+        height: 50px;
+        margin-top: 50px;
+        padding: 0 10px;
+        border-radius: 25px;
+    }*/
+}
+
+.page-numbers {
+    display: block;
+    padding: 0 10px;
+    float: left;
+    transition: 400ms ease;
+    color: $grey;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    line-height: 50px;
+
+    &:hover,
+    &.current {
+        background-color: #86c023;
+        color: #fff;
+    }
+
+    &.prev:hover,
+    &.next:hover {
+        background-color: transparent;
+        color: #86c023;
+    }
+}
+
+/*.tool-pagination {
     text-align: center;
 }
 
@@ -1323,7 +1368,7 @@ body {
     text-decoration: none;
     transition: background-color .3s;
     display: inline-block;
-}
+}*/
 
 /*.pages span.current {
   background-color: #4e2490;

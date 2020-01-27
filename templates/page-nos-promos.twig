@@ -39,6 +39,26 @@
                     </div>
                     <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
                 {% endfor %}
+
+                <div class="tool-pagination c-std">
+                    {% if promos.pagination %}
+                        <div class="pagination">
+                            {% if promos.pagination.prev %}
+                                <a href="{{promos.pagination.prev.link}}" class="page-numbers prev {{promos.pagination.prev.link|length ? '' : 'invisible'}}">Précédent</a>
+                            {% endif %}
+                            {% for page in promos.pagination.pages %}
+                                    {% if page.link %}
+                                        <a href="{{page.link}}" class="page-numbers {{page.class}}">{{page.title}}</a>
+                                    {% else %}
+                                        <span class="page-numbers {{page.class}}">{{page.title}}</span>
+                                    {% endif %}
+                            {% endfor %}
+                            {% if promos.pagination.next %}
+                                <a href="{{promos.pagination.next.link}}" class="page-numbers next {{promos.pagination.next.link|length ? '' : 'invisible'}}">Suivant</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
             {% else %}
                 <div class="col-md-5">
                     <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
