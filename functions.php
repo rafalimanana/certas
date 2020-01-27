@@ -36,8 +36,8 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 add_action( 'init', function() {
-	remove_post_type_support( 'post', 'editor' );
-	remove_post_type_support( 'page', 'editor' );
+	/*remove_post_type_support( 'post', 'editor' );
+	remove_post_type_support( 'page', 'editor' );*/
 }, 99);
 
 
