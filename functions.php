@@ -35,10 +35,44 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
-add_action( 'init', function() {
-	/*remove_post_type_support( 'post', 'editor' );
-	remove_post_type_support( 'page', 'editor' );*/
-}, 99);
+function remove_editor() {
+    if (isset($_GET['post'])) {
+        $id = $_GET['post'];
+        $template = get_post_meta($id, '_wp_page_template', true);
+        switch ($template) {
+            case 'a-propos.php':
+            case 'carte-de-nos-stations.php':
+            case 'club-certas-energy.php':
+            case 'comment-ca-marche.php':
+            case 'contact.php':
+            case 'front-page.php':
+            case 'lavage.php':
+            case 'nos-actualites.php':
+            case 'nos-carburants.php':
+            case 'nos-promos.php':
+            case 'produits.php':
+            // the below removes 'editor' support for 'pages'
+            // if you want to remove for posts or custom post types as well
+            // add this line for posts:
+            // remove_post_type_support('post', 'editor');
+            // add this line for custom post types and replace 
+            // custom-post-type-name with the name of post type:
+            // remove_post_type_support('custom-post-type-name', 'editor');
+            remove_post_type_support('page', 'editor');
+            break;
+            default :
+            // Don't remove any other template.
+            break;
+        }
+    }
+}
+add_action('init', 'remove_editor');
+
+
+/*add_action( 'init', function() {
+	remove_post_type_support( 'post', 'editor' );
+	remove_post_type_support( 'page', 'editor' );
+}, 99);*/
 
 function cpt_archive_posts_per_page( $query ) {
 
@@ -46,7 +80,7 @@ function cpt_archive_posts_per_page( $query ) {
     if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'produit' ) ) {
         $query->set( 'posts_per_page', '2' );   // number has to be the same like in your query / 'posts_per_page'
     }
-    
+
     if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'promo' ) ) {
         $query->set( 'posts_per_page', '2' );   // number has to be the same like in your query / 'posts_per_page'
     }
@@ -56,7 +90,7 @@ add_action( 'pre_get_posts', 'cpt_archive_posts_per_page' );
 
 
 
-function order_posts_by_title( $query ) { 
+/*function order_posts_by_title( $query ) { 
 
    if ( $query->is_home() && $query->is_main_query() ) { 
 
@@ -70,7 +104,7 @@ function order_posts_by_title( $query ) {
 
 add_action( 'pre_get_posts', 'order_posts_by_title' );
 
-/*add_filter( 'timber_context', 'mytheme_timber_context'  );
+add_filter( 'timber_context', 'mytheme_timber_context'  );
 function mytheme_timber_context( $context ) {
     $context['options'] = get_fields('option');
     return $context;
