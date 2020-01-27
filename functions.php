@@ -51,6 +51,7 @@ function remove_editor() {
             case 'nos-carburants.php':
             case 'nos-promos.php':
             case 'produits.php':
+            case 'services-en-stations.php':
             // the below removes 'editor' support for 'pages'
             // if you want to remove for posts or custom post types as well
             // add this line for posts:
