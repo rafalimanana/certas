@@ -46,6 +46,10 @@ function cpt_archive_posts_per_page( $query ) {
     if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'produit' ) ) {
         $query->set( 'posts_per_page', '2' );   // number has to be the same like in your query / 'posts_per_page'
     }
+    
+    if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'promo' ) ) {
+        $query->set( 'posts_per_page', '2' );   // number has to be the same like in your query / 'posts_per_page'
+    }
 }
 add_action( 'pre_get_posts', 'cpt_archive_posts_per_page' );
 
