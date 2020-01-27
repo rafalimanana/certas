@@ -1310,3 +1310,23 @@ body {
     border-bottom: #00aac9 solid 3px;
     font-weight: bold !important;
 }*/
+
+.tool-pagination {
+    text-align: center;
+}
+
+.pages {
+    list-style-type: none;
+    margin: 0;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    display: inline-block;
+}
+
+/*.pages span.current {
+  background-color: #4e2490;
+  color: white;
+}
+
+.pages a:hover:not(.current) {background-color: #ddd;}*/

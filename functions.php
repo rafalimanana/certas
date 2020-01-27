@@ -40,6 +40,17 @@ add_action( 'init', function() {
 	remove_post_type_support( 'page', 'editor' );*/
 }, 99);
 
+function cpt_archive_posts_per_page( $query ) {
+
+    // for cpt or any post type main archive
+    if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'produit' ) ) {
+        $query->set( 'posts_per_page', '2' );   // number has to be the same like in your query / 'posts_per_page'
+    }
+}
+add_action( 'pre_get_posts', 'cpt_archive_posts_per_page' );
+
+
+
 
 function order_posts_by_title( $query ) { 
 

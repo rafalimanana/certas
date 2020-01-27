@@ -43,6 +43,29 @@
                     </div>
                 </div>
             {% endfor %}
+            {# <div class="l-container vert-push--small vert-push--adult--medium">
+                {% for post in posts %}
+                    <div class="c-std">{{ post.title }}</div>
+                {% endfor %}
+            </div> #}
+
+            <div class="tool-pagination c-std">
+                {% if produits.pagination.prev %}
+                    <a href="{{produits.pagination.prev.link}}" class="prev {{produits.pagination.prev.link|length ? '' : 'invisible'}}">Précédent</a>
+                {% endif %}
+                <div class="pages">
+                    {% for page in produits.pagination.pages %}
+                            {% if page.link %}
+                                <a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+                            {% else %}
+                                <span class="{{page.class}}">{{page.title}}</span>
+                            {% endif %}
+                    {% endfor %}
+                </div>
+                {% if produits.pagination.next %}
+                    <a href="{{produits.pagination.next.link}}" class="next {{produits.pagination.next.link|length ? '' : 'invisible'}}">Suivant</a>
+                {% endif %}
+            </div>
         {% else %}
             <div class="row">
                 <div class="col-md-4">
