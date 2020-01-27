@@ -15,6 +15,7 @@ $args = array(
     'order_by' => 'date',
     'order' => 'DESC',
     'posts_per_page' => 5,
+    'paged' => $paged,
     // 'category_name' => 'promos',
     'post_status' => 'publish'
 );
