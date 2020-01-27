@@ -29,14 +29,17 @@
                         </a>
                     </div>
                     <div class="col-md-8 pt-5 class-prod-list">
-                        <a href="{{produit.link}}">
-                            <h4 class="text-uppercase t_promos services-h2">
-                                <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
-                            </h4>
-                        </a>
+                        <h4 class="text-uppercase t_promos services-h2">
+                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
+                        </h4>
                         <p>
                             {{produit.content|excerpt(90)}}
                         </p>
+                        <a href="{{produit.link}}">
+                            <button class="btn btn-secondary btn-first">
+                                En savoir plus
+                            </button>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

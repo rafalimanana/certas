@@ -35,8 +35,25 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+add_action( 'init', function() {
+	remove_post_type_support( 'post', 'editor' );
+	remove_post_type_support( 'page', 'editor' );
+}, 99);
 
 
+function order_posts_by_title( $query ) { 
+
+   if ( $query->is_home() && $query->is_main_query() ) { 
+
+     $query->set( 'orderby', 'title' ); 
+
+     $query->set( 'order', 'ASC' ); 
+
+   } 
+
+} 
+
+add_action( 'pre_get_posts', 'order_posts_by_title' );
 
 /*add_filter( 'timber_context', 'mytheme_timber_context'  );
 function mytheme_timber_context( $context ) {

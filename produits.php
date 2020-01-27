@@ -8,7 +8,7 @@ $args = array(
     'post_type' => 'produit',
     'order_by' => 'date',
     'order' => 'DESC',
-    'posts_per_page' => 4,
+    // 'posts_per_page' => 4,
     'post_status' => 'publish'
 );
 $timber_post = new Timber\Post();
