@@ -726,3 +726,17 @@ li ul.submenu {
     display: block;
   }
 }*/
+
+*[id^="map"] {
+
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+}
+
+@media only screen and (max-width: 768px) {
+    #mapidv1, #mapidv2 {
+      min-height: 290px;
+    }
+}

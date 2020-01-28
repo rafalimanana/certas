@@ -2,243 +2,255 @@
 {% block header %}
 {% endblock %}
 {% block content %}
-
 <div class="wrapper {{sidebar_class}}" id="_pg_stations">
-	<!-- Aide à la navigation -->
-	<div class="content-wrapper _bg_white">
-	    <div class="container">
-	    	<nav aria-label="breadcrumb">
-				<ol class="breadcrumb _bredcrumb_custo">
-			    	<li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb _bredcrumb_custo">
+                    <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
                     {% if post.parent.title %}
-                        <li class="breadcrumb-item"><a class="a-navig" href="{{post.parent.link}}">{{post.parent.title}}</a></li>
+                    <li class="breadcrumb-item"><a class="a-navig" href="{{post.parent.link}}">{{post.parent.title}}</a></li>
                     {% endif %}
-			    	<li class="breadcrumb-item active"><strong>{{post.title}}</strong></li>
-			  	</ol>
-			</nav>
-	    </div>
-	</div>
-	<!-- Aide à la navigation -->
-
-	<div class="content-wrapper _bg_white  pb-5">
-	    <div class="container">
-	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
-	            <section class="_article_content">
-	                
-	                <h2 class="text-uppercase  services-h2">
-                        {% if  post.get_field('premier_titre') %}
-                            {{post.get_field('premier_titre')}}
+                    <li class="breadcrumb-item active"><strong>{{post.title}}</strong></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Aide à la navigation -->
+    <div class="content-wrapper _bg_white  pb-5">
+        <div class="container">
+            <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+                <section class="_article_content">
+                    <h2 class="text-uppercase  services-h2">
+                        {% if post.get_field('premier_titre') %}
+                        {{post.get_field('premier_titre')}}
                         {% else %}
-                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nos Appel d'offres </span><strong>Certas Energy France 2020</strong></span></p>
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Nos Appel d'offres </span><strong>Certas Energy France 2020</strong></span></p>
                         {% endif %}
-					</h2>
-
-	                <div class="_article_body">
-                        {% if  post.get_field('premier_contenu') %}
-                            {{post.get_field('premier_contenu')}}
+                    </h2>
+                    <div class="_article_body">
+                        {% if post.get_field('premier_contenu') %}
+                        {{post.get_field('premier_contenu')}}
                         {% else %}
-                            <p>L'appel f'offres immobilier Certas Energy France 2020 est ouvert à tout particulier et à toute personne morale. Il concerne les biens listés suivants:<br> </p>
-                            <p>
-                            	Celleneuve - Montpellier (57 Route de Lodéve, 34080 Montpellier) <br>
-                            	Montebello - Lille (83 Boulevard Montebello, 59000 Lille)
-                            </p>
-                            <p>
-                            	Vous trouverez ci-dessous toutes les informations sur les biens à vendre(photos, dimensions, diagnostics). Veuillez noter que la station-service sera fermée et démantelée pour un usage de type commercial
-                            </p>
-                            <p>
-                            	L'appel d'offres est soumis à des conditions particuliers. Sa réponse doit respecter une procédure décrite au paragraphe "Répondre à l'appel d'offre".
-                            </p>
-                            <p>
-                            	La date limite pour la remise des offres est <strong>vendredi 14 février 2020</strong>
-                            </p>
-                            <p>
-                            	Notre coordinatrice Immobilier Réseau, Sandrine Didierlaurent, rest à votre disposition pour tout renseignement complémentaire sur cet apppel d'offres. Vous pouvez l'appeler au <span style="text-decoration: underline;">01 55 94 06 26</span> ou lui envoyer un email à l'adresse <span style="text-decoration: underline;">sandrine.didierlaurent@certasenergyretail.fr</span>
-                            </p>
+                        <p>L'appel f'offres immobilier Certas Energy France 2020 est ouvert à tout particulier et à toute personne morale. Il concerne les biens listés suivants:<br> </p>
+                        <p>
+                            Celleneuve - Montpellier (57 Route de Lodéve, 34080 Montpellier) <br>
+                            Montebello - Lille (83 Boulevard Montebello, 59000 Lille)
+                        </p>
+                        <p>
+                            Vous trouverez ci-dessous toutes les informations sur les biens à vendre(photos, dimensions, diagnostics). Veuillez noter que la station-service sera fermée et démantelée pour un usage de type commercial
+                        </p>
+                        <p>
+                            L'appel d'offres est soumis à des conditions particuliers. Sa réponse doit respecter une procédure décrite au paragraphe "Répondre à l'appel d'offre".
+                        </p>
+                        <p>
+                            La date limite pour la remise des offres est <strong>vendredi 14 février 2020</strong>
+                        </p>
+                        <p>
+                            Notre coordinatrice Immobilier Réseau, Sandrine Didierlaurent, rest à votre disposition pour tout renseignement complémentaire sur cet apppel d'offres. Vous pouvez l'appeler au <span style="text-decoration: underline;">01 55 94 06 26</span> ou lui envoyer un email à l'adresse <span style="text-decoration: underline;">sandrine.didierlaurent@certasenergyretail.fr</span>
+                        </p>
                         {% endif %}
-	                </div>
-	            </section>
-	        </article>
-	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-	            <section class="_article_content">
-	            	<div class="row">
-	            		<div class="col-md-5">
-                        	<img class="img_promos" src="{{ promo.thumbnail.src }}">
-	            		</div>
-	            		<div class="col-md-7">
-	            			<h5 class="t_promos"><b>STATION ESSO CELLENEUVE - MONTPELLIER</b></h5>
-	            			<p>
-	            				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
-	            				<span class="ccm-p">57 Route de Lodeve — RN 109</span>
- 								<span style="padding-left: 30px;" class="ccm-p">34080 Montpellier</span>
-	            			</p>
-	            			<p>
-	            				Ensemble immobilier sur lequel est edifie un bâtiment de 100 m2 pour une superficie totale de 2550 m2 environ. <br>
-								Le site sera demantele et rehabilite pour un usage commercial.
-	            			</p>
-	            			<a href="">
-	            				<button class="btn btn-secondary btn-first">
-	            					Voir l'offre
+                    </div>
+                </section>
+            </article>
+            <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+                <section class="_article_content col-md-12">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="mapidv1"  style="width:100%;"></div>
+                        </div>
+                        <div class="col-md-7">
+                            <h5 class="t_promos"><b>STATION ESSO CELLENEUVE - MONTPELLIER</b></h5>
+                            <p>
+                                <img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:14px;">
+                                <span class="ccm-p">57 Route de Lodeve — RN 109</span><br>
+                                <span style="padding-left: 18px;" class="ccm-p">34080 Montpellier</span>
+                            </p>
+                            <p>
+                                Ensemble immobilier sur lequel est edifie un bâtiment de 100 m2 pour une superficie totale de 2550 m2 environ. <br>
+                                Le site sera demantele et rehabilite pour un usage commercial.
+                            </p>
+                            <a href="">
+                                <button class="btn btn-secondary btn-first">
+                                    Voir l'offre
                                 </button>
-	            			</a>
-	            		</div>
-	            	</div>
-	            	<div class="row mt-3">
-	            		<div class="col-md-5">
-                        	<img class="img_promos" src="{{ promo.thumbnail.src }}">
-	            		</div>
-
-	            		<div class="col-md-7">
-	            			<h5 class="t_promos"><b>STATION ESSO MONTEBELLO - LILLE</b></h5>
-	            			<p>
-	            				<img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:26px;">
-	            				<span class="ccm-p">9 83 Boulevard Montebello </span>
- 								<span style="padding-left: 30px;" class="ccm-p">59000 Lille</span>
-	            			</p>
-	            			<p>
-	            				Ensemble immobilier sur lequel est edifie deux bâtiments de 8 et 190 m2 pour une superficie totale de 3800 m2 environ. <br>
-								Le site sera de mantele et re habilite pour un usage commercial.
-	            			</p>
-	            			<a href="">
-	            				<button class="btn btn-secondary btn-first">
-	            					Voir l'offre
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-5">
+                            <div id="mapidv2"  style="width:100%;"></div>
+                        </div>
+                        <div class="col-md-7">
+                            <h5 class="t_promos"><b>STATION ESSO MONTEBELLO - LILLE</b></h5>
+                            <p>
+                                <img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:14px;">
+                                <span class="ccm-p">83 Boulevard Montebello </span><br>
+                                <span style="padding-left: 18px;" class="ccm-p">59000 Lille</span>
+                            </p>
+                            <p>
+                                Ensemble immobilier sur lequel est edifie deux bâtiments de 8 et 190 m2 pour une superficie totale de 3800 m2 environ. <br>
+                                Le site sera de mantele et re habilite pour un usage commercial.
+                            </p>
+                            <a href="">
+                                <button class="btn btn-secondary btn-first">
+                                    Voir l'offre
                                 </button>
-	            			</a>
-	            		</div>
-	            	</div>
-	            </section>
-	        </article>
-	    </div>
-	</div><!-- /content-wrapper -->
-
-	<div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
-	    <div class="container">
-	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-	            <section class="_article_content">
-	                <h2 class="text-uppercase  services-h2">
-                        {% if  post.get_field('premier_titre') %}
-                            {{post.get_field('premier_titre')}}
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div><!-- /content-wrapper -->
+    <div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
+        <div class="container">
+            <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+                <section class="_article_content col-md-12">
+                    <h2 class="text-uppercase  services-h2">
+                        {% if post.get_field('premier_titre') %}
+                        {{post.get_field('premier_titre')}}
                         {% else %}
-                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment répondre à</span><strong>Notre Appel d'offres</strong></span></p>
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Comment répondre à</span><strong>Notre Appel d'offres</strong></span></p>
                         {% endif %}
-					</h2>
-
-	                <div class="_article_body">
-                        {% if  post.get_field('premier_contenu') %}
-                            {{post.get_field('premier_contenu')}}
+                    </h2>
+                    <div class="_article_body">
+                        {% if post.get_field('premier_contenu') %}
+                        {{post.get_field('premier_contenu')}}
                         {% else %}
-                            <p>La validité de votre est conditionnée au respect de la date définitive de remise de l'offre, des modalités de rédaction et d'envoi de l'offre et de l'acceptation des conditions particulières. Toute offre incompléte sera considérée commne nulle et ne sera pas prise en compte par notre société.<br></p>
-                            <p>
-                            	<strong>Date de remise de l'offre</strong>: <span style="text-decoration:underline;">Vendredi 14 février 2020</span>
-                            </p>
-                            <p>
-                            	<strong>Contenu de l'offre</strong>:
-                            </p>
-                            <p>
-                            	<strong>Informations relatives au Candidat</strong>
-                            	<span> - Nom ou dénomination sociale (qualité du représentant habilité)</span>
-                            	<span> - Adresse postale</span>
-                            	<span> - Contact mail et coordonnées téléphoniques</span>
-                            </p>
-                            <p>
-                            	<strong>Description du projet - Usage futur envisagé (commercial, résidentiel)</strong>
-                            </p>
-                            <p>
-                            	<strong>Montant de l'offre en chiffres et en lettres (hors taxe)</strong>
-                            </p>
-                            <p>
-                            	<strong>Les mentions suivantes doivent obligatoirement et littéralement etranscrites dans votre offre :</strong><br>
-                            	"Cette offre est faite pour le bien en l'état, <br>
-                            	Elle est ferme et valable 6 mois à compter du vendredi 14 février 2020 à 19h, <br>
-                            	Elle est réalisée sans condition suspensive d'obtention d'autorisation adnistrative de construire et de financement. <br>
-                            	Je m'engage à verser une indemnité d'immobilisation de 10%  du montant de la vente lors de la signature de la promesse de vebte. <br>
-                            	Je déclare avoir pris connaissance des conditions particuliéres de vente par appel d'offres CERTAS et de la réglementation sur les installations Classées pour la Protection de l'Environnement relative aux stations-service".
-                            </p>
-                            <p>
-                            	<strong>Forme de l'offre :</strong>
-								Votre offre dolt etre envoyee par courrier recommande avec Accuse de Reception 6 I'adresse suivante : <br> <br>  
-								CERTAS ENERGY France <br>
-								Real Estate <br>
-								9 avenue Edouard Belin <br>
-								92500 RUEIL-MALMAISON
-                            </p>
+                        <p>La validité de votre est conditionnée au respect de la date définitive de remise de l'offre, des modalités de rédaction et d'envoi de l'offre et de l'acceptation des conditions particulières. Toute offre incompléte sera considérée commne nulle et ne sera pas prise en compte par notre société.<br></p>
+                        <p>
+                            <strong>Date de remise de l'offre</strong>: <span style="text-decoration:underline;">Vendredi 14 février 2020</span>
+                        </p>
+                        <p>
+                            <strong>Contenu de l'offre</strong>:
+                        </p>
+                        <p>
+                            <strong>Informations relatives au Candidat</strong>
+                            <span> - Nom ou dénomination sociale (qualité du représentant habilité)</span>
+                            <span> - Adresse postale</span>
+                            <span> - Contact mail et coordonnées téléphoniques</span>
+                        </p>
+                        <p>
+                            <strong>Description du projet - Usage futur envisagé (commercial, résidentiel)</strong>
+                        </p>
+                        <p>
+                            <strong>Montant de l'offre en chiffres et en lettres (hors taxe)</strong>
+                        </p>
+                        <p>
+                            <strong>Les mentions suivantes doivent obligatoirement et littéralement etranscrites dans votre offre :</strong><br>
+                            "Cette offre est faite pour le bien en l'état, <br>
+                            Elle est ferme et valable 6 mois à compter du vendredi 14 février 2020 à 19h, <br>
+                            Elle est réalisée sans condition suspensive d'obtention d'autorisation adnistrative de construire et de financement. <br>
+                            Je m'engage à verser une indemnité d'immobilisation de 10% du montant de la vente lors de la signature de la promesse de vebte. <br>
+                            Je déclare avoir pris connaissance des conditions particuliéres de vente par appel d'offres CERTAS et de la réglementation sur les installations Classées pour la Protection de l'Environnement relative aux stations-service".
+                        </p>
+                        <p>
+                            <strong>Forme de l'offre :</strong>
+                            Votre offre dolt etre envoyee par courrier recommande avec Accuse de Reception 6 I'adresse suivante : <br> <br>
+                            CERTAS ENERGY France <br>
+                            Real Estate <br>
+                            9 avenue Edouard Belin <br>
+                            92500 RUEIL-MALMAISON
+                        </p>
                         {% endif %}
-	                </div>
-	            </section>
-
-	        </article>
-	    </div>
-	</div><!-- /content-wrapper -->
-
-
-	<div class="content-wrapper _bg_white  pb-5">
-	    <div class="container">
-	        <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
-	            <section class="_article_content">
-	                
-	                <h2 class="text-uppercase  services-h2">
-                        {% if  post.get_field('premier_titre') %}
-                            {{post.get_field('premier_titre')}}
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div><!-- /content-wrapper -->
+    <div class="content-wrapper _bg_white  pb-5">
+        <div class="container">
+            <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+                <section class="_article_content">
+                    <h2 class="text-uppercase  services-h2">
+                        {% if post.get_field('premier_titre') %}
+                        {{post.get_field('premier_titre')}}
                         {% else %}
-                            <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Conditions particuliéres </span></span></p>
+                        <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l">Conditions particuliéres </span></span></p>
                         {% endif %}
-					</h2>
-
-	                <div class="_article_body">
-                        {% if  post.get_field('premier_contenu') %}
-                            {{post.get_field('premier_contenu')}}
+                    </h2>
+                    <div class="_article_body">
+                        {% if post.get_field('premier_contenu') %}
+                        {{post.get_field('premier_contenu')}}
                         {% else %}
-
-                            
-                        	<p>
-								L'Acquereur s'engage a respecter les conditions particulieres de l'appel d'offre CERTAS flees aux caracteristiques des biens mis en vente, a la procedure d'acceptation des offres et aux conditions 
-								de vente. <br> 
-							</p>
-							<p>
-								<strong>Caracteristiques des biens mis en vente :</strong> <br>
-								Les biens seront libres de toute location et occupation au jour de la signature de l'acte de vente. <br>
-								La station-service sera fermee et demantelee. <br>
-								Etant anciennement inclus dans un perimetre de station-service et conformement a la legislation en vigueur, les biens seront remis en etat par la societe CERTAS pour un usage de type commercial. <br>
-								Toutes les reglementations en matiere d'Installations Classees pour la Protection de l'Environnement devront etre respectees par l'Acquereur et prises en compte dans la realisation de son projet.
-							</p>
-							<p>
-								<strong>Modalites d'acceptation des offres :</strong> <br>
-								  <span>1.La societe CERTAS procedera a ('analyse comparative des offres revues selon plusieurs criteres laisses a sa discretion (economique, technique...).</span><br>
-								  <span>2.Les offres sans conditions suspensives seront privilegiees dans le cadre de cette vente.</span><br>
-								  <span>3.Les candidats retenus devront confirmer leurs offres et ses caracteristiques.</span><br>
-								  <span>4.Les candidats non retenus seront avertis par courrier et renoncent a tout recours contre la societe CERTAS au titre de sa decision.</span><br>
-								  <span>5.La decision ferme et definitive de vendre de la societe CERTAS interviendra dans un delai de trois mois maximum apres reception de la confirmation des offres des candidats retenus par ('envoi d'un courrier recommande avec accuse de reception aux candidats retenus.</span>
-								</p>
-								<p>
-									Pendant ce delai, la societe CERTAS se reserve la possibilite a tout moment et sans justification de mettle fin au processus de vente. Coffre du candidat retenu sera alors caduque.
-								</p>
-								<p>
-								<strong>Conditions de vente :</strong> <br>
-								Signature entre CERTAS et l'Acquereur d'une promesse de vente synallagmatique soumise notamment aux conditions de vente suivantes :
-								Le bien etant anciennement a usage de station-service, l'Acquereur s'engage tent pour lui-meme que pour ses ayants droit ou ayants-cause, a ne pas exploiter dans les lieux un fonds
-								de commerce de vente ou de stockage de produits petroliers (lubrifiants et carburant) et a ne pas exploiter dans les lieux une station de lavage sans ('accord prealable et ecrit de CERTAS comme 
-								a ne pas accueillir ou autoriser dans les lieux une quelconque publicite en faveur de produits concurrents de ceux commercialises par CERTAS ENERGY FRANCE, et ce pendant une duree de dix annees a compter du jour de la signature de l'acte notarie de vente, a peine de tous dommages et interets envers le Vendeur.</p>
-								<p>
-								Le site vendu sera rehabilite pour un usage de type commercial, conformement a la legislation environnementale en vigueur. Tout changement d'usage devra etre pris en charge administrativement et financierement par l'Acquereur.</p>
-								<p>
-									L'Acquereur fera son affaire personnelle de l'obtention des autorisations administratives relatives a ses acces et a la voirie et de la souscription a compter de Ia signature de l'acte de vente notarie de toute nouvelle police d'assurance.
-								</p>
-								<p>
-								L'Acquereur fera son affaire personnelle de tous ouvrages en sous-sol qui pourraient subsister sans recours contre le Vendeur.</p>
-								<p>
-								Ayant pris parfaitement connaissance de ('ensemble des informations et des documents relatifs a Ia remise en &at environnemental du bien, l'Acquereur renoncera a tout recours contre le Vendeur, ayant pour cause l'etat du sol, du sous-sol et des eaux souterraines du bien vendu, et garantira ce dernier contre toute reclamation de tous tiers se rapportant a l'etat du sol, du sous-sol, et des eaux souterraines dudit bien et pouvant etre imputable a l'activite exercee a proximite de ce dernier.</p>
-								<p>
-								L'Acquereur devra verser, a la signature de la promesse de vente, une indemnite d'immobilisation d'un montant de 10% du prix hors taxe entre les mains du notaire du Vendeur.</p>
-								<p>
-									Le prix propose par l'Acquereur dans son offre est un prix net HT payable au comptant au jour de signature l'acte authentique de vente. La Taxe sur la Valeur Ajoutee (TVA) ne pourra etre imputee 
-									au
+                        <p>
+                            L'Acquereur s'engage a respecter les conditions particulieres de l'appel d'offre CERTAS flees aux caracteristiques des biens mis en vente, a la procedure d'acceptation des offres et aux conditions
+                            de vente. <br>
+                        </p>
+                        <p>
+                            <strong>Caracteristiques des biens mis en vente :</strong> <br>
+                            Les biens seront libres de toute location et occupation au jour de la signature de l'acte de vente. <br>
+                            La station-service sera fermee et demantelee. <br>
+                            Etant anciennement inclus dans un perimetre de station-service et conformement a la legislation en vigueur, les biens seront remis en etat par la societe CERTAS pour un usage de type commercial. <br>
+                            Toutes les reglementations en matiere d'Installations Classees pour la Protection de l'Environnement devront etre respectees par l'Acquereur et prises en compte dans la realisation de son projet.
+                        </p>
+                        <p>
+                            <strong>Modalites d'acceptation des offres :</strong> <br>
+                            <span>1.La societe CERTAS procedera a ('analyse comparative des offres revues selon plusieurs criteres laisses a sa discretion (economique, technique...).</span><br>
+                            <span>2.Les offres sans conditions suspensives seront privilegiees dans le cadre de cette vente.</span><br>
+                            <span>3.Les candidats retenus devront confirmer leurs offres et ses caracteristiques.</span><br>
+                            <span>4.Les candidats non retenus seront avertis par courrier et renoncent a tout recours contre la societe CERTAS au titre de sa decision.</span><br>
+                            <span>5.La decision ferme et definitive de vendre de la societe CERTAS interviendra dans un delai de trois mois maximum apres reception de la confirmation des offres des candidats retenus par ('envoi d'un courrier recommande avec accuse de reception aux candidats retenus.</span>
+                        </p>
+                        <p>
+                            Pendant ce delai, la societe CERTAS se reserve la possibilite a tout moment et sans justification de mettle fin au processus de vente. Coffre du candidat retenu sera alors caduque.
+                        </p>
+                        <p>
+                            <strong>Conditions de vente :</strong> <br>
+                            Signature entre CERTAS et l'Acquereur d'une promesse de vente synallagmatique soumise notamment aux conditions de vente suivantes :
+                            Le bien etant anciennement a usage de station-service, l'Acquereur s'engage tent pour lui-meme que pour ses ayants droit ou ayants-cause, a ne pas exploiter dans les lieux un fonds
+                            de commerce de vente ou de stockage de produits petroliers (lubrifiants et carburant) et a ne pas exploiter dans les lieux une station de lavage sans ('accord prealable et ecrit de CERTAS comme
+                            a ne pas accueillir ou autoriser dans les lieux une quelconque publicite en faveur de produits concurrents de ceux commercialises par CERTAS ENERGY FRANCE, et ce pendant une duree de dix annees a compter du jour de la signature de l'acte notarie de vente, a peine de tous dommages et interets envers le Vendeur.</p>
+                        <p>
+                            Le site vendu sera rehabilite pour un usage de type commercial, conformement a la legislation environnementale en vigueur. Tout changement d'usage devra etre pris en charge administrativement et financierement par l'Acquereur.</p>
+                        <p>
+                            L'Acquereur fera son affaire personnelle de l'obtention des autorisations administratives relatives a ses acces et a la voirie et de la souscription a compter de Ia signature de l'acte de vente notarie de toute nouvelle police d'assurance.
+                        </p>
+                        <p>
+                            L'Acquereur fera son affaire personnelle de tous ouvrages en sous-sol qui pourraient subsister sans recours contre le Vendeur.</p>
+                        <p>
+                            Ayant pris parfaitement connaissance de ('ensemble des informations et des documents relatifs a Ia remise en &at environnemental du bien, l'Acquereur renoncera a tout recours contre le Vendeur, ayant pour cause l'etat du sol, du sous-sol et des eaux souterraines du bien vendu, et garantira ce dernier contre toute reclamation de tous tiers se rapportant a l'etat du sol, du sous-sol, et des eaux souterraines dudit bien et pouvant etre imputable a l'activite exercee a proximite de ce dernier.</p>
+                        <p>
+                            L'Acquereur devra verser, a la signature de la promesse de vente, une indemnite d'immobilisation d'un montant de 10% du prix hors taxe entre les mains du notaire du Vendeur.</p>
+                        <p>
+                            Le prix propose par l'Acquereur dans son offre est un prix net HT payable au comptant au jour de signature l'acte authentique de vente. La Taxe sur la Valeur Ajoutée (TVA) ne pourra être imputée au Vendeur
+                        </p>
                         {% endif %}
-	                </div>
-	            </section>
-	        </article>
-	    </div>
-	</div><!-- /content-wrapper -->
-
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div><!-- /content-wrapper -->
 </div>
+{# <script type="text/javascript" src="{{ site.theme.link }}/js/montpellier.js"></script>
+<script type="text/javascript" src="{{ site.theme.link }}/js/lille.js"></script> #}
+<script type="text/javascript">
+var latMon = 43.61500549316406;
+var lonMon = 3.824946641921997;
+var latLil = 50.622528076171875;
+var lonLil = 3.044933319091797;
+window.addEventListener("load", function() {
+    var mapid = L.mapbox.map('mapidv1')
+        .setView([latMon, lonMon], 20)
+        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+    // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+    ;
 
-{% endblock %} 
+    var mapidv2 = L.mapbox.map('mapidv2')
+        .setView([latLil, lonLil], 20)
+        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+    // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+    ;
+    var greenIcon = L.icon({
+        iconUrl: '{{site.theme.link}}/images/_map/localization_offre.svg',
+        iconSize: [35, 90],
+    });
 
+
+    L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
+    L.marker([latLil, lonLil], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapidv2);
+});
+</script>
+{% endblock %}

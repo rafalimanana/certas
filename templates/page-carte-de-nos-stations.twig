@@ -57,17 +57,7 @@
 </div>
 
 <!-- Fichiers Javascript -->
-
-<script src="{{ site.theme.link }}/leaflet/leaflet.js"></script>
-<script src="https://unpkg.com/esri-leaflet@2.3.1/dist/esri-leaflet.js"></script>
-<script src="https://unpkg.com/esri-leaflet-geocoder@2.3.1/dist/esri-leaflet-geocoder.js"></script>
-<script src="https://unpkg.com/esri-leaflet-vector@2.0.2/dist/esri-leaflet-vector.js"></script>
-<script src="https://unpkg.com/esri-leaflet-cluster@2.0.1/dist/esri-leaflet-cluster.js"></script>
-<script type="text/javascript">
-let OL = L;</script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/esri-leaflet-geocoder@2.3.1/dist/esri-leaflet-geocoder.css">
-<script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css' rel='stylesheet' />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <link rel="stylesheet" href="{{ site.theme.link }}/css/_carte-station.css">
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
@@ -80,7 +70,6 @@ let NL = L;
        var lat = 44.798770;
         var lon = -0.663530;
         window.macarte = null
-        L.mapbox.accessToken = 'pk.eyJ1IjoiZmFicmljZXdlYiIsImEiOiJjazI1cmpmMGswcXI3M3FwOTJ2c25ldGVzIn0.4X0G-2us5zurU019Yu9tPw';
         var geocoder = L.mapbox.geocoder('mapbox.places');
         var map = L.mapbox.map('map', 'mapbox.streets');
         L.mapbox.styleLayer('mapbox://styles/fabriceweb/ck25u1v0s00931cpunlpz8bjj').addTo(map);
