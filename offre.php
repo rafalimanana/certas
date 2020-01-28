@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page offre
+ * Template Name: Page offres immobilières
  */
 
 $context = Timber::context();
