@@ -145,12 +145,14 @@ article section._article_content h1._article_body {
         nav ._h_cnt_menu .navbar-nav > .nav-item.active > a {
             color: #fff !important;
             border-bottom: #00aac9 solid 3px;
-            font-weight: bold !important;
+            text-shadow: 1px 0px 0px rgba(255,255,255,1);
+            /*font-weight: bold !important;*/
         }
 
         nav ._h_cnt_menu .navbar-nav > .nav-item:hover > a {
             color: #fff !important;
-            font-weight: bold !important;
+            text-shadow: 1px 0px 0px rgba(255,255,255,1);
+            /*font-weight: bold !important;*/
         }
 
         nav ._navbar_brand {
