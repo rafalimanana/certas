@@ -50,6 +50,7 @@ function remove_editor() {
             case 'nos-actualites.php':
             case 'nos-carburants.php':
             case 'nos-promos.php':
+            case 'offre.php':
             case 'produits.php':
             case 'services-en-stations.php':
             // the below removes 'editor' support for 'pages'

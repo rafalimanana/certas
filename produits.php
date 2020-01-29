@@ -10,11 +10,12 @@ if (!isset($paged) || !$paged){
 $context = Timber::context();
 $args = array(
     'post_type' => 'produit',
-    'order_by' => 'date',
-    'order' => 'DESC',
     'posts_per_page' => 5,
     'paged' => $paged,
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+    'orderby' => array(
+		'date' => 'DESC'
+	)
 );
 $timber_post = new Timber\Post();
 // $context['produits'] = Timber::get_posts($args);
