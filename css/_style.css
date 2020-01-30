@@ -921,7 +921,8 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc {
             margin: auto !important;
-            padding-right: 60px !important;
+            /*padding-right: 60px !important;*/
+            padding-right: 50px !important;
             padding-top: 25px !important;
         }
 
@@ -974,7 +975,7 @@ article section._article_content h1._article_body {
 
         #_prquoi ._cnt_prquoi_bloc ._cnt_title_prquoi {
             padding-bottom: 14px;
-            padding-right: 0 !important;
+            padding-right: 0;
         }
 
         #_prquoi ._cnt_prquoi_bloc ._cnt_title_prquoi h2._title_prquoi {
