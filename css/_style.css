@@ -933,7 +933,7 @@ article section._article_content h1._article_body {
             text-align: center !important;
             padding: 30px 2px 13px 2px !important;
             border-radius: 10px !important;
-            min-height: 100%;
+            min-height: 100% !important;
         }
 
         #_prquoi ._cnt_prquoi_bloc ._prquoi_bloc ._bloc ._cnt_bloc_title {
