@@ -49,6 +49,7 @@ function remove_editor() {
             case 'lavage.php':
             case 'nos-actualites.php':
             case 'nos-carburants.php':
+            case 'nos-partenaires.php':
             case 'nos-promos.php':
             case 'offre.php':
             case 'produits.php':

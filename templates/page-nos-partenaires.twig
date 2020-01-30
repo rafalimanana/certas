@@ -24,7 +24,7 @@
     <!-- Aide à la navigation -->
     <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
         {% for i in 1..10 %}
-            {% set club = post.get_field("club_certas_energy_"~i) %}
+            {% set club = post.get_field("partenaire_"~i) %}
             {% if club and club.premier_titre %}
                 <div class="row">
                     <div class="col-md-6 class_club_energy">
