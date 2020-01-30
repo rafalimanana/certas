@@ -340,7 +340,7 @@ article section._article_content h1._article_body {
 
     footer .ftco-footer-widget * {
         color: #fff !important;
-        font-weight: 600;
+        /*font-weight: 600;*/
 
     }
 
@@ -1300,8 +1300,8 @@ article section._article_content h1._article_body {
     position: relative;
     width: 110%;
     overflow: hidden;
-    border-bottom-left-radius: 70%;
-    border-bottom-right-radius: 70%;
+    /*border-bottom-left-radius: 70%;
+    border-bottom-right-radius: 70%;*/
     right: 5%;
     padding: 0 5%;
 } 
@@ -1361,7 +1361,6 @@ body {
         color: #86c023;
     }
 }
-
 /*.tool-pagination {
     text-align: center;
 }

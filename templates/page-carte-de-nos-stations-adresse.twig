@@ -13,6 +13,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a class="a-navig" href="{{ site.url }}">Accueil</a></li>
+                    {% if post.parent.parent.title %}
+                        <li class="breadcrumb-item"><a class="a-navig" href="{{ post.parent.parent.link }}">{{post.parent.parent.title}}</a></li>
+                    {% endif %}
                     {% if post.parent.title %}
                         <li class="breadcrumb-item"><a class="a-navig" href="{{post.parent.link}}">{{post.parent.title}}</a></li>
                     {% endif %}
