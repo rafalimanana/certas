@@ -331,7 +331,7 @@ let NL = L;
                                         var p2 = new google.maps.LatLng(geoLat, geoLng);
                                         var distance = calcDistance(p1, p2);
 
-                                        console.log("distance",distance)
+                                        // console.log("distance",distance)
                                         if (distance <= 200) {
                                             n_score=distance;
                                         }
@@ -364,8 +364,6 @@ let NL = L;
                                 let div = '';
                                 $('#l_resultat').css('display', 'block');
                                 $('#l_resultat').html('')
-                                console.log("results",scores)
-                                console.log("scoresindex",scoresindex)
                                 scoresFunction(scores,scoresindex,_map,map,lay);
                             });
                         }
