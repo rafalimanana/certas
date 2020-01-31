@@ -31,12 +31,12 @@
                             <img class="img_produits" src="{{ produit.thumbnail.src }}">
                         </a>
                     </div>
-                    <div class="col-md-8 pt-5 class-prod-list">
+                    <div class="col-md-8 {# pt-5 #} class-prod-list">
                         <h4 class="text-uppercase t_promos services-h2">
                             <p><span class="font-family-pers" style="color: #4f2f8d;"><span class="fw-l"> </span><strong>{{produit.title}}</strong></span></p>
                         </h4>
-                        <p>
-                            {{produit.content|excerpt(90)}}
+                        <p class="ccm-p">
+                            {{produit.content|excerpt(34)}}
                         </p>
                         <a href="{{produit.link}}">
                             <button class="btn btn-secondary btn-first">
