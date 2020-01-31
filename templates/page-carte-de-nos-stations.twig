@@ -302,222 +302,75 @@ let NL = L;
                   var low_search=search.toLowerCase();
                   var geocoder = L.esri.Geocoding.geocodeService();
                   var map = macarte;
-                  $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
-                    let scores = []
-                    let scoresindex = {}
-                    var geojson = L.geoJson(data, {
-                        onEachFeature: function (feature, layer) {
-                            let properties = feature.properties
-                            let id = feature.id
-                            let score = 0;
-                            Object.keys(properties).map((keyname) =>{
-                                let keyvalue = properties[keyname]
-                                if(keyvalue && keyvalue.toLowerCase().indexOf(recherche.toLowerCase()) !=-1 ){
-                                    score++
-                                    // console.log("feature",[keyvalue.toLowerCase(),recherche.toLowerCase()])
-                                }
-                            })
-                            scoresindex[id] = feature
-                            scores.push({
-                                id:id,
-                                score:score,
-                            })
+                    L.esri.Geocoding.geocode()
+                    .city(low_search)
+                    .region(low_search)
+                    .postal(low_search)
+                    /*.country(low_search)*/
+                    .address(low_search)
+                    .run(function (error, results, response) {
+                        if (error) {
+                          return;
                         }
-                    });
-                    for (var i = 0; i < scores.length; i++) {
-                        for (var j = i+1; j < scores.length; j++) {
-                            if(scores[i].score<scores[j].score){
-                                let t = scores[i]
-                                scores[i] = scores[j]
-                                scores[j] = t
-                            }
-                        }
-                    }
-                    scores = scores.filter((score) =>{
-                        return score.score>0
-                    })
-                    scores = scores.splice(0,4)
-                    if (Array.isArray(scores) && scores.length == 0) {
-                        L.esri.Geocoding.geocode()
-                        .address(low_search)
-                        .city(low_search)
-                        .region(low_search)
-                        .postal(low_search)
-                        .country(low_search)
-                        .run(function (error, results, response) {
-                            if (error) {
-                              return;
-                            }
-                            var res =results.results;
-                            if (res && res[0]) {
-                                var f_res=res[0];
-                                var latS = f_res.latlng.lat;
-                                var lonS = f_res.latlng.lng;
-                                $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
-                                    let scores = []
-                                    let scoresindex = {}
-                                    var geojson = L.geoJson(data, {
-                                        onEachFeature: function (feature, layer) {
-                                            let properties = feature.properties
-                                            let id = feature.id
-                                            let n_score = 0;
-                                            var geoLat = feature.geometry.coordinates[1];
-                                            var geoLng = feature.geometry.coordinates[0];
-                                            var p1 = new google.maps.LatLng(latS, lonS);
-                                            var p2 = new google.maps.LatLng(geoLat, geoLng);
-                                            var distance = calcDistance(p1, p2);
-                                            if (distance <= 150) {
-                                                n_score=distance;
-                                            }
-                                            scoresindex[id] = feature
-                                            scores.push({
-                                                id:id,
-                                                score:n_score,
-                                            });
+                        var res = results.results;
+                        if (res && res[0]) {
+                            var f_res=res[0];
+                            var latS = f_res.latlng.lat;
+                            var lonS = f_res.latlng.lng;
+                            $.getJSON('{{site.theme.link}}/json/geoLocation.json', function (data) {
+                                let scores = []
+                                let scoresindex = {}
+                                var geojson = L.geoJson(data, {
+                                    onEachFeature: function (feature, layer) {
+                                        let properties = feature.properties
+                                        let id = feature.id
+                                        let n_score = 0;
+                                        var geoLat = feature.geometry.coordinates[1];
+                                        var geoLng = feature.geometry.coordinates[0];
+                                        var p1 = new google.maps.LatLng(latS, lonS);
+                                        var p2 = new google.maps.LatLng(geoLat, geoLng);
+                                        var distance = calcDistance(p1, p2);
+
+                                        console.log("distance",distance)
+                                        if (distance <= 200) {
+                                            n_score=distance;
                                         }
-                                    });
-                                    for (var i = 0; i < scores.length; i++) {
-                                        for (var j = i+1; j < scores.length; j++) {
-                                            if(scores[i].score-0>scores[j].score-0){
-                                                let t = scores[i]
-                                                scores[i] = scores[j]
-                                                scores[j] = t
-                                            }
-                                        }
+                                        scoresindex[id] = feature
+                                        scores.push({
+                                            id:id,
+                                            score:n_score,
+                                        });
                                     }
-                                    scores = scores.filter((score) =>{
-                                        return score.score>0
-                                    })
-                                    let _scores = scores.filter((s,k) =>{
-                                        if(k<4){
-                                            return true
-                                        }
-                                        return false
-                                    })
-                                    scores = _scores;
-                                    scoresFunction(scores,scoresindex,_map,map,lay);
-                                    return;
                                 });
-                            }
-                        })
-                    }
-                    let div = '';
-                    $('#l_resultat').css('display', 'block');
-                    $('#l_resultat').html('')
-                    scoresFunction(scores,scoresindex,_map,map,lay);
-                });
-                  
-                  /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                  }).addTo(map);
-                  L.esri.Geocoding.geocode()
-                  .address(search)
-                  .city(search)
-                  .region(search)
-                  .postal(search)
-                  .country(search)
-                  .run(function (error, results, response) {
-                    if(id != curerntId){
-                        return true
-                    }
-                    if (error) {
-                      return;
-                    }
-                    var res =results.results;
-                    if (res) {
-                        $('#l_resultat').css('display', 'block');
-                        $('#l_resultat').html('')
-                        var r_count=0;
-                        if (r_count>=4) {
-                            return false;
-                        }else {
-                            var re_bounds = [];
-                            for (var i = res.length - 1; i >= 0; i--) {
-                                r_count++;
-                                re_bounds[i] = res[i].bounds;
-                                var affiche = '';
-                                if (res[i].properties.City != '') {
-                                    affiche=res[i].properties.City;
-                                }
-                                else if(res[i].properties.LongLabel != '') {
-                                    affiche=res[i].properties.LongLabel;
-                                }
-                                else if (res[i].text != '') {
-                                    affiche=res[i].text;
-                                }else {
-                                    affiche=res[i].properties.Place_addr;
-                                }
-                                var div = "<div class='p_city'><div id='sel"+i+"' data-val='"+i+"' class='l_city'>"+affiche+"</div></div>";
-                                var div = '<div class="col mt-4 l_carte">'+
-                                    '<h5 class="t_esso">'+affiche+'</h5>'+
-                                    '<p>'+
-                                        '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                                        '<span>'+res[i].properties.Place_addr+'</span>'+
-                                    '</p>'+
-                                    '<p class="c_information" id="sel'+i+'" data-val="'+i+'" >'+
-                                        '<span>Plus d\'informations</span>'+
-                                    '</p>'+
-                                '</div>';
-                                let __result = () =>{
-                                    $('#l_resultat').append(div);
-                                    function _f(i){
-                                        $('#sel'+i).on('click',function(event) {
-                                            $("#l_resultat").html('');
-                                            $('#search').val('');
-                                            $(".l_city").removeClass();
-                                            var fil = $(this).data('val');
-                                            var c_bounds = re_bounds[fil];
-                                            console.log("c_bounds",c_bounds)
-                                            map.fitBounds(c_bounds);
-
-                                            map.panTo(new L.LatLng(res[i].latlng.lat, res[i].latlng.lng));
-                                            //_map.fitBounds(c_bounds);
-                                            var r_city='';
-
-                                            if (res[i].properties.City != '') {
-                                                r_city=res[i].properties.City;
-                                            }
-                                            else if(res[i].properties.LongLabel != '') {
-                                                r_city=res[i].properties.LongLabel;
-                                            }
-                                            else if (res[i].text != '') {
-                                                r_city=res[i].text;
-                                            }else {
-                                                r_city=res[i].properties.Place_addr;
-                                            }
-
-                                            esso_alou = '<div class="pl-1">'+
-                                            '<h5 class="t_esso">'+r_city+'</h5>'+
-                                            '<p>'+
-                                                '<img src="{{ site.theme.link }}/images/_icons/localization-carte.svg" style="width:16px;">'+
-                                                '<span class="c_popup">'+
-                                                '<span>'+res[i].properties.Place_addr+'</span>'+
-                                                '</span>'+
-                                            '</p>'+
-                                            '<p>'+
-                                                '<span>'+
-                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel4.svg" style="width:45px;">'+
-                                                '</span>'+
-                                                '<span class="pl-3">'+
-                                                    '<img src="{{ site.theme.link }}/images/_icons/objet-dynamique-vectoriel7.svg" style="width:34px;">'+
-                                                '</span>'+
-                                            '</p>'+
-                                            '</div>';
-                                            var newLatLng = new _NL.LatLng(res[i].latlng.lat, res[i].latlng.lng);
-                                            marker.setLatLng(newLatLng)
-                                                .bindPopup(esso_alou)
-                                                .openPopup();
-                                        })
+                                for (var i = 0; i < scores.length; i++) {
+                                    for (var j = i+1; j < scores.length; j++) {
+                                        if(scores[i].score-0>scores[j].score-0){
+                                            let t = scores[i]
+                                            scores[i] = scores[j]
+                                            scores[j] = t
+                                        }
                                     }
-                                    _f(i)
                                 }
-                                if(r_count<=4){
-                                    __result()
-                                }
-                            }
+                                scores = scores.filter((score) =>{
+                                    return score.score>0
+                                })
+                                let _scores = scores.filter((s,k) =>{
+                                    if(k<4){
+                                        return true
+                                    }
+                                    return false
+                                })
+                                scores = _scores;
+                                let div = '';
+                                $('#l_resultat').css('display', 'block');
+                                $('#l_resultat').html('')
+                                console.log("results",scores)
+                                console.log("scoresindex",scoresindex)
+                                scoresFunction(scores,scoresindex,_map,map,lay);
+                            });
                         }
-                    }
-                  });*/
+                    })
+
                 }, 100);
             }
         });
