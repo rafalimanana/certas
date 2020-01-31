@@ -13,7 +13,7 @@
         {% endblock %}
     </header>
 
-    <section role="main" class="content-wrapper _content_pg" style="background-image: url('{{ site.theme.link }}/images/_bg/_bg_img.png}}')">
+    <section role="main" class="content-wrapper _content_pg" {# style="background-image: url('{{ site.theme.link }}/images/_bg/_bg_img.png}}')" #}>
         {% if title %}<h1>{{title}}</h1>{% endif %}
         
         {% block content %}

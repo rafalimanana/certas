@@ -1364,6 +1364,10 @@ body {
         color: #86c023;
     }
 }
+
+.pt_slide {
+    padding-top: 40px;
+}
 /*.tool-pagination {
     text-align: center;
 }

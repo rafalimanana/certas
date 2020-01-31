@@ -9,8 +9,10 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
-                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                    <li class="breadcrumb-item">{{post.category}}</li>
+                    <li class="breadcrumb-item"><a href="{{site.url}}">Accueil</a></li>
+                    {% if post.category %}
+                        <li class="breadcrumb-item">{{post.category}}</li>
+                    {% endif %}
                     <li class="breadcrumb-item active">{{post.title}}</li>
                 </ol>
             </nav>
