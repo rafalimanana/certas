@@ -141,7 +141,7 @@
                                 	<h2 class="_title_prquoi font-family-pers">POURQUOI <strong>CHOISIR CERTAS ?</strong> </h2>
                                 {% endif %}
                             </div>
-                            <div class="col-md-4 _prquoi_bloc">
+                            <div class="col-md-3 _prquoi_bloc">
                                 <div class="_bloc" style="background: #02b5ca">
                                     <div class="_cnt_ico">
                                         {% set icon_com = post.get_field('decouvrez')['icon_second_section1'] %}
@@ -162,7 +162,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 _prquoi_bloc">
+                            <div class="col-md-3 _prquoi_bloc">
                                 <div class="_bloc" style="background: #4f2f8d">
                                     <div class="_cnt_ico">
                                         {% set icon_fia = post.get_field('decouvrez')['icon_second_section2'] %}
@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 _prquoi_bloc">
+                            <div class="col-md-3 _prquoi_bloc">
                                 <div class="_bloc" style="background: #a29da9">
                                     <div class="_cnt_ico">
                                         {% set icon_pro = post.get_field('decouvrez')['icon_second_section3'] %}
@@ -200,6 +200,23 @@
                                             {% else %}
                                             Proprété
                                             {% endif %}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 _prquoi_bloc">
+                                <div class="_bloc" style="background: #a29da9">
+                                    <div class="_cnt_ico">
+                                        {% set icon_pro = post.get_field('decouvrez')['service_image'] %}
+                                        {% if icon_pro %}
+                                            <img src="{{icon_pro.url}}" class="img-section6">
+                                        {% else %}
+                                            <img src="{{site.theme.link}}/images/service-varie.svg" class="img-section6">
+                                        {% endif %}
+                                    </div>
+                                    <div class="_cnt_bloc_title">
+                                        <h3 class="_bloc_title">
+                                            {{post.get_field('decouvrez')['service_titre']}}
                                         </h3>
                                     </div>
                                 </div>
