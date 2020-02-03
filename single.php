@@ -10,8 +10,19 @@
  */
 
 $context = Timber::context();
+
+$args = array(
+    'post_type' => 'post',
+    'posts_per_page' => 4,
+    'post_status' => 'publish',
+    'orderby' => array(
+		'date' => 'DESC'
+	)
+);
+
 $timber_post = Timber::query_post();
 $context['post'] = $timber_post;
+$context['posts'] = new Timber\PostQuery($args);
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
