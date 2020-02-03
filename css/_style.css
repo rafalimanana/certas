@@ -535,7 +535,7 @@ article section._article_content h1._article_body {
         margin: auto;
     }
 
-    ._article_body.collect {
+    img.collect {
         width: 100% !important;
         height: initial !important;
     }
