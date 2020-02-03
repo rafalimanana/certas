@@ -535,8 +535,15 @@ article section._article_content h1._article_body {
         margin: auto;
     }
 
+    ._article_body.collect {
+        width: 100% !important;
+        height: initial !important;
+    }
+
     #_pg_lavage section._blc_img_auto ._img_auto {
-        width: inherit !important;
+        /*width: inherit !important;*/
+        max-width: 100%;
+        height: auto;
     }
 
     #_pg_lavage ._quest {
