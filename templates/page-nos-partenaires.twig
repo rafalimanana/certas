@@ -77,6 +77,11 @@
                                 </p>
                             {% endif %}
                         </div>
+                        <div class="col-md-6">
+                            {% if club.deuxieme_image %}
+                                <img class="img_club" src="{{club.deuxieme_image.url}}">
+                            {% endif %}
+                        </div>
                     </div>
                 {% endif %}
                 {% if club and (club.troisieme_titre or club.troisieme_contenu) %}
