@@ -9,11 +9,14 @@
  * @since    Timber 0.1
  */
 
+global $post;
+
 $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
     'posts_per_page' => 4,
+    'post__not_in'      => array($post->ID),
     'post_status' => 'publish',
     'orderby' => array(
 		'date' => 'DESC'
