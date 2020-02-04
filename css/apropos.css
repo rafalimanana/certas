@@ -221,10 +221,19 @@ label>a {
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 1450px) {
+    .img_produits {
+      max-width: 100%;
+      /*height: 100%;*/
+    }
+}
 
-.img_produits {
-	width: 100%;
-	height: 100%;
+
+@media only screen and (min-width: 1449px) {
+    .img_produits {
+      width: 100%;
+      /*height: 100%;*/
+    }
 }
 
 /*.nombre {
