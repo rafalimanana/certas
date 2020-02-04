@@ -221,17 +221,17 @@ label>a {
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: 1449px) {
     .img_produits {
-      max-width: 100%;
+      width: 100%;
       /*height: 100%;*/
     }
 }
 
 
-@media only screen and (min-width: 1449px) {
+@media only screen and (min-width: 1450px) {
     .img_produits {
-      width: 100%;
+      max-width: 100%;
       /*height: 100%;*/
     }
 }
