@@ -754,3 +754,27 @@ li ul.submenu {
       padding: 0 6px !important;
     }
 }
+
+#logo_marque {
+  padding: 0 3px 0 60px;
+}
+
+
+@media only screen and (max-width: 500px) {
+    #logo_marque {
+      padding: 0 3px 0 20px;
+    }
+}
+
+@media only screen and (max-width: 421px) and (min-width: 401px)  {
+    #logo_marque {
+      padding: 0 3px 0 1px;
+    }
+}
+
+
+@media only screen and (max-width: 261px) {
+    #logo_marque {
+      padding: 0 3px 0 1px;
+    }
+}

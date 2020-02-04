@@ -31,92 +31,116 @@
                 </div>
             </section>
         </article>
-        {% if post.get_field('premier_titre') or  post.get_field('premier_contenu') %}
-            <div class="_pd_tp_50">
-                <div class="row">
-                    <div class="col-md-6 class_club_energy">
-                        {% if  post.get_field('premier_titre') %}
-                            <h2 class="text-uppercase  services-h2">
-                                {{post.get_field('premier_titre')}}
-                            </h2>
-                        {% endif %}
-                        {% if  post.get_field('premier_contenu') %}
-                            {{post.get_field('premier_contenu')}}
-                        {% endif %}
-                        <p class="text-center _pd_tp_40">
-                            {% set p_url = post.get_field('premier_url_savoir_plus') %}
-                            {% if post.get_field('premier_texte_savoir_plus') and p_url.url %}
-                                <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
-                                        <button class="btn btn-secondary btn-first">
-                                                {{post.get_field('premier_texte_savoir_plus')}}
-                                        </button>
-                                </a>
+        <div class="_pd_tp_50">
+            {% for i in 1..10 %}
+                {% set avantage = post.get_field("groupe_avantage_"~i) %}
+                {% if avantage and (avantage.premier_titre or avantage.premier_contenu) %}
+                    <div class="row">
+                        <div class="col-md-6 class_club_energy">
+                            {% if  avantage.premier_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{avantage.premier_titre}}
+                                </h2>
                             {% endif %}
-                        </p>
-                    </div>
-                    <div class="col-md-6 pl_club">
-                        {% if  post.get_field('premier_image') %}
-                            {% set img_p = post.get_field('premier_image') %}
-                            <img class="img_club" src="{{img_p.url}}">
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        {% if  post.get_field('deuxieme_image') %}
-                            <img class="img_club" src="{{post.get_field('deuxieme_image').url}}">
-                        {% endif %}
-                    </div>
-                    <div class="col-md-6 pl_club class_club_energy">
-                        {% if  post.get_field('deuxieme_titre') %}
-                            <h2 class="text-uppercase  services-h2">
-                                {{post.get_field('deuxieme_titre')}}
-                            </h2>
-                        {% endif %}
-                        {% if  post.get_field('deuxieme_contenu') %}
-                            {{post.get_field('deuxieme_contenu')}}
-                        {% endif %}
-                        <p class="text-center _pd_tp_40">
-                            {% set d_url = post.get_field('deuxieme_url_savoir_plus') %}
-                            {% if post.get_field('deuxieme_texte_savoir_plus') and d_url.url %}
-                                <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
-                                        <button class="btn btn-secondary btn-first">
-                                            {{post.get_field('deuxieme_texte_savoir_plus')}}
-                                        </button>
-                                </a>
+                            {% if  avantage.premier_contenu %}
+                                {{avantage.premier_contenu}}
                             {% endif %}
-                        </p>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-md-6 class_club_energy">
-                        {% if  post.get_field('troisieme_titre') %}
-                            <h2 class="text-uppercase  services-h2">
-                                {{post.get_field('troisieme_titre')}}
-                            </h2>
-                        {% endif %}
-                        {% if  post.get_field('troisieme_contenu') %}
-                            {{post.get_field('troisieme_contenu')}}
-                        {% endif %}
-                        <p class="text-center _pd_tp_40">
-                            {% set t_url = post.get_field('troisieme_url_savoir_plus') %}
-                            {% if post.get_field('troisieme_texte_savoir_plus') and t_url.url %}
-                                <a href="{% if t_url.url %}{{t_url.url}}{% else %}#{% endif %}" class=""  target="{% if t_url.target %}{{t_url.target}}{% else %}_self{% endif %}">
-                                        <button class="btn btn-secondary btn-first ">
-                                                {{post.get_field('troisieme_texte_savoir_plus')}}
-                                        </button>
-                                </a>
+                            <p class="text-center _pd_tp_40">
+                                {% set p_url = avantage.premier_url_savoir_plus %}
+                                {% if avantage.premier_texte_savoir_plus %}
+                                    <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" class="" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
+                                            <button class="btn btn-secondary btn-first">
+                                                    {{avantage.premier_texte_savoir_plus}}
+                                            </button>
+                                    </a>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6 pl_club">
+                            {% if  avantage.premier_image %}
+                                {% set img_p = avantage.premier_image %}
+                                <img class="img_club" src="{{img_p.url}}">
                             {% endif %}
-                        </p>
+                        </div>
                     </div>
-                    <div class="col-md-6 pl_club">
-                        {% if  post.get_field('troisieme_image') %}
-                            <img class="img_club" src="{{post.get_field('troisieme_image').url}}">
+                {% endif %}
+                {% if avantage and (avantage.deuxieme_titre or avantage.deuxieme_contenu) %}
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            {% if  avantage.deuxieme_image %}
+                                <img class="img_club" src="{{avantage.deuxieme_image.url}}">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 pl_club class_club_energy">
+                            {% if  avantage.deuxieme_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{avantage.deuxieme_titre}}
+                                </h2>
+                            {% endif %}
+                            {% if  avantage.deuxieme_contenu %}
+                                {{avantage.deuxieme_contenu}}
+                            {% endif %}
+                            <p class="text-center _pd_tp_40">
+                                {% set d_url = avantage.deuxieme_url_savoir_plus %}
+                                {% if avantage.deuxieme_texte_savoir_plus %}
+                                    <a href="{% if d_url.url %}{{d_url.url}}{% else %}#{% endif %}" class="" target="{% if d_url.target %}{{d_url.target}}{% else %}_self{% endif %}">
+                                            <button class="btn btn-secondary btn-first">
+                                                {{avantage.deuxieme_texte_savoir_plus}}
+                                            </button>
+                                    </a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if avantage and (avantage.troisieme_titre or avantage.troisieme_contenu) %}
+                    <div class="row mt-5">
+                        <div class="col-md-6 class_club_energy">
+                            {% if  avantage.troisieme_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{avantage.troisieme_titre}}
+                                </h2>
+                            {% endif %}
+                            {% if  avantage.troisieme_contenu %}
+                                {{avantage.troisieme_contenu}}
+                            {% endif %}
+                            <p class="text-center _pd_tp_40">
+                                {% set t_url = avantage.troisieme_url_savoir_plus %}
+                                {% if avantage.troisieme_texte_savoir_plus %}
+                                    <a href="{% if t_url.url %}{{t_url.url}}{% else %}#{% endif %}" class=""  target="{% if t_url.target %}{{t_url.target}}{% else %}_self{% endif %}">
+                                            <button class="btn btn-secondary btn-first ">
+                                                    {{avantage.troisieme_texte_savoir_plus}}
+                                            </button>
+                                    </a>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6 pl_club">
+                            {% if  avantage.troisieme_image %}
+                                <img class="img_club" src="{{avantage.troisieme_image.url}}">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="slick_responsive row" id="logo_marque">
+                {% set photos = post.get_field('logo')|split(',') %}
+                {% if photos is not empty %}
+                    {% for pho in photos %}
+                        {% if pho %}
+                            <div class="col-md-3">
+                                {% set attachment = TimberPost(pho) %}
+                                <img src="{{TimberImage(pho).file_loc|resize(480)}}" width="100" height="75" />
+                                {# <a href="{{attachment.get_field('link_url')}}">
+                                </a> #}
+                            </div>
                         {% endif %}
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
             </div>
-        {% endif %}
+        </div>
+
+
     </div>
 </div>
 {% endblock %}
