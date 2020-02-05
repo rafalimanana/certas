@@ -30,7 +30,7 @@
         {% if certas and (certas.first_description or certas.first_title) %}
             <div class="container content-wrapper _bg_white pb-5">
                 <div class="row">
-                    <div class="col t_page">
+                    <div class="col _article_body t_page">
                         <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
                         <p>
                             {{ certas.first_description }}
@@ -46,7 +46,7 @@
                             </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-12 col-lg-12 t_mobile">
+                    <div class="col-md-12 col-lg-12 _article_body t_mobile">
                         <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
                         <p>
                             {{ certas.first_description }}
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            <div class="col {# p-a-propos #} t_page">
+                            <div class="col _article_body {# p-a-propos #} t_page">
                                 <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
                                 <p>
                                     {{ certas.second_description }}
@@ -112,7 +112,7 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <div class="col-md-12 col-lg-12 {# p-a-propos #} t_mobile">
+                            <div class="col-md-12 col-lg-12 _article_body {# p-a-propos #} t_mobile">
                                 <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
                                 <p>
                                     {{ certas.second_description }}
