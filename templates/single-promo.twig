@@ -10,9 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb _bredcrumb_custo">
                     <li class="breadcrumb-item"><a href="{{site.url}}">Accueil</a></li>
-                    {% if post.category %}
-                        <li class="breadcrumb-item">{{post.category}}</li>
-                    {% endif %}
+                    <li class="breadcrumb-item"><a class="a-navig" href="{{ site.link }}/nos-promos">Nos promos</a></li>
                     <li class="breadcrumb-item active">{{post.title}}</li>
                 </ol>
             </nav>
@@ -42,8 +40,8 @@
                     </div>
                 </section>
                 {% if posts is not empty %}
-                    <section class="_article_content col-md-12 mt-5" id="_nos_actus">
-                        <h1 class="_title_actus font-family-pers">
+                    <section class="_article_content col-md-12 mt-5" id="nos_promo_l">
+                        <h1 class="_title_promos font-family-pers">
                             <span class="fw-l">Nos </span> <b>Actualités</b> 
                         </h1>
                         <div class="row">
@@ -59,6 +57,34 @@
                                                 <h2 class="_actu_title">{{term.title}}</h2>
                                                 <p class="_actu_description">
                                                     {{ term.title|striptags|length > 10 ? term.post_content|excerpt(12) : term.post_content|excerpt(20) }}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </section>
+                {% endif %}
+
+                {% if promos is not empty %}
+                    <section class="_article_content col-md-12 mt-5" id="nos_promo_l">
+                        <h1 class="_title_promos font-family-pers">
+                            <span class="fw-l">Nos </span> <b>Promotions</b> 
+                        </h1>
+                        <div class="row">
+                            {% for promo in promos %}
+                                <div class="col-md-3 _cnt_panel_actus">
+                                    <div class="panel _panel_actus">
+                                        <a href="{{promo.link}}">
+                                            <div class="panel-body">
+                                                <img src="{{promo.thumbnail.src}}" class="_actu_img">
+                                            </div>
+                                            <div class="panel-footer">
+                                                <h4 class="_actu_date">{{promo.date}}</h4>
+                                                <h2 class="_actu_title">{{promo.title}}</h2>
+                                                <p class="_actu_description">
+                                                    {{ promo.title|striptags|length > 10 ? promo.post_content|excerpt(12) : promo.post_content|excerpt(20) }}
                                                 </p>
                                             </div>
                                         </a>

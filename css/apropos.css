@@ -787,3 +787,11 @@ li ul.submenu {
       padding: 0 3px 0 1px;
     }
 }
+
+ #nos_promo_l h1._title_promos {
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-size: 31px !important;
+    color: #a29da9 !important;
+    margin-bottom: 15px !important;
+}
