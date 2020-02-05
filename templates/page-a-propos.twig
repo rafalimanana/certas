@@ -21,11 +21,14 @@
         </div>
     </div>
     <!-- Aide à la navigation -->
-
-    <div class="container content-wrapper _pd_tp_50 _pd_bt_50">
-        {% for i in 1..20 %}
-            {% set certas = post.get_field("certas_energy_"~i) %}
-            {% if certas and (certas.first_description or certas.first_title) %}
+    {% set break = false %}
+    {% for i in 1..20  if not break %}
+        {% set certas = post.get_field("certas_energy_"~i) %}
+        {% if certas is null %}
+            {% set break = true %}
+        {% endif %}
+        {% if certas and (certas.first_description or certas.first_title) %}
+            <div class="container content-wrapper _bg_white pb-5">
                 <div class="row">
                     <div class="col t_page">
                         <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
@@ -72,59 +75,64 @@
                         </div>
                     {% endif %}
                 </div> 
-            {% endif %}
-            <div class="clearfix"></div>
-            {% if certas and (second_description or certas.second_title) %}
-                <div class="row second-top">
-                    {% if certas.second_image %}
-                        <div class="col text-center _apropos_second t_page">
-                            <div class="site-header">
-                                {{certas.second_image}}
-                                {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
+            </div><!-- /content-wrapper -->
+        {% endif %}
+        {% if certas and (second_description or certas.second_title) %}
+            <div class="content-wrapper _bg_grey _pd_tp_50 _pd_bt_50">
+                <div class="container">
+                    <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+                        <div class="row second-top col-md-12">
+                            {% if certas.second_image %}
+                                <div class="col text-center _apropos_second t_page">
+                                    <div class="site-header">
+                                        {{certas.second_image}}
+                                        {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 text-center _apropos_second t_mobile">
+                                    <div class="site-header m_video">
+                                        {{certas.second_image}}
+                                        {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="col p-a-propos t_page">
+                                <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                <p>
+                                    {{ certas.second_description }}
+                                </p>
+                                {% set s_url = certas.url_bouton_decouvrez_notre_reseau_second %}
+                                {% if certas.texte_bouton_decouvrez_notre_reseau_second %}
+                                    <div class="text-center _pd_tp_40">
+                                        <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
+                                            <button class="btn btn-secondary btn-first">
+                                                    {{ certas.texte_bouton_decouvrez_notre_reseau_second }}
+                                            </button>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 col-lg-12 p-a-propos t_mobile">
+                                <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                <p>
+                                    {{ certas.second_description }}
+                                </p>
+                                {% set sm_url = certas.url_bouton_decouvrez_notre_reseau_second %}
+                                {% if certas.texte_bouton_decouvrez_notre_reseau_second %}
+                                    <div class="text-center _pd_tp_40">
+                                        <a href="{% if sm_url.url %}{{sm_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if sm_url.target %}{{sm_url.target}}{% else %}_self{% endif %}">
+                                            <button class="btn btn-secondary btn-first">
+                                                {{ certas.texte_bouton_decouvrez_notre_reseau_second }}
+                                            </button>
+                                        </a>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-12 text-center _apropos_second t_mobile">
-                            <div class="site-header m_video">
-                                {{certas.second_image}}
-                                {# <img src="{{img.url}}" class="img-responsive" style="width:100%" /> #}
-                            </div>
-                        </div>
-                    {% endif %}
-                    <div class="col p-a-propos t_page">
-                        <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
-                        <p>
-                            {{ certas.second_description }}
-                        </p>
-                        {% set s_url = certas.url_bouton_decouvrez_notre_reseau_second %}
-                        {% if certas.texte_bouton_decouvrez_notre_reseau_second %}
-                            <div class="text-center _pd_tp_40">
-                                <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
-                                    <button class="btn btn-secondary btn-first">
-                                            {{ certas.texte_bouton_decouvrez_notre_reseau_second }}
-                                    </button>
-                                </a>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="col-md-12 col-lg-12 p-a-propos t_mobile">
-                        <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
-                        <p>
-                            {{ certas.second_description }}
-                        </p>
-                        {% set sm_url = certas.url_bouton_decouvrez_notre_reseau_second %}
-                        {% if certas.texte_bouton_decouvrez_notre_reseau_second %}
-                            <div class="text-center _pd_tp_40">
-                                <a href="{% if sm_url.url %}{{sm_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if sm_url.target %}{{sm_url.target}}{% else %}_self{% endif %}">
-                                    <button class="btn btn-secondary btn-first">
-                                        {{ certas.texte_bouton_decouvrez_notre_reseau_second }}
-                                    </button>
-                                </a>
-                            </div>
-                        {% endif %}
-                    </div>
+                    </article>
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div><!-- /content-wrapper -->
+            </div>
+        {% endif %}        
+    {% endfor %}
 </div>
 {% endblock %}
