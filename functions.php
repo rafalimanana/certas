@@ -41,6 +41,7 @@ function remove_editor() {
         $template = get_post_meta($id, '_wp_page_template', true);
         switch ($template) {
             case 'a-propos.php':
+            case 'avantage-cce.php':
             case 'carte-de-nos-stations.php':
             case 'club-certas-energy.php':
             case 'comment-ca-marche.php':
