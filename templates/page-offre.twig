@@ -159,7 +159,7 @@ setTimeout(function(){
             iconUrl: '{{site.theme.link}}/images/_map/localization_offre.svg',
             iconSize: [35, 90],
         });
-        if ($('#mapidv1')) {
+        if ($('#mapidv1') && $('#mapidv1').length > 0) {
             var mapid = L.mapbox.map('mapidv1')
                 .setView([latMon, lonMon], 20)
                 .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
@@ -168,7 +168,7 @@ setTimeout(function(){
             L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
         }
 
-        if ($('#mapidv2')) {
+        if ($('#mapidv2') && $('#mapidv2').length > 0) {
             var mapidv2 = L.mapbox.map('mapidv2')
                 .setView([latLil, lonLil], 20)
                 .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
