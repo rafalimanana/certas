@@ -40,8 +40,6 @@
             {% set adresse_map_1 = post.get_field('adresse_map_1') %}
             {% set adresse_map_2 = post.get_field('adresse_map_2') %}
             <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-                {{dump( post.get_field('adresse_map_1'))}}
-                {{dump( post.get_field('adresse_map_2'))}}
                 <section class="_article_content col-md-12">
                     <div class="row">
                         <div class="col-md-5">
