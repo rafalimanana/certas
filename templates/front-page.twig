@@ -24,15 +24,11 @@
                             <h3 class="_bloc_title">
                                 {% if post.get_field('reseau_express') %}
                                 	{{ post.get_field('reseau_express') }}
-                                {% else %}
-                                	Express
                                 {% endif %}
                             </h3>
                             <p class="_bloc_desc">
                                 {% if post.get_field('description_express') %}
                                 	{{ post.get_field('description_express') }}
-                                {% else %}
-                                	Prix bas toute l'année,<br>24h/24h
                                 {% endif %}
                             </p>
                         </div>
@@ -52,15 +48,11 @@
                             <h3 class="_bloc_title">
                                 {% if post.get_field('reseau_autoroute') %}
                                 	{{ post.get_field('reseau_autoroute') }}
-                                {% else %}
-                                	Autoroute
                                 {% endif %}
                             </h3>
                             <p class="_bloc_desc">
                                 {% if post.get_field('description_autoroute') %}
                                 	{{ post.get_field('description_autoroute') }}
-                                {% else %}
-                                	Confort total pour les  <br> longs voyages
                                 {% endif %}
                             </p>
                         </div>
@@ -80,15 +72,11 @@
                             <h3 class="_bloc_title">
                                 {% if post.get_field('reseau_acheteurs') %}
                                     {{ post.get_field('reseau_acheteurs') }}
-                                {% else %}
-                                    Acheteurs
                                 {% endif %}
                             </h3>
                             <p class="_bloc_desc">
                                 {% if post.get_field('description_acheteurs') %}
                                     {{ post.get_field('description_acheteurs') }}
-                                {% else %}
-                                    Service complet,<br> style ESSO
                                 {% endif %}
                             </p>
                         </div>
@@ -103,8 +91,6 @@
             <a href="{% if b_url.url %}{{b_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if b_url.target %}{{b_url.target}}{% else %}_self{% endif %}">
                     {% if post.get_field('texte_bouton_decouvrez_notre_reseau') %}
                         {{post.get_field('texte_bouton_decouvrez_notre_reseau')}}
-                    {% else %}
-                        Découvrez notre réseau
                     {% endif %}
             </a>
             {# <a href="{{post.get_field('bouton_decouvrez_notre_reseau')}}" class="_btn_lnk">
@@ -124,8 +110,6 @@
                         {% set img_sec = post.get_field('decouvrez')["second_section_first"] %}
                         {% if img_sec %}
                         <img src="{{img_sec.url}}" style="width:100%">
-                        {% else %}
-                        <img src="{{site.theme.link}}/images/Pourquoi-certas.png" >
                         {% endif %}
                     </div>
                 </div>
@@ -137,8 +121,6 @@
 	                                <h2 class="_title_prquoi font-family-pers">
 	                                    {{post.get_field('decouvrez')['second_section_titre']}}
 	                                </h2>
-                                {% else %}
-                                	<h2 class="_title_prquoi font-family-pers">POURQUOI <strong>CHOISIR CERTAS ?</strong> </h2>
                                 {% endif %}
                             </div>
                             <div class="col-md-3 _prquoi_bloc">
@@ -147,16 +129,12 @@
                                         {% set icon_com = post.get_field('decouvrez')['icon_second_section1'] %}
                                         {% if icon_com %}
                                             <img src="{{icon_com.url}}" class="img-section6">
-                                        {% else %}
-                                            <img src="{{site.theme.link}}/images/trophy.svg" class="img-section6">
                                         {% endif %}
                                     </div>
                                     <div class="_cnt_bloc_title">
                                         <h3 class="_bloc_title">
                                             {% if post.get_field('decouvrez')['second_section_competitive'] %}
                                             {{post.get_field('decouvrez')['second_section_competitive']}}
-                                            {% else %}
-                                            Compétitivité
                                             {% endif %}
                                         </h3>
                                     </div>
@@ -168,16 +146,12 @@
                                         {% set icon_fia = post.get_field('decouvrez')['icon_second_section2'] %}
                                         {% if icon_fia %}
                                             <img src="{{icon_fia.url}}" class="img-section6">
-                                        {% else %}
-                                            <img src="{{site.theme.link}}/images/trusted.svg" class="img-section6">
                                         {% endif %}
                                     </div>
                                     <div class="_cnt_bloc_title">
                                         <h3 class="_bloc_title">
                                             {% if post.get_field('decouvrez')['second_section_faibilite'] %}
                                             {{post.get_field('decouvrez')['second_section_faibilite']}}
-                                            {% else %}
-                                            Fiabilité
                                             {% endif %}
                                         </h3>
                                     </div>
@@ -189,16 +163,12 @@
                                         {% set icon_pro = post.get_field('decouvrez')['icon_second_section3'] %}
                                         {% if icon_pro %}
                                             <img src="{{icon_pro.url}}" class="img-section6">
-                                        {% else %}
-                                            <img src="{{site.theme.link}}/images/broom.svg" class="img-section6">
                                         {% endif %}
                                     </div>
                                     <div class="_cnt_bloc_title">
                                         <h3 class="_bloc_title">
                                             {% if post.get_field('decouvrez')['second_section_propriete'] %}
                                             {{post.get_field('decouvrez')['second_section_propriete']}}
-                                            {% else %}
-                                            Proprété
                                             {% endif %}
                                         </h3>
                                     </div>
@@ -210,34 +180,32 @@
                                         {% set icon_pro = post.get_field('decouvrez')['service_image'] %}
                                         {% if icon_pro %}
                                             <img src="{{icon_pro.url}}" class="img-section6">
-                                        {% else %}
-                                            <img src="{{site.theme.link}}/images/service-varie.svg" class="img-section6">
                                         {% endif %}
                                     </div>
                                     <div class="_cnt_bloc_title">
-                                        <h3 class="_bloc_title">
-                                            {{post.get_field('decouvrez')['service_titre']}}
-                                        </h3>
+                                        {% if post.get_field('decouvrez')['service_titre'] %}
+                                            <h3 class="_bloc_title">
+                                                {{post.get_field('decouvrez')['service_titre']}}
+                                            </h3>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 _cnt_btn">
+                            {# <div class="col-md-12 _cnt_btn">
                                 {% set v_url = post.get_field('decouvrez')['bouton_notre_valeur_ajoute'] %}
                                 <a href="{% if v_url.url %}{{v_url.url}}{% else %}#{% endif %}" class="_btn_lnk" target="{% if v_url.target %}{{v_url.target}}{% else %}_self{% endif %}">
                                         {% if post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute'] %}
                                             {{post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute']}}
-                                        {% else %}
-                                            Notre valeur ajoutée
                                         {% endif %}
                                 </a>
-                                {# <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}" class="_btn_lnk">
+                                <a href="{{post.get_field('decouvrez')['bouton_notre_valeur_ajoute']}}" class="_btn_lnk">
                                     {% if post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute'] %}
                                         {{post.get_field('decouvrez')['texte_bouton_notre_valeur_ajoute']}}
                                     {% else %}
                                         Notre valeur ajoutée
                                     {% endif %}
-                                </a> #}
-                            </div>
+                                </a> 
+                            </div>#}
                         </div>
                     </div>
                 </div>

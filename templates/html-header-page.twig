@@ -75,6 +75,15 @@
         L.mapbox.accessToken = 'pk.eyJ1IjoiZmFicmljZXdlYiIsImEiOiJjazI1cmpmMGswcXI3M3FwOTJ2c25ldGVzIn0.4X0G-2us5zurU019Yu9tPw';
     </script>
 
+    <script type="text/javascript">
+    {% if fn('is_page', 'a-propos') %}
+    {% else %}
+        setTimeout(function() {
+            $("a[href='#nos-valeurs']").attr('href', "{{site.url}}/a-propos#nos-valeurs");
+        },300)
+    {% endif %}
+    </script>
+
 
 
     {{function('wp_head')}}

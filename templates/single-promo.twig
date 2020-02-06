@@ -35,7 +35,16 @@
                                 <div class="article-body">
                                     {{post.content}}
                                 </div>
+                               <div class="text-center">         
+                                  <a href="{{ site.link }}/nos-promos">
+                                    <button id="p_retour" class="{# btn-primary btn #} btn btn-secondary btn-first"> 
+                                      <i class="fa fa-arrow-left"></i>
+                                      Retour
+                                    </button>
+                                  </a>
+                               </div>
                             </section>
+
                         </div>
                     </div>
                 </section>
@@ -94,34 +103,6 @@
                         </div>
                     </section>
                 {% endif %}
-                <section class="_article_content col-md-12">
-                  <a href="{{ site.link }}/nos-promos">
-                    <button id="p_retour" class="{# btn-primary btn #} btn btn-secondary btn-first"> 
-                      <i class="fa fa-arrow-left"></i>
-                      Retour
-                    </button>
-                  </a>
-                </section>
-
-                <!-- comment box -->
-                {# <section class="comment-box"> #}
-                    <!-- comments -->
-                    {# <div class="comments">
-                        {% if post.comments %} #}
-                        {# <h3> comments </h3> #}
-                        {# {% for cmt in post.comments %}
-                            {% include "comment.twig" with {comment:cmt} %}
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-
-                    {% if post.comment_status == "closed" %}
-                        <p> les commentaires pour cet article sont fermés </p>
-                    {% else %} #}
-                        <!-- comment form -->
-                       {#  {% include "comment-form.twig" %}
-                    {% endif %} #}
-                {# </section> #}
             </article>
         </div>
 	</div><!-- /content-wrapper -->

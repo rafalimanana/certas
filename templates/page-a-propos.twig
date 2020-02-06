@@ -28,7 +28,7 @@
             {% set break = true %}
         {% endif %}  #}
         {% if certas and (certas.first_description or certas.first_title) %}
-            <div class="container content-wrapper _bg_white pb-5 _pd_tp_40">
+            <div class="container content-wrapper _bg_white pb-5 _pd_tp_40"  id="{% if i == 2 %}nos-valeurs{% endif %}">
                 <div class="row">
                     <div class="col _article_body t_page">
                         {% if certas.first_title %}
@@ -78,7 +78,7 @@
             </div><!-- /content-wrapper -->
         {% endif %}
         {% if certas and (certas.second_description or certas.second_title) %}
-            <div class="content-wrapper _bg_grey pt-3 pb-3" id="{% if i == 3 %}nos-valeurs{% endif %}">
+            <div class="content-wrapper _bg_grey pt-3 pb-3">
                 <div class="container">
                     <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
                         <div class="row second-top col-md-12">

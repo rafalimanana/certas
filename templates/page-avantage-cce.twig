@@ -49,13 +49,16 @@
                 </div>
             </section>
             <section class="article-content">
-                <div class="text-center">
-                  <a target="_blank" href="https://www.club-certas.com/Account/Register">
-                    <button id="acces_site" class="{# btn-primary btn  #} btn btn-secondary btn-first"> 
-                      Accéder au site
-                    </button>
-                  </a>
-                </div>
+                {% set acceder = post.get_field('acceder_au_site') %}
+                {% if acceder %}
+                    <div class="text-center">
+                      <a target="{% if acceder.target %}{{acceder.target}}{% else %}_self{% endif %}" href="{% if acceder.url %}{{acceder.url}}{% else %}#{% endif %}">
+                        <button id="acces_site" class="{# btn-primary btn  #} btn btn-secondary btn-first"> 
+                          {{acceder.title}}
+                        </button>
+                      </a>
+                    </div>
+                {% endif %}
             </section>
         </article>
         {# {% set break = false %}

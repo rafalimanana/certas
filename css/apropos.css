@@ -802,13 +802,13 @@ li ul.submenu {
 }
 
 #p_retour {
-  width: 120px;
+  width: auto;
   padding: 10px;
   font-size: 16px;
   text-transform: uppercase;
 }
 #acces_site {
-  width: 188px;
+  width: auto;
   padding: 10px;
   font-size: 16px;
   text-transform: uppercase;
