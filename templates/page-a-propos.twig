@@ -28,11 +28,11 @@
             {% set break = true %}
         {% endif %}  #}
         {% if certas and (certas.first_description or certas.first_title) %}
-            <div class="container content-wrapper _bg_white pb-5">
+            <div class="container content-wrapper _bg_white pb-5 _pd_tp_40">
                 <div class="row">
                     <div class="col _article_body t_page">
                         {% if certas.first_title %}
-                            <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
+                            <h2 class="">{{ certas.first_title }}</h2>
                         {% endif %}
                         {{ certas.first_description }}
                         {% set u_url = certas.url_bouton_decouvrez_notre_reseau_first %}
@@ -46,9 +46,9 @@
                             </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-12 col-lg-12 _article_body t_mobile">
+                    <div class="col-md-12 col-lg-12 _article_body t_mobile _pd_tp_40">
                         {% if certas.first_title %}
-                            <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
+                            <h2 class="">{{ certas.first_title }}</h2>
                         {% endif %}
                         {{ certas.first_description }}
                         {% set u_url = certas.url_bouton_decouvrez_notre_reseau_first %}
