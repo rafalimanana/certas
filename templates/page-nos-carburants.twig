@@ -69,6 +69,7 @@
                         </div>
                         <div class="col-md-6">
                             {% set img_b2 = post.get_field('deuxieme_image_background') %}
+                            {% set s_url = post.get_field('url_specificites') %}
                             <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
                                 <div class="_carbu_bloc_img" style="background-image: url({% if img_b2 %}{{img_b2.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_specificites_avantages.jpg}}{% endif %}); background-position-y: -175px;">
                                     <div class="_carbu_bloc_shadow">
