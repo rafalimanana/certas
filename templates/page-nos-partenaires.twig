@@ -117,9 +117,11 @@
                 {% if club and (club.premier_titre or club.premier_contenu) %}
                     <div class="row">
                         <div class="col-md-6 class_club_energy">
-                            <h2 class="text-uppercase  services-h2">
-                                {{club.premier_titre}}
-                            </h2>
+                            {% if club.premier_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{club.premier_titre}}
+                                </h2>
+                            {% endif %}
                             {{club.premier_contenu}}
                             {% set p_url = club.premier_url_savoir_plus %}
                             {% if club.premier_texte_savoir_plus %}
@@ -147,9 +149,11 @@
                             {% endif %}
                         </div>
                         <div class="col-md-6 pl_club class_club_energy">
-                            <h2 class="text-uppercase  services-h2">
-                                {{club.deuxieme_titre}}
-                            </h2>
+                            {% if club.deuxieme_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{club.deuxieme_titre}}
+                                </h2>
+                            {% endif %}
                             {{ club.deuxieme_contenu }}
                             <p class="text-center _pd_tp_40">
                                 {% set d_url = club.deuxieme_url_savoir_plus %}
@@ -167,9 +171,11 @@
                 {% if club and (club.troisieme_titre or club.troisieme_contenu) %}
                     <div class="row mt-5">
                         <div class="col-md-6 class_club_energy">
-                            <h2 class="text-uppercase  services-h2">
-                                {{ club.troisieme_titre }}
-                            </h2>
+                            {% if club.troisieme_titre %}
+                                <h2 class="text-uppercase  services-h2">
+                                    {{ club.troisieme_titre }}
+                                </h2>
+                            {% endif %}
                             {{ club.troisieme_contenu }}
                             <p class="text-center _pd_tp_40">
                                 {% set t_url = club.troisieme_url_savoir_plus %}

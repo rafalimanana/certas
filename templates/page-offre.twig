@@ -28,9 +28,11 @@
             {% if nos_appel_doffres is not empty %}
                 <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
                     <section class="_article_content">
-                        <h2 class="text-uppercase  services-h2">
-                            {{nos_appel_doffres.titre}}
-                        </h2>
+                        {% if nos_appel_doffres.titre %}
+                            <h2 class="text-uppercase  services-h2">
+                                {{nos_appel_doffres.titre}}
+                            </h2>
+                        {% endif %}
                         <div class="_article_body">
                             {{nos_appel_doffres.description}}
                         </div>
@@ -101,9 +103,11 @@
             <div class="container">
                 <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
                     <section class="_article_content col-md-12">
-                        <h2 class="text-uppercase  services-h2">
-                            {{comment_repondre_a_notre_appel_doffres.titre}}
-                        </h2>
+                        {% if comment_repondre_a_notre_appel_doffres.titre %}
+                            <h2 class="text-uppercase  services-h2">
+                                {{comment_repondre_a_notre_appel_doffres.titre}}
+                            </h2>
+                        {% endif %}
                         <div class="_article_body">
                             {{comment_repondre_a_notre_appel_doffres.description}}
                         </div>
@@ -118,12 +122,16 @@
             <div class="container">
                 <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
                     <section class="_article_content">
-                        <h2 class="text-uppercase  services-h2">
-                            {{conditions_particulieres.titre}}
-                        </h2>
-                        <div class="_article_body">
-                            {{conditions_particulieres.description}}
-                        </div>
+                        {% if conditions_particulieres.titre %}
+                            <h2 class="text-uppercase  services-h2">
+                                {{conditions_particulieres.titre}}
+                            </h2>
+                        {% endif %}
+                        {% if conditions_particulieres.description %}
+                            <div class="_article_body">
+                                {{conditions_particulieres.description}}
+                            </div>
+                        {% endif %}
                     </section>
                 </article>
             </div>

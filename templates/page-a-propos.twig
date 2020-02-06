@@ -31,7 +31,9 @@
             <div class="container content-wrapper _bg_white pb-5">
                 <div class="row">
                     <div class="col _article_body t_page">
-                        <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
+                        {% if certas.first_title %}
+                            <h2 class="_pd_tp_40">{{ certas.first_title }}</h2>
+                        {% endif %}
                         <p>
                             {{ certas.first_description }}
                         </p>
@@ -78,7 +80,7 @@
             </div><!-- /content-wrapper -->
         {% endif %}
         {% if certas and (certas.second_description or certas.second_title) %}
-            <div class="content-wrapper _bg_grey{#  pt-3 pb-3 #}" id="{% if i == 3 %}nos-valeurs{% endif %}">
+            <div class="content-wrapper _bg_grey pt-3 pb-3" id="{% if i == 3 %}nos-valeurs{% endif %}">
                 <div class="container">
                     <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
                         <div class="row second-top col-md-12">
@@ -97,7 +99,9 @@
                                 </div>
                             {% endif %}
                             <div class="col _article_body {# p-a-propos #} t_page">
-                                <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                {% if certas.second_title %}
+                                    <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                {% endif %}
                                 <p>
                                     {{ certas.second_description }}
                                 </p>
@@ -113,7 +117,9 @@
                                 {% endif %}
                             </div>
                             <div class="col-md-12 col-lg-12 _article_body {# p-a-propos #} t_mobile">
-                                <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                {% if certas.second_title %}
+                                    <h2 class="_pd_tp_50">{{ certas.second_title }}</h2>
+                                {% endif %}
                                 <p>
                                     {{ certas.second_description }}
                                 </p>
