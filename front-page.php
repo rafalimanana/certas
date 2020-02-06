@@ -7,11 +7,12 @@ $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
-    'order_by' => 'date',
-    'order' => 'DESC',
     'posts_per_page' => 10,
 	// 'category_name' => 'actualites',
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+    'orderby' => array(
+		'date' => 'DESC'
+	)
 );
 $context['posts'] = Timber::get_posts($args);
 $timber_post = new Timber\Post();
