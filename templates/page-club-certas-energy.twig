@@ -26,9 +26,9 @@
         {% set break = false %}
         {% for i in 1..20  if not break %}
             {% set club = post.get_field("club_certas_energy_"~i) %}
-            {% if club is null %}
+            {# {% if club is null %}
                 {% set break = true %}
-            {% endif %}
+            {% endif %} #}
             {% if club and (club.premier_titre or club.premier_contenu) %}
                 <div class="row">
                     <div class="col-md-6 class_club_energy">
