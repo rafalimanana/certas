@@ -546,6 +546,12 @@ article section._article_content h1._article_body {
         height: auto;
     }
 
+    #_pg_lavage section._blc_img_auto {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+
     #_pg_lavage ._quest {
         background: url(../images/_bg/_bg_quest.jpg);
         background-size: 100%;
