@@ -807,6 +807,12 @@ li ul.submenu {
   font-size: 16px;
   text-transform: uppercase;
 }
+#acces_site {
+  width: 188px;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
 /*#logo_marque .slick-slide {
   width: auto !important;
 }*/
