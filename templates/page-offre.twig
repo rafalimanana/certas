@@ -155,25 +155,27 @@ setTimeout(function(){
         lonLil = $lonLil;
     }
     window.addEventListener("load", function() {
-        var mapid = L.mapbox.map('mapidv1')
-            .setView([latMon, lonMon], 20)
-            .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
-        // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
-        ;
-
-        var mapidv2 = L.mapbox.map('mapidv2')
-            .setView([latLil, lonLil], 20)
-            .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
-        // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
-        ;
         var greenIcon = L.icon({
             iconUrl: '{{site.theme.link}}/images/_map/localization_offre.svg',
             iconSize: [35, 90],
         });
+        if ($('#mapidv1')) {
+            var mapid = L.mapbox.map('mapidv1')
+                .setView([latMon, lonMon], 20)
+                .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+            // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+            ;
+            L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
+        }
 
-
-        L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
-        L.marker([latLil, lonLil], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapidv2);
+        if ($('#mapidv2')) {
+            var mapidv2 = L.mapbox.map('mapidv2')
+                .setView([latLil, lonLil], 20)
+                .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+            // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+            ;
+            L.marker([latLil, lonLil], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapidv2);
+        }
     });
 }, 300);
 </script>
