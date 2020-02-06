@@ -795,3 +795,8 @@ li ul.submenu {
     color: #a29da9 !important;
     margin-bottom: 15px !important;
 }
+
+.logo_cce {
+  max-width: 100%;
+  height: auto;
+}

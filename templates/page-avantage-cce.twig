@@ -134,7 +134,7 @@
                         {% if pho %}
                             <div class="col-md-3">
                                 {% set attachment = TimberPost(pho) %}
-                                <img src="{{TimberImage(pho).file_loc|resize(480)}}" width="100" height="75" />
+                                <img src="{{TimberImage(pho).file_loc|resize(480)}}" class="logo_cce" />
                                 {# <a href="{{attachment.get_field('link_url')}}">
                                 </a> #}
                             </div>
@@ -145,6 +145,10 @@
         </div>
 
 
+    </div>
+
+    <div style="color:gray; font-weight:600" class="content-wrapper _bg_grey text-center pt-3 pb-3">
+        <a target="_blank" href="https://www.club-certas.com/Account/Register">Accéder au site</a>
     </div>
 </div>
 {% endblock %}

@@ -22,73 +22,79 @@
     </div>
     <!-- Aide à la navigation -->
 
-        <div class="content-wrapper _bg_white  pb-5">
-            <div class="container">
-                {% set nos_appel_doffres = post.get_field('nos_appel_doffres') %}
-                {% if nos_appel_doffres is not empty %}
-                    <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
-                        <section class="_article_content">
-                            <h2 class="text-uppercase  services-h2">
-                                {{nos_appel_doffres.titre}}
-                            </h2>
-                            <div class="_article_body">
-                                {{nos_appel_doffres.description}}
-                            </div>
-                        </section>
-                    </article>
-                {% endif %}
-                <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-                    <section class="_article_content col-md-12">
+    <div class="content-wrapper _bg_white  pb-5">
+        <div class="container">
+            {% set nos_appel_doffres = post.get_field('nos_appel_doffres') %}
+            {% if nos_appel_doffres is not empty %}
+                <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+                    <section class="_article_content">
+                        <h2 class="text-uppercase  services-h2">
+                            {{nos_appel_doffres.titre}}
+                        </h2>
+                        <div class="_article_body">
+                            {{nos_appel_doffres.description}}
+                        </div>
+                    </section>
+                </article>
+            {% endif %}
+            {% set adresse_map_1 = post.get_field('adresse_map_1') %}
+            {% set adresse_map_2 = post.get_field('adresse_map_2') %}
+            <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+                <section class="_article_content col-md-12">
+                    {% if adresse_map_1.latitude and adresse_map_1.longitude %}
                         <div class="row">
                             <div class="col-md-5">
+                                <input type="hidden" name="latMon" id="latMon" value="{{adresse_map_1.latitude}}">
+                                <input type="hidden" name="lonMon" id="lonMon" value="{{adresse_map_1.longitude}}">
                                 <div id="mapidv1"  style="width:100%;"></div>
                             </div>
                             <div class="col-md-7">
-                                <h5 class="t_promos"><b>STATION ESSO CELLENEUVE - MONTPELLIER</b></h5>
+                                <h5 class="t_promos"><b>{{adresse_map_1.station}}</b></h5>
                                 <p>
                                     <img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:14px;">
-                                    <span class="ccm-p">57 Route de Lodeve — RN 109</span><br>
-                                    <span style="padding-left: 18px;" class="ccm-p">34080 Montpellier</span>
+                                    <span class="ccm-p">{{adresse_map_1.adresse}}</span><br>
+                                    <span style="padding-left: 18px;" class="ccm-p">{{adresse_map_1.code_postal}}</span>
                                 </p>
-                                <p>
-                                    Ensemble immobilier sur lequel est edifie un bâtiment de 100 m2 pour une superficie totale de 2550 m2 environ. <br>
-                                    Le site sera demantele et rehabilite pour un usage commercial.
-                                </p>
-                                {% set voir_offre = nos_appel_doffres.voir_loffre_monpellier %}
+                                {{adresse_map_1.texte|raw}}
+                                {# {% set voir_offre = nos_appel_doffres.voir_loffre_monpellier %}
                                 <a href="{% if voir_offre.url %}{{voir_offre.url}}{% else %}#{% endif %}">
                                     <button class="btn btn-secondary btn-first">
                                         Voir l'offre
                                     </button>
-                                </a>
+                                </a> #}
                             </div>
                         </div>
+                    {% endif %}
+                    {% if adresse_map_2.latitude and adresse_map_2.longitude %}
                         <div class="row mt-5">
                             <div class="col-md-5">
+                                <input type="hidden" name="latLil" id="latLil" value="{{adresse_map_2.latitude}}">
+                                <input type="hidden" name="lonLil" id="lonLil" value="{{adresse_map_2.longitude}}">
                                 <div id="mapidv2"  style="width:100%;"></div>
                             </div>
                             <div class="col-md-7">
-                                <h5 class="t_promos"><b>STATION ESSO MONTEBELLO - LILLE</b></h5>
+                                <h5 class="t_promos"><b>{{adresse_map_2.station}}</b></h5>
                                 <p>
                                     <img src="{{ site.theme.link }}/images/_icons/localization.svg" style="width:14px;">
-                                    <span class="ccm-p">83 Boulevard Montebello </span><br>
-                                    <span style="padding-left: 18px;" class="ccm-p">59000 Lille</span>
+                                    <span class="ccm-p">{{adresse_map_2.adresse}}</span><br>
+                                    <span style="padding-left: 18px;" class="ccm-p">{{adresse_map_2.code_postal}}</span>
                                 </p>
                                 <p>
-                                    Ensemble immobilier sur lequel est edifie deux bâtiments de 8 et 190 m2 pour une superficie totale de 3800 m2 environ. <br>
-                                    Le site sera de mantele et re habilite pour un usage commercial.
+                                    {{adresse_map_2.texte|raw}}
                                 </p>
-                                {% set voir_lille = nos_appel_doffres.voir_loffre_lille %}
+                                {# {% set voir_lille = nos_appel_doffres.voir_loffre_lille %}
                                 <a href="{% if voir_lille.url %}{{voir_lille.url}}{% else %}#{% endif %}">
                                     <button class="btn btn-secondary btn-first">
                                         Voir l'offre
                                     </button>
-                                </a>
+                                </a> #}
                             </div>
                         </div>
-                    </section>
-                </article>
-            </div>
-        </div><!-- /content-wrapper -->
+                    {% endif %}
+                </section>
+            </article>
+        </div>
+    </div><!-- /content-wrapper -->
     {% set comment_repondre_a_notre_appel_doffres = post.get_field('comment_repondre_a_notre_appel_doffres') %}
     {% if comment_repondre_a_notre_appel_doffres is not empty %}
         <div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
@@ -105,24 +111,24 @@
                 </article>
             </div>
         </div><!-- /content-wrapper -->
-        {% endif %}
-        {% set conditions_particulieres = post.get_field('conditions_particulieres') %}
-        {% if conditions_particulieres is not empty %}
-            <div class="content-wrapper _bg_white  _pd_bt_50 _pd_tp_50 pb-5">
-                <div class="container">
-                    <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
-                        <section class="_article_content">
-                            <h2 class="text-uppercase  services-h2">
-                                {{conditions_particulieres.titre}}
-                            </h2>
-                            <div class="_article_body">
-                                {{conditions_particulieres.description}}
-                            </div>
-                        </section>
-                    </article>
-                </div>
-            </div><!-- /content-wrapper -->
-        {% endif %}
+    {% endif %}
+    {% set conditions_particulieres = post.get_field('conditions_particulieres') %}
+    {% if conditions_particulieres is not empty %}
+        <div class="content-wrapper _bg_white  _pd_bt_50 _pd_tp_50 pb-5">
+            <div class="container">
+                <article class="post-type-{{post.post_type}} _pd_bt_25" id="post-{{post.ID}}">
+                    <section class="_article_content">
+                        <h2 class="text-uppercase  services-h2">
+                            {{conditions_particulieres.titre}}
+                        </h2>
+                        <div class="_article_body">
+                            {{conditions_particulieres.description}}
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div><!-- /content-wrapper -->
+    {% endif %}
 </div>
 {# <script type="text/javascript" src="{{ site.theme.link }}/js/montpellier.js"></script>
 <script type="text/javascript" src="{{ site.theme.link }}/js/lille.js"></script> #}
@@ -131,26 +137,44 @@ var latMon = 43.61500549316406;
 var lonMon = 3.824946641921997;
 var latLil = 50.622528076171875;
 var lonLil = 3.044933319091797;
-window.addEventListener("load", function() {
-    var mapid = L.mapbox.map('mapidv1')
-        .setView([latMon, lonMon], 20)
-        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
-    // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
-    ;
+$latMon = $('#latMon').val();
+$lonMon = $('#lonMon').val();
+$latLil = $('#latLil').val();
+$lonLil = $('#lonLil').val();
+setTimeout(function(){
+    if ($latMon && $latMon !== null) {
+        latMon = $latMon;
+    }
+    if ($lonMon && $lonMon !== null) {
+        lonMon = $lonMon;
+    }
+    if ($latLil && $latLil !== null) {
+        latLil = $latLil;
+    }
+    if ($lonLil && $lonLil !== null) {
+        lonLil = $lonLil;
+    }
+    window.addEventListener("load", function() {
+        var mapid = L.mapbox.map('mapidv1')
+            .setView([latMon, lonMon], 20)
+            .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+        // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+        ;
 
-    var mapidv2 = L.mapbox.map('mapidv2')
-        .setView([latLil, lonLil], 20)
-        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
-    // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
-    ;
-    var greenIcon = L.icon({
-        iconUrl: '{{site.theme.link}}/images/_map/localization_offre.svg',
-        iconSize: [35, 90],
+        var mapidv2 = L.mapbox.map('mapidv2')
+            .setView([latLil, lonLil], 20)
+            .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'))
+        // .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
+        ;
+        var greenIcon = L.icon({
+            iconUrl: '{{site.theme.link}}/images/_map/localization_offre.svg',
+            iconSize: [35, 90],
+        });
+
+
+        L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
+        L.marker([latLil, lonLil], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapidv2);
     });
-
-
-    L.marker([latMon, lonMon], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapid);
-    L.marker([latLil, lonLil], { icon: greenIcon }).bindTooltip("Esso", { permanent: false, direction: 'right' }).addTo(mapidv2);
-});
+}, 300);
 </script>
 {% endblock %}
