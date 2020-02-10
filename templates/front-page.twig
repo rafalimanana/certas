@@ -7,8 +7,6 @@
         <h1 class="_title_reseau font-family-pers"><span class="fw-l">
         {% if post.get_field('titre_notre_reseau') %}
             {{post.get_field('titre_notre_reseau')}}
-        {% else %}
-            Notre </span> <b>réseau</b>
         {% endif %} 
         </h1>
         <div class="row _cnt_bloc">
@@ -219,8 +217,6 @@
         <h1 class="_title_actus font-family-pers"><span class="fw-l">
             {% if post.get_field('titre_nos_actualites') %}
                 {{post.get_field('titre_nos_actualites')}}
-            {% else %}
-                Nos </span> <b>Actualités</b>
             {% endif %}  
         </h1>
         <div class="slick_responsive row" id="slick_article">
@@ -242,7 +238,7 @@
 		            </div>
                  {% endfor %}
         	{% else %}
-	            <div class="col-md-3 _cnt_panel_actus">
+	            {# <div class="col-md-3 _cnt_panel_actus">
 	                <div class="panel _panel_actus">
 	                    <div class="panel-body">
 	                        <img src="{{ site.theme.link }}/images/_pages/_nos_actualites/actus3.jpg}}" class="_actu_img">
@@ -313,7 +309,7 @@
 	                        <p class="_actu_description">Depuis que Certas Energy a racheté une partie des stations-service ESSO il y a plus de 3 ans, nous avons…</p>
 	                    </div>
 	                </div>
-	            </div>
+	            </div> #}
         	{% endif %}
         </div>
     </div>
