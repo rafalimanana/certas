@@ -15,23 +15,21 @@ $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
+    'orderby' => 'date',
+    'order'   => 'DESC',
     'posts_per_page' => 4,
     'post__not_in' => array($post->ID),
-    'post_status' => 'publish',
-    'orderby' => array(
-		'date' => 'DESC'
-	)
+    'post_status' => 'publish'
 );
 
 
 $args_promos = array(
     'post_type' => 'promo',
+    'orderby' => 'date',
+    'order'   => 'DESC',
     // 'posts_per_page' => 10,
     'post__not_in' => array($post->ID),
-    'post_status' => 'publish',
-    'orderby' => array(
-		'date' => 'DESC'
-	)
+    'post_status' => 'publish'
 );
 
 $timber_post = Timber::query_post();

@@ -15,12 +15,11 @@ $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
+    'orderby' => 'date',
+    'order'   => 'DESC',
     'posts_per_page' => 16,
     'post__not_in' => array($post->ID),
-    'post_status' => 'publish',
-    'orderby' => array(
-		'date' => 'DESC'
-	)
+    'post_status' => 'publish'
 );
 
 $timber_post = Timber::query_post();
