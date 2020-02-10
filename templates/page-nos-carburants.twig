@@ -27,23 +27,14 @@
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} _pd_bt_25 row" id="post-{{post.ID}}">
 	            <section class="_article_content col-md-12">
-                     <h2 class="text-uppercase  services-h2">
-                                {% if post.get_field('titre_carburants') %}
-                                    {{post.get_field('titre_carburants')}}
-                                {% else %}
-                                    <p>
-                                        <span class="font-family-pers" style="color: #4f2f8d;">
-                                        <span class="fw-l">NOS  </span><strong> CARBURANTS</strong></span>
-                                    </p>
-                                {% endif %}
-                    </h2>
+                        {% if post.get_field('titre_carburants') %}
+                             <h2 class="text-uppercase  services-h2">
+                                {{post.get_field('titre_carburants')}}
+                            </h2>
+                        {% endif %}
 	                <div class="_article_body">
                         {% if post.get_field('contenu') %}
                             {{post.get_field('contenu')}}
-                        {% else %}
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra nec sapien egestas volutpat. Nulla facilisi. Etiam ac purus pellentesque, consectetur diam vel, scelerisque purus. Donec tempor ante pellentesque, aliquet tortor nec, ultricies mauris. Donec et dictum odio. Cras rhoncus felis sem, eget pellentesque massa posuere at. Praesent sit amet convallis nulla. Sed eleifend eros vel sem cursus, non viverra mi tristique. Phasellus tincidunt pulvinar nulla, et egestas diam iaculis non.</p>
-                            <p>Duis semper id sem lobortis placerat. Nam scelerisque nisi at sagittis fringilla. Donec tincidunt nunc non dictum placerat. Morbi at nibh eget orci aliquet eleifend a et ante. Proin turpis nisi, rutrum ut nibh quis, tristique placerat erat. Cras egestas mi nisi, id sollicitudin felis congue in. Aliquam ac ipsum lacus. Morbi et justo vitae mauris vestibulum iaculis vel sed enim. Mauris molestie sodales tincidunt. Quisque sed lorem sit amet lacus dictum euismod. Etiam ultrices diam nibh, quis volutpat est vehicula at.</p>
-                            <p>Pellentesque imperdiet semper facilisis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin congue porta blandit. Sed leo mi, egestas sed tortor ultrices, semper ornare est. Nunc ullamcorper ligula est, vitae accumsan enim consequat vitae. Donec tempor ex sit amet justo blandit cursus. Suspendisse posuere dui at neque venenatis, at iaculis mi ornare. Proin ornare mollis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue diam at sapien sagittis, id viverra lacus rutrum. Pellentesque gravida facilisis neque, posuere varius nibh ultricies quis. Proin sit amet ligula lacinia arcu viverra placerat vitae finibus urna. Duis tincidunt consequat quam a ultricies.</p>
                         {% endif %}
 	                </div>
 	            </section>
@@ -56,13 +47,11 @@
                             <a href="{% if p_url.url %}{{p_url.url}}{% else %}#{% endif %}" target="{% if p_url.target %}{{p_url.target}}{% else %}_self{% endif %}">
                                 <div class="_carbu_bloc_img" style="background-image: url({% if img_b1 %}{{img_b1.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_list_produits_vendus.jpg}}{% endif %}); background-position-y: -55px;">
                                     <div class="_carbu_bloc_shadow">
+                                        {% if post.get_field('produits_vendus') %}
                                             <h2 class="_carbu_img_title">
-                                            {% if post.get_field('produits_vendus') %}
                                                 {{post.get_field('produits_vendus')}}
-                                            {% else %}
-                                                liste des produits<br>vendus
-                                            {% endif %}
                                             </h2>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </a>
@@ -73,20 +62,24 @@
                             <a href="{% if s_url.url %}{{s_url.url}}{% else %}#{% endif %}" target="{% if s_url.target %}{{s_url.target}}{% else %}_self{% endif %}">
                                 <div class="_carbu_bloc_img" style="background-image: url({% if img_b2 %}{{img_b2.url}}{% else %}{{site.theme.link }}/images/_pages/_nos_carburants/_specificites_avantages.jpg}}{% endif %}); background-position-y: -175px;">
                                     <div class="_carbu_bloc_shadow">
-                                        {% set s_url = post.get_field('url_specificites') %}
+                                        {% if post.get_field('specificites') %}
                                             <h2 class="_carbu_img_title">
-                                                {% if post.get_field('specificites') %}
                                                     {{post.get_field('specificites')}}
-                                                {% else %}
-                                                    spécificités techniques<br>& avantages
-                                                {% endif %}
                                             </h2>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </a>
                         </div>
                     </div>
 	            </section>
+                <section class="_article_content col-md-12 mt-5">
+                    {% if post.get_field('contenu_rendement') %}
+                        <div class="_article_body" style="font-size:13px;">
+                            {{post.get_field('contenu_rendement')}}
+                        </div>
+                    {% endif %}
+                </section>
 
 	        </article>
 	    </div>

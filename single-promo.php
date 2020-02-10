@@ -26,7 +26,7 @@ $args = array(
 
 $args_promos = array(
     'post_type' => 'promo',
-    'posts_per_page' => 4,
+    // 'posts_per_page' => 10,
     'post__not_in' => array($post->ID),
     'post_status' => 'publish',
     'orderby' => array(

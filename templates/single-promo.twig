@@ -75,36 +75,38 @@
                         </div>
                     </section>
                 {% endif %} #}
-
-                {% if promos is not empty %}
-                    <section class="_article_content col-md-12 mt-5" id="nos_promo_l">
-                        <h1 class="_title_promos font-family-pers">
-                            <span class="fw-l">Nos </span> <b>Promotions</b> 
-                        </h1>
-                        <div class="row">
-                            {% for promo in promos %}
-                                <div class="col-md-3 _cnt_panel_actus">
-                                    <div class="panel _panel_actus">
-                                        <a href="{{promo.link}}">
-                                            <div class="panel-body">
-                                                <img src="{{promo.thumbnail.src}}" class="_actu_img">
-                                            </div>
-                                            <div class="panel-footer">
-                                                <h4 class="_actu_date">{{promo.date}}</h4>
-                                                <h2 class="_actu_title">{{promo.title}}</h2>
-                                                <p class="_actu_description">
-                                                    {{ promo.title|striptags|length > 10 ? promo.post_content|excerpt(12) : promo.post_content|excerpt(20) }}
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </section>
-                {% endif %}
             </article>
         </div>
 	</div><!-- /content-wrapper -->
+    <div class="content-wrapper">
+        <div class="container pt-5 pb-5" id="_nos_actus">
+            {% if promos is not empty %}
+                <h1 class="_title_promos text-center font-family-pers">
+                    <span class="fw-l">Nos </span> <b>Promotions</b> 
+                </h1>
+                <div class="slick_responsive row" id="slick_article">
+                    {% for promo in promos %}
+                        <div class="col-md-3 _cnt_panel_actus">
+                            <div class="panel _panel_actus">
+                                <a href="{{promo.link}}">
+                                    <div class="panel-body">
+                                        <img src="{{promo.thumbnail.src}}" class="_actu_img">
+                                    </div>
+                                    <div class="panel-promo">
+                                        <h4 class="_actu_date">{{promo.date}}</h4>
+                                        <h2 class="_actu_title">{{promo.title}}</h2>
+                                        <p class="_actu_description">
+                                            {# {{ promo.title|striptags|length > 10 ? promo.post_content|excerpt(12) : promo.post_content|excerpt(20) }} #}
+                                            {{promo.post_content|excerpt(13)}}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}

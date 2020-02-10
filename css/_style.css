@@ -790,6 +790,33 @@ article section._article_content h1._article_body {
         line-height: 21px !important;
         font-size: 15px !important;
     }
+
+    #_pg_actualites ._panel_actus .panel-promo {
+        padding: 10px 15px 10px 15px !important;
+        background: #fff !important;
+        border-radius: 0 0 10px 10px !important;
+    }
+
+    #_pg_actualites ._panel_actus .panel-promo h4._actu_date {
+        font-size: 15px !important;
+        font-weight: bolder !important;
+        color: #02b5ca !important;
+        margin-bottom: 4px !important;
+    }
+
+    #_pg_actualites ._panel_actus .panel-promo h2._actu_title {
+        font-size: 16px !important;
+        text-transform: uppercase !important;
+        font-weight: bolder !important;
+        color: #4f2f8d !important;
+        margin-bottom: 3px !important;
+    }
+
+    #_pg_actualites ._panel_actus .panel-promo p._actu_description {
+        color: #a29da9 !important;
+        line-height: 21px !important;
+        font-size: 15px !important;
+    }
 /* -----------------------------
 ----- End Page actualites ------
 -------------------------------- */
@@ -1090,7 +1117,8 @@ article section._article_content h1._article_body {
         #_nos_actus ._panel_actus {
             border-radius: 10px !important;
             box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
-            height: 353px;
+            /*height: 353px;*/
+            max-height: 100%;
         }
 
         #_nos_actus ._panel_actus:hover {
@@ -1142,6 +1170,39 @@ article section._article_content h1._article_body {
 
         #_nos_actus ._panel_actus .panel-footer p._actu_description,
         #_pg_actualites ._panel_actus .panel-footer p._actu_description {
+            color: #a29da9 !important;
+            line-height: 21px !important;
+            /*font-size: 15px !important;*/
+            font-size: 14px !important;
+        }
+
+        #_nos_actus ._panel_actus .panel-promo {
+            padding: 10px 15px 10px 15px !important;
+            background: #fff !important;
+            border-radius: 0 0 10px 10px !important;
+        }
+
+        #_nos_actus ._panel_actus .panel-promo h4._actu_date, 
+        #_pg_actualites ._panel_actus .panel-promo h4._actu_date {
+            /*font-size: 15px !important;*/
+            font-size: 11px !important;
+            font-weight: bolder !important;
+            color: #02b5ca !important;
+            margin-bottom: 4px !important;
+        }
+
+        #_nos_actus ._panel_actus .panel-promo h2._actu_title, 
+        #_pg_actualites ._panel_actus .panel-promo h2._actu_title {
+            /*font-size: 16px !important;*/
+            font-size: 14px !important;
+            text-transform: uppercase !important;
+            font-weight: bolder !important;
+            color: #4f2f8d !important;
+            margin-bottom: 3px !important;
+        }
+
+        #_nos_actus ._panel_actus .panel-promo p._actu_description,
+        #_pg_actualites ._panel_actus .panel-promo p._actu_description {
             color: #a29da9 !important;
             line-height: 21px !important;
             /*font-size: 15px !important;*/

@@ -40,11 +40,11 @@
                     </div>
                 </section>
                 {% if posts is not empty %}
-                    <section class="_article_content col-md-12 mt-5" id="nos_promo_l">
+                    <section class="_article_content col-md-12 mt-5" id="_nos_actus">
                         <h1 class="_title_promos font-family-pers">
                             <span class="fw-l">Nos </span> <b>Actualités</b> 
                         </h1>
-                        <div class="row">
+                        <div class="slick_responsive row" id="slick_article">
                             {% for term in posts %}
                                 <div class="col-md-3 _cnt_panel_actus">
                                     <div class="panel _panel_actus">

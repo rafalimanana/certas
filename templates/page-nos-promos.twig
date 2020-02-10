@@ -27,20 +27,29 @@
         {% if promos is not empty %}
             {% for promo in promos %}
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5"  {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
                         <img class="img_promos" src="{{ promo.thumbnail.src }}">
                     </div>
                     <div class="col-md-7 mt-3">
-                        <h5 class="t_promos"><b class="b_promo">{{promo.title}}</b></h5>
-                        <p class="ccm-p">
+                        <h5 class="t_promos" >
+                            <b class="b_promo" {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>{{promo.title}}</b>
+                            <span class="close-icon-promo"></span>
+                        </h5>
+                        <p class="ccm-p"  {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
                             {{ promo.content|excerpt(34) }}
                         </p>
                         <div>
-                            <a href="{{promo.link}}">
-                                <button class="btn btn-secondary btn-first">
-                                    Voir la promo
-                                </button>
-                            </a>
+                            {% if promo.promotion_expire %}
+                                <span class="p_expire">
+                                    Cette promotion est terminée
+                                </span>
+                            {% else %}
+                                <a href="{{promo.link}}">
+                                    <button class="btn btn-secondary btn-first">
+                                        Voir la promo
+                                    </button>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 col-xl-12"><hr></div>
@@ -66,7 +75,7 @@
                 {% endif %}
             </div>
         {% else %}
-            <div class="row">
+            {# <div class="row">
                 <div class="col-md-5">
                     <img class="img_promos" src="{{ site.theme.link }}/images/promo-1.png">
                 </div>
@@ -159,7 +168,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> #}
         {% endif %}
     </div>
 {% endblock %}
