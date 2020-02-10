@@ -64,12 +64,12 @@
                     </div>
                     {% if  certas.first_image %}
                         <div class="col text-center _apropos_video t_page">
-                            <div class="site-header">
+                            <div class="site-header {% if i == 2 %}a_valeur{% endif %}">
                                 {{certas.first_image}}
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-12 text-center _apropos_video t_mobile">
-                            <div class="site-header m_video">
+                            <div class="site-header m_video {% if i == 2 %}a_valeur{% endif %}">
                                 {{certas.first_image}}
                             </div>
                         </div>
