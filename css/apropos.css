@@ -815,12 +815,13 @@ li ul.submenu {
 }
 
 .p_expire {
-  background-color:#4f2f8d;
+  /*background-color:#4f2f8d;
   font-size: 18px;
   border-radius: 29px;
   color:#fff;
   border: 10px solid
-  transparent;
+  transparent;*/
+  color: #4f2f8d;
 }
 
 .close-icon-promo {

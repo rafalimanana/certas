@@ -33,7 +33,7 @@
                     <div class="col-md-7 mt-3">
                         <h5 class="t_promos" >
                             <b class="b_promo" {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>{{promo.title}}</b>
-                            {% if promo.promotion_expire %}<span class="close-icon-promo"></span>{% endif %}
+                            {# {% if promo.promotion_expire %}<span class="close-icon-promo"></span>{% endif %} #}
                         </h5>
                         <p class="ccm-p"  {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
                             {{ promo.content|excerpt(34) }}
