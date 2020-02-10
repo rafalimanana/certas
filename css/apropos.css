@@ -822,6 +822,8 @@ li ul.submenu {
   border: 10px solid
   transparent;*/
   color: #4f2f8d;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .close-icon-promo {
