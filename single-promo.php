@@ -15,7 +15,7 @@ $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
-    'orderby' => 'date',
+    'orderby' => 'menu_order',
     'order'   => 'DESC',
     'posts_per_page' => 4,
     'post__not_in' => array($post->ID),
@@ -25,7 +25,7 @@ $args = array(
 
 $args_promos = array(
     'post_type' => 'promo',
-    'orderby' => 'date',
+    'orderby' => 'menu_order',
     'order'   => 'DESC',
     // 'posts_per_page' => 10,
     'post__not_in' => array($post->ID),

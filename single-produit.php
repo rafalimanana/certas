@@ -15,7 +15,7 @@ $context = Timber::context();
 
 $args = array(
     'post_type' => 'post',
-    'orderby' => 'date',
+    'orderby' => 'menu_order',
     'order'   => 'DESC',
     'posts_per_page' => 16,
     'post__not_in' => array($post->ID),
