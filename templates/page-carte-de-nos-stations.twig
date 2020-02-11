@@ -55,6 +55,18 @@
             </div>
         </div>
         <div class="col-md-8">
+            {% set icon_sp95_e5 = post.get_field('icon_sp95_e5') %}
+            {% set icon_sp95_e10 = post.get_field('icon_sp95_e10') %}
+            {% set icon_sp98s = post.get_field('icon_sp98s') %}
+            {% set icon_diesel_standard = post.get_field('icon_diesel_standard') %}
+            {% set icon_diesel_premium = post.get_field('icon_diesel_premium') %}
+            {% set icon_add_blue = post.get_field('icon_add_blue') %}
+            <input type="hidden" name="icon_SP95_E10" id="icon_SP95_E10" value="{% if icon_sp95_e10 %}{{icon_sp95_e10.url}}{% endif %}">
+            <input type="hidden" name="icon_SP95_E5" id="icon_SP95_E5" value="{% if icon_sp95_e5 %}{{icon_sp95_e5.url}}{% endif %}">
+            <input type="hidden" name="icon_SP98S" id="icon_SP98S" value="{% if icon_sp98s %}{{icon_sp98s.url}}{% endif %}">
+            <input type="hidden" name="icon_diesel_standard" id="icon_diesel_standard" value="{% if icon_diesel_standard %}{{icon_diesel_standard.url}}{% endif %}">
+            <input type="hidden" name="icon_diesel_premium" id="icon_diesel_premium" value="{% if icon_diesel_premium %}{{icon_diesel_premium.url}}{% endif %}">
+            <input type="hidden" name="icon_adblue" id="icon_adblue" value="{% if icon_add_blue %}{{icon_add_blue.url}}{% endif %}">
             <div id="map" style="width:100%;height:720px;"></div>
             <div id="maps" style="display:none"></div>
         </div>
@@ -112,6 +124,12 @@ let NL = L;
             }
         });
         let lay = {}
+        let icon_SP95_E10 = $('#icon_SP95_E10').val();
+        let icon_SP95_E5 = $('#icon_SP95_E5').val();
+        let icon_SP98S = $('#icon_SP98S').val();
+        let icon_diesel_standard = $('#icon_diesel_standard').val();
+        let icon_diesel_premium = $('#icon_diesel_premium').val();
+        let icon_adblue = $('#icon_adblue').val();
         $.getJSON('{{site.theme.link}}/json/geoLocation.json',function(data){
             var d_i = 1; 
             var geojson = L.geoJson(data, {
@@ -177,22 +195,46 @@ let NL = L;
                 let carburant = [] ;
 
                 if (feature.properties.SP95_E10 && feature.properties.SP95_E10==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E10">');
+                    if(icon_SP95_E10 && icon_SP95_E10 !== ''){
+                        carburant.push('<img src="'+icon_SP95_E10+'" style="width:30px;" data-toggle="tooltip" title="SP95_E10">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E10">');
+                    }
                 }
                 if (feature.properties.SP98S && feature.properties.SP98S==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP98.svg" style="width:30px;" data-toggle="tooltip" title="SP98S">');
+                    if(icon_SP98S && icon_SP98S !== ''){
+                        carburant.push('<img src="'+icon_SP98S+'" style="width:30px;" data-toggle="tooltip" title="SP98S">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP98.svg" style="width:30px;" data-toggle="tooltip" title="SP98S">');
+                    }
                 }
                 if (feature.properties.GO && feature.properties.GO==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_standard.svg" style="width:30px;" data-toggle="tooltip" title="Diesel standard">');
+                    if(icon_diesel_standard && icon_diesel_standard !== ''){
+                        carburant.push('<img src="'+icon_diesel_standard+'" style="width:30px;" data-toggle="tooltip" title="Diesel standard">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_standard.svg" style="width:30px;" data-toggle="tooltip" title="Diesel standard">');
+                    }
                 }
                 if (feature.properties.GOS && feature.properties.GOS==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_premium.svg" style="width:30px;" data-toggle="tooltip" title="Diesel premium">');
+                    if(icon_diesel_premium && icon_diesel_premium !== ''){
+                        carburant.push('<img src="'+icon_diesel_premium+'" style="width:30px;" data-toggle="tooltip" title="Diesel premium">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_diesel_premium.svg" style="width:30px;" data-toggle="tooltip" title="Diesel premium">');
+                    }
                 }
                 if (feature.properties.AdBlue && feature.properties.AdBlue==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_adblue.svg" style="width:30px;" data-toggle="tooltip" title="AdBlue">');
+                    if(icon_adblue && icon_adblue !== ''){
+                        carburant.push('<img src="'+icon_adblue+'" style="width:30px;" data-toggle="tooltip" title="AdBlue">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_adblue.svg" style="width:30px;" data-toggle="tooltip" title="AdBlue">');
+                    }
                 }
                 if (feature.properties.SP95_E5 && feature.properties.SP95_E5==="yes") {
-                    carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E5">');
+                    if(icon_SP95_E5 && icon_SP95_E5 !== ''){
+                        carburant.push('<img src="'+icon_SP95_E5+'" style="width:30px;" data-toggle="tooltip" title="SP95_E5">');
+                    }else {
+                        carburant.push('<img src="{{ site.theme.link }}/images/_icons/_carte/icon_SP95.svg" style="width:30px;" data-toggle="tooltip" title="SP95_E5">');
+                    }
                 }
                 if (feature.properties.GPL && feature.properties.GPL==="yes") {
                     carburant.push('GPL');
