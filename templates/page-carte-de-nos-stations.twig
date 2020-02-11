@@ -60,13 +60,13 @@
             {% set icon_sp98s = post.get_field('icon_sp98s') %}
             {% set icon_diesel_standard = post.get_field('icon_diesel_standard') %}
             {% set icon_diesel_premium = post.get_field('icon_diesel_premium') %}
-            {% set icon_add_blue = post.get_field('icon_add_blue') %}
+            {% set icon_adblue = post.get_field('icon_adblue') %}
             <input type="hidden" name="icon_SP95_E10" id="icon_SP95_E10" value="{% if icon_sp95_e10 %}{{icon_sp95_e10.url}}{% endif %}">
             <input type="hidden" name="icon_SP95_E5" id="icon_SP95_E5" value="{% if icon_sp95_e5 %}{{icon_sp95_e5.url}}{% endif %}">
             <input type="hidden" name="icon_SP98S" id="icon_SP98S" value="{% if icon_sp98s %}{{icon_sp98s.url}}{% endif %}">
             <input type="hidden" name="icon_diesel_standard" id="icon_diesel_standard" value="{% if icon_diesel_standard %}{{icon_diesel_standard.url}}{% endif %}">
             <input type="hidden" name="icon_diesel_premium" id="icon_diesel_premium" value="{% if icon_diesel_premium %}{{icon_diesel_premium.url}}{% endif %}">
-            <input type="hidden" name="icon_adblue" id="icon_adblue" value="{% if icon_add_blue %}{{icon_add_blue.url}}{% endif %}">
+            <input type="hidden" name="icon_adblue" id="icon_adblue" value="{% if icon_adblue %}{{icon_adblue.url}}{% endif %}">
             <div id="map" style="width:100%;height:720px;"></div>
             <div id="maps" style="display:none"></div>
         </div>
