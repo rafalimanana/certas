@@ -211,8 +211,7 @@ article section._article_content h1._article_body {
 
         #_header_carousel .ftco-animate {
             /*top: 25px;*/
-            /*top: 30px;*/
-            margin-top: auto;
+            top: 30px;
         }
 
         #_header_carousel .slider-text h1 {
@@ -1444,7 +1443,7 @@ body {
     padding-top: 40px;
 }
 
-@media only screen and (min-width: 1520.1px) {
+/*@media only screen and (min-width: 1520.1px) {
     .carousel-item .hero-wrap {
         min-height: 632px !important;
     }
@@ -1471,7 +1470,7 @@ body {
     }
 
 }
-/*.tool-pagination {
+.tool-pagination {
     text-align: center;
 }
 
