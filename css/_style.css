@@ -211,7 +211,8 @@ article section._article_content h1._article_body {
 
         #_header_carousel .ftco-animate {
             /*top: 25px;*/
-            top: 30px;
+            /*top: 30px;*/
+            margin-top: auto;
         }
 
         #_header_carousel .slider-text h1 {
@@ -1441,6 +1442,34 @@ body {
 
 .pt_slide {
     padding-top: 40px;
+}
+
+@media only screen and (min-width: 1520.1px) {
+    .carousel-item .hero-wrap {
+        min-height: 632px !important;
+    }
+
+}
+@media only screen and (max-width: 1520px) and (min-width: 1354px) {
+    .carousel-item .hero-wrap {
+        min-height: 563px !important;
+    }
+
+}
+@media only screen and (max-width: 1353.9px) and (min-width: 1200px) {
+    .carousel-item .hero-wrap {
+        min-height: 498px !important;
+    }
+
+}
+@media only screen and (max-width: 1199.9px) {
+    .carousel-item .hero-wrap {
+        min-height: 432px !important;
+    }
+    #_header_carousel .ftco-animate {
+        margin-top: 100px;
+    }
+
 }
 /*.tool-pagination {
     text-align: center;
