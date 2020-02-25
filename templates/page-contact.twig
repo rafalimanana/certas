@@ -33,7 +33,7 @@
         	{% endif %}
         </h2>
 	  	<div class="row">
-	  		<div class="col-md-6">
+	  		<div class="col-md-8">
                 {% set shortcode_form = post.get_field('shortcode_formulaire') %}
                 {% if shortcode_form %}
                     {% filter shortcodes|raw %}
@@ -45,10 +45,10 @@
 	  				{% include 'contact-form.twig' %}
 	  			{% endif %}
 	  		</div>
-	  		<div class="col-md-6 img_contact_left">
+	  		<div class="col-md-4 img_contact_left">
 		    	{% set img = post.get_field('image_nous_contacter') %}
 	    		{% if img %}
-	  				<img src="{{img.url}}" style="width: 100%;max-height:400px">
+	  				<img src="{{img.url}}" style="width: 100%;height:auto;">
 	    		{% else %}
 	    			<img src="{{ site.theme.link }}/images/Nous-contacter.png" style="width: 100%;">
 	  			{% endif %}

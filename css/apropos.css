@@ -372,8 +372,9 @@ span a {
     color: #bcb8c1 !important;
 }
 #search{
-  border: initial  !important; 
+  /*border: initial  !important; */
   height: initial !important;
+  border: 1px solid #bdbdbd;
 }
 #basic-text1{
   background-color: inherit !important;
