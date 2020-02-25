@@ -854,12 +854,12 @@ li ul.submenu {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 a.btn_download:hover {
   color: gray;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 294px) {
