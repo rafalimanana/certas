@@ -22,17 +22,17 @@
             <article class="post-type-{{ post.post_type }} _pd_bt_25 row" id="post-{{ post.ID }}">
                 <section class="_article_content col-md-12">
                     <div class="row">
-                        <div class="col-md-5"  {% if post.promotion_expire %}style="opacity: 0.7;"{% endif %}>
+                        <div class="col-md-5"  {% if post.promotion_expire %}style="opacity: 0.78;"{% endif %}>
                             <img src="{{ post.thumbnail.src }}" width="100%">
                         </div>
                         <div class="col-md-7">
                             <section class="article-content">
-                                <h1 class="article-h1 t_promos"  {% if post.promotion_expire %}style="opacity: 0.7;"{% endif %}>{{ post.title }}</h1>
+                                <h1 class="article-h1 t_promos"  {% if post.promotion_expire %}style="opacity: 0.78;"{% endif %}>{{ post.title }}</h1>
                                 {# <a href="{{ post.link }}">{{ _e('edit') }}</a>
                                 <p class="blog-author">
                                     <span>By </span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
                                 </p> #}
-                                <div class="article-body"  {% if post.promotion_expire %}style="opacity: 0.7;"{% endif %}>
+                                <div class="article-body"  {% if post.promotion_expire %}style="opacity: 0.78;"{% endif %}>
                                     {{post.content}}
                                 </div>
                                <div class="text-center">         
