@@ -27,7 +27,7 @@
         {% if promos is not empty %}
             {% for promo in promos %}
                 <div class="row">
-                    <div class="col-md-5"  {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
+                    <div class="col-md-5"  {% if promo.promotion_expire %}style="opacity: 0.7;"{% endif %}>
                         <a href="{{promo.link}}">
                             <img class="img_promos" src="{{ promo.thumbnail.src }}">
                         </a>
@@ -36,13 +36,13 @@
                         
                             <h5 class="t_promos" >
                                 <a href="{{promo.link}}">
-                                    <b class="b_promo" {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
+                                    <b class="b_promo" {% if promo.promotion_expire %}style="opacity: 0.7;"{% endif %}>
                                         {{promo.title}}
                                     </b>
                                 </a>
                                 {# {% if promo.promotion_expire %}<span class="close-icon-promo"></span>{% endif %} #}
                             </h5>
-                            <p class="ccm-p"  {% if promo.promotion_expire %}style="opacity: 0.5;"{% endif %}>
+                            <p class="ccm-p"  {% if promo.promotion_expire %}style="opacity: 0.7;"{% endif %}>
                                 {{ promo.content|excerpt(34) }}
                             </p>
                         <div>

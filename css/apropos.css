@@ -649,6 +649,9 @@ li ul.submenu {
 
 .img_contact_left {
  	padding-left:66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
  }
 
 @media only screen and (max-width: 768px) {
@@ -850,6 +853,12 @@ li ul.submenu {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
+}
+
+a.btn_download:hover {
+  color: gray;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 294px) {

@@ -74,120 +74,122 @@
 	<div class="content-wrapper _bg_grey _pd_bt_50 _pd_tp_50">
 	    <div class="container">
 	        <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
-            	{% set pe_url = post.get_field('equipements')['premier_url_equipement'] %}
+	        	<div class="col-md-1"></div>	
+	        	<div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+                            {% if post.get_field('equipements')['premier_icon_equipement'] %}
+                                <img src=" {{post.get_field('equipements')['premier_icon_equipement'].url}}" class="_bloc_ico">
+                            {% else %}
+                                <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
+                            {% endif %}
+		            	</div>
+		            	<h3 class="_bloc_title">
+                            {% if post.get_field('equipements')['premier_titre_equipement'] %}
+                                {{post.get_field('equipements')['premier_titre_equipement']}}
+                            {% else %}
+                                LAVAGES<br>(Les équipements)
+                            {% endif %}
+                        </h3>
+		            </section>
+		        </div>
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+                            {% if post.get_field('equipements')['deuxieme_icon_equipement'] %}
+                                <img src=" {{post.get_field('equipements')['deuxieme_icon_equipement'].url}}" class="_bloc_ico">
+                            {% else %}
+                                <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
+                            {% endif %}
+		            	</div>
+		            	<h3 class="_bloc_title">
+                            {% if post.get_field('equipements')['deuxieme_titre_equipement'] %}
+                                {{post.get_field('equipements')['deuxieme_titre_equipement']}}
+                            {% else %}
+                                aspirateurs
+                            {% endif %}
+                        </h3>
+		            </section>
+		        </div>
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+                            {% if post.get_field('equipements')['troisieme_icon_equipement'] %}
+                                <img src=" {{post.get_field('equipements')['troisieme_icon_equipement'].url}}" class="_bloc_ico">
+                            {% else %}
+                                <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
+                            {% endif %}
+		            	</div>
+		            	<h3 class="_bloc_title">
+                            {% if post.get_field('equipements')['troisieme_titre_equipement'] %}
+                                {{post.get_field('equipements')['troisieme_titre_equipement']}}
+                            {% else %}
+                                gonfleurs
+                            {% endif %}
+                        </h3>
+		            </section>
+		        </div>
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+                            {% if post.get_field('equipements')['quatrieme_icon_equipement'] %}
+                                <img src=" {{post.get_field('equipements')['quatrieme_icon_equipement'].url}}" class="_bloc_ico">
+                            {% else %}
+                                <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
+                            {% endif %}
+		            	</div>
+		            	<h3 class="_bloc_title">
+                            {% if post.get_field('equipements')['quatrieme_titre_equipement'] %}
+                                {{post.get_field('equipements')['quatrieme_titre_equipement']}}
+                            {% else %}
+                                Boutiques<br>sur mv
+                            {% endif %}
+                        </h3>
+		            </section>
+		        </div>
+		        <div class="col-md-2">
+		            <section class="_bloc_content">
+		            	<div class="_cnt_ico">
+                            {% if post.get_field('equipements')['cinquieme_icon_equipement'] %}
+                                <img src=" {{post.get_field('equipements')['cinquieme_icon_equipement'].url}}" class="_bloc_ico">
+                            {% else %}
+                                <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
+                            {% endif %}
+		            	</div>
+		            	<h3 class="_bloc_title">
+                            {% if post.get_field('equipements')['cinquieme_titre_equipement'] %}
+                                {{post.get_field('equipements')['cinquieme_titre_equipement']}}
+                            {% else %}
+                                lockers<br>amazon
+                            {% endif %}
+                        </h3>
+		            </section>
+		        </div>
+	        	<div class="col-md-1"></div>
+            	{# {% set pe_url = post.get_field('equipements')['premier_url_equipement'] %}
 	        	<a href="{% if pe_url.url %}{{pe_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
 	        	target="{% if pe_url.target %}{{pe_url.target}}{% else %}_self{% endif %}">
-		        	<div class="col-md-2">
-			            <section class="_bloc_content">
-			            	<div class="_cnt_ico">
-                                {% if post.get_field('equipements')['premier_icon_equipement'] %}
-                                    <img src=" {{post.get_field('equipements')['premier_icon_equipement'].url}}" class="_bloc_ico">
-                                {% else %}
-                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_lavage.png" class="_bloc_ico">
-                                {% endif %}
-			            	</div>
-			            	<h3 class="_bloc_title">
-                                {% if post.get_field('equipements')['premier_titre_equipement'] %}
-                                    {{post.get_field('equipements')['premier_titre_equipement']}}
-                                {% else %}
-                                    LAVAGES<br>(Les équipements)
-                                {% endif %}
-                            </h3>
-			            </section>
-			        </div>
 			    </a>
 
             	{% set de_url = post.get_field('equipements')['deuxieme_url_equipement'] %}
 			    <a href="{% if de_url.url %}{{de_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
 	        	target="{% if de_url.target %}{{de_url.target}}{% else %}_self{% endif %}">
-			        <div class="col-md-2">
-			            <section class="_bloc_content">
-			            	<div class="_cnt_ico">
-                                {% if post.get_field('equipements')['deuxieme_icon_equipement'] %}
-                                    <img src=" {{post.get_field('equipements')['deuxieme_icon_equipement'].url}}" class="_bloc_ico">
-                                {% else %}
-                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_aspirateur.png" class="_bloc_ico">
-                                {% endif %}
-			            	</div>
-			            	<h3 class="_bloc_title">
-                                {% if post.get_field('equipements')['deuxieme_titre_equipement'] %}
-                                    {{post.get_field('equipements')['deuxieme_titre_equipement']}}
-                                {% else %}
-                                    aspirateurs
-                                {% endif %}
-                            </h3>
-			            </section>
-			        </div>
 			    </a>
 
 			    {% set te_url = post.get_field('equipements')['troisieme_url_equipement'] %}
 			    <a href="{% if te_url.url %}{{te_url.url}}{% else %}#{% endif %}" class="_lnk_bloc" 
 	        	target="{% if te_url.target %}{{te_url.target}}{% else %}_self{% endif %}">
-			        <div class="col-md-2">
-			            <section class="_bloc_content">
-			            	<div class="_cnt_ico">
-                                {% if post.get_field('equipements')['troisieme_icon_equipement'] %}
-                                    <img src=" {{post.get_field('equipements')['troisieme_icon_equipement'].url}}" class="_bloc_ico">
-                                {% else %}
-                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_gonfleur.png" class="_bloc_ico">
-                                {% endif %}
-			            	</div>
-			            	<h3 class="_bloc_title">
-                                {% if post.get_field('equipements')['troisieme_titre_equipement'] %}
-                                    {{post.get_field('equipements')['troisieme_titre_equipement']}}
-                                {% else %}
-                                    gonfleurs
-                                {% endif %}
-                            </h3>
-			            </section>
-			        </div>
 			    </a>
 
 				{% set qe_url = post.get_field('equipements')['quatrieme_url_equipement'] %}
 			    <a href="{% if qe_url.url %}{{qe_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
 	        	target="{% if qe_url.target %}{{qe_url.target}}{% else %}_self{% endif %}">
-			        <div class="col-md-2">
-			            <section class="_bloc_content">
-			            	<div class="_cnt_ico">
-                                {% if post.get_field('equipements')['quatrieme_icon_equipement'] %}
-                                    <img src=" {{post.get_field('equipements')['quatrieme_icon_equipement'].url}}" class="_bloc_ico">
-                                {% else %}
-                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_boutique.png" class="_bloc_ico">
-                                {% endif %}
-			            	</div>
-			            	<h3 class="_bloc_title">
-                                {% if post.get_field('equipements')['quatrieme_titre_equipement'] %}
-                                    {{post.get_field('equipements')['quatrieme_titre_equipement']}}
-                                {% else %}
-                                    Boutiques<br>sur mv
-                                {% endif %}
-                            </h3>
-			            </section>
-			        </div>
 			    </a>
 
 				{% set ce_url = post.get_field('equipements')['cinquieme_url_equipement'] %}
 			    <a href="{% if ce_url.url %}{{ce_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
 	        	target="{% if ce_url.target %}{{ce_url.target}}{% else %}_self{% endif %}">
-			        <div class="col-md-2">
-			            <section class="_bloc_content">
-			            	<div class="_cnt_ico">
-                                {% if post.get_field('equipements')['cinquieme_icon_equipement'] %}
-                                    <img src=" {{post.get_field('equipements')['cinquieme_icon_equipement'].url}}" class="_bloc_ico">
-                                {% else %}
-                                    <img src="{{ site.theme.link }}/images/_icons/_pg_stations/_locker.png" class="_bloc_ico">
-                                {% endif %}
-			            	</div>
-			            	<h3 class="_bloc_title">
-                                {% if post.get_field('equipements')['cinquieme_titre_equipement'] %}
-                                    {{post.get_field('equipements')['cinquieme_titre_equipement']}}
-                                {% else %}
-                                    lockers<br>amazon
-                                {% endif %}
-                            </h3>
-			            </section>
-			        </div>
-			    </a>
+			    </a> 
 
 			    {% set se_url = post.get_field('equipements')['sixieme_url_equipement'] %}
 			    <a href="{% if se_url.url %}{{se_url.url}}{% else %}#{% endif %}" class="_lnk_bloc"
@@ -210,7 +212,7 @@
                             </h3>
 			            </section>
 			        </div>
-				</a>
+				</a> #}
 
 	        </article>
 	    </div>

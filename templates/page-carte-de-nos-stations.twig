@@ -346,15 +346,16 @@ let NL = L;
                   var map = macarte;
                     L.esri.Geocoding.geocode()
                     .city(low_search)
-                    .region(low_search)
+                    /*.region(low_search)
                     .postal(low_search)
-                    /*.country(low_search)*/
+                    .country(low_search)*/
                     .address(low_search)
                     .run(function (error, results, response) {
                         if (error) {
                           return;
                         }
                         var res = results.results;
+                        console.log('results', res)
                         if (res && res[0]) {
                             var f_res=res[0];
                             var latS = f_res.latlng.lat;
@@ -411,7 +412,7 @@ let NL = L;
                         }
                     })
 
-                }, 100);
+                }, 1000);
             }
         });
 
