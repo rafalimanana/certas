@@ -27,7 +27,7 @@ if (!empty($last_posts)) {
 }
 $args = array(
     'post_type' => 'post',
-    'posts_per_page' => 11,
+    'posts_per_page' => 10,
     // 'category_name' => 'actualites',
     'post__not_in'      => array($last_id),
     'post_status' => 'publish',
