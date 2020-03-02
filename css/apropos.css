@@ -469,7 +469,8 @@ span a {
 	#_nos_actus ._panel_actus {
         border-radius: 10px !important;
         box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
-        height: 355px;
+        /*height: 355px;*/
+        min-height: 100%
     }
      #_nos_actus ._panel_actus .panel-footer p._actu_description {
         color: #a29da9 !important;
@@ -486,7 +487,8 @@ span a {
 	#_pg_actualites ._panel_actus {
 	    border-radius: 10px !important;
 	    box-shadow: 1px 2px 6px .2px rgba(0,0,0,.3) !important;
-	    height: 383px;
+	    /*height: 383px;*/
+        min-height: 100%
 	}
 	.list-unstyled {
     	font-size: 0.75rem;

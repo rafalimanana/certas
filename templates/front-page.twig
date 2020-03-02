@@ -10,7 +10,7 @@
         {% endif %} 
         </h1>
         <div class="row _cnt_bloc">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 {% set ex_url = post.get_field('lien_reseau_express') %}
                 <a href="{% if ex_url.url %}{{ex_url.url}}{% else %}#{% endif %}">
                     <div class="_bloc">
@@ -34,7 +34,7 @@
                 </a>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 {% set at_url = post.get_field('lien_reseau_autoroute') %}
                 <a href="{% if at_url.url %}{{at_url.url}}{% else %}#{% endif %}">
                     <div class="_bloc">
@@ -58,7 +58,7 @@
                 </a>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 {% set a_url = post.get_field('lien_reseau_acheteurs') %}
                 <a href="{% if a_url.url %}{{a_url.url}}{% else %}#{% endif %}">
                     <div class="_bloc">

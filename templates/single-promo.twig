@@ -88,7 +88,7 @@
                     {% for promo in promos %}
                         {% if not promo.promotion_expire %}
                             <div class="col-md-3 _cnt_panel_actus">
-                                <div class="panel _panel_actus">
+                                <div class="panel _panel_actus" style="min-height: 100% !important;">
                                     <a href="{{promo.link}}">
                                         <div class="panel-body">
                                             <img src="{{promo.thumbnail.src}}" class="_actu_img">
