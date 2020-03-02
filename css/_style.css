@@ -1264,7 +1264,7 @@ article section._article_content h1._article_body {
 
         #_nos_actus #slick_article .panel-footer {
             /*min-height: 153px !important;*/
-            min-height: 175px !important;
+            min-height: 200px !important;
         }
         #_nos_actus .slick-prev, #_nos_actus .slick-next {
             top: 42% !important;
@@ -1449,7 +1449,7 @@ body {
 
 
 #slick_article .slick-track {
-    width: 100% !important;
+    width: 4340px !important;
 }
 
 @media only screen and (min-width: 991.9px) and (max-width: 1199px) {
