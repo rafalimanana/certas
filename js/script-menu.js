@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	var lmin = 3
+	if($(".promospage .slick-slide").length <= lmin){
+		$(".slick-track").addClass('slick-track-full')
+	}
 	/*if (screen.width <= 991.98) {
 		console.log('test menu')
 		var sub_station = document.getElementById("sub_station");

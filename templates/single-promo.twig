@@ -79,12 +79,12 @@
         </div>
 	</div><!-- /content-wrapper -->
     <div class="content-wrapper">
-        <div class="container pt-5 pb-5" id="_nos_actus">
+        <div class="container pt-5 pb-5 " id="_nos_actus">
             {% if promos is not empty %}
                 <h1 class="_title_actus font-family-pers">
                     <span class="fw-l">Nos </span> <b>Promotions</b> 
                 </h1>
-                <div class="slick_responsive row" id="slick_article">
+                <div class="slick_responsive row promospage" id="slick_article">
                     {% for promo in promos %}
                         {% if not promo.promotion_expire %}
                             <div class="col-md-3 _cnt_panel_actus">

@@ -1448,8 +1448,8 @@ body {
 }
 
 
-#slick_article .slick-track {
-    width: 4340px !important;
+.slick-track-full {
+    width: 100% !important;
 }
 
 @media only screen and (min-width: 991.9px) and (max-width: 1199px) {
