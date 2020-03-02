@@ -46,10 +46,10 @@
                         <h1 class="_title_actus font-family-pers">
                             <span class="fw-l">Nos </span> <b>Actualités</b> 
                         </h1>
-                        <div class="slick_responsive row test_ar" id="slick_article">
+                        <div class="slick_responsive row" id="slick_article">
                             {% for term in posts %}
-                                <div class="col-md-3 _cnt_panel_actus" style="height: initial;">
-                                    <div class="panel _panel_actus">
+                                <div class="col-md-3 _cnt_panel_actus">
+                                    <div class="panel _panel_actus" style="height: initial;">
                                         <a href="{{term.link}}">
                                             <div class="panel-body">
                                                 <img src="{{term.thumbnail.src}}" class="_actu_img">
