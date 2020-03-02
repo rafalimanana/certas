@@ -118,7 +118,9 @@ article section._article_content h1._article_body {
 ----------------------------------- */
     /* Menu */
         nav.ftco-navbar-light {
-            top: 42px !important;
+            /*top: 42px !important;*/
+            top: 0 !important;
+            background: linear-gradient(rgba(74, 45, 127, 0.6), rgba(74, 45, 127, 0.45)) !important;
         }
 
         nav ._h_cnt_menu {
@@ -167,9 +169,10 @@ article section._article_content h1._article_body {
 
         nav ._h_cnt_btn {
             position: absolute;
-            /*right: 160px;*/
+            /*right: 160px;
+            top: -15px;*/
             right: 82px;
-            top: -15px;
+            top: 10px;
         }
 
         nav ._h_cnt_btn ._h_lst_btn {
@@ -268,12 +271,12 @@ article section._article_content h1._article_body {
                 left: 4% !important;
                 top: -60px !important;
             }
-            nav ._navbar_brand img {
+            /*nav ._navbar_brand img {
                 width: 160px !important;
-            }
+            }*/
             nav ._h_cnt_btn {
                 right: 4% !important;
-                top: -40px !important;
+                /*top: -40px !important;*/
             }
             nav ._h_cnt_menu {
                 left: 0% !important;
@@ -310,6 +313,7 @@ article section._article_content h1._article_body {
             }
             nav ._h_cnt_menu {
                 left: 0 !important;
+                padding-bottom: 12px !important;
             }
             nav ._h_cnt_menu li.nav-item {
                 margin: 5px 0 !important ;
@@ -1442,6 +1446,38 @@ body {
 .pt_slide {
     padding-top: 40px;
 }
+
+
+#slick_article .slick-track {
+    width: 100% !important;
+}
+
+@media only screen and (min-width: 991.9px) and (max-width: 1199px) {
+    nav.ftco-navbar-light {
+        top: 0 !important;
+    }
+
+    .ftco-navbar-light {
+        position: relative;
+    }
+
+    #_nav {
+        margin-top: 35px;
+        margin-bottom: 25px;
+    }
+    ._h_cnt_btn {
+        top: 10px !important;
+    }
+
+    nav ._navbar_brand {
+        top: 2px !important;
+    }
+
+    ._navbar_brand img {
+        width: 130px !important;
+    }
+}
+
 
 /*@media only screen and (min-width: 1520.1px) {
     .carousel-item .hero-wrap {
