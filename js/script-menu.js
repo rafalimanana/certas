@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var lmin = 3
 	if($(".promospage .slick-slide").length <= lmin){
-		$(".slick-track").addClass('slick-track-full')
+		$(".promospage .slick-track").addClass('slick-track-full')
 	}
 	/*if (screen.width <= 991.98) {
 		console.log('test menu')
