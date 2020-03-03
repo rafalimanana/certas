@@ -11569,7 +11569,7 @@ h5,
 }
 
 .ftco-navbar-light {
-    background: transparent !important;
+    /*background: transparent !important;*/
     /*position: absolute;*/
     position: relative;
     top: 20px;
@@ -11581,7 +11581,7 @@ h5,
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
         /*background: #000000 !important;*/
-        background: #3f317e  !important;
+        /*background: #3f317e  !important;*/
         position: relative;
         top: 0;
     }

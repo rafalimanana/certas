@@ -119,8 +119,8 @@ article section._article_content h1._article_body {
     /* Menu */
         nav.ftco-navbar-light {
             /*top: 42px !important;*/
-            top: 0 !important;
-            background: linear-gradient(rgba(74, 45, 127, 0.6), rgba(74, 45, 127, 0.45)) !important;
+            top: 0;
+            background: linear-gradient(rgba(74, 45, 127, 0.6), rgba(74, 45, 127, 0.45));
         }
 
         nav ._h_cnt_menu {
@@ -293,13 +293,13 @@ article section._article_content h1._article_body {
             }
         }
 
-        @media only screen and (max-width: 991px) {
+        @media only screen and (max-width: 991.9px) {
             nav ._h_cnt_menu li.nav-item._h_cnt_btn {
                 position: relative !important;
                 display: inherit !important;
             }
             nav.ftco-navbar-light {
-                top: 0px !important;
+                top: 0px;
             }
             nav ._navbar_brand {
                 position: relative !important;
