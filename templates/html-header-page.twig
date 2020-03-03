@@ -92,10 +92,16 @@
         $("#ftco-navbar").css("position", "fixed");
         $("#ftco-navbar").css({ 'background' : ''});
         $("#ftco-navbar").css({ 'background' : '#4E3189'});
+        $("#ftco-navbar").css({ 'z-index' : '99'});
+        if ($('#wpadminbar').length > 0 ) {
+            $("#ftco-navbar").css({ 'top' : '32px'});
+        }
       } else {
         $("#ftco-navbar").css("position", "relative");
         $("#ftco-navbar").css({ 'background' : ''});
         $("#ftco-navbar").css({ 'background' : 'linear-gradient(rgba(74, 45, 127, 0.6), rgba(74, 45, 127, 0.45))'});
+        $("#ftco-navbar").css({ 'top' : '0'});
+        $("#ftco-navbar").css({ 'z-index' : '3'});
       }
     }
     </script>
