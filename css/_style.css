@@ -1452,6 +1452,11 @@ body {
 .slick-track-full {
     width: 100% !important;
 }
+.slick-track-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 
 @media only screen and (min-width: 991.9px) and (max-width: 1199px) {
     nav.ftco-navbar-light {

@@ -1,7 +1,12 @@
 $(document).ready(function() {
 	var lmin = 3
 	if($(".promospage .slick-slide").length <= lmin){
+		$(".promospage .slick-track").removeClass('slick-track-full')
 		$(".promospage .slick-track").addClass('slick-track-full')
+	}
+	if($(".promospage .slick-slide").length <= lmin){
+		$(".promospage .slick-track").removeClass('slick-track-center')
+		$(".promospage .slick-track").addClass('slick-track-center')
 	}
 	/*if (screen.width <= 991.98) {
 		console.log('test menu')
