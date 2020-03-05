@@ -93,6 +93,9 @@
         {% set slide_image_1 = post.get_field('slide_image_1') %}
         {% set slide_image_2 = post.get_field('slide_image_2') %}
         {% set slide_image_3 = post.get_field('slide_image_3') %}
+        {% set lien_slide_1 = post.get_field('lien_slide_1') %}
+        {% set lien_slide_2 = post.get_field('lien_slide_2') %}
+        {% set lien_slide_3 = post.get_field('lien_slide_3') %}
         <ol class="carousel-indicators">
             <li data-target="#_header_carousel" data-slide-to="0" class="active"></li>
             {% if slide_image_2 is not empty %}
@@ -108,73 +111,28 @@
         <div style="overflow:hidden !important;">
         <div class="carousel-inner {% if fn('is_front_page') %}_home{% endif %}">
             <div class="carousel-item active">
-                <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text justify-content-center align-items-center">
-                            <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                <div class="text text-center pt_slide">
-                                   {#  <h1 class="mb-4">{{post.post_title}}</h1>
-                                    <div class="d_hea" style="font-size: 18px;">
-                                        <p>
-                                            {% if post.get_field('description_slide_1') %}
-                                                {{post.get_field('description_slide_1')}}
-                                            {% endif %}
-                                            <a href="#" class="a-prs"></a>
-                                        </p>
-                                    </div> #}
-                                </div>
-                            </div>
-                        </div>
+                <a href="{% if lien_slide_1.url %}{{lien_slide_1.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_1.target %}{{lien_slide_1.target}}{% else %}_self{% endif %}">
+                    <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                        <div class="overlay"></div>
                     </div>
-                </div>
+                </a>
             </div>
             {% if slide_image_2 is not empty %}
                 <div class="carousel-item">
-                    <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_2 %}{{slide_image_2.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
-                        <div class="overlay"></div>
-                        <div class="container">
-                            <div class="row no-gutters slider-text justify-content-center align-items-center">
-                                <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                    <div class="text text-center pt_slide">
-                                        {# <h1 class="mb-4">{{post.post_title}}</h1>
-                                        <div class="d_hea" style="font-size: 18px;">
-                                            <p>
-                                                {% if post.get_field('description_slide_2') %}
-                                                {{post.get_field('description_slide_2')}}
-                                                {% endif %}
-                                                <a href="#" class="a-prs"></a>
-                                            </p>
-                                        </div> #}
-                                    </div>
-                                </div>
-                            </div>
+                    <a href="{% if lien_slide_2.url %}{{lien_slide_2.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_2.target %}{{lien_slide_2.target}}{% else %}_self{% endif %}">
+                        <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_2 %}{{slide_image_2.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                            <div class="overlay"></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             {% endif %} 
             {% if slide_image_3 is not empty %}
                 <div class="carousel-item">
-                    <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_3 %}{{slide_image_3.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
-                        <div class="overlay"></div>
-                        <div class="container">
-                            <div class="row no-gutters slider-text justify-content-center align-items-center">
-                                <div class="col-lg-8 col-md-6 ftco-animate {# d-flex align-items-end #}">
-                                    <div class="text text-center pt_slide">
-                                        {# <h1 class="mb-4">{{post.post_title}}</h1>
-                                        <div class="d_hea" style="font-size: 18px;">
-                                            <p>
-                                                {% if post.get_field('description_slide_3') %}
-                                                {{post.get_field('description_slide_3')}}
-                                                {% endif %}
-                                                <a href="#" class="a-prs"></a>
-                                            </p>
-                                        </div> #}
-                                    </div>
-                                </div>
-                            </div>
+                    <a href="{% if lien_slide_3.url %}{{lien_slide_3.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_3.target %}{{lien_slide_3.target}}{% else %}_self{% endif %}">
+                        <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_3 %}{{slide_image_3.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                            <div class="overlay"></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             {% endif %}  
         </div>
