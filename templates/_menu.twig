@@ -111,28 +111,46 @@
         <div style="overflow:hidden !important;">
         <div class="carousel-inner {% if fn('is_front_page') %}_home{% endif %}">
             <div class="carousel-item active">
-                <a href="{% if lien_slide_1.url %}{{lien_slide_1.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_1.target %}{{lien_slide_1.target}}{% else %}_self{% endif %}">
-                    <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            </div>
-            {% if slide_image_2 is not empty %}
-                <div class="carousel-item">
-                    <a href="{% if lien_slide_2.url %}{{lien_slide_2.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_2.target %}{{lien_slide_2.target}}{% else %}_self{% endif %}">
-                        <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_2 %}{{slide_image_2.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                {% if lien_slide_1.url %}
+                    <a href="{% if lien_slide_1.url %}{{lien_slide_1.url}}{% endif %}" class="" target="{% if lien_slide_1.target %}{{lien_slide_1.target}}{% else %}_self{% endif %}">
+                        <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
                             <div class="overlay"></div>
                         </div>
                     </a>
+                {% else %}
+                    <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_1 %}{{slide_image_1.url}}{% else %}{{site.theme.link}}/images/Slider.jpg}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                        <div class="overlay"></div>
+                    </div>
+                {% endif %}
+            </div>
+            {% if slide_image_2 is not empty %}
+                <div class="carousel-item">
+                    {% if lien_slide_2.url %}
+                        <a href="{% if lien_slide_2.url %}{{lien_slide_2.url}}{% endif %}" class="" target="{% if lien_slide_2.target %}{{lien_slide_2.target}}{% else %}_self{% endif %}">
+                            <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_2 %}{{slide_image_2.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                                <div class="overlay"></div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_2 %}{{slide_image_2.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                            <div class="overlay"></div>
+                        </div>
+                    {% endif %}
                 </div>
             {% endif %} 
             {% if slide_image_3 is not empty %}
                 <div class="carousel-item">
-                    <a href="{% if lien_slide_3.url %}{{lien_slide_3.url}}{% else %}#{% endif %}" class="" target="{% if lien_slide_3.target %}{{lien_slide_3.target}}{% else %}_self{% endif %}">
+                    {% if lien_slide_3.url %}
+                        <a href="{% if lien_slide_3.url %}{{lien_slide_3.url}}{% endif %}" class="" target="{% if lien_slide_3.target %}{{lien_slide_3.target}}{% else %}_self{% endif %}">
+                            <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_3 %}{{slide_image_3.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
+                                <div class="overlay"></div>
+                            </div>
+                        </a>
+                    {% else %}
                         <div class="hero-wrap ftco-degree-bg header-bg-old propos-header" style="background: url({% if slide_image_3 %}{{slide_image_3.url}}{% endif %});background-size: cover;background-repeat: no-repeat;" data-stellar-background-ratio="0.5">
                             <div class="overlay"></div>
                         </div>
-                    </a>
+                    {% endif %}
                 </div>
             {% endif %}  
         </div>
