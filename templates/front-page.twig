@@ -4,6 +4,122 @@
 {% block content %}
 <div class="wrapper {{sidebar_class}}">
     <div class="container _bg_white _pd_tp_40 _pd_bt_40" id="_reseau">
+         <!--Corona-->
+    <style type="text/css">
+        .popup{
+            position: absolute;
+            top: 17%;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            background-color: transparent;
+            
+            height: 70vh;
+           
+        }
+
+        .italic{
+            font-style: italic;
+        }
+        .bg-white{
+            background-color: #ffffff;
+        }
+
+        .close{
+            position: absolute;
+            top:20px;
+            right:100px;
+        }
+
+        .container-corona{
+                 padding: 50px;
+            border: 3px solid #4e2490;
+        }
+
+        .bouton-corona{
+             z-index: 9999;
+            background: #4f2f8d;
+         border: #4f2f8d solid 1px;
+      
+    color: #fff;
+    cursor: pointer;
+    
+    border-radius: 20px;
+    color: #fff;
+    padding: 6px 18px;
+    margin: 0 5px;
+    text-transform: uppercase;
+        font-weight: normal;
+    font-size: 14px;
+    transition: 0.5s all ease;
+
+        }
+
+        .bouton-corona:hover{
+            background: #02b5ca;
+            border: #02b5ca solid 1px;
+        }
+
+
+            .titre-corona{
+                font-weight: bold;
+                color: #4f2f8d;
+            }
+
+
+    </style>
+   
+    <div id="popup" class="popup ">
+
+    <div class="container bg_white " style="background-color:#fff;">
+        <div class="row container-corona">
+            <div class="close">
+                
+                         <a href="javascript:close()" id="close1" class="bouton-corona" onClick="close();">FERMER</a>
+             
+                    
+            </div>
+            <h2 class="titre-corona">
+                <strong>NOS STATIONS SERVICES (ESSO EXPRESS ET ESSO AUROROUTIERES) RESTENT OUVERTES PENDANT LE CONFINEMENT.</strong>
+            </h2>
+           
+            <div class="col-md-12">
+                <p>Dans ce contexte de crise sanitaire les stations-services sont parmi les activités qui restent en exercice afin que les services de santé puissent continuer à sauver des vies, que nos magasins d’alimentation continuent à être approvisionnés et que nous puissions continuer à nous déplacer</p>
+ 
+                <p>Les boutiques de nos stations autoroutières vous permettront de continuer à acheter des produits soit par système de passe-paquet, soit en limitant le nombre de personnes entrant dans le magasin à 2 ou 3 en même temps.
+                Nous veillons plus que jamais à l’entretien, au nettoyage de nos stations ; nos agents d’entretien passent quotidiennement afin de désinfecter pistolets, pompes et automates de paiement afin de vous garantir le maximum de protection face à ce virus Covid 19.</p>
+                 
+                <p>Malgré le sérieux que nous portons à la sécurité sanitaire, aux règles d’hygiène et de prévention en rigueur, il en va de la responsabilité de chacun d’appliquer à titre individuel les précautions absolument indispensables à la non-propagation du Covid 19.</p>
+                 
+                <p>Se protéger et protéger les siens, passe par des gestes simples, désinfection des mains systématiques, distances de sécurité d’au moins 1 mètre, tousser dans son coude et utilisation de mouchoirs à usage unique- Restez dans votre véhicule pendant que vous attendez votre tour.</p>
+                 
+               <p><strong> Des gants sont mis à votre disposition et nous vous recommandons vivement de vous en servir lors de vos manipulations pour vous approvisionner en carburant.</strong></p>
+
+                <p class="italic">Nous en appelons à votre civisme afin de ne pas en utiliser plus que nécessaire ou de ne pas faire de stock afin que chaque client puisse en avoir à sa disposition à chacun de ses passages</p>
+
+                <p>Les efforts collectifs et la prise de conscience de chacun permettra d’éradiquer la propagation.</p>
+                 
+                <p>Seul ce respect strict des consignes nous permettra de revenir à nos habitudes sociales et familiales plus rapidement.
+                Chacun est acteur dans cette situation.</p>
+                 
+                <p><strong>L’Equipe Certas Energy stations-services Esso</strong></p>
+
+               
+                    <a href="javascript:close()" id="close2" class="bouton-corona" onClick="close();">FERMER</a>
+          
+
+            </div>
+        </div>
+    </div>
+    </div>
+      <script type="text/javascript">
+    function close(){
+        document.getElementById("popup").style.display = "none";
+            }
+       
+    </script>
+   
+    <!-- end of corona -->
         <h1 class="_title_reseau font-family-pers"><span class="fw-l">
         {% if post.get_field('titre_notre_reseau') %}
             {{post.get_field('titre_notre_reseau')}}
@@ -230,7 +346,9 @@
                                 </div>
                                 <div class="panel-footer">
                                     <h4 class="_actu_date">{{term.date}}</h4>
-                                    <h2 class="_actu_title">{{term.title}}</h2>
+                                    <h2 class="_actu_title">
+                                        {{ term.title|length > 70 ? term.title|slice(0, 70) ~ ' …' : term.title }}
+                                    </h2>
                                     <p class="_actu_description">{{term.post_content|excerpt(13)}}</p>
                                 </div>
                             </a>
